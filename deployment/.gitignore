@@ -1,0 +1,12 @@
+# SSL/TLS Certificates
+certs/
+*.pem
+*.crt
+*.key
+
+# Logs
+*.log
+
+# Backups
+*.tar.gz
+*.zip

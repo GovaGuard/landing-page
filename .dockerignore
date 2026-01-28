@@ -1,0 +1,38 @@
+# Ignore build artifacts
+govaguard
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Ignore test and coverage files
+*.test
+*.out
+coverage.txt
+
+# Ignore git files
+.git
+.gitignore
+.github
+
+# Ignore documentation
+README.md
+*.md
+
+# Ignore IDE files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore temporary files
+/tmp
+*.log
+
+# Ignore deployment folder
+deployment/

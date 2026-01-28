@@ -1,0 +1,39 @@
+services:
+  # GovaGuard Application
+  govaguard:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: govaguard-app
+    restart: unless-stopped
+    networks:
+      - govaguard-network
+    expose:
+      - "8080"
+
+  # Envoy Proxy
+  envoy:
+    image: envoyproxy/envoy:v1.29-latest
+    container_name: govaguard-envoy
+    restart: unless-stopped
+    ports:
+      - "${HTTP_PORT:-80}:8080"
+      - "${HTTPS_PORT:-443}:8443"
+      - "${ADMIN_PORT:-9901}:9901"
+    volumes:
+      - ./envoy.yaml:/etc/envoy/envoy.yaml:ro
+    networks:
+      - govaguard-network
+    depends_on:
+      - govaguard
+    command: ["-c", "/etc/envoy/envoy.yaml"]
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:9901/ready || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+networks:
+  govaguard-network:
+    driver: bridge
