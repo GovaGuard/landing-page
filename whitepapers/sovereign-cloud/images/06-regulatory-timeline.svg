@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="bgGrad6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </linearGradient>
+    <linearGradient id="tealGrad6" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0891b2"/>
+      <stop offset="100%" style="stop-color:#00d4aa"/>
+    </linearGradient>
+    <filter id="glow6">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid6" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a3a5c" stroke-width="0.5" opacity="0.15"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#bgGrad6)"/>
+  <rect width="1200" height="600" fill="url(#grid6)"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="60" fill="#0d1f3c"/>
+  <line x1="0" y1="60" x2="1200" y2="60" stroke="#00d4aa" stroke-width="2"/>
+  <text x="600" y="40" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#ffffff">EU REGULATORY TIMELINE FOR SOVEREIGN CLOUD</text>
+  
+  <!-- Timeline main line -->
+  <line x1="100" y1="300" x2="1100" y2="300" stroke="#1a3a5c" stroke-width="4" stroke-linecap="round"/>
+  <line x1="100" y1="300" x2="1100" y2="300" stroke="url(#tealGrad6)" stroke-width="2" stroke-linecap="round" filter="url(#glow6)"/>
+  
+  <!-- Arrow at end -->
+  <polygon points="1100,300 1085,290 1085,310" fill="#00d4aa"/>
+  
+  <!-- Milestone 1: 2024 -->
+  <g transform="translate(150, 0)">
+    <circle cx="0" cy="300" r="12" fill="#0d1f3c" stroke="#0891b2" stroke-width="3" filter="url(#glow6)"/>
+    <circle cx="0" cy="300" r="5" fill="#0891b2"/>
+    
+    <!-- Above timeline -->
+    <line x1="0" y1="288" x2="0" y2="200" stroke="#0891b2" stroke-width="1"/>
+    <rect x="-80" y="100" width="160" height="100" rx="6" fill="#0d1f3c" stroke="#0891b2" stroke-width="1"/>
+    <rect x="-80" y="100" width="160" height="6" rx="3" fill="#0891b2"/>
+    <text x="0" y="130" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">GDPR established</text>
+    <text x="0" y="148" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">framework</text>
+    <text x="0" y="175" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">Data Governance</text>
+    <text x="0" y="193" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">Act effective</text>
+    
+    <text x="0" y="340" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0891b2">2024</text>
+  </g>
+  
+  <!-- Milestone 2: Jan 2025 -->
+  <g transform="translate(350, 0)">
+    <circle cx="0" cy="300" r="12" fill="#0d1f3c" stroke="#06b6d4" stroke-width="3" filter="url(#glow6)"/>
+    <circle cx="0" cy="300" r="5" fill="#06b6d4"/>
+    
+    <!-- Below timeline -->
+    <line x1="0" y1="312" x2="0" y2="390" stroke="#06b6d4" stroke-width="1"/>
+    <rect x="-80" y="390" width="160" height="100" rx="6" fill="#0d1f3c" stroke="#06b6d4" stroke-width="1"/>
+    <rect x="-80" y="390" width="160" height="6" rx="3" fill="#06b6d4"/>
+    <text x="0" y="420" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">DORA enforcement</text>
+    <text x="0" y="438" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">begins</text>
+    <text x="0" y="465" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">Financial sector</text>
+    <text x="0" y="483" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">compliance deadline</text>
+    
+    <text x="0" y="270" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#06b6d4">JAN 2025</text>
+  </g>
+  
+  <!-- Milestone 3: Jan 2026 - HIGHLIGHTED -->
+  <g transform="translate(550, 0)">
+    <circle cx="0" cy="300" r="16" fill="#00d4aa" stroke="#ffffff" stroke-width="2" filter="url(#glow6)"/>
+    <circle cx="0" cy="300" r="6" fill="#0d1f3c"/>
+    
+    <!-- Above timeline -->
+    <line x1="0" y1="284" x2="0" y2="200" stroke="#00d4aa" stroke-width="2"/>
+    <rect x="-80" y="100" width="160" height="100" rx="6" fill="#0d1f3c" stroke="#00d4aa" stroke-width="2"/>
+    <rect x="-80" y="100" width="160" height="6" rx="3" fill="#00d4aa"/>
+    <text x="0" y="130" text-anchor="middle" font-family="Arial" font-size="11" fill="#00d4aa">NIS2 amendments</text>
+    <text x="0" y="148" text-anchor="middle" font-family="Arial" font-size="11" fill="#00d4aa">take effect</text>
+    <text x="0" y="175" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">DORA review</text>
+    <text x="0" y="193" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">commences</text>
+    
+    <text x="0" y="340" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#00d4aa">JAN 2026</text>
+  </g>
+  
+  <!-- Milestone 4: Q1 2026 -->
+  <g transform="translate(750, 0)">
+    <circle cx="0" cy="300" r="14" fill="#0d1f3c" stroke="#fbbf24" stroke-width="3" filter="url(#glow6)"/>
+    <circle cx="0" cy="300" r="5" fill="#fbbf24"/>
+    
+    <!-- Below timeline -->
+    <line x1="0" y1="314" x2="0" y2="390" stroke="#fbbf24" stroke-width="1"/>
+    <rect x="-80" y="390" width="160" height="100" rx="6" fill="#0d1f3c" stroke="#fbbf24" stroke-width="1"/>
+    <rect x="-80" y="390" width="160" height="6" rx="3" fill="#fbbf24"/>
+    <text x="0" y="420" text-anchor="middle" font-family="Arial" font-size="11" fill="#fbbf24">EU Cloud &amp; AI</text>
+    <text x="0" y="438" text-anchor="middle" font-family="Arial" font-size="11" fill="#fbbf24">Development Act</text>
+    <text x="0" y="465" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">Sovereign cloud</text>
+    <text x="0" y="483" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">requirements</text>
+    
+    <text x="0" y="270" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#fbbf24">Q1 2026</text>
+  </g>
+  
+  <!-- Milestone 5: 2027 -->
+  <g transform="translate(950, 0)">
+    <circle cx="0" cy="300" r="12" fill="#0d1f3c" stroke="#10b981" stroke-width="3" filter="url(#glow6)"/>
+    <circle cx="0" cy="300" r="5" fill="#10b981"/>
+    
+    <!-- Above timeline -->
+    <line x1="0" y1="288" x2="0" y2="200" stroke="#10b981" stroke-width="1"/>
+    <rect x="-80" y="100" width="160" height="100" rx="6" fill="#0d1f3c" stroke="#10b981" stroke-width="1"/>
+    <rect x="-80" y="100" width="160" height="6" rx="3" fill="#10b981"/>
+    <text x="0" y="130" text-anchor="middle" font-family="Arial" font-size="11" fill="#10b981">Data Act full</text>
+    <text x="0" y="148" text-anchor="middle" font-family="Arial" font-size="11" fill="#10b981">portability</text>
+    <text x="0" y="175" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">Cloud switching</text>
+    <text x="0" y="193" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">rights active</text>
+    
+    <text x="0" y="340" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#10b981">2027</text>
+  </g>
+  
+  <!-- Bottom bar -->
+  <rect x="0" y="560" width="1200" height="40" fill="#0d1f3c"/>
+  <text x="600" y="585" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a6a7a">Key regulatory milestones driving European sovereign cloud adoption</text>
+  
+  <!-- Bottom accent -->
+  <rect x="0" y="595" width="1200" height="5" fill="url(#tealGrad6)"/>
+</svg>

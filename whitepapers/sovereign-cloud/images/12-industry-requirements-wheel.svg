@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700">
+  <defs>
+    <linearGradient id="12_industry_requirements_wheel_bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </linearGradient>
+    <linearGradient id="12_industry_requirements_wheel_tealGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0891b2"/>
+      <stop offset="100%" style="stop-color:#00d4aa"/>
+    </linearGradient>
+    <filter id="12_industry_requirements_wheel_glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="12_industry_requirements_wheel_grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#1a3a5c" stroke-width="0.5" opacity="0.15"/>
+    </pattern>
+  </defs>
+  
+  <rect width="1000" height="700" fill="url(#12_industry_requirements_wheel_bgGrad)"/>
+  <rect width="1000" height="700" fill="url(#12_industry_requirements_wheel_grid)"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1000" height="60" fill="#0d1f3c"/>
+  <line x1="0" y1="60" x2="1000" y2="60" stroke="#00d4aa" stroke-width="2"/>
+  <text x="500" y="40" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#ffffff">INDUSTRY-SPECIFIC SOVEREIGN CLOUD REQUIREMENTS</text>
+  
+  <!-- Center circle coordinates: cx=500, cy=380, r=70 -->
+  
+  <!-- Lines from boxes to center circle (drawn first so they appear behind boxes) -->
+  <!-- Financial Services: box center (400, 170), connect bottom to circle top-left -->
+  <line x1="400" y1="230" x2="460" y2="325" stroke="#00d4aa" stroke-width="1.5" opacity="0.6"/>
+  
+  <!-- Healthcare: box center (680, 170), connect bottom to circle top-right -->
+  <line x1="680" y1="230" x2="545" y2="325" stroke="#14b8a6" stroke-width="1.5" opacity="0.6"/>
+  
+  <!-- Government: box at (740, 320), connect left side to circle right -->
+  <line x1="740" y1="380" x2="570" y2="380" stroke="#10b981" stroke-width="1.5" opacity="0.6"/>
+  
+  <!-- Telecom: box at (740, 500), connect top-left to circle bottom-right -->
+  <line x1="740" y1="530" x2="555" y2="430" stroke="#f97316" stroke-width="1.5" opacity="0.6"/>
+  
+  <!-- Energy: box at (100, 500), connect top-right to circle bottom-left -->
+  <line x1="260" y1="530" x2="445" y2="430" stroke="#8b5cf6" stroke-width="1.5" opacity="0.6"/>
+  
+  <!-- Manufacturing: box at (100, 320), connect right side to circle left -->
+  <line x1="260" y1="380" x2="430" y2="380" stroke="#ec4899" stroke-width="1.5" opacity="0.6"/>
+  
+  <!-- Center hub (drawn after lines so it overlaps line endpoints) -->
+  <circle cx="500" cy="380" r="70" fill="#0d1f3c" stroke="#00d4aa" stroke-width="3" filter="url(#12_industry_requirements_wheel_glow)"/>
+  <text x="500" y="370" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#00d4aa">SOVEREIGN</text>
+  <text x="500" y="395" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#ffffff">CLOUD</text>
+  
+  <!-- Financial Services box -->
+  <g transform="translate(320, 110)">
+    <rect x="0" y="0" width="160" height="120" rx="6" fill="#0d1f3c" stroke="#00d4aa" stroke-width="2"/>
+    <text x="80" y="35" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#00d4aa">Financial</text>
+    <text x="80" y="55" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#00d4aa">Services</text>
+    <text x="80" y="80" text-anchor="middle" font-family="monospace" font-size="10" fill="#5a6a7a">DORA</text>
+    <text x="80" y="100" text-anchor="middle" font-family="monospace" font-size="10" fill="#5a6a7a">Basel III · PSD2</text>
+  </g>
+  
+  <!-- Healthcare box -->
+  <g transform="translate(600, 110)">
+    <rect x="0" y="0" width="160" height="120" rx="6" fill="#0d1f3c" stroke="#14b8a6" stroke-width="2"/>
+    <text x="80" y="40" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#14b8a6">Healthcare</text>
+    <text x="80" y="70" text-anchor="middle" font-family="monospace" font-size="10" fill="#5a6a7a">GDPR Art. 9</text>
+    <text x="80" y="90" text-anchor="middle" font-family="monospace" font-size="10" fill="#5a6a7a">MDR · eHealth</text>
+  </g>
+  
+  <!-- Government box -->
+  <g transform="translate(740, 320)">
+    <rect x="0" y="0" width="160" height="120" rx="6" fill="#0d1f3c" stroke="#10b981" stroke-width="2"/>
+    <text x="80" y="40" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#10b981">Government</text>
+    <text x="80" y="70" text-anchor="middle" font-family="monospace" font-size="10" fill="#5a6a7a">SecNumCloud</text>
+    <text x="80" y="90" text-anchor="middle" font-family="monospace" font-size="10" fill="#5a6a7a">National Security</text>
+  </g>
+  
+  <!-- Telecom box -->
+  <g transform="translate(740, 500)">
+    <rect x="0" y="0" width="160" height="120" rx="6" fill="#0d1f3c" stroke="#f97316" stroke-width="2"/>
+    <text x="80" y="40" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#f97316">Telecom</text>
+    <text x="80" y="70" text-anchor="middle" font-family="monospace" font-size="10" fill="#5a6a7a">ePrivacy</text>
+    <text x="80" y="90" text-anchor="middle" font-family="monospace" font-size="10" fill="#5a6a7a">5G Security</text>
+  </g>
+  
+  <!-- Energy box -->
+  <g transform="translate(100, 500)">
+    <rect x="0" y="0" width="160" height="120" rx="6" fill="#0d1f3c" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="80" y="40" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#8b5cf6">Energy</text>
+    <text x="80" y="70" text-anchor="middle" font-family="monospace" font-size="10" fill="#5a6a7a">NIS2</text>
+    <text x="80" y="90" text-anchor="middle" font-family="monospace" font-size="10" fill="#5a6a7a">Critical Infra</text>
+  </g>
+  
+  <!-- Manufacturing box -->
+  <g transform="translate(100, 320)">
+    <rect x="0" y="0" width="160" height="120" rx="6" fill="#0d1f3c" stroke="#ec4899" stroke-width="2"/>
+    <text x="80" y="40" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#ec4899">Manufacturing</text>
+    <text x="80" y="70" text-anchor="middle" font-family="monospace" font-size="10" fill="#5a6a7a">IP Protection</text>
+    <text x="80" y="90" text-anchor="middle" font-family="monospace" font-size="10" fill="#5a6a7a">Supply Chain</text>
+  </g>
+  
+  <!-- Bottom accent line -->
+  <rect x="0" y="695" width="1000" height="5" fill="url(#12_industry_requirements_wheel_tealGrad)"/>
+</svg>

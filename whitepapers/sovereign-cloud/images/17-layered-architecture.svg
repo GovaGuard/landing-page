@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="17_layered_architecture_bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </linearGradient>
+    <linearGradient id="17_layered_architecture_tealGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0891b2"/>
+      <stop offset="100%" style="stop-color:#00d4aa"/>
+    </linearGradient>
+    <linearGradient id="17_layered_architecture_barGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#0891b2"/>
+      <stop offset="100%" style="stop-color:#00d4aa"/>
+    </linearGradient>
+    <filter id="17_layered_architecture_glow">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+    <pattern id="17_layered_architecture_grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#1a3a5c" stroke-width="0.5" opacity="0.15"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="700" fill="url(#17_layered_architecture_bgGrad)"/>
+  <rect width="1200" height="700" fill="url(#17_layered_architecture_grid)"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="60" fill="#0d1f3c"/>
+  <line x1="0" y1="60" x2="1200" y2="60" stroke="#00d4aa" stroke-width="2"/>
+  <text x="600" y="40" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#fff">SOVEREIGN CLOUD — LAYERED ARCHITECTURE</text>
+
+  <!-- Sovereign boundary box -->
+  <rect x="80" y="80" width="1040" height="550" rx="8" fill="none" stroke="#fbbf24" stroke-width="2" stroke-dasharray="8,4"/>
+  <rect x="80" y="80" width="180" height="22" rx="4" fill="#fbbf24"/>
+  <text x="170" y="96" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#0a1628">SOVEREIGN BOUNDARY</text>
+
+  <!-- Layer 1: Applications & Workloads -->
+  <g transform="translate(120,110)">
+    <rect x="0" y="0" width="960" height="80" rx="6" fill="#0d1f3c" stroke="#14b8a6" stroke-width="2"/>
+    <circle cx="35" cy="40" r="20" fill="#14b8a6"/>
+    <text x="35" y="46" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0a1628">1</text>
+    <text x="75" y="35" font-family="Arial" font-size="13" font-weight="bold" fill="#14b8a6">APPLICATIONS &amp; WORKLOADS</text>
+    <text x="75" y="55" font-family="Arial" font-size="10" fill="#5a6a7a">CRM · ERP · Analytics · AI/ML · IoT · Custom Apps</text>
+  </g>
+
+  <!-- Layer 2: Unified Control Plane -->
+  <g transform="translate(120,205)">
+    <rect x="0" y="0" width="960" height="80" rx="6" fill="#0d1f3c" stroke="#fbbf24" stroke-width="2"/>
+    <circle cx="35" cy="40" r="20" fill="#fbbf24"/>
+    <text x="35" y="46" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0a1628">2</text>
+    <text x="75" y="35" font-family="Arial" font-size="13" font-weight="bold" fill="#fbbf24">UNIFIED CONTROL PLANE</text>
+    <text x="75" y="55" font-family="Arial" font-size="10" fill="#5a6a7a">Orchestration · Service Mesh · API Gateway · Config Management</text>
+  </g>
+
+  <!-- Layer 3: Security & Compliance -->
+  <g transform="translate(120,300)">
+    <rect x="0" y="0" width="960" height="80" rx="6" fill="#0d1f3c" stroke="#ef4444" stroke-width="2"/>
+    <circle cx="35" cy="40" r="20" fill="#ef4444"/>
+    <text x="35" y="46" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0a1628">3</text>
+    <text x="75" y="35" font-family="Arial" font-size="13" font-weight="bold" fill="#ef4444">SECURITY &amp; COMPLIANCE</text>
+    <text x="75" y="55" font-family="Arial" font-size="10" fill="#5a6a7a">Encryption · Access Control · DLP · SIEM · Audit Logging</text>
+  </g>
+
+  <!-- Layer 4: Compute, Storage, Network -->
+  <g transform="translate(120,395)">
+    <rect x="0" y="0" width="960" height="80" rx="6" fill="#0d1f3c" stroke="#00d4aa" stroke-width="2"/>
+    <circle cx="35" cy="40" r="20" fill="#00d4aa"/>
+    <text x="35" y="46" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0a1628">4</text>
+    <text x="75" y="35" font-family="Arial" font-size="13" font-weight="bold" fill="#00d4aa">COMPUTE · STORAGE · NETWORK</text>
+    <text x="75" y="55" font-family="Arial" font-size="10" fill="#5a6a7a">VMs · Containers · Object Store · Block · VPC · Load Balancer</text>
+  </g>
+
+  <!-- Layer 5: Physical Infrastructure -->
+  <g transform="translate(120,490)">
+    <rect x="0" y="0" width="960" height="80" rx="6" fill="#0d1f3c" stroke="#5a6a7a" stroke-width="2"/>
+    <circle cx="35" cy="40" r="20" fill="#5a6a7a"/>
+    <text x="35" y="46" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0a1628">5</text>
+    <text x="75" y="35" font-family="Arial" font-size="13" font-weight="bold" fill="#5a6a7a">PHYSICAL INFRASTRUCTURE</text>
+    <text x="75" y="55" font-family="Arial" font-size="10" fill="#5a6a7a">Data Centers · Hardware · Network Fabric · Power · Cooling</text>
+  </g>
+
+  <!-- Bottom accent -->
+  <rect x="0" y="695" width="1200" height="5" fill="url(#17_layered_architecture_tealGrad)"/>
+</svg>

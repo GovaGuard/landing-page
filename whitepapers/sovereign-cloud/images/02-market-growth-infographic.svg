@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </linearGradient>
+    <linearGradient id="tealGrad2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#0891b2"/>
+      <stop offset="100%" style="stop-color:#00d4aa"/>
+    </linearGradient>
+    <linearGradient id="areaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4aa;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#00d4aa;stop-opacity:0.05"/>
+    </linearGradient>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a3a5c" stroke-width="0.5" opacity="0.2"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#bgGrad2)"/>
+  <rect width="1200" height="600" fill="url(#grid2)"/>
+  
+  <!-- Header bar -->
+  <rect x="0" y="0" width="1200" height="60" fill="#0d1f3c"/>
+  <line x1="0" y1="60" x2="1200" y2="60" stroke="#00d4aa" stroke-width="2"/>
+  <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff">SOVEREIGN CLOUD MARKET GROWTH TRAJECTORY</text>
+  
+  <!-- Chart area -->
+  <g transform="translate(120, 100)">
+    <!-- Y-axis labels -->
+    <text x="-10" y="15" text-anchor="end" font-family="monospace" font-size="12" fill="#8892a0">€700B</text>
+    <text x="-10" y="85" text-anchor="end" font-family="monospace" font-size="12" fill="#8892a0">€500B</text>
+    <text x="-10" y="155" text-anchor="end" font-family="monospace" font-size="12" fill="#8892a0">€300B</text>
+    <text x="-10" y="225" text-anchor="end" font-family="monospace" font-size="12" fill="#8892a0">€100B</text>
+    <text x="-10" y="280" text-anchor="end" font-family="monospace" font-size="12" fill="#8892a0">€0</text>
+    
+    <!-- Grid lines -->
+    <line x1="0" y1="10" x2="950" y2="10" stroke="#1a3a5c" stroke-width="1"/>
+    <line x1="0" y1="80" x2="950" y2="80" stroke="#1a3a5c" stroke-width="1"/>
+    <line x1="0" y1="150" x2="950" y2="150" stroke="#1a3a5c" stroke-width="1"/>
+    <line x1="0" y1="220" x2="950" y2="220" stroke="#1a3a5c" stroke-width="1"/>
+    <line x1="0" y1="280" x2="950" y2="280" stroke="#1a3a5c" stroke-width="1"/>
+    
+    <!-- Area fill under curve -->
+    <path d="M0,243 L95,235 L190,222 L285,206 L380,186 L475,161 L570,130 L665,92 L760,47 L855,-5 L950,-5 L950,280 L0,280 Z" 
+          fill="url(#areaGrad)"/>
+    
+    <!-- Chart line -->
+    <path d="M0,243 L95,235 L190,222 L285,206 L380,186 L475,161 L570,130 L665,92 L760,47 L855,-5" 
+          fill="none" stroke="url(#tealGrad2)" stroke-width="3" filter="url(#glow2)"/>
+    
+    <!-- Data points -->
+    <g filter="url(#glow2)">
+      <circle cx="0" cy="243" r="6" fill="#00d4aa"/>
+      <circle cx="95" cy="235" r="6" fill="#00d4aa"/>
+      <circle cx="190" cy="222" r="8" fill="#00d4aa" stroke="#0a1628" stroke-width="2"/>
+      <circle cx="285" cy="206" r="6" fill="#00d4aa"/>
+      <circle cx="380" cy="186" r="6" fill="#00d4aa"/>
+      <circle cx="475" cy="161" r="6" fill="#00d4aa"/>
+      <circle cx="570" cy="130" r="6" fill="#00d4aa"/>
+      <circle cx="665" cy="92" r="6" fill="#00d4aa"/>
+      <circle cx="760" cy="47" r="6" fill="#00d4aa"/>
+      <circle cx="855" cy="-5" r="8" fill="#00d4aa" stroke="#0a1628" stroke-width="2"/>
+    </g>
+    
+    <!-- Value labels -->
+    <text x="0" y="228" text-anchor="middle" font-family="Arial" font-size="11" fill="#00d4aa">€96B</text>
+    <text x="95" y="220" text-anchor="middle" font-family="Arial" font-size="11" fill="#00d4aa">€119B</text>
+    <text x="855" y="-20" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#00d4aa">€631B</text>
+    
+    <!-- X-axis labels -->
+    <text x="0" y="300" text-anchor="middle" font-family="monospace" font-size="12" fill="#8892a0">2024</text>
+    <text x="95" y="300" text-anchor="middle" font-family="monospace" font-size="12" fill="#8892a0">2025</text>
+    <text x="190" y="300" text-anchor="middle" font-family="monospace" font-size="12" fill="#00d4aa" font-weight="bold">2026</text>
+    <text x="285" y="300" text-anchor="middle" font-family="monospace" font-size="12" fill="#8892a0">2027</text>
+    <text x="380" y="300" text-anchor="middle" font-family="monospace" font-size="12" fill="#8892a0">2028</text>
+    <text x="475" y="300" text-anchor="middle" font-family="monospace" font-size="12" fill="#8892a0">2029</text>
+    <text x="570" y="300" text-anchor="middle" font-family="monospace" font-size="12" fill="#8892a0">2030</text>
+    <text x="665" y="300" text-anchor="middle" font-family="monospace" font-size="12" fill="#8892a0">2031</text>
+    <text x="760" y="300" text-anchor="middle" font-family="monospace" font-size="12" fill="#8892a0">2032</text>
+    <text x="855" y="300" text-anchor="middle" font-family="monospace" font-size="12" fill="#8892a0">2033</text>
+    
+    <!-- 2026 inflection marker -->
+    <line x1="190" y1="-30" x2="190" y2="280" stroke="#00d4aa" stroke-width="1" stroke-dasharray="5,5" opacity="0.5"/>
+    <rect x="140" y="-50" width="100" height="25" rx="4" fill="#00d4aa"/>
+    <text x="190" y="-32" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#0a1628">INFLECTION</text>
+  </g>
+  
+  <!-- CAGR callout box -->
+  <rect x="980" y="90" width="180" height="80" rx="8" fill="#0d1f3c" stroke="#00d4aa" stroke-width="2"/>
+  <text x="1070" y="125" text-anchor="middle" font-family="Arial" font-size="32" font-weight="bold" fill="#00d4aa">23.22%</text>
+  <text x="1070" y="150" text-anchor="middle" font-family="Arial" font-size="14" fill="#8892a0">CAGR 2025-2033</text>
+  
+  <!-- Bottom bar -->
+  <rect x="0" y="580" width="1200" height="20" fill="#0d1f3c"/>
+  <text x="600" y="594" text-anchor="middle" font-family="Arial" font-size="11" fill="#5a6a7a">Source: Industry Analysis | European Sovereign Cloud Market | 2024-2033 Forecast</text>
+</svg>

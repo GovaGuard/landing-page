@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="27_provider_comparison_bgGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0a1628"/><stop offset="100%" style="stop-color:#0d1f3c"/></linearGradient>
+    <linearGradient id="27_provider_comparison_tealGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#0891b2"/><stop offset="100%" style="stop-color:#00d4aa"/></linearGradient>
+    <filter id="27_provider_comparison_glow"><feGaussianBlur stdDeviation="3"/></filter>
+    <pattern id="27_provider_comparison_grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0L0 0 0 40" fill="none" stroke="#1a3a5c" stroke-width="0.5" opacity="0.15"/></pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#27_provider_comparison_bgGrad)"/><rect width="100%" height="100%" fill="url(#27_provider_comparison_grid)"/>
+  <rect x="0" y="0" width="100%" height="60" fill="#0d1f3c"/><line x1="0" y1="60" x2="100%" y2="60" stroke="#00d4aa" stroke-width="2"/>
+  <text x="50%" y="40" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#fff">SOVEREIGN CLOUD PROVIDER COMPARISON</text>
+
+  <g transform="translate(30,80)">
+    <rect x="0" y="0" width="160" height="50" fill="#1a3a5c"/>
+    <text x="80" y="30" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#8892a0">CRITERIA</text>
+    <rect x="160" y="0" width="180" height="50" fill="#00d4aa"/>
+    <text x="250" y="25" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold" fill="#0a1628">AWS European</text>
+    <text x="250" y="40" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold" fill="#0a1628">Sovereign Cloud</text>
+    <rect x="340" y="0" width="180" height="50" fill="#0891b2"/>
+    <text x="430" y="25" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold" fill="#fff">Microsoft</text>
+    <text x="430" y="40" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold" fill="#fff">Sovereign</text>
+    <rect x="520" y="0" width="180" height="50" fill="#14b8a6"/>
+    <text x="610" y="25" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold" fill="#0a1628">Google</text>
+    <text x="610" y="40" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold" fill="#0a1628">Sovereign</text>
+    <rect x="700" y="0" width="180" height="50" fill="#f97316"/>
+    <text x="790" y="25" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold" fill="#0a1628">Oracle EU</text>
+    <text x="790" y="40" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold" fill="#0a1628">Sovereign</text>
+    <rect x="880" y="0" width="240" height="50" fill="#8b5cf6"/>
+    <text x="1000" y="25" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold" fill="#fff">European Providers</text>
+    <text x="1000" y="40" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold" fill="#fff">T-Systems/OVH/STACKIT</text>
+
+    <rect x="0" y="50" width="160" height="65" fill="#0d1f3c" stroke="#1a3a5c"/>
+    <text x="10" y="85" font-family="Arial" font-size="10" font-weight="bold" fill="#fff">Geographic Avail.</text>
+    <rect x="160" y="50" width="180" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="250" y="85" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">EU regions</text>
+    <rect x="340" y="50" width="180" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="430" y="85" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">EU regions</text>
+    <rect x="520" y="50" width="180" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="610" y="85" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">EU regions</text>
+    <rect x="700" y="50" width="180" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="790" y="85" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">EU dedicated</text>
+    <rect x="880" y="50" width="240" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="1000" y="85" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">EU-based</text>
+
+    <rect x="0" y="115" width="160" height="65" fill="#0d1f3c" stroke="#1a3a5c"/>
+    <text x="10" y="150" font-family="Arial" font-size="10" font-weight="bold" fill="#fff">Service Breadth</text>
+    <rect x="160" y="115" width="180" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="250" y="150" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Full AWS</text>
+    <rect x="340" y="115" width="180" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="430" y="150" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Full Azure</text>
+    <rect x="520" y="115" width="180" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="610" y="150" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Core GCP</text>
+    <rect x="700" y="115" width="180" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="790" y="150" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Full OCI</text>
+    <rect x="880" y="115" width="240" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="1000" y="150" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Varies</text>
+
+    <rect x="0" y="180" width="160" height="65" fill="#0d1f3c" stroke="#1a3a5c"/>
+    <text x="10" y="215" font-family="Arial" font-size="10" font-weight="bold" fill="#fff">Legal Structure</text>
+    <rect x="160" y="180" width="180" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="250" y="215" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">US parent</text>
+    <rect x="340" y="180" width="180" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="430" y="215" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">US parent</text>
+    <rect x="520" y="180" width="180" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="610" y="215" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">US parent</text>
+    <rect x="700" y="180" width="180" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="790" y="215" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">US parent</text>
+    <rect x="880" y="180" width="240" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="1000" y="215" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">EU owned</text>
+
+    <rect x="0" y="245" width="160" height="65" fill="#0d1f3c" stroke="#1a3a5c"/>
+    <text x="10" y="280" font-family="Arial" font-size="10" font-weight="bold" fill="#fff">Key Management</text>
+    <rect x="160" y="245" width="180" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="250" y="280" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Customer HSM</text>
+    <rect x="340" y="245" width="180" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="430" y="280" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Customer HSM</text>
+    <rect x="520" y="245" width="180" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="610" y="280" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">External KMS</text>
+    <rect x="700" y="245" width="180" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="790" y="280" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Customer HSM</text>
+    <rect x="880" y="245" width="240" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="1000" y="280" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Full control</text>
+
+    <rect x="0" y="310" width="160" height="65" fill="#0d1f3c" stroke="#1a3a5c"/>
+    <text x="10" y="345" font-family="Arial" font-size="10" font-weight="bold" fill="#fff">Pricing</text>
+    <rect x="160" y="310" width="180" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="250" y="345" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Premium</text>
+    <rect x="340" y="310" width="180" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="430" y="345" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Premium</text>
+    <rect x="520" y="310" width="180" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="610" y="345" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Premium</text>
+    <rect x="700" y="310" width="180" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="790" y="345" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Competitive</text>
+    <rect x="880" y="310" width="240" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="1000" y="345" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Competitive</text>
+
+    <rect x="0" y="375" width="160" height="65" fill="#0d1f3c" stroke="#1a3a5c"/>
+    <text x="10" y="410" font-family="Arial" font-size="10" font-weight="bold" fill="#fff">Open Standards</text>
+    <rect x="160" y="375" width="180" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="250" y="410" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Good</text>
+    <rect x="340" y="375" width="180" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="430" y="410" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Good</text>
+    <rect x="520" y="375" width="180" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="610" y="410" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Excellent</text>
+    <rect x="700" y="375" width="180" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="790" y="410" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Good</text>
+    <rect x="880" y="375" width="240" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="1000" y="410" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Varies</text>
+
+    <rect x="0" y="440" width="160" height="65" fill="#0d1f3c" stroke="#1a3a5c"/>
+    <text x="10" y="475" font-family="Arial" font-size="10" font-weight="bold" fill="#fff">Certifications</text>
+    <rect x="160" y="440" width="180" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="250" y="475" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">ISO, SOC</text>
+    <rect x="340" y="440" width="180" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="430" y="475" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">ISO, SOC</text>
+    <rect x="520" y="440" width="180" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="610" y="475" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">ISO, SOC</text>
+    <rect x="700" y="440" width="180" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="790" y="475" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">ISO, SOC</text>
+    <rect x="880" y="440" width="240" height="65" fill="#0f172a" stroke="#1a3a5c"/>
+    <text x="1000" y="475" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">SecNumCloud</text>
+
+    <rect x="0" y="505" width="160" height="65" fill="#0d1f3c" stroke="#1a3a5c"/>
+    <text x="10" y="540" font-family="Arial" font-size="10" font-weight="bold" fill="#fff">AI Capabilities</text>
+    <rect x="160" y="505" width="180" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="250" y="540" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Full</text>
+    <rect x="340" y="505" width="180" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="430" y="540" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Full</text>
+    <rect x="520" y="505" width="180" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="610" y="540" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Full</text>
+    <rect x="700" y="505" width="180" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="790" y="540" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Growing</text>
+    <rect x="880" y="505" width="240" height="65" fill="#0a1628" stroke="#1a3a5c"/>
+    <text x="1000" y="540" text-anchor="middle" font-family="Arial" font-size="9" fill="#8892a0">Limited</text>
+
+  </g>
+<rect x="0" y="695" width="100%" height="5" fill="url(#27_provider_comparison_tealGrad)"/></svg>

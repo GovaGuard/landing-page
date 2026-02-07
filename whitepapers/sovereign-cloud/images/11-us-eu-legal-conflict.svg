@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="11_us_eu_legal_conflict_bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </linearGradient>
+    <linearGradient id="11_us_eu_legal_conflict_tealGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0891b2"/>
+      <stop offset="100%" style="stop-color:#00d4aa"/>
+    </linearGradient>
+    <filter id="11_us_eu_legal_conflict_glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="11_us_eu_legal_conflict_grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a3a5c" stroke-width="0.5" opacity="0.15"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#11_us_eu_legal_conflict_bgGrad)"/>
+  <rect width="100%" height="100%" fill="url(#11_us_eu_legal_conflict_grid)"/>
+  <rect x="0" y="0" width="100%" height="60" fill="#0d1f3c"/>
+  <line x1="0" y1="60" x2="100%" y2="60" stroke="#00d4aa" stroke-width="2"/>
+  <text x="50%" y="40" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#ffffff">US — EU LEGAL CONFLICT FOR CLOUD PROVIDERS</text>
+
+  <!-- US Side -->
+  <g transform="translate(100, 100)">
+    <rect x="0" y="0" width="350" height="400" rx="8" fill="#0d1f3c" stroke="#ef4444" stroke-width="2"/>
+    <rect x="0" y="0" width="350" height="50" rx="8" fill="#ef4444"/>
+    <rect x="0" y="40" width="350" height="10" fill="#ef4444"/>
+    <text x="175" y="35" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#ffffff">US CLOUD ACT</text>
+    <text x="175" y="80" text-anchor="middle" font-family="Arial" font-size="12" fill="#8892a0">&amp; FISA §702</text>
+    <line x1="30" y1="100" x2="320" y2="100" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="30" y="130" font-family="Arial" font-size="12" fill="#8892a0">• Compels disclosure of data</text>
+    <text x="30" y="155" font-family="Arial" font-size="12" fill="#8892a0">• Applies to US-headquartered</text>
+    <text x="30" y="175" font-family="Arial" font-size="12" fill="#8892a0">  technology companies</text>
+    <text x="30" y="200" font-family="Arial" font-size="12" fill="#8892a0">• Allows warrantless access</text>
+    <text x="30" y="220" font-family="Arial" font-size="12" fill="#8892a0">  to foreign person data</text>
+  </g>
+  
+  <!-- Center: Cloud with conflict -->
+  <g transform="translate(500, 180)">
+    <rect x="0" y="0" width="200" height="240" rx="8" fill="#0d1f3c" stroke="#f97316" stroke-width="3"/>
+    <text x="100" y="40" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#f97316">CLOUD</text>
+    <text x="100" y="60" text-anchor="middle" font-family="Arial" font-size="12" fill="#8892a0">INFRASTRUCTURE</text>
+    <rect x="30" y="80" width="140" height="30" rx="4" fill="#1a3a5c"/>
+    <text x="100" y="100" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">EU Data Block 1</text>
+    <rect x="30" y="120" width="140" height="30" rx="4" fill="#1a3a5c"/>
+    <text x="100" y="140" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">EU Data Block 2</text>
+    <rect x="30" y="160" width="140" height="30" rx="4" fill="#1a3a5c"/>
+    <text x="100" y="180" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">EU Data Block 3</text>
+    <text x="100" y="220" text-anchor="middle" font-family="Arial" font-size="24" fill="#f97316">⚠</text>
+  </g>
+  
+  <!-- Arrows -->
+  <line x1="450" y1="300" x2="505" y2="300" stroke="#ef4444" stroke-width="3"/>
+  <polygon points="500,300 490,295 490,305" fill="#ef4444"/>
+  <text x="390" y="275" font-family="Arial" font-size="11" font-weight="bold" fill="#ef4444">DEMANDS</text>
+  <text x="390" y="290" font-family="Arial" font-size="11" font-weight="bold" fill="#ef4444">ACCESS</text>
+  
+  <line x1="750" y1="300" x2="695" y2="300" stroke="#00d4aa" stroke-width="3"/>
+  <polygon points="700,300 710,295 710,305" fill="#00d4aa"/>
+  <text x="760" y="275" font-family="Arial" font-size="11" font-weight="bold" fill="#00d4aa">BLOCKS</text>
+  <text x="760" y="290" font-family="Arial" font-size="11" font-weight="bold" fill="#00d4aa">TRANSFER</text>
+  
+  <!-- EU Side -->
+  <g transform="translate(750, 100)">
+    <rect x="0" y="0" width="350" height="400" rx="8" fill="#0d1f3c" stroke="#00d4aa" stroke-width="2"/>
+    <rect x="0" y="0" width="350" height="50" rx="8" fill="#00d4aa"/>
+    <rect x="0" y="40" width="350" height="10" fill="#00d4aa"/>
+    <text x="175" y="35" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#0a1628">EU GDPR</text>
+    <text x="175" y="80" text-anchor="middle" font-family="Arial" font-size="12" fill="#8892a0">&amp; Data Protection</text>
+    <line x1="30" y1="100" x2="320" y2="100" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="30" y="130" font-family="Arial" font-size="12" fill="#8892a0">• Prohibits transfer of data</text>
+    <text x="30" y="150" font-family="Arial" font-size="12" fill="#8892a0">  to non-adequate countries</text>
+    <text x="30" y="175" font-family="Arial" font-size="12" fill="#8892a0">• Requires explicit legal basis</text>
+    <text x="30" y="195" font-family="Arial" font-size="12" fill="#8892a0">  for all data processing</text>
+    <text x="30" y="220" font-family="Arial" font-size="12" fill="#8892a0">• Mandates data subject rights</text>
+  </g>
+  
+  <!-- Bottom conflict box -->
+  <rect x="400" y="470" width="400" height="50" rx="8" fill="#0d1f3c" stroke="#f97316" stroke-width="2"/>
+  <text x="600" y="500" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#f97316">LEGAL CONFLICT FOR US-BASED PROVIDERS</text>
+  <rect x="0" y="595" width="100%" height="5" fill="url(#11_us_eu_legal_conflict_tealGrad)"/>
+</svg>

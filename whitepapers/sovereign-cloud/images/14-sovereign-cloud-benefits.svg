@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="14_sovereign_cloud_benefits_bgGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0a1628"/><stop offset="100%" style="stop-color:#0d1f3c"/></linearGradient>
+    <linearGradient id="14_sovereign_cloud_benefits_tealGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#0891b2"/><stop offset="100%" style="stop-color:#00d4aa"/></linearGradient>
+    <linearGradient id="barGrad" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" style="stop-color:#0891b2"/><stop offset="100%" style="stop-color:#00d4aa"/></linearGradient>
+    <filter id="14_sovereign_cloud_benefits_glow"><feGaussianBlur stdDeviation="2"/></filter>
+    <pattern id="14_sovereign_cloud_benefits_grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0L0 0 0 40" fill="none" stroke="#1a3a5c" stroke-width="0.5" opacity="0.15"/></pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#14_sovereign_cloud_benefits_bgGrad)"/><rect width="100%" height="100%" fill="url(#14_sovereign_cloud_benefits_grid)"/>
+  <rect x="0" y="0" width="100%" height="60" fill="#0d1f3c"/><line x1="0" y1="60" x2="100%" y2="60" stroke="#00d4aa" stroke-width="2"/>
+  <text x="50%" y="40" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#fff">KEY BENEFITS OF SOVEREIGN CLOUD ADOPTION</text>
+
+
+  <g transform="translate(100,90)">
+    <rect x="0" y="0" width="340" height="260" rx="8" fill="#0d1f3c" stroke="#00d4aa" stroke-width="2"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="#00d4aa"/>
+    <circle cx="170" cy="60" r="30" fill="#00d4aa"/>
+    <text x="170" y="70" text-anchor="middle" font-family="Arial" font-size="24" fill="#0a1628">✓</text>
+    <text x="170" y="115" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#00d4aa">COMPLIANCE</text>
+    <line x1="30" y1="135" x2="310" y2="135" stroke="#1a3a5c" stroke-width="1"/>
+    <circle cx="40" cy="160" r="4" fill="#00d4aa"/><text x="55" y="165" font-family="Arial" font-size="12" fill="#8892a0">Audit readiness</text><circle cx="40" cy="190" r="4" fill="#00d4aa"/><text x="55" y="195" font-family="Arial" font-size="12" fill="#8892a0">Automated reporting</text><circle cx="40" cy="220" r="4" fill="#00d4aa"/><text x="55" y="225" font-family="Arial" font-size="12" fill="#8892a0">Penalty avoidance</text>
+  </g>
+
+  <g transform="translate(470,90)">
+    <rect x="0" y="0" width="340" height="260" rx="8" fill="#0d1f3c" stroke="#0891b2" stroke-width="2"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="#0891b2"/>
+    <circle cx="170" cy="60" r="30" fill="#0891b2"/>
+    <text x="170" y="70" text-anchor="middle" font-family="Arial" font-size="24" fill="#0a1628">⊕</text>
+    <text x="170" y="115" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0891b2">SECURITY</text>
+    <line x1="30" y1="135" x2="310" y2="135" stroke="#1a3a5c" stroke-width="1"/>
+    <circle cx="40" cy="160" r="4" fill="#0891b2"/><text x="55" y="165" font-family="Arial" font-size="12" fill="#8892a0">Enhanced posture</text><circle cx="40" cy="190" r="4" fill="#0891b2"/><text x="55" y="195" font-family="Arial" font-size="12" fill="#8892a0">Customer keys</text><circle cx="40" cy="220" r="4" fill="#0891b2"/><text x="55" y="225" font-family="Arial" font-size="12" fill="#8892a0">Reduced risk</text>
+  </g>
+
+  <g transform="translate(840,90)">
+    <rect x="0" y="0" width="340" height="260" rx="8" fill="#0d1f3c" stroke="#14b8a6" stroke-width="2"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="#14b8a6"/>
+    <circle cx="170" cy="60" r="30" fill="#14b8a6"/>
+    <text x="170" y="70" text-anchor="middle" font-family="Arial" font-size="24" fill="#0a1628">◈</text>
+    <text x="170" y="115" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#14b8a6">AUTONOMY</text>
+    <line x1="30" y1="135" x2="310" y2="135" stroke="#1a3a5c" stroke-width="1"/>
+    <circle cx="40" cy="160" r="4" fill="#14b8a6"/><text x="55" y="165" font-family="Arial" font-size="12" fill="#8892a0">Local control</text><circle cx="40" cy="190" r="4" fill="#14b8a6"/><text x="55" y="195" font-family="Arial" font-size="12" fill="#8892a0">Performance</text><circle cx="40" cy="220" r="4" fill="#14b8a6"/><text x="55" y="225" font-family="Arial" font-size="12" fill="#8892a0">Flexibility</text>
+  </g>
+
+  <g transform="translate(100,380)">
+    <rect x="0" y="0" width="340" height="260" rx="8" fill="#0d1f3c" stroke="#fbbf24" stroke-width="2"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="#fbbf24"/>
+    <circle cx="170" cy="60" r="30" fill="#fbbf24"/>
+    <text x="170" y="70" text-anchor="middle" font-family="Arial" font-size="24" fill="#0a1628">◆</text>
+    <text x="170" y="115" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#fbbf24">TRUST</text>
+    <line x1="30" y1="135" x2="310" y2="135" stroke="#1a3a5c" stroke-width="1"/>
+    <circle cx="40" cy="160" r="4" fill="#fbbf24"/><text x="55" y="165" font-family="Arial" font-size="12" fill="#8892a0">Differentiation</text><circle cx="40" cy="190" r="4" fill="#fbbf24"/><text x="55" y="195" font-family="Arial" font-size="12" fill="#8892a0">RFP success</text><circle cx="40" cy="220" r="4" fill="#fbbf24"/><text x="55" y="225" font-family="Arial" font-size="12" fill="#8892a0">Brand value</text>
+  </g>
+
+  <g transform="translate(470,380)">
+    <rect x="0" y="0" width="340" height="260" rx="8" fill="#0d1f3c" stroke="#f97316" stroke-width="2"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="#f97316"/>
+    <circle cx="170" cy="60" r="30" fill="#f97316"/>
+    <text x="170" y="70" text-anchor="middle" font-family="Arial" font-size="24" fill="#0a1628">▲</text>
+    <text x="170" y="115" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#f97316">RISK</text>
+    <line x1="30" y1="135" x2="310" y2="135" stroke="#1a3a5c" stroke-width="1"/>
+    <circle cx="40" cy="160" r="4" fill="#f97316"/><text x="55" y="165" font-family="Arial" font-size="12" fill="#8892a0">Legal reduction</text><circle cx="40" cy="190" r="4" fill="#f97316"/><text x="55" y="195" font-family="Arial" font-size="12" fill="#8892a0">Resilience</text><circle cx="40" cy="220" r="4" fill="#f97316"/><text x="55" y="225" font-family="Arial" font-size="12" fill="#8892a0">Protection</text>
+  </g>
+
+  <g transform="translate(840,380)">
+    <rect x="0" y="0" width="340" height="260" rx="8" fill="#0d1f3c" stroke="#8b5cf6" stroke-width="2"/>
+    <rect x="0" y="0" width="340" height="6" rx="3" fill="#8b5cf6"/>
+    <circle cx="170" cy="60" r="30" fill="#8b5cf6"/>
+    <text x="170" y="70" text-anchor="middle" font-family="Arial" font-size="24" fill="#0a1628">★</text>
+    <text x="170" y="115" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#8b5cf6">ADVANTAGE</text>
+    <line x1="30" y1="135" x2="310" y2="135" stroke="#1a3a5c" stroke-width="1"/>
+    <circle cx="40" cy="160" r="4" fill="#8b5cf6"/><text x="55" y="165" font-family="Arial" font-size="12" fill="#8892a0">Leadership</text><circle cx="40" cy="190" r="4" fill="#8b5cf6"/><text x="55" y="195" font-family="Arial" font-size="12" fill="#8892a0">Independence</text><circle cx="40" cy="220" r="4" fill="#8b5cf6"/><text x="55" y="225" font-family="Arial" font-size="12" fill="#8892a0">AI readiness</text>
+  </g>
+<rect x="0" y="695" width="100%" height="5" fill="url(#14_sovereign_cloud_benefits_tealGrad)"/></svg>

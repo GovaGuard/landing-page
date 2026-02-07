@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sovereign Cloud Whitepaper - Visual Archive</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Color System - Matches Landing Page */
+            --color-bg: #0a0e27;
+            --color-bg-light: #131829;
+            --color-bg-lighter: #1a1f3a;
+            --color-surface: #1e2542;
+            --color-border: #2a3354;
+
+            --color-primary: #00d9ff;
+            --color-primary-dim: #0088aa;
+            --color-primary-glow: rgba(0, 217, 255, 0.3);
+
+            --color-accent: #00ff88;
+            --color-warning: #ffa500;
+            --color-error: #ff4444;
+
+            --color-text: #e8edf5;
+            --color-text-dim: #9ba6bd;
+            --color-text-dimmer: #64748b;
+
+            /* Typography */
+            --font-display: 'JetBrains Mono', monospace;
+            --font-body: 'IBM Plex Sans', sans-serif;
+
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+
+            /* Effects */
+            --shadow-glow: 0 0 20px var(--color-primary-glow);
+            --shadow-elevation: 0 10px 40px rgba(0, 0, 0, 0.4);
+
+            /* Transitions */
+            --transition-fast: 0.15s ease;
+            --transition-base: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Scanline overlay effect */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.05),
+                rgba(0, 0, 0, 0.05) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            animation: scanline 8s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(10px); }
+        }
+
+        /* Grid background overlay */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background-image:
+                linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-lg);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: var(--space-3xl) var(--space-lg);
+            margin-bottom: var(--space-3xl);
+            position: relative;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header-tag {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            color: var(--color-primary);
+            margin-bottom: var(--space-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: var(--space-md);
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease 0.3s backwards;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--color-accent);
+            margin-bottom: var(--space-sm);
+            font-weight: 500;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            color: var(--color-text-dim);
+            font-family: var(--font-display);
+            animation: fadeInUp 0.8s ease 0.5s backwards;
+        }
+
+        .header-actions {
+            margin-top: var(--space-xl);
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+        }
+
+        .btn {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 0.875rem 1.75rem;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-base);
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-bg);
+            border-color: var(--color-primary);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--color-primary);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-text);
+            border-color: var(--color-border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: var(--space-3xl);
+        }
+
+        .section-header {
+            margin-bottom: var(--space-2xl);
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .section-tag {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: var(--space-sm);
+            display: block;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: var(--space-sm);
+        }
+
+        .section-description {
+            font-size: 1.05rem;
+            color: var(--color-text-dim);
+            max-width: 800px;
+        }
+
+        /* Visual Item */
+        .visual-item {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-3xl);
+            padding: 0;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            position: relative;
+            transition: all var(--transition-base);
+            animation: fadeInUp 0.6s ease backwards;
+            overflow: hidden;
+        }
+
+        .visual-item:nth-child(1) { animation-delay: 0.1s; }
+        .visual-item:nth-child(2) { animation-delay: 0.15s; }
+        .visual-item:nth-child(3) { animation-delay: 0.2s; }
+        .visual-item:nth-child(4) { animation-delay: 0.25s; }
+        .visual-item:nth-child(5) { animation-delay: 0.3s; }
+        .visual-item:nth-child(6) { animation-delay: 0.35s; }
+
+        .visual-item:hover {
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-4px);
+        }
+
+        .visual-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-primary), transparent);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+
+        .visual-item:hover::before {
+            opacity: 1;
+        }
+
+        /* Visual Image */
+        .visual-image-container {
+            background: var(--color-bg-lighter);
+            padding: var(--space-2xl);
+            border: none;
+            border-bottom: 1px solid var(--color-border);
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            width: 100%;
+        }
+
+        .visual-image-container::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--color-primary), var(--color-accent));
+            opacity: 0;
+            transition: opacity var(--transition-base);
+            z-index: 0;
+            border-radius: 4px;
+        }
+
+        .visual-item:hover .visual-image-container::after {
+            opacity: 0.1;
+        }
+
+        .visual-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+        }
+
+        /* Visual Content */
+        .visual-content {
+            display: flex;
+            flex-direction: column;
+            padding: var(--space-xl);
+        }
+
+        .visual-number {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--color-bg);
+            background: var(--color-primary);
+            padding: 0.35rem 0.75rem;
+            border-radius: 3px;
+            width: fit-content;
+            margin-bottom: var(--space-sm);
+            letter-spacing: 0.05em;
+        }
+
+        .visual-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: var(--space-sm);
+            line-height: 1.3;
+        }
+
+        .visual-filename {
+            display: none;
+        }
+
+        .visual-description {
+            font-size: 0.95rem;
+            color: var(--color-text-dim);
+            line-height: 1.7;
+            margin-bottom: var(--space-sm);
+        }
+
+        .visual-description strong {
+            color: var(--color-text);
+            font-weight: 600;
+        }
+
+        .visual-description ul {
+            margin: var(--space-sm) 0;
+            padding-left: var(--space-lg);
+        }
+
+        .visual-description li {
+            margin-bottom: var(--space-xs);
+            color: var(--color-text-dim);
+        }
+
+        .visual-description ol {
+            margin: var(--space-sm) 0;
+            padding-left: var(--space-lg);
+        }
+
+        .visual-description ol li {
+            margin-bottom: var(--space-xs);
+        }
+
+        .visual-style {
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: var(--space-3xl) var(--space-lg);
+            margin-top: var(--space-3xl);
+            border-top: 1px solid var(--color-border);
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--color-text);
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-subtitle {
+            font-size: 1rem;
+            color: var(--color-text-dim);
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-meta {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            color: var(--color-text-dimmer);
+            margin-top: var(--space-lg);
+        }
+
+        .footer-link {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-link:hover {
+            color: var(--color-accent);
+        }
+
+        /* Status indicator */
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            color: var(--color-text-dim);
+            margin-bottom: var(--space-md);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7); }
+            50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(0, 255, 136, 0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .visual-image-container {
+                min-height: 400px;
+                padding: var(--space-xl);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--space-md);
+            }
+
+            header {
+                padding: var(--space-2xl) var(--space-md);
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .visual-image-container {
+                min-height: 300px;
+                padding: var(--space-lg);
+            }
+
+            .visual-content {
+                padding: var(--space-lg);
+            }
+
+            .visual-title {
+                font-size: 1.1rem;
+            }
+
+            .header-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                justify-content: center;
+            }
+        }
+
+        /* Loading animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        body {
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Print Styles for PDF Export */
+        @media print {
+            body {
+                background: white;
+                color: #000;
+            }
+
+            .scanlines,
+            .grid-overlay,
+            .header-actions,
+            .footer-link {
+                display: none !important;
+            }
+
+            header {
+                padding: 30px 20px;
+                background: white;
+                box-shadow: none;
+            }
+
+            .status-indicator {
+                color: #000;
+            }
+
+            .visual-item {
+                page-break-inside: avoid;
+                background: white;
+                border: 1px solid #ccc;
+                box-shadow: none;
+                padding: 20px;
+                margin-bottom: 40px;
+            }
+
+            .visual-image-container {
+                background: white;
+                border: 1px solid #ccc;
+            }
+
+            .visual-image-container img {
+                filter: none;
+            }
+
+            .section {
+                page-break-before: auto;
+            }
+
+            .section-header {
+                page-break-after: avoid;
+            }
+
+            h1, h2, h3 {
+                page-break-after: avoid;
+                color: #003399;
+            }
+
+            .visual-number {
+                background: #003399;
+                color: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .visual-filename {
+                background: #f0f0f0;
+                color: #00ff88;
+                border-left-color: #00ff88;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .visual-style {
+                background: #f8f9fa;
+                border-left-color: #003399;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            footer {
+                page-break-before: always;
+                border-top: 2px solid #003399;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scanline overlay -->
+    <div class="scanlines"></div>
+
+    <!-- Grid overlay -->
+    <div class="grid-overlay"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="status-indicator">
+                <span class="status-dot"></span>
+                <span>Visual Archive: Active</span>
+            </div>
+            <div class="header-tag">// STRATEGIC INTELLIGENCE</div>
+            <h1>Beyond GDPR: Building Digital Sovereignty<br>Through Cloud Architecture</h1>
+            <p class="subtitle">A Strategic Guide for European Enterprises in 2026</p>
+            <p class="tagline">Complete Visual Archive — 26 Infographics & Diagrams</p>
+
+            <div class="header-actions">
+                <a href="/" class="btn btn-primary">
+                    <span>← Back to Main Site</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- Part 1: Digital Sovereignty Imperative -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-tag">// SECTION 00</span>
+                <h2 class="section-title">The Digital Sovereignty Imperative</h2>
+                <p class="section-description">Foundational concepts, regulatory timeline, and architectural principles</p>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/03-digital-sovereignty-imperative.svg" alt="Digital Sovereignty Imperative" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">00</span>
+                    <h3 class="visual-title">Section Divider - Digital Sovereignty Imperative</h3>
+                    <span class="visual-filename">digital-sovereignty-imperative.jpg</span>
+                    <p class="visual-description">
+                        Abstract digital illustration representing "The Digital Sovereignty Imperative" - show a transition from a global cloud (world map) to a focused European cloud infrastructure. Use visual metaphors like borders becoming defined, data streams being contained, and control panels coming into focus.
+                    </p>
+                    <div class="visual-style">Style: Modern, gradient-based, professional.</div>
+                </div>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/04-sovereign-cloud-three-pillars.svg" alt="Three Pillars" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">01</span>
+                    <h3 class="visual-title">Three Pillars Diagram</h3>
+                    <span class="visual-filename">sovereign-cloud-three-pillars.jpg</span>
+                    <p class="visual-description">
+                        Three-pillar diagram showing the foundations of sovereign cloud:
+                    </p>
+                    <ul class="visual-description">
+                        <li><strong>DATA SOVEREIGNTY</strong> (icon: database with location pin)<br>
+                            - Guaranteed data localization<br>
+                            - Control over access<br>
+                            - Visibility into processing</li>
+                        <li><strong>INFRASTRUCTURE SOVEREIGNTY</strong> (icon: data center with flag)<br>
+                            - Dedicated hardware<br>
+                            - Local operational teams<br>
+                            - Independent control planes</li>
+                        <li><strong>TECHNOLOGY SOVEREIGNTY</strong> (icon: open source symbol/gears)<br>
+                            - Open standards<br>
+                            - Data portability<br>
+                            - Freedom from lock-in</li>
+                    </ul>
+                    <p class="visual-description">Center them under a roof labeled "DIGITAL SOVEREIGNTY".</p>
+                    <div class="visual-style">Style: Clean architectural diagram with icons, blue/gold color scheme.</div>
+                </div>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/05-cloud-comparison-table.svg" alt="Cloud Comparison" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">02</span>
+                    <h3 class="visual-title">Cloud Comparison Table</h3>
+                    <span class="visual-filename">cloud-comparison-table.jpg</span>
+                    <p class="visual-description">
+                        Comparison table with two columns: "Traditional Public Cloud" vs "Sovereign Cloud". Include 8-10 rows comparing: Geographic Scope, Data Location, Legal Jurisdiction, Infrastructure, Operational Control, Cost Model, Scalability, Compliance, and Access Controls. Use checkmarks, X marks, and brief text.
+                    </p>
+                    <div class="visual-style">Style: Professional table with alternating row colors, clear headers.</div>
+                </div>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/06-regulatory-timeline.svg" alt="Regulatory Timeline" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">03</span>
+                    <h3 class="visual-title">Regulatory Timeline</h3>
+                    <span class="visual-filename">regulatory-timeline.jpg</span>
+                    <p class="visual-description">
+                        Horizontal timeline from 2024 to 2027 showing key regulatory milestones:
+                    </p>
+                    <ul class="visual-description">
+                        <li>2024: GDPR established, Data Governance Act</li>
+                        <li>January 2025: DORA enforcement begins</li>
+                        <li>January 2026: NIS2 amendments, DORA review</li>
+                        <li>Q1 2026: EU Cloud & AI Development Act</li>
+                        <li>2027: Data Act full portability requirements</li>
+                    </ul>
+                    <p class="visual-description">Use milestone markers with icons (law books, checkmarks, government buildings).</p>
+                    <div class="visual-style">Style: Modern timeline with connecting line, color-coded by year.</div>
+                </div>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/07-three-operating-principles.svg" alt="Operating Principles" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">04</span>
+                    <h3 class="visual-title">Three Operating Principles</h3>
+                    <span class="visual-filename">three-operating-principles.jpg</span>
+                    <p class="visual-description">Three connected panels showing:</p>
+                    <ul class="visual-description">
+                        <li><strong>Panel 1: Hybrid Flexibility</strong> - Show workloads distributed between sovereign cloud (highlighted/secure) and public cloud (standard), with intelligent routing between them</li>
+                        <li><strong>Panel 2: Unified Governance</strong> - Show a central control panel with security policies radiating out to multiple cloud environments, with consistent policy enforcement</li>
+                        <li><strong>Panel 3: Open Standards</strong> - Show puzzle pieces connecting different cloud providers, with open API symbols and interoperability icons</li>
+                    </ul>
+                    <div class="visual-style">Style: Isometric illustration style, clean and modern, consistent color scheme across all three panels.</div>
+                </div>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/08-sovereign-cloud-architecture.svg" alt="Architecture" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">05</span>
+                    <h3 class="visual-title">Sovereign Cloud Architecture</h3>
+                    <span class="visual-filename">sovereign-cloud-architecture.jpg</span>
+                    <p class="visual-description">Detailed technical architecture diagram showing:</p>
+                    <ul class="visual-description">
+                        <li><strong>Top layer:</strong> Applications and workloads</li>
+                        <li><strong>Middle layer:</strong> Unified governance and control plane (spanning across)</li>
+                        <li><strong>Bottom layer:</strong> Three cloud zones side by side:
+                            <ol>
+                                <li>Sovereign Cloud Region (highlighted with border)</li>
+                                <li>Public Cloud Region</li>
+                                <li>On-Premises Infrastructure</li>
+                            </ol>
+                        </li>
+                        <li>Show data flows, security policies, and identity management connecting all layers</li>
+                        <li>Include icons for: encryption, access control, monitoring, compliance</li>
+                    </ul>
+                    <div class="visual-style">Style: Enterprise architecture diagram, clean lines, professional color coding (sovereign in blue/gold, public in gray, on-prem in green). Use boxes, arrows, and standard architecture symbols.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 2: Regulatory Landscape -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-tag">// SECTION 01</span>
+                <h2 class="section-title">The Regulatory Landscape</h2>
+                <p class="section-description">EU framework, CLOUD Act challenges, and industry-specific requirements</p>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/09-regulatory-framework-pyramid.svg" alt="Regulatory Framework" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">06</span>
+                    <h3 class="visual-title">Regulatory Framework Pyramid</h3>
+                    <span class="visual-filename">regulatory-framework-pyramid.jpg</span>
+                    <p class="visual-description">Pyramid diagram showing layers of EU regulation:</p>
+                    <ul class="visual-description">
+                        <li><strong>Base (foundation):</strong> GDPR (2018)</li>
+                        <li><strong>Second layer:</strong> NIS2 Directive, Data Governance Act</li>
+                        <li><strong>Third layer:</strong> DORA, AI Act, Data Act</li>
+                        <li><strong>Top layer:</strong> EU Cloud & AI Development Act (2026)</li>
+                        <li>Side annotations showing what each layer governs (data protection, cybersecurity, operational resilience, AI governance, cloud sovereignty)</li>
+                    </ul>
+                    <div class="visual-style">Style: Pyramid with clear layers, icons for each regulation, professional color gradient from dark (base) to light (top).</div>
+                </div>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/10-compliance-requirements-matrix.svg" alt="Compliance Matrix" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">07</span>
+                    <h3 class="visual-title">Compliance Requirements Matrix</h3>
+                    <span class="visual-filename">compliance-requirements-matrix.jpg</span>
+                    <p class="visual-description">Matrix/table showing:</p>
+                    <ul class="visual-description">
+                        <li><strong>Rows:</strong> Different regulations (GDPR, NIS2, DORA, AI Act, Data Act)</li>
+                        <li><strong>Columns:</strong> Key requirements (Data Localization, Access Controls, Incident Reporting, Third-Party Management, Portability, Testing/Audit)</li>
+                        <li>Fill cells with checkmarks, "Required", "Recommended", or "N/A"</li>
+                    </ul>
+                    <div class="visual-style">Style: Professional matrix with color coding (green for required, yellow for recommended, gray for N/A), clear headers and borders.</div>
+                </div>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/11-us-eu-legal-conflict.svg" alt="Legal Conflict" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">08</span>
+                    <h3 class="visual-title">US-EU Legal Conflict Diagram</h3>
+                    <span class="visual-filename">us-eu-legal-conflict.jpg</span>
+                    <p class="visual-description">Visual showing the conflict between US and EU law:</p>
+                    <ul class="visual-description">
+                        <li><strong>Left side:</strong> US CLOUD Act (with US flag colors) - arrow pointing to data requesting access</li>
+                        <li><strong>Center:</strong> Cloud infrastructure with data (shown on a European map)</li>
+                        <li><strong>Right side:</strong> EU GDPR (with EU flag colors) - arrow blocking/protecting data</li>
+                        <li>Show tension/conflict with contrasting arrows, warning symbols</li>
+                        <li>Include text: "Legal Conflict for US-based Providers"</li>
+                    </ul>
+                    <div class="visual-style">Style: Diagram showing opposing forces, use red/warning colors for conflict areas, professional but clear illustration of the problem.</div>
+                </div>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/12-industry-requirements-wheel.svg" alt="Industry Requirements" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">09</span>
+                    <h3 class="visual-title">Industry Requirements Wheel</h3>
+                    <span class="visual-filename">industry-requirements-wheel.jpg</span>
+                    <p class="visual-description">
+                        Circular/wheel diagram with "SOVEREIGN CLOUD" in the center, and 5-6 segments radiating outward representing different industries:
+                    </p>
+                    <ul class="visual-description">
+                        <li>Financial Services (DORA, Basel III, PSD2)</li>
+                        <li>Healthcare (GDPR Art. 9, MDR, eHealth)</li>
+                        <li>Government (SecNumCloud, National Security)</li>
+                        <li>Telecom (ePrivacy, 5G Security)</li>
+                        <li>Energy (NIS2, Critical Infrastructure)</li>
+                        <li>Manufacturing (IP Protection, Supply Chain)</li>
+                    </ul>
+                    <p class="visual-description">Each segment should list 2-3 key regulations specific to that industry.</p>
+                    <div class="visual-style">Style: Professional radial diagram, clear text, industry-specific icons in each segment, different colors for each industry.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 3: Business Case -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-tag">// SECTION 02</span>
+                <h2 class="section-title">The Business Case</h2>
+                <p class="section-description">Market opportunity, benefits, industry value, and ROI framework</p>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/13-sovereign-cloud-market.svg" alt="Market Chart" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">10</span>
+                    <h3 class="visual-title">Market Growth Chart</h3>
+                    <span class="visual-filename">sovereign-cloud-market.jpg</span>
+                    <p class="visual-description">Professional area chart or bar chart showing:</p>
+                    <ul class="visual-description">
+                        <li><strong>X-axis:</strong> Years from 2024 to 2033</li>
+                        <li><strong>Y-axis:</strong> Market size in billions (€)</li>
+                        <li><strong>Data points:</strong> 2024 (€96.35B), 2025 (€118.72B), 2027 (~€180B estimated), 2030 (~€350B estimated), 2033 (€630.93B)</li>
+                        <li>Highlight 2026 as the "inflection point" with a vertical line or marker</li>
+                        <li>Include annotation: "23.22% CAGR"</li>
+                        <li>Show trend acceleration</li>
+                    </ul>
+                    <div class="visual-style">Style: Professional financial chart with gradient fill, grid lines, clear data labels, corporate color scheme.</div>
+                </div>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/14-sovereign-cloud-benefits.svg" alt="Benefits" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">11</span>
+                    <h3 class="visual-title">Benefits Infographic</h3>
+                    <span class="visual-filename">sovereign-cloud-benefits.jpg</span>
+                    <p class="visual-description">Visual showing 6 key benefits arranged in a grid or circular pattern:</p>
+                    <ul class="visual-description">
+                        <li><strong>COMPLIANCE ASSURANCE</strong> (icon: checkmark shield) - Demonstrable audit readiness, Automated compliance reporting, Penalty avoidance</li>
+                        <li><strong>SECURITY & CONTROL</strong> (icon: lock with key) - Enhanced security posture, Customer-controlled keys, Reduced surveillance risk</li>
+                        <li><strong>OPERATIONAL AUTONOMY</strong> (icon: control panel) - Local control, Performance advantages, Strategic flexibility</li>
+                        <li><strong>CUSTOMER TRUST</strong> (icon: handshake) - Market differentiation, RFP success, Brand value</li>
+                        <li><strong>RISK MITIGATION</strong> (icon: umbrella/protection) - Legal risk reduction, Operational resilience, Reputational protection</li>
+                        <li><strong>COMPETITIVE ADVANTAGE</strong> (icon: trophy/star) - Market leadership, Strategic independence, AI readiness</li>
+                    </ul>
+                    <div class="visual-style">Style: Modern icon-based infographic with consistent styling, professional color scheme, clear hierarchy.</div>
+                </div>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/15-industry-value-matrix.svg" alt="Industry Value" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">12</span>
+                    <h3 class="visual-title">Industry Value Matrix</h3>
+                    <span class="visual-filename">industry-value-matrix.jpg</span>
+                    <p class="visual-description">Table/matrix showing:</p>
+                    <ul class="visual-description">
+                        <li><strong>Rows:</strong> 5 industries (Financial Services, Healthcare, Government, Manufacturing, Technology)</li>
+                        <li><strong>Columns:</strong> Primary Drivers, Key Benefits, Typical Use Cases</li>
+                        <li>Fill with industry-specific information in concise bullet points</li>
+                    </ul>
+                    <div class="visual-style">Style: Professional table with industry icons, alternating row colors for readability.</div>
+                </div>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/16-roi-framework.svg" alt="ROI Framework" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">13</span>
+                    <h3 class="visual-title">ROI Framework Diagram</h3>
+                    <span class="visual-filename">roi-framework.jpg</span>
+                    <p class="visual-description">Balance scale or framework showing:</p>
+                    <ul class="visual-description">
+                        <li><strong>Left side (Costs):</strong> Initial Infrastructure Investment, Migration Costs, Operational Overhead, Training & Talent</li>
+                        <li><strong>Right side (Benefits/Value):</strong> Penalty Avoidance, Risk Mitigation, Competitive Advantage, Customer Trust, Market Access</li>
+                        <li><strong>Center:</strong> "ROI Calculation Framework"</li>
+                    </ul>
+                    <p class="visual-description">Use monetary symbols, warning/risk icons on left, positive/growth icons on right.</p>
+                    <div class="visual-style">Style: Professional diagram, balanced composition, clear visual hierarchy showing value exceeds costs over time.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 4: Technical Architecture -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-tag">// SECTION 03</span>
+                <h2 class="section-title">Technical Architecture</h2>
+                <p class="section-description">Core components, architectural patterns, and implementation principles</p>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/17-layered-architecture.svg" alt="Layered Architecture" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">14</span>
+                    <h3 class="visual-title">Layered Architecture Diagram</h3>
+                    <span class="visual-filename">17-layered-architecture.svg</span>
+                    <p class="visual-description">Detailed layered architecture diagram showing:</p>
+                    <ul class="visual-description">
+                        <li><strong>Top layer:</strong> Applications & Workloads</li>
+                        <li><strong>Layer 2:</strong> Unified Control Plane (customer-owned)</li>
+                        <li><strong>Layer 3:</strong> Security & Compliance Layer (encryption, access controls, monitoring)</li>
+                        <li><strong>Layer 4:</strong> Compute, Storage, Network (sovereign resources)</li>
+                        <li><strong>Layer 5:</strong> Physical Infrastructure (data centers within jurisdiction)</li>
+                        <li><strong>Side panels:</strong> Key Management (customer-controlled), Identity & Access Management, Audit & Logging (all within sovereign boundary)</li>
+                        <li>Show a border/boundary around the entire stack labeled "Sovereign Jurisdiction"</li>
+                    </ul>
+                    <div class="visual-style">Style: Professional technical architecture diagram with clear layers, arrows showing data flows, icons for each component, color-coded by function (security in red/orange, compute in blue, storage in green, etc.).</div>
+                </div>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/18-architecture-patterns.svg" alt="Architecture Patterns" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">15</span>
+                    <h3 class="visual-title">Architecture Patterns</h3>
+                    <span class="visual-filename">architecture-patterns.jpg</span>
+                    <p class="visual-description">Three side-by-side architecture diagrams showing:</p>
+                    <ul class="visual-description">
+                        <li><strong>1. Hybrid Sovereign Cloud:</strong> Show mix of sovereign region (highlighted/protected) + public cloud region, workloads intelligently distributed, unified governance layer across both</li>
+                        <li><strong>2. Dedicated Sovereign Region:</strong> Show completely isolated sovereign region, no connections to outside, all services within boundary</li>
+                        <li><strong>3. Partner-Operated Model:</strong> Show hyperscaler technology (branded), operated by local partner (different organization), clear separation of technology vs. operations</li>
+                    </ul>
+                    <div class="visual-style">Style: Consistent diagramming style across all three, use boundaries/borders to show sovereignty zones, include icons for data centers, workloads, operators. Use color to differentiate sovereign (blue/gold) from public (gray) zones.</div>
+                </div>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/19-principles-implementation.svg" alt="Implementation Framework" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">16</span>
+                    <h3 class="visual-title">Principles Implementation Framework</h3>
+                    <span class="visual-filename">principles-implementation.jpg</span>
+                    <p class="visual-description">Framework diagram showing how the three principles work together:</p>
+                    <ul class="visual-description">
+                        <li><strong>Central hub:</strong> "Successful Sovereign Cloud Implementation"</li>
+                        <li><strong>Three branches extending out:</strong>
+                            <ol>
+                                <li>Hybrid Flexibility: Show decision tree for workload placement</li>
+                                <li>Unified Governance: Show policy engine applying to multiple environments</li>
+                                <li>Open Standards: Show portability between providers</li>
+                            </ol>
+                        </li>
+                        <li>Include checkboxes or criteria for each principle</li>
+                    </ul>
+                    <div class="visual-style">Style: Framework/methodology diagram, professional consulting style, clear visual hierarchy showing principles supporting central implementation success.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 5: Navigating Challenges -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-tag">// SECTION 04</span>
+                <h2 class="section-title">Navigating Challenges</h2>
+                <p class="section-description">Technical complexity, cost management, and vendor lock-in prevention</p>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/20-challenges-solutions.svg" alt="Challenges & Solutions" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">17</span>
+                    <h3 class="visual-title">Challenges and Solutions Infographic</h3>
+                    <span class="visual-filename">challenges-solutions.jpg</span>
+                    <p class="visual-description">Multi-panel infographic showing challenges on left, solutions on right:</p>
+                    <ul class="visual-description">
+                        <li>Challenge 1: Integration Complexity → Solution: Phased migration, API abstraction</li>
+                        <li>Challenge 2: Talent Shortage → Solution: Partner ecosystems, training programs</li>
+                        <li>Challenge 3: Disaster Recovery → Solution: Multi-region sovereign architecture</li>
+                        <li>Challenge 4: Legacy Systems → Solution: Hybrid approach, gradual modernization</li>
+                    </ul>
+                    <p class="visual-description">Use icons, arrows connecting challenges to solutions.</p>
+                    <div class="visual-style">Style: Professional color scheme (challenges in orange/warning colors, solutions in green/positive colors).</div>
+                </div>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/21-cost-optimization-framework.svg" alt="Cost Optimization" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">18</span>
+                    <h3 class="visual-title">Cost Optimization Framework</h3>
+                    <span class="visual-filename">cost-optimization-framework.jpg</span>
+                    <p class="visual-description">Flowchart or framework showing cost optimization strategies:</p>
+                    <p class="visual-description"><strong>Top:</strong> "Sovereign Cloud Cost Management"</p>
+                    <p class="visual-description"><strong>Four pillars below:</strong></p>
+                    <ul class="visual-description">
+                        <li>Workload Optimization: Right-size resources, reserved capacity, spot instances</li>
+                        <li>Transparent Pricing: Understand sovereignty premium, cap costs, consumption-based</li>
+                        <li>Open Standards: Avoid lock-in, enable competition, portable architecture</li>
+                        <li>Hybrid Strategy: Sovereign for required workloads, standard cloud for flexibility</li>
+                    </ul>
+                    <p class="visual-description">Include cost icons, optimization symbols, dollar signs with arrows showing cost reduction.</p>
+                    <div class="visual-style">Style: Professional framework diagram, clear visual hierarchy, action-oriented.</div>
+                </div>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/22-lock-in-prevention.svg" alt="Lock-in Prevention" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">19</span>
+                    <h3 class="visual-title">Lock-in Prevention Strategy</h3>
+                    <span class="visual-filename">lock-in-prevention.jpg</span>
+                    <p class="visual-description">Diagram showing:</p>
+                    <ul class="visual-description">
+                        <li><strong>Center:</strong> Application/Data</li>
+                        <li><strong>Inner ring:</strong> Abstraction layer (APIs, containers, IaC)</li>
+                        <li><strong>Outer ring:</strong> Multiple cloud providers (showing portability arrows)</li>
+                        <li><strong>Outside ring:</strong> Open standards (Kubernetes, Terraform, open data formats)</li>
+                    </ul>
+                    <p class="visual-description">Show how abstraction and open standards enable movement between providers. Include "portability" arrows showing data and applications can move freely.</p>
+                    <div class="visual-style">Style: Concentric circles diagram, professional, use unlocked padlock icons to show freedom from lock-in, directional arrows showing portability.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 6: Implementation Roadmap -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-tag">// SECTION 05</span>
+                <h2 class="section-title">Implementation Roadmap</h2>
+                <p class="section-description">Assessment, planning, and execution framework</p>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/23-implementation-roadmap.svg" alt="Implementation Roadmap" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">20</span>
+                    <h3 class="visual-title">Implementation Roadmap Timeline</h3>
+                    <span class="visual-filename">implementation-roadmap.jpg</span>
+                    <p class="visual-description">Horizontal timeline showing implementation phases:</p>
+                    <ul class="visual-description">
+                        <li><strong>Phase 1: ASSESS</strong> (icon: magnifying glass, checklist) - Workload analysis, Requirements mapping, Provider evaluation - Duration: 2-3 months</li>
+                        <li><strong>Phase 2: PLAN</strong> (icon: blueprint, strategy) - Architecture design, Migration strategy, Governance framework - Duration: 1-2 months</li>
+                        <li><strong>Phase 3: PILOT</strong> (icon: test tube, experiment) - Pilot workloads, Test and validate, Refine approach - Duration: 2-4 months</li>
+                        <li><strong>Phase 4: MIGRATE</strong> (icon: arrow, movement) - Phased migration, Validation, Cutover - Duration: 6-18 months</li>
+                        <li><strong>Phase 5: OPTIMIZE</strong> (icon: gears, continuous improvement) - Performance tuning, Cost optimization, Continuous compliance - Duration: Ongoing</li>
+                    </ul>
+                    <div class="visual-style">Style: Professional timeline with phases as milestones, clear durations, icons for each phase, gradient or color progression showing advancement.</div>
+                </div>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/24-provider-evaluation-scorecard.svg" alt="Provider Scorecard" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">21</span>
+                    <h3 class="visual-title">Provider Evaluation Scorecard</h3>
+                    <span class="visual-filename">provider-evaluation-scorecard.jpg</span>
+                    <p class="visual-description">Scorecard/matrix for evaluating providers:</p>
+                    <ul class="visual-description">
+                        <li><strong>Rows:</strong> 5-6 evaluation criteria (True Sovereignty, Regulatory Alignment, Technical Capabilities, Commercial Terms, Provider Stability, Support & Services)</li>
+                        <li><strong>Columns:</strong> Space for 3-4 provider names</li>
+                        <li><strong>Rating system:</strong> 1-5 stars or score out of 10 for each criterion</li>
+                        <li><strong>Bottom row:</strong> Total score</li>
+                    </ul>
+                    <div class="visual-style">Style: Professional evaluation matrix, clean design, space to fill in provider names and scores, color-coded rating scale (red to green).</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion & Appendices -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-tag">// SECTION 06</span>
+                <h2 class="section-title">Conclusion & Appendices</h2>
+                <p class="section-description">Future vision, regulatory reference, and provider comparison</p>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/25-future-vision.svg" alt="Future Vision" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">22</span>
+                    <h3 class="visual-title">Future Vision Illustration</h3>
+                    <span class="visual-filename">future-vision.jpg</span>
+                    <p class="visual-description">Aspirational illustration showing:</p>
+                    <ul class="visual-description">
+                        <li><strong>Foreground:</strong> Secure, sovereign European cloud infrastructure (stylized data centers with EU flag colors)</li>
+                        <li><strong>Middle:</strong> Businesses thriving with secure data flows (people, applications, AI systems)</li>
+                        <li><strong>Background:</strong> European digital landscape with innovation, growth, security</li>
+                        <li>Include visual elements: shield (security), checkmark (compliance), growth arrow (opportunity), connected nodes (collaboration)</li>
+                    </ul>
+                    <div class="visual-style">Style: Modern, optimistic, professional, forward-looking, gradient from blue (current) to gold (future).</div>
+                </div>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/26-regulatory-quick-reference.svg" alt="Regulatory Reference" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">23</span>
+                    <h3 class="visual-title">Regulatory Quick Reference</h3>
+                    <span class="visual-filename">regulatory-quick-reference.jpg</span>
+                    <p class="visual-description">Infographic showing:</p>
+                    <ul class="visual-description">
+                        <li>Timeline of when major regulations took effect and key future dates</li>
+                        <li>For each regulation, show: name, key requirements (3-4 bullets), penalties, who it applies to</li>
+                        <li>Regulations to include: GDPR, NIS2, DORA, Data Act, AI Act, Cloud & AI Development Act</li>
+                    </ul>
+                    <div class="visual-style">Style: Clean infographic format, use timeline or table structure, icons for each regulation, color-coded by type (data protection, cybersecurity, etc.).</div>
+                </div>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/27-provider-comparison.svg" alt="Provider Comparison" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">24</span>
+                    <h3 class="visual-title">Provider Comparison Table</h3>
+                    <span class="visual-filename">27-provider-comparison.svg</span>
+                    <p class="visual-description">Comprehensive comparison table with:</p>
+                    <ul class="visual-description">
+                        <li><strong>Columns:</strong> AWS European Sovereign Cloud, Microsoft Sovereign Solutions, Google Sovereign Cloud, Oracle EU Sovereign Cloud, European Providers (T-Systems/OVHcloud/STACKIT)</li>
+                        <li><strong>Rows:</strong> Geographic Availability, Service Breadth, Legal Structure, Operational Control, Key Management, Pricing Model, Open Standards Support, Certifications, AI Capabilities</li>
+                        <li>Use checkmarks, ratings, and brief text descriptions</li>
+                    </ul>
+                    <div class="visual-style">Style: Professional comparison table, clear headers, easy to scan, use color coding for ratings.</div>
+                </div>
+            </div>
+
+            <div class="visual-item">
+                <div class="visual-image-container">
+                    <img src="images/28-back-cover.svg" alt="Back Cover" loading="lazy">
+                </div>
+                <div class="visual-content">
+                    <span class="visual-number">25</span>
+                    <h3 class="visual-title">Back Cover Design</h3>
+                    <span class="visual-filename">back-cover.jpg</span>
+                    <p class="visual-description">Professional back cover design:</p>
+                    <ul class="visual-description">
+                        <li><strong>Top:</strong> Company logo and tagline</li>
+                        <li><strong>Middle:</strong> Key takeaway box with 3-4 main points from whitepaper:
+                            <ul>
+                                <li>Sovereignty is architectural, not contractual</li>
+                                <li>2026 is the pivotal year for sovereign cloud</li>
+                                <li>Hybrid approaches balance compliance and efficiency</li>
+                                <li>Open standards prevent vendor lock-in</li>
+                            </ul>
+                        </li>
+                        <li><strong>Bottom:</strong> Contact information, website, QR code for more resources</li>
+                        <li><strong>Background:</strong> Subtle European map or abstract cloud/data visualization</li>
+                    </ul>
+                    <div class="visual-style">Style: Clean, professional, consistent with cover design, EU flag colors (blue/gold).</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <p class="footer-title">Beyond GDPR: Building Digital Sovereignty Through Cloud Architecture</p>
+                <p class="footer-subtitle">A Strategic Guide for European Enterprises in 2026</p>
+                <p class="footer-meta">
+                    © 2026 GovaGuard — Complete visual archive with 26 infographics and detailed technical specifications<br>
+                    <a href="/" class="footer-link">Return to Main Site</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

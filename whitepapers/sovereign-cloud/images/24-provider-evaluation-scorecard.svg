@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="24_provider_evaluation_scorecard_bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </linearGradient>
+    <linearGradient id="24_provider_evaluation_scorecard_tealGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0891b2"/>
+      <stop offset="100%" style="stop-color:#00d4aa"/>
+    </linearGradient>
+    <filter id="24_provider_evaluation_scorecard_glow">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    <pattern id="24_provider_evaluation_scorecard_grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#1a3a5c" stroke-width="0.5" opacity="0.15"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#24_provider_evaluation_scorecard_bgGrad)"/>
+  <rect width="1200" height="600" fill="url(#24_provider_evaluation_scorecard_grid)"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="60" fill="#0d1f3c"/>
+  <line x1="0" y1="60" x2="1200" y2="60" stroke="#00d4aa" stroke-width="2"/>
+  <text x="600" y="40" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#fff">SOVEREIGN CLOUD PROVIDER EVALUATION SCORECARD</text>
+
+  <g transform="translate(50,80)">
+    <!-- Header Row -->
+    <rect x="0" y="0" width="200" height="50" fill="#1a3a5c"/>
+    <text x="100" y="32" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#8892a0">CRITERIA</text>
+    <rect x="200" y="0" width="200" height="50" fill="#00d4aa"/>
+    <text x="300" y="32" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#0a1628">Provider A</text>
+    <rect x="400" y="0" width="200" height="50" fill="#0891b2"/>
+    <text x="500" y="32" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#fff">Provider B</text>
+    <rect x="600" y="0" width="200" height="50" fill="#14b8a6"/>
+    <text x="700" y="32" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#0a1628">Provider C</text>
+    <rect x="800" y="0" width="200" height="50" fill="#fbbf24"/>
+    <text x="900" y="32" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#0a1628">Provider D</text>
+
+    <!-- Row 1: True Sovereignty -->
+    <rect x="0" y="50" width="200" height="65" fill="#0d1f3c" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="20" y="85" font-family="Arial" font-size="12" font-weight="bold" fill="#fff">True Sovereignty</text>
+    <rect x="200" y="50" width="200" height="65" fill="#0f172a" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="300" y="90" text-anchor="middle" font-family="Arial" font-size="18" fill="#00d4aa">★★★★★</text>
+    <rect x="400" y="50" width="200" height="65" fill="#0f172a" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="500" y="90" text-anchor="middle" font-family="Arial" font-size="18" fill="#0891b2">★★★★☆</text>
+    <rect x="600" y="50" width="200" height="65" fill="#0f172a" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="700" y="90" text-anchor="middle" font-family="Arial" font-size="18" fill="#14b8a6">★★★★★</text>
+    <rect x="800" y="50" width="200" height="65" fill="#0f172a" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="900" y="90" text-anchor="middle" font-family="Arial" font-size="18" fill="#fbbf24">★★★☆☆</text>
+
+    <!-- Row 2: Regulatory Alignment -->
+    <rect x="0" y="115" width="200" height="65" fill="#0d1f3c" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="20" y="150" font-family="Arial" font-size="12" font-weight="bold" fill="#fff">Regulatory Alignment</text>
+    <rect x="200" y="115" width="200" height="65" fill="#0a1628" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="300" y="155" text-anchor="middle" font-family="Arial" font-size="18" fill="#00d4aa">★★★★★</text>
+    <rect x="400" y="115" width="200" height="65" fill="#0a1628" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="500" y="155" text-anchor="middle" font-family="Arial" font-size="18" fill="#0891b2">★★★★☆</text>
+    <rect x="600" y="115" width="200" height="65" fill="#0a1628" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="700" y="155" text-anchor="middle" font-family="Arial" font-size="18" fill="#14b8a6">★★★★☆</text>
+    <rect x="800" y="115" width="200" height="65" fill="#0a1628" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="900" y="155" text-anchor="middle" font-family="Arial" font-size="18" fill="#fbbf24">★★★★☆</text>
+
+    <!-- Row 3: Technical Capabilities -->
+    <rect x="0" y="180" width="200" height="65" fill="#0d1f3c" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="20" y="215" font-family="Arial" font-size="12" font-weight="bold" fill="#fff">Technical Capabilities</text>
+    <rect x="200" y="180" width="200" height="65" fill="#0f172a" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="300" y="220" text-anchor="middle" font-family="Arial" font-size="18" fill="#00d4aa">★★★★☆</text>
+    <rect x="400" y="180" width="200" height="65" fill="#0f172a" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="500" y="220" text-anchor="middle" font-family="Arial" font-size="18" fill="#0891b2">★★★★★</text>
+    <rect x="600" y="180" width="200" height="65" fill="#0f172a" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="700" y="220" text-anchor="middle" font-family="Arial" font-size="18" fill="#14b8a6">★★★☆☆</text>
+    <rect x="800" y="180" width="200" height="65" fill="#0f172a" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="900" y="220" text-anchor="middle" font-family="Arial" font-size="18" fill="#fbbf24">★★★★★</text>
+
+    <!-- Row 4: Commercial Terms -->
+    <rect x="0" y="245" width="200" height="65" fill="#0d1f3c" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="20" y="280" font-family="Arial" font-size="12" font-weight="bold" fill="#fff">Commercial Terms</text>
+    <rect x="200" y="245" width="200" height="65" fill="#0a1628" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="300" y="285" text-anchor="middle" font-family="Arial" font-size="18" fill="#00d4aa">★★★☆☆</text>
+    <rect x="400" y="245" width="200" height="65" fill="#0a1628" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="500" y="285" text-anchor="middle" font-family="Arial" font-size="18" fill="#0891b2">★★★★☆</text>
+    <rect x="600" y="245" width="200" height="65" fill="#0a1628" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="700" y="285" text-anchor="middle" font-family="Arial" font-size="18" fill="#14b8a6">★★★★★</text>
+    <rect x="800" y="245" width="200" height="65" fill="#0a1628" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="900" y="285" text-anchor="middle" font-family="Arial" font-size="18" fill="#fbbf24">★★★☆☆</text>
+
+    <!-- Row 5: Provider Stability -->
+    <rect x="0" y="310" width="200" height="65" fill="#0d1f3c" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="20" y="345" font-family="Arial" font-size="12" font-weight="bold" fill="#fff">Provider Stability</text>
+    <rect x="200" y="310" width="200" height="65" fill="#0f172a" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="300" y="350" text-anchor="middle" font-family="Arial" font-size="18" fill="#00d4aa">★★★★★</text>
+    <rect x="400" y="310" width="200" height="65" fill="#0f172a" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="500" y="350" text-anchor="middle" font-family="Arial" font-size="18" fill="#0891b2">★★★★★</text>
+    <rect x="600" y="310" width="200" height="65" fill="#0f172a" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="700" y="350" text-anchor="middle" font-family="Arial" font-size="18" fill="#14b8a6">★★★★☆</text>
+    <rect x="800" y="310" width="200" height="65" fill="#0f172a" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="900" y="350" text-anchor="middle" font-family="Arial" font-size="18" fill="#fbbf24">★★★★★</text>
+
+    <!-- Row 6: Support & Services -->
+    <rect x="0" y="375" width="200" height="65" fill="#0d1f3c" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="20" y="410" font-family="Arial" font-size="12" font-weight="bold" fill="#fff">Support &amp; Services</text>
+    <rect x="200" y="375" width="200" height="65" fill="#0a1628" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="300" y="415" text-anchor="middle" font-family="Arial" font-size="18" fill="#00d4aa">★★★★☆</text>
+    <rect x="400" y="375" width="200" height="65" fill="#0a1628" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="500" y="415" text-anchor="middle" font-family="Arial" font-size="18" fill="#0891b2">★★★★☆</text>
+    <rect x="600" y="375" width="200" height="65" fill="#0a1628" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="700" y="415" text-anchor="middle" font-family="Arial" font-size="18" fill="#14b8a6">★★★★★</text>
+    <rect x="800" y="375" width="200" height="65" fill="#0a1628" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="900" y="415" text-anchor="middle" font-family="Arial" font-size="18" fill="#fbbf24">★★★★☆</text>
+  </g>
+
+  <!-- Bottom accent -->
+  <rect x="0" y="595" width="1200" height="5" fill="url(#24_provider_evaluation_scorecard_tealGrad)"/>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700">
+  <defs>
+    <linearGradient id="bgGrad9" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </linearGradient>
+    <linearGradient id="tealGrad9" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0891b2"/>
+      <stop offset="100%" style="stop-color:#00d4aa"/>
+    </linearGradient>
+    <pattern id="grid9" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a3a5c" stroke-width="0.5" opacity="0.15"/>
+    </pattern>
+  </defs>
+  
+  <rect width="1000" height="700" fill="url(#bgGrad9)"/>
+  <rect width="1000" height="700" fill="url(#grid9)"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1000" height="60" fill="#0d1f3c"/>
+  <line x1="0" y1="60" x2="1000" y2="60" stroke="#00d4aa" stroke-width="2"/>
+  <text x="500" y="40" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#ffffff">EU REGULATORY FRAMEWORK PYRAMID</text>
+  
+  <!-- Pyramid layers -->
+  <!-- Layer 4 (Top): Cloud & AI Act -->
+  <polygon points="500,100 600,180 400,180" fill="#00d4aa" stroke="#ffffff" stroke-width="2"/>
+  <text x="500" y="155" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#0a1628">EU Cloud &amp; AI</text>
+  <text x="500" y="170" text-anchor="middle" font-family="Arial" font-size="10" fill="#0a1628">Dev Act (2026)</text>
+  
+  <!-- Annotation -->
+  <line x1="600" y1="140" x2="720" y2="140" stroke="#00d4aa" stroke-width="1"/>
+  <text x="730" y="135" font-family="Arial" font-size="11" fill="#00d4aa">Cloud Sovereignty</text>
+  <text x="730" y="150" font-family="Arial" font-size="10" fill="#5a6a7a">Sovereign requirements</text>
+  
+  <!-- Layer 3: DORA, AI Act, Data Act -->
+  <polygon points="400,180 600,180 680,280 320,280" fill="#0891b2" stroke="#ffffff" stroke-width="2"/>
+  <text x="500" y="220" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#ffffff">DORA · AI Act · Data Act</text>
+  <text x="500" y="240" text-anchor="middle" font-family="Arial" font-size="10" fill="#e0f2fe">Operational Resilience &amp; AI Governance</text>
+  
+  <line x1="680" y1="230" x2="750" y2="230" stroke="#0891b2" stroke-width="1"/>
+  <text x="760" y="225" font-family="Arial" font-size="11" fill="#0891b2">Resilience</text>
+  <text x="760" y="240" font-family="Arial" font-size="10" fill="#5a6a7a">Testing &amp; compliance</text>
+  
+  <!-- Layer 2: NIS2, Data Governance Act -->
+  <polygon points="320,280 680,280 780,400 220,400" fill="#1e40af" stroke="#ffffff" stroke-width="2"/>
+  <text x="500" y="330" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#ffffff">NIS2 Directive · Data Governance Act</text>
+  <text x="500" y="355" text-anchor="middle" font-family="Arial" font-size="10" fill="#bfdbfe">Cybersecurity &amp; Data Sharing</text>
+  
+  <line x1="780" y1="340" x2="850" y2="340" stroke="#1e40af" stroke-width="1"/>
+  <text x="860" y="335" font-family="Arial" font-size="11" fill="#60a5fa">Cybersecurity</text>
+  <text x="860" y="350" font-family="Arial" font-size="10" fill="#5a6a7a">Critical infrastructure</text>
+  
+  <!-- Layer 1 (Base): GDPR -->
+  <polygon points="220,400 780,400 900,540 100,540" fill="#1e3a8a" stroke="#ffffff" stroke-width="2"/>
+  <text x="500" y="455" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#ffffff">GDPR (2018)</text>
+  <text x="500" y="485" text-anchor="middle" font-family="Arial" font-size="12" fill="#93c5fd">Data Protection Foundation</text>
+  
+  <line x1="150" y1="470" x2="80" y2="470" stroke="#1e3a8a" stroke-width="1"/>
+  <text x="70" y="465" text-anchor="end" font-family="Arial" font-size="11" fill="#60a5fa">Foundation</text>
+  <text x="70" y="480" text-anchor="end" font-family="Arial" font-size="10" fill="#5a6a7a">Personal data rights</text>
+  
+  <!-- Base platform -->
+  <rect x="80" y="550" width="840" height="20" rx="4" fill="#0f172a" stroke="#1a3a5c" stroke-width="1"/>
+  <text x="500" y="565" text-anchor="middle" font-family="Arial" font-size="11" fill="#5a6a7a">EUROPEAN DIGITAL REGULATION FOUNDATION</text>
+  
+  <!-- Footer -->
+  <text x="500" y="620" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a6a7a">Each layer builds upon the foundation below — creating comprehensive digital sovereignty</text>
+  
+  <!-- Bottom accent -->
+  <rect x="0" y="695" width="1000" height="5" fill="url(#tealGrad9)"/>
+</svg>

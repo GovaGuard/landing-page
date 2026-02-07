@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-//go:embed templates/* static/*
+//go:embed templates/* static/* whitepapers
 var content embed.FS
 
 type PageData struct {
@@ -20,6 +20,9 @@ func main() {
 
 	// Serve static files
 	http.Handle("/static/", http.FileServer(http.FS(content)))
+
+	// Serve whitepaper files
+	http.Handle("/whitepapers/", http.FileServer(http.FS(content)))
 
 	// Landing page
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -35,6 +38,14 @@ func main() {
 			Title: "Imprint - GovaGuard",
 		}
 		tmpl.ExecuteTemplate(w, "imprint.html", data)
+	})
+
+	// Whitepapers page
+	http.HandleFunc("/whitepapers", func(w http.ResponseWriter, r *http.Request) {
+		data := PageData{
+			Title: "Whitepapers & Research - GovaGuard",
+		}
+		tmpl.ExecuteTemplate(w, "whitepapers.html", data)
 	})
 
 	// HTMX endpoint for contact form
