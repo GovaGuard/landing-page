@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600">
+  <defs>
+    <linearGradient id="28_back_cover_bgGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0a1628"/><stop offset="100%" style="stop-color:#0d1f3c"/></linearGradient>
+    <linearGradient id="28_back_cover_tealGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#0891b2"/><stop offset="100%" style="stop-color:#00d4aa"/></linearGradient>
+    <pattern id="28_back_cover_grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0L0 0 0 60" fill="none" stroke="#1a3a5c" stroke-width="0.5" opacity="0.15"/></pattern>
+  </defs>
+  <rect width="1200" height="1600" fill="url(#28_back_cover_bgGrad)"/><rect width="1200" height="1600" fill="url(#28_back_cover_grid)"/>
+  
+  <rect x="0" y="0" width="1200" height="10" fill="url(#28_back_cover_tealGrad)"/>
+  
+  <text x="600" y="200" text-anchor="middle" font-family="Arial" font-size="48" font-weight="bold" fill="#00d4aa">SOVEREIGN CLOUD</text>
+  <text x="600" y="260" text-anchor="middle" font-family="Arial" font-size="24" fill="#8892a0">Strategic Guide to European Digital Sovereignty</text>
+  
+  <rect x="200" y="350" width="800" height="500" rx="12" fill="#0d1f3c" stroke="#00d4aa" stroke-width="2"/>
+  <text x="600" y="410" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#00d4aa">KEY TAKEAWAYS</text>
+  <line x1="300" y1="440" x2="900" y2="440" stroke="#1a3a5c" stroke-width="1"/>
+  
+  <circle cx="260" cy="510" r="15" fill="#00d4aa"/><text x="260" y="515" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#0a1628">1</text>
+  <text x="290" y="510" font-family="Arial" font-size="14" fill="#fff">Sovereignty is architectural, not contractual</text>
+  <text x="290" y="530" font-family="Arial" font-size="12" fill="#5a6a7a">True sovereignty requires infrastructure, operational, and legal controls</text>
+  
+  <circle cx="260" cy="600" r="15" fill="#00d4aa"/><text x="260" y="605" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#0a1628">2</text>
+  <text x="290" y="600" font-family="Arial" font-size="14" fill="#fff">2026 is the pivotal year for sovereign cloud</text>
+  <text x="290" y="620" font-family="Arial" font-size="12" fill="#5a6a7a">Major regulations converge, creating compliance urgency</text>
+  
+  <circle cx="260" cy="690" r="15" fill="#00d4aa"/><text x="260" y="695" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#0a1628">3</text>
+  <text x="290" y="690" font-family="Arial" font-size="14" fill="#fff">Hybrid approaches balance compliance and efficiency</text>
+  <text x="290" y="710" font-family="Arial" font-size="12" fill="#5a6a7a">Not all workloads require sovereignty—be strategic</text>
+  
+  <circle cx="260" cy="780" r="15" fill="#00d4aa"/><text x="260" y="785" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#0a1628">4</text>
+  <text x="290" y="780" font-family="Arial" font-size="14" fill="#fff">Open standards prevent vendor lock-in</text>
+  <text x="290" y="800" font-family="Arial" font-size="12" fill="#5a6a7a">Kubernetes, Terraform, and open APIs ensure flexibility</text>
+  
+  <rect x="200" y="950" width="800" height="200" rx="12" fill="#0d1f3c" stroke="#0891b2" stroke-width="2"/>
+  <text x="600" y="1010" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#0891b2">CONTACT US</text>
+  <text x="600" y="1060" text-anchor="middle" font-family="Arial" font-size="14" fill="#8892a0">www.example.com</text>
+  <text x="600" y="1090" text-anchor="middle" font-family="Arial" font-size="14" fill="#8892a0">info@example.com</text>
+  <text x="600" y="1120" text-anchor="middle" font-family="Arial" font-size="14" fill="#8892a0">+49 (0) 123 456 789</text>
+  
+  <text x="600" y="1300" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a6a7a">© 2026 All Rights Reserved</text>
+  
+  <rect x="0" y="1590" width="1200" height="10" fill="url(#28_back_cover_tealGrad)"/>
+  
+  <path d="M0,0 L80,0 L80,5 L5,5 L5,80 L0,80 Z" fill="#00d4aa" opacity="0.5"/>
+  <path d="M1200,0 L1120,0 L1120,5 L1195,5 L1195,80 L1200,80 Z" fill="#00d4aa" opacity="0.5"/>
+  <path d="M0,1600 L80,1600 L80,1595 L5,1595 L5,1520 L0,1520 Z" fill="#00d4aa" opacity="0.5"/>
+  <path d="M1200,1600 L1120,1600 L1120,1595 L1195,1595 L1195,1520 L1200,1520 Z" fill="#00d4aa" opacity="0.5"/>
+</svg>

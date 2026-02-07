@@ -1,0 +1,45 @@
+services:
+
+  traefik:
+    image: traefik:3.6
+    command:
+      - --log.level=DEBUG
+      - --entrypoints.http.address=:80
+      - --entrypoints.https.address=:443
+      - --providers.docker=true
+      - --api=true
+      - --api.dashboard=true
+      - --api.insecure=true
+      - --accesslog=true
+
+      - --certificatesresolvers.letsencrypt.acme.httpchallenge=true
+      - --certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=http
+      - --certificatesresolvers.letsencrypt.acme.email=me@nils-carstensen.de
+      - --certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json
+    labels:
+      # Redirect all HTTP traffic to HTTPS
+      - traefik.http.routers.to-https.rule=HostRegexp(`{host:.+}`)
+      - traefik.http.routers.to-https.entrypoints=http
+      - traefik.http.routers.to-https.middlewares=to-https
+
+      - "traefik.http.routers.dashboard.rule=Host(`govaguard.com`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
+      - "traefik.http.routers.dashboard.service=api@internal"
+
+      - traefik.http.routers.traefik.service=api@internal
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./data/letsencrypt:/letsencrypt
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  govaguard:
+    ports:
+      - 8080:8080
+    image: govaguard/govaguard
+    build: .
+    labels:
+      - traefik.http.routers.https.rule=Host(`govaguard.com`)
+      - traefik.http.routers.https.entrypoints=https
+      - traefik.http.routers.https.tls=true
+      - traefik.http.routers.https.tls.certresolver=letsencrypt

@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </linearGradient>
+    <linearGradient id="tealGrad4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0891b2"/>
+      <stop offset="100%" style="stop-color:#00d4aa"/>
+    </linearGradient>
+    <linearGradient id="pillar1" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#0891b2"/>
+      <stop offset="100%" style="stop-color:#00d4aa"/>
+    </linearGradient>
+    <linearGradient id="pillar2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#0d7377"/>
+      <stop offset="100%" style="stop-color:#14b8a6"/>
+    </linearGradient>
+    <linearGradient id="pillar3" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#065f46"/>
+      <stop offset="100%" style="stop-color:#10b981"/>
+    </linearGradient>
+    <filter id="glow4">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid4" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a3a5c" stroke-width="0.5" opacity="0.15"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="700" fill="url(#bgGrad4)"/>
+  <rect width="1200" height="700" fill="url(#grid4)"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="60" fill="#0d1f3c"/>
+  <line x1="0" y1="60" x2="1200" y2="60" stroke="#00d4aa" stroke-width="2"/>
+  <text x="600" y="40" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#ffffff">THE THREE PILLARS OF SOVEREIGN CLOUD</text>
+  
+  <!-- Roof / Pediment -->
+  <polygon points="100,140 600,80 1100,140" fill="none" stroke="#00d4aa" stroke-width="2"/>
+  <polygon points="150,135 600,90 1050,135" fill="#0d1f3c"/>
+  <text x="600" y="120" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#00d4aa">DIGITAL SOVEREIGNTY</text>
+  
+  <!-- Pillar 1: Data Sovereignty -->
+  <g transform="translate(150, 160)">
+    <rect x="0" y="0" width="280" height="420" rx="8" fill="#0d1f3c" stroke="#00d4aa" stroke-width="2"/>
+    <rect x="0" y="0" width="280" height="8" rx="4" fill="url(#pillar1)"/>
+    
+    <!-- Icon -->
+    <circle cx="140" cy="70" r="35" fill="none" stroke="#00d4aa" stroke-width="2"/>
+    <rect x="120" y="50" width="40" height="35" rx="4" fill="#00d4aa"/>
+    <circle cx="140" cy="95" r="8" fill="#00d4aa"/>
+    <line x1="140" y1="103" x2="140" y2="115" stroke="#00d4aa" stroke-width="3"/>
+    
+    <text x="140" y="135" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#00d4aa">DATA</text>
+    <text x="140" y="155" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#00d4aa">SOVEREIGNTY</text>
+    
+    <line x1="30" y1="175" x2="250" y2="175" stroke="#1a3a5c" stroke-width="1"/>
+    
+    <!-- Items -->
+    <circle cx="40" cy="210" r="4" fill="#00d4aa"/>
+    <text x="55" y="215" font-family="Arial" font-size="13" fill="#8892a0">Guaranteed data localization</text>
+    
+    <circle cx="40" cy="250" r="4" fill="#00d4aa"/>
+    <text x="55" y="255" font-family="Arial" font-size="13" fill="#8892a0">Control over access</text>
+    
+    <circle cx="40" cy="290" r="4" fill="#00d4aa"/>
+    <text x="55" y="295" font-family="Arial" font-size="13" fill="#8892a0">Visibility into processing</text>
+  </g>
+  
+  <!-- Pillar 2: Infrastructure Sovereignty -->
+  <g transform="translate(460, 160)">
+    <rect x="0" y="0" width="280" height="420" rx="8" fill="#0d1f3c" stroke="#14b8a6" stroke-width="2"/>
+    <rect x="0" y="0" width="280" height="8" rx="4" fill="url(#pillar2)"/>
+    
+    <!-- Icon (data center with flag) -->
+    <circle cx="140" cy="70" r="35" fill="none" stroke="#14b8a6" stroke-width="2"/>
+    <rect x="115" y="50" width="50" height="40" fill="none" stroke="#14b8a6" stroke-width="2"/>
+    <rect x="125" y="60" width="10" height="10" fill="#14b8a6"/>
+    <rect x="145" y="60" width="10" height="10" fill="#14b8a6"/>
+    <rect x="125" y="75" width="10" height="10" fill="#14b8a6"/>
+    <rect x="145" y="75" width="10" height="10" fill="#14b8a6"/>
+    <line x1="175" y1="45" x2="175" y2="70" stroke="#14b8a6" stroke-width="2"/>
+    <polygon points="175,45 175,55 185,50" fill="#14b8a6"/>
+    
+    <text x="140" y="135" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#14b8a6">INFRASTRUCTURE</text>
+    <text x="140" y="155" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#14b8a6">SOVEREIGNTY</text>
+    
+    <line x1="30" y1="175" x2="250" y2="175" stroke="#1a3a5c" stroke-width="1"/>
+    
+    <!-- Items -->
+    <circle cx="40" cy="210" r="4" fill="#14b8a6"/>
+    <text x="55" y="215" font-family="Arial" font-size="13" fill="#8892a0">Dedicated hardware</text>
+    
+    <circle cx="40" cy="250" r="4" fill="#14b8a6"/>
+    <text x="55" y="255" font-family="Arial" font-size="13" fill="#8892a0">Local operational teams</text>
+    
+    <circle cx="40" cy="290" r="4" fill="#14b8a6"/>
+    <text x="55" y="295" font-family="Arial" font-size="13" fill="#8892a0">Independent control planes</text>
+  </g>
+  
+  <!-- Pillar 3: Technology Sovereignty -->
+  <g transform="translate(770, 160)">
+    <rect x="0" y="0" width="280" height="420" rx="8" fill="#0d1f3c" stroke="#10b981" stroke-width="2"/>
+    <rect x="0" y="0" width="280" height="8" rx="4" fill="url(#pillar3)"/>
+    
+    <!-- Icon (gears) -->
+    <circle cx="140" cy="70" r="35" fill="none" stroke="#10b981" stroke-width="2"/>
+    <circle cx="130" cy="65" r="15" fill="none" stroke="#10b981" stroke-width="2"/>
+    <circle cx="130" cy="65" r="5" fill="#10b981"/>
+    <circle cx="155" cy="80" r="12" fill="none" stroke="#10b981" stroke-width="2"/>
+    <circle cx="155" cy="80" r="4" fill="#10b981"/>
+    
+    <text x="140" y="135" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#10b981">TECHNOLOGY</text>
+    <text x="140" y="155" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#10b981">SOVEREIGNTY</text>
+    
+    <line x1="30" y1="175" x2="250" y2="175" stroke="#1a3a5c" stroke-width="1"/>
+    
+    <!-- Items -->
+    <circle cx="40" cy="210" r="4" fill="#10b981"/>
+    <text x="55" y="215" font-family="Arial" font-size="13" fill="#8892a0">Open standards</text>
+    
+    <circle cx="40" cy="250" r="4" fill="#10b981"/>
+    <text x="55" y="255" font-family="Arial" font-size="13" fill="#8892a0">Data portability</text>
+    
+    <circle cx="40" cy="290" r="4" fill="#10b981"/>
+    <text x="55" y="295" font-family="Arial" font-size="13" fill="#8892a0">Freedom from lock-in</text>
+  </g>
+  
+  <!-- Base platform -->
+  <rect x="100" y="590" width="1000" height="15" rx="4" fill="#0d1f3c" stroke="#00d4aa" stroke-width="1"/>
+  <rect x="80" y="605" width="1040" height="20" rx="4" fill="#0a1628" stroke="#1a3a5c" stroke-width="1"/>
+  
+  <!-- Footer text -->
+  <text x="600" y="660" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a6a7a">The three pillars form the foundation of a comprehensive sovereign cloud strategy</text>
+</svg>

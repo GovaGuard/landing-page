@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Title}}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+<body>
+    <!-- Scanline overlay for terminal effect -->
+    <div class="scanlines"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/" style="text-decoration: none; color: inherit;">
+                    <span class="logo-bracket">[</span>
+                    <span class="logo-text">GOVAGUARD</span>
+                    <span class="logo-bracket">]</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="/#services" class="nav-link">Services</a>
+                <a href="/#expertise" class="nav-link">Expertise</a>
+                <a href="/whitepapers" class="nav-link">Whitepapers</a>
+                <a href="/#contact" class="nav-link nav-link-cta">Secure Consultation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="hero" style="padding: 120px 0 20px 0; min-height: auto;">
+        <div class="hero-container">
+            <div class="section-header" style="text-align: center; margin-bottom: 0;">
+                <span class="section-tag">// STRATEGIC INTELLIGENCE</span>
+                <h1 class="section-title" style="font-size: 3rem; margin-top: 20px;">Whitepapers & Research</h1>
+                <p class="specializations-intro" style="max-width: 800px; margin: 20px auto 0;">
+                    In-depth analysis and strategic guidance for critical security and sovereignty challenges
+                </p>
+            </div>
+        </div>
+        <div class="grid-overlay"></div>
+    </section>
+
+    <!-- Whitepapers Section -->
+    <section class="whitepapers" style="padding-top: 20px;">
+        <div class="section-container">
+            <div class="whitepaper-grid">
+                <div class="whitepaper-card featured">
+                    <div class="whitepaper-badge">
+                        <span class="badge-text">NEW</span>
+                        <span class="badge-year">2026</span>
+                    </div>
+                    <div class="whitepaper-content">
+                        <h3 class="whitepaper-title">Beyond GDPR: Building Digital Sovereignty Through Cloud Architecture</h3>
+                        <p class="whitepaper-subtitle">A Strategic Guide for European Enterprises in 2026</p>
+                        <p class="whitepaper-description">
+                            Comprehensive analysis of the sovereign cloud landscape covering regulatory imperatives (NIS2, DORA, EU Cloud Act),
+                            technical architectures, business case development, and implementation roadmaps. Includes 28 detailed infographics
+                            and diagrams covering the €630.93B market opportunity by 2033.
+                        </p>
+                        <div class="whitepaper-highlights">
+                            <div class="highlight-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Regulatory Compliance Framework</span>
+                            </div>
+                            <div class="highlight-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Technical Architecture Blueprints</span>
+                            </div>
+                            <div class="highlight-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>ROI & Business Case Analysis</span>
+                            </div>
+                            <div class="highlight-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Implementation Roadmap</span>
+                            </div>
+                        </div>
+                        <div class="whitepaper-meta">
+                            <span class="meta-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                </svg>
+                                48 Pages
+                            </span>
+                            <span class="meta-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <rect x="7" y="7" width="3" height="9"></rect>
+                                    <rect x="14" y="7" width="3" height="5"></rect>
+                                </svg>
+                                28 Visuals
+                            </span>
+                            <span class="meta-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                60 min read
+                            </span>
+                        </div>
+                        <div class="whitepaper-actions">
+                            <a href="/whitepapers/sovereign-cloud/visuals.html" class="btn btn-primary" target="_blank">
+                                <span class="btn-text">View Visual Gallery</span>
+                                <span class="btn-arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="whitepapers-cta">
+                <p class="cta-text">Interested in security consulting for your organization?</p>
+                <a href="/#contact" class="btn btn-secondary">
+                    <span class="btn-text">Get in Touch</span>
+                    <span class="btn-arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-bracket">[</span>
+                        <span class="logo-text">GOVAGUARD</span>
+                        <span class="logo-bracket">]</span>
+                    </div>
+                    <p class="footer-tagline">
+                        Executive Security Consulting<br>
+                        CTO & CISO Advisory Services
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Services</h4>
+                        <ul class="footer-list">
+                            <li><a href="/#services">CTO Advisory</a></li>
+                            <li><a href="/#services">CISO Consulting</a></li>
+                            <li><a href="/#services">Threat Intelligence</a></li>
+                            <li><a href="/#services">Infrastructure Hardening</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Company</h4>
+                        <ul class="footer-list">
+                            <li><a href="/#expertise">Expertise</a></li>
+                            <li><a href="/#contact">Contact</a></li>
+                            <li><a href="/imprint">Imprint</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Resources</h4>
+                        <ul class="footer-list">
+                            <li><a href="/whitepapers">Whitepapers</a></li>
+                            <li><a href="/whitepapers/sovereign-cloud/visuals.html">Visual Gallery</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 GovaGuard. All rights reserved.</p>
+                <div class="footer-security">
+                    <span class="security-badge">
+                        <span class="status-dot"></span>
+                        All systems operational
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

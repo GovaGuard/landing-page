@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="18_architecture_patterns_bgGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0a1628"/><stop offset="100%" style="stop-color:#0d1f3c"/></linearGradient>
+    <linearGradient id="18_architecture_patterns_tealGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#0891b2"/><stop offset="100%" style="stop-color:#00d4aa"/></linearGradient>
+    <linearGradient id="barGrad" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" style="stop-color:#0891b2"/><stop offset="100%" style="stop-color:#00d4aa"/></linearGradient>
+    <filter id="18_architecture_patterns_glow"><feGaussianBlur stdDeviation="2"/></filter>
+    <pattern id="18_architecture_patterns_grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0L0 0 0 40" fill="none" stroke="#1a3a5c" stroke-width="0.5" opacity="0.15"/></pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#18_architecture_patterns_bgGrad)"/><rect width="100%" height="100%" fill="url(#18_architecture_patterns_grid)"/>
+  <rect x="0" y="0" width="100%" height="60" fill="#0d1f3c"/><line x1="0" y1="60" x2="100%" y2="60" stroke="#00d4aa" stroke-width="2"/>
+  <text x="50%" y="40" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#fff">SOVEREIGN CLOUD ARCHITECTURE PATTERNS</text>
+
+
+  <g transform="translate(60,90)">
+    <rect x="0" y="0" width="360" height="450" rx="8" fill="#0d1f3c" stroke="#00d4aa" stroke-width="2"/>
+    <rect x="0" y="0" width="360" height="60" rx="8" fill="#00d4aa"/>
+    <rect x="0" y="50" width="360" height="10" fill="#00d4aa"/>
+    <text x="30" y="42" font-family="Arial" font-size="32" font-weight="bold" fill="#0a1628">1</text>
+    <text x="180" y="42" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0a1628">HYBRID SOVEREIGN</text>
+    <text x="180" y="90" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">Best of Both Worlds</text>
+    <line x1="30" y1="110" x2="330" y2="110" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="180" y="135" text-anchor="middle" font-family="Arial" font-size="10" fill="#5a6a7a">Combines sovereign and public cloud</text>
+    <text x="180" y="150" text-anchor="middle" font-family="Arial" font-size="10" fill="#5a6a7a">with unified governance</text>
+    <rect x="20" y="170" width="320" height="180" rx="6" fill="#0a1628" stroke="#00d4aa" stroke-width="1" opacity="0.5"/>
+    <text x="180" y="270" text-anchor="middle" font-family="Arial" font-size="11" fill="#00d4aa">[Architecture Diagram]</text>
+  </g>
+
+  <g transform="translate(440,90)">
+    <rect x="0" y="0" width="360" height="450" rx="8" fill="#0d1f3c" stroke="#fbbf24" stroke-width="2"/>
+    <rect x="0" y="0" width="360" height="60" rx="8" fill="#fbbf24"/>
+    <rect x="0" y="50" width="360" height="10" fill="#fbbf24"/>
+    <text x="30" y="42" font-family="Arial" font-size="32" font-weight="bold" fill="#0a1628">2</text>
+    <text x="180" y="42" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0a1628">DEDICATED REGION</text>
+    <text x="180" y="90" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">Maximum Isolation</text>
+    <line x1="30" y1="110" x2="330" y2="110" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="180" y="135" text-anchor="middle" font-family="Arial" font-size="10" fill="#5a6a7a">Completely isolated region</text>
+    <text x="180" y="150" text-anchor="middle" font-family="Arial" font-size="10" fill="#5a6a7a">with no external connections</text>
+    <rect x="20" y="170" width="320" height="180" rx="6" fill="#0a1628" stroke="#fbbf24" stroke-width="1" opacity="0.5"/>
+    <text x="180" y="270" text-anchor="middle" font-family="Arial" font-size="11" fill="#fbbf24">[Architecture Diagram]</text>
+  </g>
+
+  <g transform="translate(820,90)">
+    <rect x="0" y="0" width="360" height="450" rx="8" fill="#0d1f3c" stroke="#10b981" stroke-width="2"/>
+    <rect x="0" y="0" width="360" height="60" rx="8" fill="#10b981"/>
+    <rect x="0" y="50" width="360" height="10" fill="#10b981"/>
+    <text x="30" y="42" font-family="Arial" font-size="32" font-weight="bold" fill="#0a1628">3</text>
+    <text x="180" y="42" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0a1628">PARTNER-OPERATED</text>
+    <text x="180" y="90" text-anchor="middle" font-family="Arial" font-size="11" fill="#8892a0">Trusted Local Operations</text>
+    <line x1="30" y1="110" x2="330" y2="110" stroke="#1a3a5c" stroke-width="1"/>
+    <text x="180" y="135" text-anchor="middle" font-family="Arial" font-size="10" fill="#5a6a7a">Hyperscaler tech operated by</text>
+    <text x="180" y="150" text-anchor="middle" font-family="Arial" font-size="10" fill="#5a6a7a">local European partner</text>
+    <rect x="20" y="170" width="320" height="180" rx="6" fill="#0a1628" stroke="#10b981" stroke-width="1" opacity="0.5"/>
+    <text x="180" y="270" text-anchor="middle" font-family="Arial" font-size="11" fill="#10b981">[Architecture Diagram]</text>
+  </g>
+<rect x="0" y="595" width="100%" height="5" fill="url(#18_architecture_patterns_tealGrad)"/></svg>
