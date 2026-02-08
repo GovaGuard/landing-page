@@ -5,7 +5,385 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{.Title}}</title>
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <style>
+        /* Intelligence Briefing Aesthetic */
+        .wp-briefing-card {
+            display: grid;
+            grid-template-columns: 45% 55%;
+            gap: 0;
+            background: var(--color-surface);
+            border: 2px solid var(--color-primary);
+            position: relative;
+            overflow: hidden;
+            margin-top: 60px;
+            box-shadow: 0 0 40px rgba(0, 217, 255, 0.15), 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Left Side: Document Preview */
+        .wp-preview-side {
+            background: linear-gradient(135deg, #0a0e27 0%, #0d1428 100%);
+            padding: 60px 40px;
+            position: relative;
+            border-right: 2px solid var(--color-primary);
+            overflow: hidden;
+        }
+
+        .wp-preview-side::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 217, 255, 0.03) 2px,
+                    rgba(0, 217, 255, 0.03) 4px
+                );
+            pointer-events: none;
+            animation: scan 8s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(20px); }
+        }
+
+        .wp-preview-header {
+            position: relative;
+            z-index: 2;
+        }
+
+        .wp-classification {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .wp-classification::before {
+            content: '█';
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0.3; }
+        }
+
+        .wp-doc-visual {
+            margin-top: 40px;
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .wp-doc-visual::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--color-primary), var(--color-accent));
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+
+        .wp-preview-side:hover .wp-doc-visual::after {
+            opacity: 0.3;
+        }
+
+        .wp-page-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .wp-page-line {
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-primary), transparent);
+            opacity: 0.4;
+            animation: fadeInLine 0.8s ease forwards;
+        }
+
+        .wp-page-line:nth-child(1) { width: 90%; animation-delay: 0.1s; opacity: 0; }
+        .wp-page-line:nth-child(2) { width: 85%; animation-delay: 0.2s; opacity: 0; }
+        .wp-page-line:nth-child(3) { width: 95%; animation-delay: 0.3s; opacity: 0; }
+        .wp-page-line:nth-child(4) { width: 70%; animation-delay: 0.4s; opacity: 0; }
+        .wp-page-line:nth-child(5) { width: 88%; animation-delay: 0.5s; opacity: 0; }
+        .wp-page-line:nth-child(6) { width: 92%; animation-delay: 0.6s; opacity: 0; }
+
+        @keyframes fadeInLine {
+            to {
+                opacity: 0.4;
+            }
+        }
+
+        .wp-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .wp-stat-block {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 217, 255, 0.05);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .wp-stat-block:hover {
+            background: rgba(0, 217, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .wp-stat-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .wp-stat-label {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.75rem;
+            color: var(--color-text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Right Side: Intelligence Content */
+        .wp-content-side {
+            padding: 60px 50px;
+            position: relative;
+            background: linear-gradient(135deg, #0d1428 0%, #0a0e27 100%);
+        }
+
+        .wp-featured-badge {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background: var(--color-primary);
+            color: #0a0e27;
+            padding: 12px 24px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+            box-shadow: 0 4px 20px rgba(0, 217, 255, 0.4);
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .wp-content-header {
+            margin-bottom: 35px;
+        }
+
+        .wp-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-text);
+            line-height: 1.3;
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+        }
+
+        .wp-subtitle {
+            font-family: 'Courier Prime', monospace;
+            font-size: 1rem;
+            color: var(--color-accent);
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        .wp-section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-primary), transparent);
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .wp-section-divider::before {
+            content: '//';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-family: 'Courier Prime', monospace;
+            color: var(--color-primary);
+            font-size: 0.9rem;
+        }
+
+        .wp-description {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--color-text-dim);
+            margin-bottom: 35px;
+        }
+
+        .wp-capabilities {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+
+        .wp-capability {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 15px;
+            background: rgba(0, 255, 136, 0.03);
+            border-left: 3px solid var(--color-accent);
+            font-size: 0.9rem;
+            color: var(--color-text);
+            font-family: 'Courier Prime', monospace;
+            transition: all 0.3s ease;
+        }
+
+        .wp-capability:hover {
+            background: rgba(0, 255, 136, 0.08);
+            transform: translateX(5px);
+        }
+
+        .wp-capability-icon {
+            color: var(--color-accent);
+            font-size: 1.2rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .wp-cta-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .wp-cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--color-primary);
+            color: #0a0e27;
+            padding: 18px 40px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
+        }
+
+        .wp-cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .wp-cta-button:hover::before {
+            left: 100%;
+        }
+
+        .wp-cta-button:hover {
+            box-shadow: 0 0 50px rgba(0, 217, 255, 0.6), 0 0 20px rgba(0, 255, 136, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .wp-cta-arrow {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .wp-cta-button:hover .wp-cta-arrow {
+            transform: translateX(5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .wp-briefing-card {
+                grid-template-columns: 1fr;
+            }
+
+            .wp-preview-side {
+                border-right: none;
+                border-bottom: 2px solid var(--color-primary);
+            }
+
+            .wp-capabilities {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .wp-preview-side,
+            .wp-content-side {
+                padding: 40px 30px;
+            }
+
+            .wp-title {
+                font-size: 1.4rem;
+            }
+
+            .wp-stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+            }
+
+            .wp-stat-number {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Animation on load */
+        .wp-briefing-card {
+            animation: cardReveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes cardReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Scanline overlay for terminal effect -->
@@ -45,83 +423,97 @@
     </section>
 
     <!-- Whitepapers Section -->
-    <section class="whitepapers" style="padding-top: 20px;">
+    <section class="whitepapers" style="padding-top: 20px; padding-bottom: 80px;">
         <div class="section-container">
-            <div class="whitepaper-grid">
-                <div class="whitepaper-card featured">
-                    <div class="whitepaper-badge">
-                        <span class="badge-text">NEW</span>
-                        <span class="badge-year">2026</span>
-                    </div>
-                    <div class="whitepaper-content">
-                        <h3 class="whitepaper-title">Beyond GDPR: Building Digital Sovereignty Through Cloud Architecture</h3>
-                        <p class="whitepaper-subtitle">A Strategic Guide for European Enterprises in 2026</p>
-                        <p class="whitepaper-description">
-                            Comprehensive analysis of the sovereign cloud landscape covering regulatory imperatives (NIS2, DORA, EU Cloud Act),
-                            technical architectures, business case development, and implementation roadmaps. Includes 28 detailed infographics
-                            and diagrams covering the €630.93B market opportunity by 2033.
-                        </p>
-                        <div class="whitepaper-highlights">
-                            <div class="highlight-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>Regulatory Compliance Framework</span>
-                            </div>
-                            <div class="highlight-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>Technical Architecture Blueprints</span>
-                            </div>
-                            <div class="highlight-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>ROI & Business Case Analysis</span>
-                            </div>
-                            <div class="highlight-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>Implementation Roadmap</span>
+
+            <!-- Intelligence Briefing Card -->
+            <div class="wp-briefing-card">
+
+                <!-- Left Side: Document Preview -->
+                <div class="wp-preview-side">
+                    <div class="wp-preview-header">
+                        <div class="wp-classification">
+                            CLASSIFIED BRIEFING // 2026
+                        </div>
+
+                        <!-- Document Visual Representation -->
+                        <div class="wp-doc-visual">
+                            <div class="wp-page-lines">
+                                <div class="wp-page-line"></div>
+                                <div class="wp-page-line"></div>
+                                <div class="wp-page-line"></div>
+                                <div class="wp-page-line"></div>
+                                <div class="wp-page-line"></div>
+                                <div class="wp-page-line"></div>
                             </div>
                         </div>
-                        <div class="whitepaper-meta">
-                            <span class="meta-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                    <polyline points="14 2 14 8 20 8"></polyline>
-                                </svg>
-                                48 Pages
-                            </span>
-                            <span class="meta-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                    <rect x="7" y="7" width="3" height="9"></rect>
-                                    <rect x="14" y="7" width="3" height="5"></rect>
-                                </svg>
-                                28 Visuals
-                            </span>
-                            <span class="meta-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
-                                60 min read
-                            </span>
-                        </div>
-                        <div class="whitepaper-actions">
-                            <a href="/whitepapers/sovereign-cloud/visuals.html" class="btn btn-primary" target="_blank">
-                                <span class="btn-text">View Visual Gallery</span>
-                                <span class="btn-arrow">→</span>
-                            </a>
+
+                        <!-- Statistics Grid -->
+                        <div class="wp-stats-grid">
+                            <div class="wp-stat-block">
+                                <span class="wp-stat-number">48</span>
+                                <span class="wp-stat-label">Pages</span>
+                            </div>
+                            <div class="wp-stat-block">
+                                <span class="wp-stat-number">28</span>
+                                <span class="wp-stat-label">Visuals</span>
+                            </div>
+                            <div class="wp-stat-block">
+                                <span class="wp-stat-number">60</span>
+                                <span class="wp-stat-label">Min Read</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Right Side: Content -->
+                <div class="wp-content-side">
+                    <div class="wp-featured-badge">NEW 2026</div>
+
+                    <div class="wp-content-header">
+                        <h3 class="wp-title">Beyond GDPR: Building Digital Sovereignty Through Cloud Architecture</h3>
+                        <p class="wp-subtitle">A Strategic Guide for European Enterprises in 2026</p>
+                    </div>
+
+                    <div class="wp-section-divider"></div>
+
+                    <p class="wp-description">
+                        Comprehensive analysis of the sovereign cloud landscape covering regulatory imperatives (NIS2, DORA, EU Cloud Act), technical architectures, business case development, and implementation roadmaps. Includes 28 detailed infographics exploring the €630.93B market opportunity by 2033.
+                    </p>
+
+                    <!-- Capabilities Grid -->
+                    <div class="wp-capabilities">
+                        <div class="wp-capability">
+                            <span class="wp-capability-icon">▸</span>
+                            <span>Regulatory Compliance Framework</span>
+                        </div>
+                        <div class="wp-capability">
+                            <span class="wp-capability-icon">▸</span>
+                            <span>Technical Architecture Blueprints</span>
+                        </div>
+                        <div class="wp-capability">
+                            <span class="wp-capability-icon">▸</span>
+                            <span>ROI & Business Case Analysis</span>
+                        </div>
+                        <div class="wp-capability">
+                            <span class="wp-capability-icon">▸</span>
+                            <span>Implementation Roadmap</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Section -->
+                    <div class="wp-cta-section">
+                        <a href="/whitepapers/sovereign-cloud/visuals.html" class="wp-cta-button" target="_blank">
+                            <span>View Visual Gallery</span>
+                            <span class="wp-cta-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="whitepapers-cta">
+            <!-- Bottom CTA -->
+            <div class="whitepapers-cta" style="margin-top: 60px;">
                 <p class="cta-text">Interested in security consulting for your organization?</p>
                 <a href="/#contact" class="btn btn-secondary">
                     <span class="btn-text">Get in Touch</span>
