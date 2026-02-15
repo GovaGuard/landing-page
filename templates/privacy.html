@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - GovaGuard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        /* Print-only header */
+        .print-header {
+            display: none;
+        }
+
+        @media print {
+            /* Show print header */
+            .print-header {
+                display: block !important;
+                text-align: center;
+                margin-bottom: 30px;
+                padding-bottom: 20px;
+                border-bottom: 2px solid #003399;
+            }
+
+            .print-header h1 {
+                font-size: 20pt;
+                color: #003399;
+                margin: 0 0 5px 0;
+            }
+
+            .print-header p {
+                font-size: 10pt;
+                color: #666;
+                margin: 5px 0;
+            }
+
+            /* Hide navigation, footer, and buttons for print */
+            .nav, .footer, .btn, .scanlines, .print-button-container {
+                display: none !important;
+            }
+
+            /* Reset backgrounds and colors for print */
+            body {
+                background: white !important;
+                color: black !important;
+            }
+
+            .imprint-page {
+                background: white !important;
+            }
+
+            .section-container {
+                max-width: 100% !important;
+                padding: 0 !important;
+            }
+
+            .imprint-content {
+                background: white !important;
+                padding: 20px !important;
+            }
+
+            /* Style headings for print */
+            .section-title {
+                color: #003399 !important;
+                font-size: 24pt !important;
+                border-bottom: 2px solid #003399 !important;
+                padding-bottom: 10px !important;
+                margin-bottom: 20px !important;
+            }
+
+            .section-tag {
+                color: #666 !important;
+                font-size: 9pt !important;
+            }
+
+            .imprint-heading {
+                color: #003399 !important;
+                font-size: 14pt !important;
+                margin-top: 20px !important;
+                page-break-after: avoid !important;
+            }
+
+            .imprint-text, .imprint-text li {
+                color: #333 !important;
+                font-size: 11pt !important;
+                line-height: 1.6 !important;
+            }
+
+            /* Grid layout for print */
+            .imprint-grid {
+                display: block !important;
+                page-break-inside: avoid !important;
+            }
+
+            .imprint-block {
+                margin-bottom: 20px !important;
+                page-break-inside: avoid !important;
+            }
+
+            .imprint-disclaimer {
+                page-break-inside: avoid !important;
+                margin-bottom: 20px !important;
+            }
+
+            /* Page breaks */
+            @page {
+                size: A4;
+                margin: 2cm;
+            }
+
+            h1, h2, h3 {
+                page-break-after: avoid !important;
+            }
+
+            /* Links */
+            a {
+                color: #003399 !important;
+                text-decoration: underline !important;
+            }
+
+            /* Lists */
+            ul {
+                margin-left: 20px !important;
+            }
+
+            li {
+                margin-bottom: 5px !important;
+            }
+        }
+
+        /* Print button styling */
+        .print-button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .btn-print {
+            background: var(--primary);
+            color: var(--bg-dark);
+            padding: 12px 32px;
+            border: none;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-print:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 212, 170, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Scanline overlay for terminal effect -->
+    <div class="scanlines"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.25rem;">
+                    <span class="logo-bracket">[</span>
+                    <span class="logo-text">GOVAGUARD</span>
+                    <span class="logo-bracket">]</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="/#services" class="nav-link">Services</a>
+                <a href="/#expertise" class="nav-link">Expertise</a>
+                <a href="/#contact" class="nav-link nav-link-cta">Secure Consultation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Privacy Policy Content -->
+    <section class="imprint-page">
+        <div class="section-container">
+            <div class="imprint-content">
+                <!-- Print-only header -->
+                <div class="print-header">
+                    <h1>GovaGuard GbR</h1>
+                    <p>govaguard.com</p>
+                    <p style="font-weight: bold; margin-top: 15px;">Privacy Policy</p>
+                    <p>Last Updated: January 2026</p>
+                </div>
+
+                <span class="section-tag">// DATA PROTECTION</span>
+                <h1 class="section-title">Privacy Policy</h1>
+
+                <div class="print-button-container">
+                    <button onclick="window.print()" class="btn-print">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                            <rect x="6" y="14" width="12" height="8"></rect>
+                        </svg>
+                        Download as PDF
+                    </button>
+                </div>
+
+                <div class="imprint-grid">
+                    <div class="imprint-block">
+                        <h3 class="imprint-heading">Data Controller</h3>
+                        <p class="imprint-text">
+                            GovaGuard GbR ("we", "us", "our") operates the website <strong>govaguard.com</strong>,
+                            which serves as a business-focused landing page.
+                        </p>
+                    </div>
+
+                    <div class="imprint-block">
+                        <h3 class="imprint-heading">Contact</h3>
+                        <p class="imprint-text">
+                            📧 <strong>contact@govaguard.com</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="imprint-disclaimer">
+                    <h3 class="imprint-heading">What data do we collect?</h3>
+                    <p class="imprint-text" style="margin-bottom: 1rem;">
+                        We collect the following categories of personal data:
+                    </p>
+                    <p class="imprint-text" style="margin-bottom: 0.5rem;">
+                        <strong>When visiting the website:</strong>
+                    </p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1rem; color: var(--text-secondary);">
+                        <li>IP address</li>
+                        <li>Date and time of access</li>
+                        <li>Browser and operating system information</li>
+                        <li>Requested pages</li>
+                    </ul>
+                    <p class="imprint-text" style="margin-bottom: 0.5rem;">
+                        <strong>When contacting us via the website:</strong>
+                    </p>
+                    <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                        <li>Name</li>
+                        <li>Email address</li>
+                        <li>Organization name</li>
+                        <li>Requested service</li>
+                        <li>Message content</li>
+                    </ul>
+                </div>
+
+                <div class="imprint-disclaimer">
+                    <h3 class="imprint-heading">How do we collect your data?</h3>
+                    <p class="imprint-text">
+                        Your data is collected in the following ways:
+                    </p>
+                    <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                        <li>Automatically, when you visit the website (server access logs)</li>
+                        <li>When you voluntarily submit information via the contact form</li>
+                    </ul>
+                </div>
+
+                <div class="imprint-disclaimer">
+                    <h3 class="imprint-heading">How will we use your data?</h3>
+                    <p class="imprint-text" style="margin-bottom: 1rem;">
+                        We use your data solely to:
+                    </p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1rem; color: var(--text-secondary);">
+                        <li><strong>Ensure the technical operation, security, and stability of the website</strong><br>
+                            <em style="font-size: 0.9rem;">(Legal basis: Art. 6(1)(f) GDPR – legitimate interest)</em></li>
+                        <li style="margin-top: 0.5rem;"><strong>Process and respond to business inquiries</strong><br>
+                            <em style="font-size: 0.9rem;">(Legal basis: Art. 6(1)(b) GDPR – pre-contractual measures)</em></li>
+                    </ul>
+                    <p class="imprint-text">
+                        Your data is <strong>not</strong> used for advertising, tracking, or profiling purposes.
+                    </p>
+                </div>
+
+                <div class="imprint-disclaimer">
+                    <h3 class="imprint-heading">Third-party services</h3>
+                    <p class="imprint-text" style="margin-bottom: 1rem;">
+                        govaguard.com does <strong>not</strong> use:
+                    </p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1rem; color: var(--text-secondary);">
+                        <li>Analytics tools</li>
+                        <li>Tracking services</li>
+                        <li>Advertising platforms</li>
+                        <li>Embedded third-party content</li>
+                    </ul>
+                    <p class="imprint-text" style="margin-bottom: 1rem;">
+                        The website is hosted by <strong>all-inkl.com</strong>, which processes technical access data
+                        as part of standard hosting operations.
+                    </p>
+                    <p class="imprint-text">
+                        All personal data is processed exclusively within the European Union.<br>
+                        <strong>No data is transferred to third countries outside the EU or EEA.</strong>
+                    </p>
+                </div>
+
+                <div class="imprint-disclaimer">
+                    <h3 class="imprint-heading">How do we store your data?</h3>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1rem; color: var(--text-secondary);">
+                        <li>Website access data is stored in standard server logs generated by the hosting provider</li>
+                        <li>Contact messages are sent directly to <strong>contact@govaguard.com</strong></li>
+                        <li>Contact data is <strong>not stored in a database</strong> and is retained only in email inboxes for business correspondence</li>
+                    </ul>
+                    <p class="imprint-text">
+                        Data is deleted once it is no longer required for its original purpose or to comply with legal obligations.
+                    </p>
+                </div>
+
+                <div class="imprint-disclaimer">
+                    <h3 class="imprint-heading">Marketing</h3>
+                    <p class="imprint-text">
+                        We do <strong>not</strong> send marketing or promotional communications and do <strong>not</strong>
+                        share personal data with marketing or advertising partners.
+                    </p>
+                </div>
+
+                <div class="imprint-disclaimer">
+                    <h3 class="imprint-heading">What are your data protection rights?</h3>
+                    <p class="imprint-text" style="margin-bottom: 1rem;">
+                        Under the General Data Protection Regulation (GDPR), you have the right to:
+                    </p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1rem; color: var(--text-secondary);">
+                        <li>Access your personal data</li>
+                        <li>Rectify inaccurate or incomplete data</li>
+                        <li>Request deletion of your data</li>
+                        <li>Restrict or object to processing</li>
+                        <li>Request data portability, where applicable</li>
+                    </ul>
+                    <p class="imprint-text">
+                        To exercise your rights, contact us at:<br>
+                        📧 <strong>contact@govaguard.com</strong>
+                    </p>
+                    <p class="imprint-text">
+                        We will respond within one month.
+                    </p>
+                </div>
+
+                <div class="imprint-disclaimer">
+                    <h3 class="imprint-heading">Cookies</h3>
+                    <p class="imprint-text" style="margin-bottom: 1rem;">
+                        govaguard.com uses <strong>only technically necessary cookies</strong>, if any,
+                        required for basic website functionality.
+                    </p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1rem; color: var(--text-secondary);">
+                        <li>No analytics cookies</li>
+                        <li>No tracking cookies</li>
+                        <li>No marketing cookies</li>
+                    </ul>
+                    <p class="imprint-text">
+                        Because only essential cookies are used, no cookie consent banner is required.
+                    </p>
+                </div>
+
+                <div class="imprint-disclaimer">
+                    <h3 class="imprint-heading">Privacy policies of other websites</h3>
+                    <p class="imprint-text">
+                        govaguard.com may contain links to external websites. This privacy policy applies only to govaguard.com.
+                        Please review the privacy policies of external websites separately.
+                    </p>
+                </div>
+
+                <div class="imprint-disclaimer">
+                    <h3 class="imprint-heading">Changes to our privacy policy</h3>
+                    <p class="imprint-text" style="margin-bottom: 1rem;">
+                        We keep this privacy policy under regular review and update it as necessary.
+                        The current version will always be published on this page.
+                    </p>
+                    <p class="imprint-text">
+                        <strong>Last updated:</strong> January 2026
+                    </p>
+                </div>
+
+                <div class="imprint-disclaimer">
+                    <h3 class="imprint-heading">How to contact us</h3>
+                    <p class="imprint-text">
+                        If you have questions about this privacy policy or the data we hold about you, please contact us:
+                    </p>
+                    <p class="imprint-text">
+                        <strong>GovaGuard GbR</strong><br>
+                        📧 <strong>contact@govaguard.com</strong>
+                    </p>
+                </div>
+
+                <div class="imprint-disclaimer">
+                    <h3 class="imprint-heading">Supervisory authority</h3>
+                    <p class="imprint-text">
+                        GovaGuard GbR is based in <strong>North Rhine-Westphalia, Germany</strong>.<br>
+                        The competent supervisory authority is:
+                    </p>
+                    <p class="imprint-text">
+                        <strong>Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW)</strong><br>
+                        Kavalleriestr. 2–4, 40213 Düsseldorf, Germany<br>
+                        Website: <a href="https://www.ldi.nrw.de" style="color: var(--primary); text-decoration: underline;">https://www.ldi.nrw.de</a>
+                    </p>
+                </div>
+
+                <div style="margin-top: var(--space-2xl); text-align: center;">
+                    <a href="/" class="btn btn-primary">
+                        <span class="btn-arrow" style="transform: rotate(180deg);">→</span>
+                        <span class="btn-text">Back to Home</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-bracket">[</span>
+                        <span class="logo-text">GOVAGUARD</span>
+                        <span class="logo-bracket">]</span>
+                    </div>
+                    <p class="footer-tagline">
+                        Executive Security Consulting<br>
+                        CTO & CISO Advisory Services
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Services</h4>
+                        <ul class="footer-list">
+                            <li><a href="/#services">CTO Advisory</a></li>
+                            <li><a href="/#services">CISO Consulting</a></li>
+                            <li><a href="/#services">Threat Intelligence</a></li>
+                            <li><a href="/#services">Infrastructure Hardening</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Company</h4>
+                        <ul class="footer-list">
+                            <li><a href="/#expertise">Expertise</a></li>
+                            <li><a href="/#contact">Contact</a></li>
+                            <li><a href="/imprint">Imprint</a></li>
+                            <li><a href="/privacy">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Resources</h4>
+                        <ul class="footer-list">
+                            <li><a href="/whitepapers">Whitepapers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 GovaGuard. All rights reserved.</p>
+                <div class="footer-security">
+                    <span class="security-badge">
+                        <span class="status-dot"></span>
+                        All systems operational
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -40,6 +40,14 @@ func main() {
 		tmpl.ExecuteTemplate(w, "imprint.html", data)
 	})
 
+	// Privacy Policy page
+	http.HandleFunc("/privacy", func(w http.ResponseWriter, r *http.Request) {
+		data := PageData{
+			Title: "Privacy Policy - GovaGuard",
+		}
+		tmpl.ExecuteTemplate(w, "privacy.html", data)
+	})
+
 	// Whitepapers page
 	http.HandleFunc("/whitepapers", func(w http.ResponseWriter, r *http.Request) {
 		data := PageData{
