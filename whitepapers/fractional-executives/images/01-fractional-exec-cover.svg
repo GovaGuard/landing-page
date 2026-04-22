@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1100" width="800" height="1100">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0A1628"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <filter id="glowCyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowGreen" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00D9FF" stroke-width="0.3" opacity="0.08"/>
+    </pattern>
+    <pattern id="hexPattern" width="60" height="52" patternUnits="userSpaceOnUse">
+      <polygon points="30,2 55,15 55,37 30,50 5,37 5,15" fill="none" stroke="#00D9FF" stroke-width="0.4" opacity="0.06"/>
+    </pattern>
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="4" y2="0" stroke="#00D9FF" stroke-width="0.3" opacity="0.04"/>
+    </pattern>
+    <linearGradient id="circuitGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00D9FF" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#00FF88" stop-opacity="0.05"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="1100" fill="url(#bgGrad)"/>
+  <rect width="800" height="1100" fill="url(#gridPattern)"/>
+  <rect width="800" height="1100" fill="url(#hexPattern)"/>
+  <rect width="800" height="1100" fill="url(#scanlines)"/>
+
+  <!-- Decorative circuit lines -->
+  <g opacity="0.12" stroke="#00D9FF" stroke-width="1" fill="none">
+    <path d="M0,200 H200 L230,230 V400"/>
+    <path d="M800,300 H600 L570,330 V500"/>
+    <path d="M100,800 V700 H300 L330,670 H500"/>
+    <path d="M700,900 V800 H550 L520,770"/>
+    <circle cx="200" cy="200" r="3" fill="#00D9FF"/>
+    <circle cx="230" cy="400" r="3" fill="#00D9FF"/>
+    <circle cx="600" cy="300" r="3" fill="#00D9FF"/>
+    <circle cx="570" cy="500" r="3" fill="#00D9FF"/>
+    <circle cx="330" cy="670" r="3" fill="#00FF88"/>
+    <circle cx="520" cy="770" r="3" fill="#00FF88"/>
+  </g>
+
+  <!-- Decorative hexagons -->
+  <g opacity="0.08">
+    <polygon points="680,120 720,100 760,120 760,160 720,180 680,160" fill="none" stroke="#00D9FF" stroke-width="1.5"/>
+    <polygon points="60,350 100,330 140,350 140,390 100,410 60,390" fill="none" stroke="#00FF88" stroke-width="1.5"/>
+    <polygon points="650,850 690,830 730,850 730,890 690,910 650,890" fill="none" stroke="#00D9FF" stroke-width="1"/>
+  </g>
+
+  <!-- Top accent line -->
+  <line x1="100" y1="80" x2="700" y2="80" stroke="#00D9FF" stroke-width="1" opacity="0.4"/>
+  <circle cx="100" cy="80" r="3" fill="#00D9FF" opacity="0.6"/>
+  <circle cx="700" cy="80" r="3" fill="#00D9FF" opacity="0.6"/>
+
+  <!-- Logo area -->
+  <text x="400" y="160" text-anchor="middle" font-family="'Courier New', monospace" font-size="28" font-weight="bold" fill="#00D9FF" filter="url(#glowCyan)" letter-spacing="8">GOVAGUARD</text>
+  <line x1="250" y1="180" x2="550" y2="180" stroke="#00D9FF" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- Shield icon -->
+  <g transform="translate(370, 260)" filter="url(#softGlow)">
+    <path d="M30,0 L60,15 L60,45 Q60,70 30,85 Q0,70 0,45 L0,15 Z" fill="none" stroke="#00D9FF" stroke-width="2" opacity="0.6"/>
+    <path d="M30,12 L52,24 L52,44 Q52,62 30,74 Q8,62 8,44 L8,24 Z" fill="#00D9FF" fill-opacity="0.08"/>
+    <path d="M20,42 L28,50 L42,34" stroke="#00FF88" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Main title -->
+  <text x="400" y="430" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="bold" fill="#FFFFFF" filter="url(#glowCyan)" letter-spacing="1">Fractional CTO &amp; CISO</text>
+  <text x="400" y="485" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="bold" fill="#FFFFFF" filter="url(#glowCyan)" letter-spacing="1">for MedTech &amp;</text>
+  <text x="400" y="540" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="bold" fill="#FFFFFF" filter="url(#glowCyan)" letter-spacing="1">HealthTech</text>
+
+  <!-- Subtitle -->
+  <line x1="200" y1="580" x2="600" y2="580" stroke="#00D9FF" stroke-width="0.5" opacity="0.4"/>
+  <text x="400" y="630" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" fill="#00D9FF" letter-spacing="2">Strategic Leadership Without</text>
+  <text x="400" y="662" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" fill="#00D9FF" letter-spacing="2">the Full-Time Cost</text>
+
+  <!-- Decorative center element -->
+  <g opacity="0.15">
+    <line x1="350" y1="700" x2="450" y2="700" stroke="#00D9FF" stroke-width="1"/>
+    <circle cx="400" cy="700" r="4" fill="#00D9FF"/>
+  </g>
+
+  <!-- Bottom descriptor -->
+  <rect x="220" y="770" width="360" height="50" rx="4" fill="none" stroke="#00FF88" stroke-width="1" opacity="0.5"/>
+  <rect x="220" y="770" width="360" height="50" rx="4" fill="#00FF88" fill-opacity="0.05"/>
+  <text x="400" y="802" text-anchor="middle" font-family="'Courier New', monospace" font-size="18" fill="#00FF88" filter="url(#glowGreen)" letter-spacing="3">THE COMPLETE DECISION GUIDE</text>
+
+  <!-- Bottom accent elements -->
+  <g opacity="0.3">
+    <line x1="100" y1="900" x2="350" y2="900" stroke="#00D9FF" stroke-width="0.5"/>
+    <line x1="450" y1="900" x2="700" y2="900" stroke="#00D9FF" stroke-width="0.5"/>
+    <circle cx="400" cy="900" r="2" fill="#00FF88"/>
+  </g>
+
+  <!-- Version info -->
+  <text x="400" y="1050" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#808080" letter-spacing="2">2026 EDITION</text>
+
+  <!-- Corner decorations -->
+  <path d="M20,20 H60 M20,20 V60" stroke="#00D9FF" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M780,20 H740 M780,20 V60" stroke="#00D9FF" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M20,1080 H60 M20,1080 V1040" stroke="#00D9FF" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M780,1080 H740 M780,1080 V1040" stroke="#00D9FF" stroke-width="1.5" fill="none" opacity="0.4"/>
+</svg>

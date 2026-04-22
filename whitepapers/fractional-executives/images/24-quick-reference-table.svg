@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0A1628"/><stop offset="100%" stop-color="#0D1B2A"/></linearGradient>
+  </defs>
+  <rect width="800" height="560" fill="url(#bgGrad)"/>
+  <text x="400" y="30" text-anchor="middle" font-family="monospace" font-size="11" fill="#00D9FF" letter-spacing="4" opacity="0.7">EMERGENCY REFERENCE</text>
+  <text x="400" y="52" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="18" font-weight="bold" fill="#FFF">Compliance Quick Reference Guide</text>
+  <!-- Section 1: HIPAA -->
+  <rect x="40" y="65" width="720" height="25" rx="3" fill="#00D9FF" fill-opacity="0.15" stroke="#00D9FF" stroke-width="1"/>
+  <text x="400" y="82" text-anchor="middle" font-family="monospace" font-size="10" fill="#00D9FF" font-weight="bold">HIPAA VIOLATION TIERS</text>
+  <!-- Tier headers -->
+  <rect x="40" y="92" width="180" height="22" fill="#1A1A2E" stroke="#808080" stroke-width="0.3"/>
+  <text x="130" y="107" text-anchor="middle" font-family="monospace" font-size="8" fill="#808080" font-weight="bold">TIER</text>
+  <rect x="220" y="92" width="280" height="22" fill="#1A1A2E" stroke="#808080" stroke-width="0.3"/>
+  <text x="360" y="107" text-anchor="middle" font-family="monospace" font-size="8" fill="#808080" font-weight="bold">PENALTY RANGE</text>
+  <rect x="500" y="92" width="260" height="22" fill="#1A1A2E" stroke="#808080" stroke-width="0.3"/>
+  <text x="630" y="107" text-anchor="middle" font-family="monospace" font-size="8" fill="#808080" font-weight="bold">EXAMPLE</text>
+  <!-- Tier 1 -->
+  <rect x="40" y="114" width="180" height="28" fill="#FFFF00" fill-opacity="0.05" stroke="#808080" stroke-width="0.2"/>
+  <text x="50" y="132" font-family="monospace" font-size="9" fill="#FFFF00">Tier 1: Unknowing</text>
+  <rect x="220" y="114" width="280" height="28" stroke="#808080" stroke-width="0.2"/>
+  <text x="230" y="132" font-family="monospace" font-size="9" fill="#E0E0E0">$100 – $50,000 per violation</text>
+  <rect x="500" y="114" width="260" height="28" stroke="#808080" stroke-width="0.2"/>
+  <text x="510" y="132" font-family="monospace" font-size="9" fill="#808080">Accidental disclosure</text>
+  <!-- Tier 2 -->
+  <rect x="40" y="142" width="180" height="28" fill="#FF6B35" fill-opacity="0.05" stroke="#808080" stroke-width="0.2"/>
+  <text x="50" y="160" font-family="monospace" font-size="9" fill="#FF6B35">Tier 2: Reasonable Cause</text>
+  <rect x="220" y="142" width="280" height="28" stroke="#808080" stroke-width="0.2"/>
+  <text x="230" y="160" font-family="monospace" font-size="9" fill="#E0E0E0">$1,000 – $50,000 per violation</text>
+  <rect x="500" y="142" width="260" height="28" stroke="#808080" stroke-width="0.2"/>
+  <text x="510" y="160" font-family="monospace" font-size="9" fill="#808080">Insufficient safeguards</text>
+  <!-- Tier 3 -->
+  <rect x="40" y="170" width="180" height="28" fill="#FF4500" fill-opacity="0.05" stroke="#808080" stroke-width="0.2"/>
+  <text x="50" y="188" font-family="monospace" font-size="9" fill="#FF4500">Tier 3: Willful (Fixed)</text>
+  <rect x="220" y="170" width="280" height="28" stroke="#808080" stroke-width="0.2"/>
+  <text x="230" y="188" font-family="monospace" font-size="9" fill="#E0E0E0">$10,000 – $50,000 per violation</text>
+  <rect x="500" y="170" width="260" height="28" stroke="#808080" stroke-width="0.2"/>
+  <text x="510" y="188" font-family="monospace" font-size="9" fill="#808080">Known issue, later fixed</text>
+  <!-- Tier 4 -->
+  <rect x="40" y="198" width="180" height="28" fill="#FF0000" fill-opacity="0.08" stroke="#FF0000" stroke-width="0.5"/>
+  <text x="50" y="216" font-family="monospace" font-size="9" fill="#FF0000" font-weight="bold">Tier 4: Willful (Not Fixed)</text>
+  <rect x="220" y="198" width="280" height="28" stroke="#FF0000" stroke-width="0.3"/>
+  <text x="230" y="216" font-family="monospace" font-size="9" fill="#FF0000">$50,000 – $1.5M per violation ⚠</text>
+  <rect x="500" y="198" width="260" height="28" stroke="#FF0000" stroke-width="0.3"/>
+  <text x="510" y="216" font-family="monospace" font-size="9" fill="#FF0000">Uncorrected, max $1.5M/yr</text>
+  <!-- Section 2: FDA -->
+  <rect x="40" y="245" width="720" height="25" rx="3" fill="#00D9FF" fill-opacity="0.15" stroke="#00D9FF" stroke-width="1"/>
+  <text x="400" y="262" text-anchor="middle" font-family="monospace" font-size="10" fill="#00D9FF" font-weight="bold">FDA DEVICE CLASSIFICATION &amp; TIMELINE</text>
+  <rect x="40" y="272" width="240" height="22" fill="#1A1A2E" stroke="#808080" stroke-width="0.3"/>
+  <text x="160" y="287" text-anchor="middle" font-family="monospace" font-size="8" fill="#808080" font-weight="bold">CLASS</text>
+  <rect x="280" y="272" width="240" height="22" fill="#1A1A2E" stroke="#808080" stroke-width="0.3"/>
+  <text x="400" y="287" text-anchor="middle" font-family="monospace" font-size="8" fill="#808080" font-weight="bold">SUBMISSION</text>
+  <rect x="520" y="272" width="240" height="22" fill="#1A1A2E" stroke="#808080" stroke-width="0.3"/>
+  <text x="640" y="287" text-anchor="middle" font-family="monospace" font-size="8" fill="#808080" font-weight="bold">TIMELINE</text>
+  <!-- Class I -->
+  <rect x="40" y="294" width="240" height="35" stroke="#808080" stroke-width="0.2"/>
+  <text x="50" y="312" font-family="monospace" font-size="9" fill="#00FF88">Class I (Low Risk)</text>
+  <text x="50" y="324" font-family="monospace" font-size="7" fill="#808080">Bandages, exam gloves</text>
+  <rect x="280" y="294" width="240" height="35" stroke="#808080" stroke-width="0.2"/>
+  <text x="290" y="316" font-family="monospace" font-size="9" fill="#E0E0E0">510(k) exempt (most)</text>
+  <rect x="520" y="294" width="240" height="35" stroke="#808080" stroke-width="0.2"/>
+  <text x="530" y="316" font-family="monospace" font-size="9" fill="#E0E0E0">N/A or 90 days</text>
+  <!-- Class II -->
+  <rect x="40" y="329" width="240" height="35" fill="#1A1A2E" fill-opacity="0.2" stroke="#808080" stroke-width="0.2"/>
+  <text x="50" y="347" font-family="monospace" font-size="9" fill="#FFFF00">Class II (Moderate Risk)</text>
+  <text x="50" y="359" font-family="monospace" font-size="7" fill="#808080">Infusion pumps, masks</text>
+  <rect x="280" y="329" width="240" height="35" fill="#1A1A2E" fill-opacity="0.2" stroke="#808080" stroke-width="0.2"/>
+  <text x="290" y="351" font-family="monospace" font-size="9" fill="#E0E0E0">510(k) required</text>
+  <rect x="520" y="329" width="240" height="35" fill="#1A1A2E" fill-opacity="0.2" stroke="#808080" stroke-width="0.2"/>
+  <text x="530" y="351" font-family="monospace" font-size="9" fill="#E0E0E0">90–180 days</text>
+  <!-- Class III -->
+  <rect x="40" y="364" width="240" height="35" stroke="#FF6B35" stroke-width="0.3"/>
+  <text x="50" y="382" font-family="monospace" font-size="9" fill="#FF6B35">Class III (High Risk) ⚠</text>
+  <text x="50" y="394" font-family="monospace" font-size="7" fill="#808080">Pacemakers, implants</text>
+  <rect x="280" y="364" width="240" height="35" stroke="#808080" stroke-width="0.2"/>
+  <text x="290" y="386" font-family="monospace" font-size="9" fill="#E0E0E0">PMA (Premarket Approval)</text>
+  <rect x="520" y="364" width="240" height="35" stroke="#808080" stroke-width="0.2"/>
+  <text x="530" y="386" font-family="monospace" font-size="9" fill="#E0E0E0">180–365+ days</text>
+  <!-- Footer: Key Deadlines -->
+  <rect x="40" y="415" width="720" height="25" rx="3" fill="#00FF88" fill-opacity="0.08" stroke="#00FF88" stroke-width="0.8"/>
+  <text x="400" y="432" text-anchor="middle" font-family="monospace" font-size="9" fill="#00FF88" font-weight="bold">KEY COMPLIANCE DEADLINES</text>
+  <text x="60" y="460" font-family="monospace" font-size="8" fill="#E0E0E0">▸ Breach notification: 60 days</text>
+  <text x="300" y="460" font-family="monospace" font-size="8" fill="#E0E0E0">▸ HIPAA training: 30 days of hire</text>
+  <text x="60" y="478" font-family="monospace" font-size="8" fill="#E0E0E0">▸ Risk assessment: Annually</text>
+  <text x="300" y="478" font-family="monospace" font-size="8" fill="#E0E0E0">▸ BAA: Before data sharing</text>
+  <rect x="0" y="532" width="800" height="28" fill="#000" fill-opacity="0.5"/>
+  <text x="400" y="550" text-anchor="middle" font-family="monospace" font-size="10" fill="#808080" letter-spacing="1">HIPAA VIOLATION TIERS · FDA DEVICE CLASSIFICATION · COMPLIANCE DEADLINES</text>
+</svg>

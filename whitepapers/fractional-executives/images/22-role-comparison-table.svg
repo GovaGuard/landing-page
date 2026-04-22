@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#000"/><stop offset="100%" stop-color="#0A1628"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0L0 0 0 40" fill="none" stroke="#00D9FF" stroke-width="0.2" opacity="0.03"/></pattern>
+  </defs>
+  <rect width="800" height="520" fill="url(#bgGrad)"/><rect width="800" height="520" fill="url(#grid)"/>
+  <text x="400" y="30" text-anchor="middle" font-family="monospace" font-size="11" fill="#00D9FF" letter-spacing="4" opacity="0.7">DECISION MATRIX</text>
+  <text x="400" y="52" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="18" font-weight="bold" fill="#FFF">Executive Role Comparison Matrix</text>
+  <!-- Headers -->
+  <rect x="200" y="65" width="290" height="28" rx="3" fill="#FF6B35" fill-opacity="0.1" stroke="#FF6B35" stroke-width="0.8"/>
+  <text x="345" y="84" text-anchor="middle" font-family="monospace" font-size="10" fill="#FF6B35" font-weight="bold">FULL-TIME EXECUTIVE</text>
+  <rect x="500" y="65" width="260" height="28" rx="3" fill="#00D9FF" fill-opacity="0.1" stroke="#00D9FF" stroke-width="0.8"/>
+  <text x="630" y="84" text-anchor="middle" font-family="monospace" font-size="10" fill="#00D9FF" font-weight="bold">FRACTIONAL EXECUTIVE</text>
+  <!-- CTO Row Header -->
+  <rect x="40" y="100" width="160" height="160" rx="3" fill="#0A1628" stroke="#00D9FF" stroke-width="0.8"/>
+  <text x="120" y="140" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="16" font-weight="bold" fill="#00D9FF">CTO</text>
+  <text x="120" y="160" text-anchor="middle" font-family="monospace" font-size="8" fill="#808080">Technology</text>
+  <text x="120" y="173" text-anchor="middle" font-family="monospace" font-size="8" fill="#808080">Leadership</text>
+  <!-- CTO Full-Time -->
+  <rect x="200" y="100" width="290" height="160" fill="#1A1A2E" fill-opacity="0.2" stroke="#808080" stroke-width="0.3"/>
+  <text x="220" y="120" font-family="monospace" font-size="9" fill="#FF6B35">Salary: $200K–$300K + benefits</text>
+  <text x="220" y="137" font-family="monospace" font-size="9" fill="#E0E0E0">40+ hours/week commitment</text>
+  <text x="220" y="154" font-family="monospace" font-size="9" fill="#E0E0E0">Operations + strategy focus</text>
+  <text x="220" y="171" font-family="monospace" font-size="9" fill="#E0E0E0">3–6 month hiring timeline</text>
+  <text x="220" y="188" font-family="monospace" font-size="9" fill="#E0E0E0">Office, equipment, benefits</text>
+  <text x="220" y="210" font-family="monospace" font-size="9" fill="#FF6B35" font-weight="bold">~$378K / 24 months</text>
+  <!-- CTO Fractional -->
+  <rect x="500" y="100" width="260" height="160" fill="#00D9FF" fill-opacity="0.03" stroke="#808080" stroke-width="0.3"/>
+  <text x="520" y="120" font-family="monospace" font-size="9" fill="#00D9FF">Cost: $8K–$15K/month</text>
+  <text x="520" y="137" font-family="monospace" font-size="9" fill="#E0E0E0">10–30 hours/week</text>
+  <text x="520" y="154" font-family="monospace" font-size="9" fill="#E0E0E0">Strategic direction focus</text>
+  <text x="520" y="171" font-family="monospace" font-size="9" fill="#E0E0E0">1–2 week start timeline</text>
+  <text x="520" y="188" font-family="monospace" font-size="9" fill="#E0E0E0">Minimal overhead</text>
+  <text x="520" y="210" font-family="monospace" font-size="9" fill="#00D9FF" font-weight="bold">~$72K / 24 months</text>
+  <!-- CISO Row Header -->
+  <rect x="40" y="270" width="160" height="160" rx="3" fill="#0A1628" stroke="#00FF88" stroke-width="0.8"/>
+  <text x="120" y="310" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="16" font-weight="bold" fill="#00FF88">CISO</text>
+  <text x="120" y="330" text-anchor="middle" font-family="monospace" font-size="8" fill="#808080">Security</text>
+  <text x="120" y="343" text-anchor="middle" font-family="monospace" font-size="8" fill="#808080">Leadership</text>
+  <!-- CISO Full-Time -->
+  <rect x="200" y="270" width="290" height="160" fill="#1A1A2E" fill-opacity="0.2" stroke="#808080" stroke-width="0.3"/>
+  <text x="220" y="290" font-family="monospace" font-size="9" fill="#FF6B35">Salary: $180K–$280K + benefits</text>
+  <text x="220" y="307" font-family="monospace" font-size="9" fill="#E0E0E0">40+ hours/week commitment</text>
+  <text x="220" y="324" font-family="monospace" font-size="9" fill="#E0E0E0">Security ops + compliance</text>
+  <text x="220" y="341" font-family="monospace" font-size="9" fill="#E0E0E0">3–6 month hiring timeline</text>
+  <text x="220" y="358" font-family="monospace" font-size="9" fill="#E0E0E0">Team budget, tools, benefits</text>
+  <text x="220" y="380" font-family="monospace" font-size="9" fill="#FF6B35" font-weight="bold">~$344K / 24 months</text>
+  <!-- CISO Fractional -->
+  <rect x="500" y="270" width="260" height="160" fill="#00D9FF" fill-opacity="0.03" stroke="#808080" stroke-width="0.3"/>
+  <text x="520" y="290" font-family="monospace" font-size="9" fill="#00D9FF">Cost: $6K–$12K/month</text>
+  <text x="520" y="307" font-family="monospace" font-size="9" fill="#E0E0E0">10–20 hours/week</text>
+  <text x="520" y="324" font-family="monospace" font-size="9" fill="#E0E0E0">Security strategy + compliance</text>
+  <text x="520" y="341" font-family="monospace" font-size="9" fill="#E0E0E0">1–2 week start timeline</text>
+  <text x="520" y="358" font-family="monospace" font-size="9" fill="#E0E0E0">Minimal overhead</text>
+  <text x="520" y="380" font-family="monospace" font-size="9" fill="#00D9FF" font-weight="bold">~$48K / 24 months</text>
+  <!-- Summary footer -->
+  <rect x="40" y="440" width="720" height="40" rx="4" fill="#00FF88" fill-opacity="0.05" stroke="#00FF88" stroke-width="1"/>
+  <text x="240" y="465" text-anchor="middle" font-family="monospace" font-size="11" fill="#FF6B35">Full-Time Total: ~$486K/yr</text>
+  <text x="500" y="465" text-anchor="middle" font-family="monospace" font-size="11" fill="#00D9FF">Fractional Total: ~$120K/yr</text>
+  <text x="700" y="465" text-anchor="middle" font-family="monospace" font-size="13" fill="#00FF88" font-weight="bold">75% SAVINGS</text>
+  <rect x="0" y="492" width="800" height="28" fill="#000" fill-opacity="0.5"/>
+  <text x="400" y="510" text-anchor="middle" font-family="monospace" font-size="10" fill="#808080" letter-spacing="1">CTO + CISO · FULL-TIME vs FRACTIONAL · 24-MONTH COMPARISON</text>
+</svg>

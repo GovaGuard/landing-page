@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0A1628"/><stop offset="100%" stop-color="#0D1B2A"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0L0 0 0 40" fill="none" stroke="#00D9FF" stroke-width="0.2" opacity="0.03"/></pattern>
+  </defs>
+  <rect width="800" height="520" fill="url(#bgGrad)"/><rect width="800" height="520" fill="url(#grid)"/>
+  <text x="400" y="32" text-anchor="middle" font-family="monospace" font-size="11" fill="#00D9FF" letter-spacing="4" opacity="0.7">ASSESSMENT TOOL</text>
+  <text x="400" y="55" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="20" font-weight="bold" fill="#FFF">Fractional Executive Evaluation Scorecard</text>
+
+  <!-- Table -->
+  <rect x="40" y="70" width="720" height="38" rx="4" fill="#00D9FF" fill-opacity="0.1" stroke="#00D9FF" stroke-width="1"/>
+  <text x="280" y="94" text-anchor="middle" font-family="monospace" font-size="10" fill="#FFF" font-weight="bold">EVALUATION CRITERIA</text>
+  <text x="550" y="94" text-anchor="middle" font-family="monospace" font-size="10" fill="#FF6B35" font-weight="bold">CRITICAL</text>
+  <text x="640" y="94" text-anchor="middle" font-family="monospace" font-size="10" fill="#FFFF00" font-weight="bold">IMPORTANT</text>
+  <text x="725" y="94" text-anchor="middle" font-family="monospace" font-size="10" fill="#00FF88" font-weight="bold">NICE</text>
+
+  <!-- Rows -->
+  <g>
+    <rect x="40" y="108" width="720" height="42" fill="#1A1A2E" fill-opacity="0.3" stroke="#808080" stroke-width="0.3"/>
+    <text x="60" y="128" font-family="monospace" font-size="9" fill="#FFF">1. Industry Experience (MedTech/HealthTech)</text>
+    <text x="60" y="142" font-family="monospace" font-size="7" fill="#808080">10+ years healthcare technology</text>
+    <circle cx="550" cy="129" r="8" fill="none" stroke="#FF6B35" stroke-width="1.5"/><circle cx="550" cy="129" r="4" fill="#FF6B35"/>
+    <circle cx="640" cy="129" r="8" fill="none" stroke="#808080" stroke-width="0.5"/>
+    <circle cx="725" cy="129" r="8" fill="none" stroke="#808080" stroke-width="0.5"/>
+  </g>
+  <g>
+    <rect x="40" y="150" width="720" height="42" fill="transparent" stroke="#808080" stroke-width="0.3"/>
+    <text x="60" y="170" font-family="monospace" font-size="9" fill="#FFF">2. Compliance Expertise (HIPAA/FDA/SOC 2)</text>
+    <text x="60" y="184" font-family="monospace" font-size="7" fill="#808080">Audit preparation &amp; gap remediation</text>
+    <circle cx="550" cy="171" r="8" fill="none" stroke="#FF6B35" stroke-width="1.5"/><circle cx="550" cy="171" r="4" fill="#FF6B35"/>
+    <circle cx="640" cy="171" r="8" fill="none" stroke="#808080" stroke-width="0.5"/>
+    <circle cx="725" cy="171" r="8" fill="none" stroke="#808080" stroke-width="0.5"/>
+  </g>
+  <g>
+    <rect x="40" y="192" width="720" height="42" fill="#1A1A2E" fill-opacity="0.3" stroke="#808080" stroke-width="0.3"/>
+    <text x="60" y="212" font-family="monospace" font-size="9" fill="#FFF">3. Track Record &amp; Client References</text>
+    <text x="60" y="226" font-family="monospace" font-size="7" fill="#808080">5+ similar engagements, verifiable outcomes</text>
+    <circle cx="550" cy="213" r="8" fill="none" stroke="#808080" stroke-width="0.5"/>
+    <circle cx="640" cy="213" r="8" fill="none" stroke="#FFFF00" stroke-width="1.5"/><circle cx="640" cy="213" r="4" fill="#FFFF00"/>
+    <circle cx="725" cy="213" r="8" fill="none" stroke="#808080" stroke-width="0.5"/>
+  </g>
+  <g>
+    <rect x="40" y="234" width="720" height="42" fill="transparent" stroke="#808080" stroke-width="0.3"/>
+    <text x="60" y="254" font-family="monospace" font-size="9" fill="#FFF">4. Engagement Model Flexibility</text>
+    <text x="60" y="268" font-family="monospace" font-size="7" fill="#808080">Multiple tiers, no lock-in contracts</text>
+    <circle cx="550" cy="255" r="8" fill="none" stroke="#808080" stroke-width="0.5"/>
+    <circle cx="640" cy="255" r="8" fill="none" stroke="#FFFF00" stroke-width="1.5"/><circle cx="640" cy="255" r="4" fill="#FFFF00"/>
+    <circle cx="725" cy="255" r="8" fill="none" stroke="#808080" stroke-width="0.5"/>
+  </g>
+  <g>
+    <rect x="40" y="276" width="720" height="42" fill="#1A1A2E" fill-opacity="0.3" stroke="#808080" stroke-width="0.3"/>
+    <text x="60" y="296" font-family="monospace" font-size="9" fill="#FFF">5. Cost Structure Transparency</text>
+    <text x="60" y="310" font-family="monospace" font-size="7" fill="#808080">Clear pricing, no hidden fees</text>
+    <circle cx="550" cy="297" r="8" fill="none" stroke="#808080" stroke-width="0.5"/>
+    <circle cx="640" cy="297" r="8" fill="none" stroke="#FFFF00" stroke-width="1.5"/><circle cx="640" cy="297" r="4" fill="#FFFF00"/>
+    <circle cx="725" cy="297" r="8" fill="none" stroke="#808080" stroke-width="0.5"/>
+  </g>
+  <g>
+    <rect x="40" y="318" width="720" height="42" fill="transparent" stroke="#808080" stroke-width="0.3"/>
+    <text x="60" y="338" font-family="monospace" font-size="9" fill="#FFF">6. Response Time SLAs</text>
+    <text x="60" y="352" font-family="monospace" font-size="7" fill="#808080">24-48hr crisis response, escalation procedures</text>
+    <circle cx="550" cy="339" r="8" fill="none" stroke="#FF6B35" stroke-width="1.5"/><circle cx="550" cy="339" r="4" fill="#FF6B35"/>
+    <circle cx="640" cy="339" r="8" fill="none" stroke="#808080" stroke-width="0.5"/>
+    <circle cx="725" cy="339" r="8" fill="none" stroke="#808080" stroke-width="0.5"/>
+  </g>
+  <g>
+    <rect x="40" y="360" width="720" height="42" fill="#1A1A2E" fill-opacity="0.3" stroke="#808080" stroke-width="0.3"/>
+    <text x="60" y="380" font-family="monospace" font-size="9" fill="#FFF">7. Security Clearance &amp; Vetting</text>
+    <text x="60" y="394" font-family="monospace" font-size="7" fill="#808080">Background checks, NDA, E&amp;O insurance</text>
+    <circle cx="550" cy="381" r="8" fill="none" stroke="#808080" stroke-width="0.5"/>
+    <circle cx="640" cy="381" r="8" fill="none" stroke="#808080" stroke-width="0.5"/>
+    <circle cx="725" cy="381" r="8" fill="none" stroke="#00FF88" stroke-width="1.5"/><circle cx="725" cy="381" r="4" fill="#00FF88"/>
+  </g>
+  <g>
+    <rect x="40" y="402" width="720" height="42" fill="transparent" stroke="#808080" stroke-width="0.3"/>
+    <text x="60" y="422" font-family="monospace" font-size="9" fill="#FFF">8. Communication &amp; Cultural Fit</text>
+    <text x="60" y="436" font-family="monospace" font-size="7" fill="#808080">Collaborative style, executive presence</text>
+    <circle cx="550" cy="423" r="8" fill="none" stroke="#808080" stroke-width="0.5"/>
+    <circle cx="640" cy="423" r="8" fill="none" stroke="#808080" stroke-width="0.5"/>
+    <circle cx="725" cy="423" r="8" fill="none" stroke="#00FF88" stroke-width="1.5"/><circle cx="725" cy="423" r="4" fill="#00FF88"/>
+  </g>
+
+  <!-- Table border -->
+  <rect x="40" y="70" width="720" height="374" rx="4" fill="none" stroke="#00D9FF" stroke-width="0.8" opacity="0.4"/>
+
+  <rect x="0" y="492" width="800" height="28" fill="#000" fill-opacity="0.5"/>
+  <text x="400" y="510" text-anchor="middle" font-family="monospace" font-size="10" fill="#808080" letter-spacing="1">● CRITICAL  ● IMPORTANT  ● NICE TO HAVE · USE TO EVALUATE FRACTIONAL EXEC PROVIDERS</text>
+</svg>

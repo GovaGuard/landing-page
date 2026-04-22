@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#000"/><stop offset="100%" stop-color="#0A1628"/></linearGradient>
+    <linearGradient id="trajGrad" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#FF6B35"/><stop offset="50%" stop-color="#00D9FF"/><stop offset="100%" stop-color="#00FF88"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0L0 0 0 40" fill="none" stroke="#00D9FF" stroke-width="0.2" opacity="0.04"/></pattern>
+  </defs>
+  <rect width="800" height="500" fill="url(#bgGrad)"/><rect width="800" height="500" fill="url(#grid)"/>
+  <text x="400" y="32" text-anchor="middle" font-family="monospace" font-size="11" fill="#00D9FF" letter-spacing="4" opacity="0.7">GROWTH ACCELERATION</text>
+  <text x="400" y="55" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="20" font-weight="bold" fill="#FFF">Strategic Growth Through Fractional Leadership</text>
+
+  <!-- Trajectory arc -->
+  <path d="M100,420 Q250,380 350,300 Q450,220 550,140 Q620,90 700,60" fill="none" stroke="url(#trajGrad)" stroke-width="4" filter="url(#glow)"/>
+
+  <!-- Motion lines -->
+  <g opacity="0.2" stroke="#00D9FF" stroke-width="1">
+    <line x1="550" y1="155" x2="620" y2="125"/><line x1="560" y1="170" x2="630" y2="140"/>
+    <line x1="570" y1="185" x2="640" y2="155"/>
+  </g>
+
+  <!-- Stage 1: Startup (bottom-left, orange) -->
+  <rect x="50" y="360" width="180" height="80" rx="6" fill="#0A1628" stroke="#FF6B35" stroke-width="1.2"/>
+  <circle cx="75" cy="380" r="8" fill="#FF6B35" fill-opacity="0.3" stroke="#FF6B35" stroke-width="1"/>
+  <text x="90" y="383" font-family="monospace" font-size="8" fill="#FF6B35" font-weight="bold">1</text>
+  <text x="140" y="383" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="10" font-weight="bold" fill="#FF6B35">STARTUP MODE</text>
+  <text x="140" y="403" text-anchor="middle" font-family="monospace" font-size="8" fill="#808080">Limited leadership</text>
+  <text x="140" y="416" text-anchor="middle" font-family="monospace" font-size="8" fill="#808080">Compliance risks</text>
+  <text x="140" y="429" text-anchor="middle" font-family="monospace" font-size="8" fill="#808080">Slow decisions</text>
+
+  <!-- Stage 2: Engagement (middle, cyan) -->
+  <rect x="300" y="230" width="200" height="80" rx="6" fill="#0A1628" stroke="#00D9FF" stroke-width="1.5" filter="url(#glow)"/>
+  <circle cx="325" cy="250" r="8" fill="#00D9FF" fill-opacity="0.3" stroke="#00D9FF" stroke-width="1"/>
+  <text x="340" y="253" font-family="monospace" font-size="8" fill="#00D9FF" font-weight="bold">2</text>
+  <text x="400" y="253" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="10" font-weight="bold" fill="#00D9FF">FRACTIONAL ENGAGED</text>
+  <text x="400" y="273" text-anchor="middle" font-family="monospace" font-size="8" fill="#808080">CTO + CISO deployed</text>
+  <text x="400" y="286" text-anchor="middle" font-family="monospace" font-size="8" fill="#808080">Roadmap implemented</text>
+  <text x="400" y="299" text-anchor="middle" font-family="monospace" font-size="8" fill="#808080">Tech modernization</text>
+
+  <!-- Stage 3: Accelerated (top-right, green) -->
+  <rect x="580" y="70" width="180" height="95" rx="6" fill="#0A1628" stroke="#00FF88" stroke-width="1.5"/>
+  <circle cx="605" cy="90" r="8" fill="#00FF88" fill-opacity="0.3" stroke="#00FF88" stroke-width="1"/>
+  <text x="620" y="93" font-family="monospace" font-size="8" fill="#00FF88" font-weight="bold">3</text>
+  <text x="670" y="93" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="10" font-weight="bold" fill="#00FF88">ACCELERATED</text>
+  <text x="670" y="113" text-anchor="middle" font-family="monospace" font-size="8" fill="#00FF88">3x faster time-to-market</text>
+  <text x="670" y="126" text-anchor="middle" font-family="monospace" font-size="8" fill="#00FF88">92% compliance ready</text>
+  <text x="670" y="139" text-anchor="middle" font-family="monospace" font-size="8" fill="#00FF88">Competitive advantage</text>
+  <text x="670" y="152" text-anchor="middle" font-family="monospace" font-size="8" fill="#00FF88">Sustainable growth</text>
+
+  <rect x="0" y="472" width="800" height="28" fill="#000" fill-opacity="0.5"/>
+  <text x="400" y="490" text-anchor="middle" font-family="monospace" font-size="10" fill="#808080" letter-spacing="1">STARTUP → FRACTIONAL ENGAGEMENT → ACCELERATED GROWTH</text>
+</svg>

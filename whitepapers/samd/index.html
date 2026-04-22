@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software as a Medical Device (SaMD) — Regulatory Pathways, Security, and Deliverables Guide - GovaGuard</title>
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <style>
+        .wp-page {
+            padding-top: 80px;
+            min-height: 100vh;
+        }
+
+        /* Hero */
+        .wp-hero {
+            background: var(--color-bg-light);
+            border-bottom: 1px solid var(--color-border);
+            padding: var(--space-3xl) var(--space-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        .wp-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image:
+                linear-gradient(rgba(0, 217, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 217, 255, 0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+        .wp-hero-inner {
+            max-width: 780px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .wp-hero-tag {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            display: block;
+            margin-bottom: var(--space-md);
+        }
+        .wp-hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: var(--color-text);
+            line-height: 1.2;
+            margin-bottom: var(--space-md);
+        }
+        .wp-hero-title span { color: var(--color-primary); }
+        .wp-hero-subtitle {
+            font-size: 1.05rem;
+            color: var(--color-accent);
+            font-weight: 500;
+            margin-bottom: var(--space-sm);
+        }
+        .wp-hero-meta {
+            display: flex;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--color-border);
+        }
+        .wp-meta-item {
+            font-family: var(--font-display);
+            font-size: 0.82rem;
+            color: var(--color-text-dimmer);
+        }
+        .wp-meta-item span, .wp-meta-item a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        /* TOC */
+        .wp-toc {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            padding: var(--space-lg) var(--space-xl);
+            margin: var(--space-2xl) auto;
+            max-width: 780px;
+        }
+        .wp-toc-title {
+            font-family: var(--font-display);
+            font-size: 0.78rem;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-md);
+        }
+        .wp-toc-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 0.35rem;
+        }
+        .wp-toc-list a {
+            font-family: var(--font-display);
+            font-size: 0.82rem;
+            color: var(--color-text-dim);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.3rem 0;
+            transition: color var(--transition-fast);
+        }
+        .wp-toc-list a::before { content: '→'; color: var(--color-primary); flex-shrink: 0; }
+        .wp-toc-list a:hover { color: var(--color-primary); }
+
+        /* Article */
+        .wp-article {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg) var(--space-3xl);
+        }
+        .wp-section {
+            margin-bottom: var(--space-3xl);
+            padding-bottom: var(--space-2xl);
+            border-bottom: 1px solid var(--color-border);
+        }
+        .wp-section:last-of-type { border-bottom: none; }
+        .wp-section-tag {
+            font-family: var(--font-display);
+            font-size: 0.72rem;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            display: block;
+            margin-bottom: var(--space-sm);
+        }
+        .wp-section-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: var(--space-lg);
+            line-height: 1.25;
+        }
+        .wp-subsection-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin: var(--space-xl) 0 var(--space-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        /* Prose */
+        .wp-prose p {
+            color: var(--color-text-dim);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: var(--space-md);
+        }
+        .wp-prose p strong { color: var(--color-text); font-weight: 600; }
+        .wp-prose ul {
+            list-style: none;
+            margin: var(--space-sm) 0 var(--space-md) 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+        .wp-prose ul li {
+            color: var(--color-text-dim);
+            font-size: 1rem;
+            line-height: 1.7;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .wp-prose ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+        }
+        .wp-prose ul li strong { color: var(--color-text); font-weight: 600; }
+
+        /* Checklist */
+        .wp-checklist {
+            list-style: none;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .wp-checklist li {
+            font-family: var(--font-display);
+            font-size: 0.88rem;
+            color: var(--color-text-dim);
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+        .wp-checklist li::before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+        }
+        .wp-checklist-group {
+            background: var(--color-bg-lighter);
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            padding: var(--space-lg);
+            margin-bottom: var(--space-md);
+        }
+        .wp-checklist-group-title {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-sm);
+        }
+
+        /* Table */
+        .wp-table-wrap {
+            overflow-x: auto;
+            margin: var(--space-lg) 0;
+        }
+        .wp-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+        }
+        .wp-table th {
+            font-family: var(--font-display);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-primary);
+            background: var(--color-bg-lighter);
+            border: 1px solid var(--color-border);
+            padding: 0.65rem 0.85rem;
+            text-align: left;
+            white-space: nowrap;
+        }
+        .wp-table td {
+            color: var(--color-text-dim);
+            border: 1px solid var(--color-border);
+            padding: 0.55rem 0.85rem;
+            vertical-align: top;
+            line-height: 1.55;
+        }
+        .wp-table td strong { color: var(--color-text); font-weight: 600; }
+        .wp-table tr:hover td { background: var(--color-surface); }
+        .wp-table .accent { color: var(--color-accent); font-family: var(--font-display); font-weight: 700; }
+        .wp-table .primary { color: var(--color-primary); font-family: var(--font-display); font-weight: 700; }
+        .wp-table .check { color: var(--color-accent); font-weight: 700; text-align: center; }
+        .wp-table .dash { color: var(--color-text-dimmer); text-align: center; }
+        .wp-table .warning { color: var(--color-warning); font-family: var(--font-display); font-weight: 700; }
+        .wp-table td.center { text-align: center; }
+
+        /* Stat strip */
+        .wp-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: var(--space-md);
+            background: var(--color-bg-lighter);
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            padding: var(--space-lg);
+            margin: var(--space-lg) 0;
+        }
+        .wp-stat-value {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1;
+        }
+        .wp-stat-label {
+            font-size: 0.8rem;
+            color: var(--color-text-dimmer);
+            margin-top: 0.25rem;
+        }
+
+        /* CTA */
+        .wp-cta {
+            background: var(--color-surface);
+            border: 1px solid var(--color-primary);
+            border-radius: 4px;
+            padding: var(--space-2xl);
+            text-align: center;
+            margin-top: var(--space-3xl);
+        }
+        .wp-cta-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--color-text);
+            margin-bottom: var(--space-sm);
+        }
+        .wp-cta-desc {
+            color: var(--color-text-dim);
+            margin-bottom: var(--space-xl);
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+        .wp-cta-meta {
+            font-family: var(--font-display);
+            font-size: 0.78rem;
+            color: var(--color-text-dimmer);
+            margin-top: var(--space-lg);
+        }
+        .wp-cta-meta a { color: var(--color-primary); text-decoration: none; }
+
+        /* References */
+        .wp-references {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+        .wp-ref-group-title {
+            font-family: var(--font-display);
+            font-size: 0.72rem;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-sm);
+        }
+        .wp-ref-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .wp-ref-list li {
+            font-size: 0.82rem;
+            color: var(--color-text-dimmer);
+            line-height: 1.5;
+            padding-left: 1rem;
+            position: relative;
+        }
+        .wp-ref-list li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+        }
+
+        @media (max-width: 768px) {
+            .wp-hero { padding: var(--space-2xl) var(--space-md); }
+            .wp-article { padding: 0 var(--space-md) var(--space-2xl); }
+            .wp-toc { margin: var(--space-lg) var(--space-md); }
+            .wp-references { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            * {
+                background: white !important;
+                color: #111 !important;
+                border-color: #ccc !important;
+                box-shadow: none !important;
+                text-shadow: none !important;
+            }
+            body { font-size: 10pt; line-height: 1.5; }
+            .nav, .scanlines, .wp-cta .btn, .wp-hero::before { display: none !important; }
+            .wp-page { padding-top: 0; }
+            .wp-hero { padding: 1.5rem 0; }
+            .wp-hero-inner, .wp-article { max-width: 100%; padding: 0; }
+            .wp-toc { margin: 1rem 0; }
+            .wp-hero-tag, .wp-section-tag, .wp-toc-title, .wp-subsection-title,
+            .wp-stat-value, .wp-table th, .wp-ref-group-title, .wp-checklist-group-title,
+            .wp-table .accent, .wp-table .primary, .wp-hero-title span { color: #0066aa !important; }
+            .wp-hero-title { color: #111 !important; font-size: 18pt; }
+            .wp-hero-subtitle { color: #333 !important; }
+            .wp-prose p, .wp-prose ul li { color: #222 !important; }
+            .wp-prose p strong, .wp-prose ul li strong { color: #000 !important; }
+            .wp-prose ul li::before, .wp-checklist li::before, .wp-ref-list li::before { color: #0066aa !important; }
+            .wp-toc-list a::before { color: #0066aa !important; }
+            .wp-toc-list a { color: #333 !important; }
+            .wp-meta-item { color: #555 !important; }
+            .wp-meta-item span, .wp-meta-item a { color: #0066aa !important; }
+            .wp-table th { background: #eef2f7 !important; }
+            .wp-table tr:nth-child(even) td { background: #f9f9f9 !important; }
+            .wp-stats { background: #f4f7fb !important; border: 1px solid #ccc !important; }
+            .wp-stat-label { color: #555 !important; }
+            .wp-checklist-group { background: #f8f9fa !important; border: 1px solid #ccc !important; }
+            .wp-checklist li { color: #333 !important; }
+            .wp-ref-list li { color: #555 !important; }
+            .wp-cta { border: 1px solid #0066aa !important; }
+            .wp-cta-title { color: #111 !important; }
+            .wp-cta-desc { color: #333 !important; }
+            .wp-cta-meta { color: #555 !important; }
+            .wp-cta-meta a { color: #0066aa !important; }
+            .wp-section { page-break-inside: avoid; border-bottom: 1px solid #ddd !important; }
+            .wp-stats, .wp-table-wrap, .wp-cta, .wp-checklist-group { page-break-inside: avoid; }
+            .wp-table .check { color: #227722 !important; }
+            .wp-table .warning { color: #884400 !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="scanlines"></div>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-bracket">[</span>
+                <span class="logo-text">GOVAGUARD</span>
+                <span class="logo-bracket">]</span>
+            </div>
+            <div class="nav-links">
+                <a href="/#services" class="nav-link">Services</a>
+                <a href="/#expertise" class="nav-link">Expertise</a>
+                <a href="/whitepapers" class="nav-link">Whitepapers</a>
+                <a href="/#contact" class="nav-link nav-link-cta">Secure Consultation</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="wp-page">
+
+        <div class="wp-hero">
+            <div class="wp-hero-inner">
+                <span class="wp-hero-tag">// Whitepaper · Medical Device Software Regulation</span>
+                <h1 class="wp-hero-title">Software as a Medical Device:<br><span>Regulatory Pathways, Security,</span><br>and Deliverables Guide</h1>
+                <p class="wp-hero-subtitle">FDA and EU MDR requirements — with emphasis on security, traceability, and required deliverables</p>
+                <div class="wp-hero-meta">
+                    <span class="wp-meta-item">Published <span>2026</span></span>
+                    <span class="wp-meta-item">By <span>GovaGuard</span></span>
+                    <span class="wp-meta-item">15 min read</span>
+                    <span class="wp-meta-item">For <span>PMs · Engineers · Regulatory</span></span>
+                    <span class="wp-meta-item"><a href="/whitepapers">← All Whitepapers</a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="wp-toc">
+            <p class="wp-toc-title">// Contents</p>
+            <ul class="wp-toc-list">
+                <li><a href="#s01">What Is SaMD?</a></li>
+                <li><a href="#s02">Classification</a></li>
+                <li><a href="#s03">FDA Regulatory Pathways</a></li>
+                <li><a href="#s04">EU MDR Requirements</a></li>
+                <li><a href="#s05">Cybersecurity Requirements</a></li>
+                <li><a href="#s06">IEC 62304 & Traceability</a></li>
+                <li><a href="#s07">Post-Market Surveillance</a></li>
+                <li><a href="#s08">Deliverables Checklist</a></li>
+                <li><a href="#s09">Why GovaGuard</a></li>
+                <li><a href="#s10">Key Takeaways</a></li>
+                <li><a href="#s11">References</a></li>
+            </ul>
+        </div>
+
+        <article class="wp-article">
+
+            <!-- 01 -->
+            <section class="wp-section" id="s01">
+                <span class="wp-section-tag">// 01</span>
+                <h2 class="wp-section-title">What Is Software as a Medical Device?</h2>
+                <div class="wp-prose">
+                    <p><strong>Software as a Medical Device (SaMD)</strong> is software intended to be used for one or more medical purposes that performs those purposes without being part of a hardware medical device. The term was coined by the IMDRF and adopted by both the FDA and the European Commission as the working definition across their regulatory frameworks.</p>
+                    <p>A medical purpose includes diagnosis, treatment, prevention, monitoring, or prediction of disease or physiological conditions. Software that only provides administrative support, wellness tracking without a medical claim, or electronic health record management is generally <strong>not</strong> SaMD.</p>
+                </div>
+
+                <h3 class="wp-subsection-title">SaMD vs. SiMD — A Critical Distinction</h3>
+                <div class="wp-table-wrap">
+                    <table class="wp-table">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Definition</th>
+                                <th>Regulatory Treatment</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>SaMD</strong></td>
+                                <td>Operates independently on general-purpose platforms; delivers medical purpose through software logic alone</td>
+                                <td class="accent">Regulated as standalone device</td>
+                                <td>Clinical decision support app, diagnostic AI on a smartphone</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SiMD</strong></td>
+                                <td>Embedded in or integral to a hardware medical device</td>
+                                <td>Regulated as a component of the parent device</td>
+                                <td>Firmware controlling an infusion pump</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="wp-prose">
+                    <p>Confusing the two leads to incorrect classification and pathway selection — one of the most common and costly early-stage regulatory mistakes.</p>
+                </div>
+
+                <div class="wp-stats">
+                    <div>
+                        <div class="wp-stat-value">3</div>
+                        <div class="wp-stat-label">FDA classification tiers (I, II, III)</div>
+                    </div>
+                    <div>
+                        <div class="wp-stat-value">IIa+</div>
+                        <div class="wp-stat-label">Minimum EU MDR class for most diagnostic SaMD</div>
+                    </div>
+                    <div>
+                        <div class="wp-stat-value">2026</div>
+                        <div class="wp-stat-label">FDA QMSR effective date (ISO 13485 harmonization)</div>
+                    </div>
+                    <div>
+                        <div class="wp-stat-value">SBOM</div>
+                        <div class="wp-stat-label">Required in all FDA premarket submissions</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 02 -->
+            <section class="wp-section" id="s02">
+                <span class="wp-section-tag">// 02</span>
+                <h2 class="wp-section-title">Classification</h2>
+
+                <h3 class="wp-subsection-title">FDA Classification (United States)</h3>
+                <div class="wp-prose">
+                    <p>The FDA classifies SaMD into its standard three-tier system based on risk to the patient if the software fails or provides incorrect output:</p>
+                </div>
+                <div class="wp-table-wrap">
+                    <table class="wp-table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Risk Level</th>
+                                <th>Pathway</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Class I</strong></td>
+                                <td>Low</td>
+                                <td>General controls. Typically exempt from premarket notification.</td>
+                                <td>Software logging blood pressure for personal tracking</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Class II</strong></td>
+                                <td>Moderate</td>
+                                <td class="primary">510(k) clearance or De Novo classification</td>
+                                <td>Clinical decision support, radiological CADe software</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Class III</strong></td>
+                                <td>High</td>
+                                <td class="warning">Premarket Approval (PMA)</td>
+                                <td>Software autonomously diagnosing life-threatening conditions without clinician review</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="wp-prose">
+                    <p>Classification is determined by the software's <strong>intended use</strong> and the <strong>risk to the patient</strong>. The FDA's product code database and <em>Policy for Device Software Functions and Mobile Medical Applications</em> (2022) provide classification guidance specific to software functions.</p>
+                </div>
+
+                <h3 class="wp-subsection-title">EU MDR Classification (European Union)</h3>
+                <div class="wp-prose">
+                    <p>Under Regulation (EU) 2017/745 (MDR), <strong>Rule 11 of Annex VIII</strong> governs software classification. Rule 11 represented a major upclassification from the former MDD — under MDD, most standalone software was Class I. Under MDR, virtually all diagnostic or therapeutic SaMD is <strong>Class IIa or higher</strong>.</p>
+                </div>
+                <div class="wp-table-wrap">
+                    <table class="wp-table">
+                        <thead>
+                            <tr>
+                                <th>Software Function</th>
+                                <th>MDR Class</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Information for diagnosis or therapeutic decisions — decisions could cause death or irreversible deterioration</td>
+                                <td class="warning">Class III</td>
+                            </tr>
+                            <tr>
+                                <td>Information for diagnosis or therapeutic decisions — decisions could cause serious deterioration</td>
+                                <td class="warning">Class IIb</td>
+                            </tr>
+                            <tr>
+                                <td>Information for diagnosis or therapeutic decisions — all other</td>
+                                <td class="primary">Class IIa (minimum)</td>
+                            </tr>
+                            <tr>
+                                <td>Monitoring vital parameters where variations could result in immediate danger</td>
+                                <td class="warning">Class IIb</td>
+                            </tr>
+                            <tr>
+                                <td>Monitoring physiological processes — all other</td>
+                                <td class="primary">Class IIa</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="wp-prose">
+                    <p><strong>MDCG 2019-11</strong> provides a step-by-step decision flowchart for classifying software under MDR, including boundary cases between medical devices and general-purpose software.</p>
+                </div>
+            </section>
+
+            <!-- 03 -->
+            <section class="wp-section" id="s03">
+                <span class="wp-section-tag">// 03</span>
+                <h2 class="wp-section-title">FDA Regulatory Pathways</h2>
+
+                <h3 class="wp-subsection-title">Premarket Pathways</h3>
+                <div class="wp-prose">
+                    <ul>
+                        <li><strong>510(k) Premarket Notification.</strong> The primary pathway for Class II SaMD. The manufacturer demonstrates substantial equivalence to a legally marketed predicate device. Requires intended use, predicate comparison, software documentation, and performance/validation data.</li>
+                        <li><strong>De Novo Classification.</strong> Used when no predicate exists and the SaMD presents low-to-moderate risk. The manufacturer proposes a new device type with special controls. A successful De Novo creates a classification regulation and product code that future applicants can reference as a 510(k) predicate.</li>
+                        <li><strong>Premarket Approval (PMA).</strong> Required for Class III SaMD. Demands valid scientific evidence — typically clinical investigations — demonstrating safety and effectiveness. The most resource-intensive pathway.</li>
+                    </ul>
+                </div>
+
+                <h3 class="wp-subsection-title">Software Documentation Requirements</h3>
+                <div class="wp-prose">
+                    <p>The FDA's <em>Guidance for the Content of Premarket Submissions for Device Software Functions</em> (2023) defines the documentation expected for each risk tier:</p>
+                </div>
+                <div class="wp-table-wrap">
+                    <table class="wp-table">
+                        <thead>
+                            <tr>
+                                <th>Deliverable</th>
+                                <th>Description</th>
+                                <th>When Required</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Software Description</strong></td>
+                                <td>Overview of device software functions, programming language, platform, and architecture</td>
+                                <td class="accent">All submissions</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Risk Management File</strong></td>
+                                <td>Hazard analysis, risk assessment, risk controls, and residual risk evaluation per ISO 14971</td>
+                                <td class="accent">All submissions</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Software Requirements Specification (SRS)</strong></td>
+                                <td>Functional, performance, interface, safety, and security requirements</td>
+                                <td class="accent">All submissions</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Software Architecture Design Chart</strong></td>
+                                <td>Block diagram showing major components, interfaces, and data flows</td>
+                                <td>Enhanced documentation</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Software Design Specification (SDS)</strong></td>
+                                <td>Detailed design of software units sufficient for implementation</td>
+                                <td>Enhanced documentation</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Traceability Matrix</strong></td>
+                                <td>Bi-directional trace: requirements → design → implementation → testing</td>
+                                <td>Enhanced documentation</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Verification & Validation</strong></td>
+                                <td>Unit, integration, and system-level tests with pass/fail results</td>
+                                <td class="accent">All submissions (scope scales with risk)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Unresolved Anomalies (Bug List)</strong></td>
+                                <td>Known software defects with severity assessment and release justification</td>
+                                <td class="accent">All submissions</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cybersecurity Documentation</strong></td>
+                                <td>Threat model, security architecture, SBOM, vulnerability assessment</td>
+                                <td class="accent">All submissions (see Section 05)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="wp-subsection-title">QMSR — ISO 13485:2016 Harmonization (Effective Feb 2026)</h3>
+                <div class="wp-prose">
+                    <p>As of February 2, 2026, the FDA finalized the <strong>Quality Management System Regulation (QMSR)</strong>, which incorporates ISO 13485:2016 by reference, replacing the former 21 CFR Part 820. This harmonizes U.S. requirements with international standards. Key elements:</p>
+                    <ul>
+                        <li><strong>Design Controls:</strong> Mandatory for Class II and III devices. Requires documented design input, output, review, verification, validation, and transfer. The Design History File (DHF) remains the accumulated record proving compliance.</li>
+                        <li><strong>Risk-Based Approach:</strong> Risk management throughout the device lifecycle, aligned with ISO 14971.</li>
+                        <li><strong>CAPA:</strong> Corrective and Preventive Action processes for addressing nonconformities.</li>
+                        <li><strong>Complaint Files:</strong> All complaints documented, investigated, and dispositioned.</li>
+                        <li><strong>Precedence:</strong> FDA definitions for medical devices take precedence where they conflict with ISO definitions.</li>
+                    </ul>
+                </div>
+
+                <h3 class="wp-subsection-title">Software Change Management</h3>
+                <div class="wp-prose">
+                    <p>The FDA guidance <em>Deciding When to Submit a 510(k) for a Software Change</em> (2023) provides a three-question decision framework: Does the change affect intended use? Does it introduce new risks or alter existing controls? Could it affect safety or effectiveness? Every change must be documented through change control regardless of whether a new submission is required, including rationale, risk assessment, verification/validation evidence, and approval.</p>
+                </div>
+            </section>
+
+            <!-- 04 -->
+            <section class="wp-section" id="s04">
+                <span class="wp-section-tag">// 04</span>
+                <h2 class="wp-section-title">EU MDR Requirements</h2>
+
+                <h3 class="wp-subsection-title">Conformity Assessment Routes</h3>
+                <div class="wp-prose">
+                    <p>All SaMD on the EU market must bear <strong>CE marking</strong> under Regulation (EU) 2017/745. The route depends on classification:</p>
+                    <ul>
+                        <li><strong>Class I:</strong> Self-declaration of conformity (Annex II & III). No Notified Body involvement. QMS still mandatory.</li>
+                        <li><strong>Class IIa:</strong> Notified Body assessment via Annex IX (QMS) or Annex XI (product conformity verification).</li>
+                        <li><strong>Class IIb:</strong> Full Annex IX assessment. Technical documentation scrutinized on a representative basis.</li>
+                        <li><strong>Class III:</strong> Full Annex IX assessment including design dossier examination. Clinical investigations typically required.</li>
+                    </ul>
+                </div>
+
+                <h3 class="wp-subsection-title">Technical Documentation (Annex II & III)</h3>
+                <div class="wp-table-wrap">
+                    <table class="wp-table">
+                        <thead>
+                            <tr>
+                                <th>Deliverable</th>
+                                <th>MDR Reference & Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Device Description and Specification</strong></td>
+                                <td>Annex II, §1. Intended purpose, indications, contraindications, target population, user profile, operating environment, and functional description.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Design and Manufacturing Information</strong></td>
+                                <td>Annex II, §3. Software architecture, IEC 62304 lifecycle documentation, configuration management records, and build processes.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>GSPR Checklist</strong></td>
+                                <td>Annex II, §4. Mapping of each applicable General Safety and Performance Requirement (Annex I) to conformity evidence, with references to harmonized standards used.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Risk Management File</strong></td>
+                                <td>Annex II, §5 + Annex I, §3. Risk analysis, evaluation, control, and residual risk per ISO 14971:2019. Must cover the full product lifecycle including foreseeable misuse.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Clinical Evaluation Report (CER)</strong></td>
+                                <td>Annex II, §6 + Annex XIV. Systematic review of clinical data demonstrating safety and performance conformity. Updated throughout device lifetime.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Post-Market Surveillance Plan</strong></td>
+                                <td>Annex III. Proactive data collection plan including complaint handling, trend analysis, and PMCF plan.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>PSUR</strong></td>
+                                <td>Article 86. Required for Class IIa and above. Summarizes PMS data, benefit-risk conclusions, and sales volumes at defined intervals.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="wp-subsection-title">Annex I — Software-Specific Safety Requirements</h3>
+                <div class="wp-prose">
+                    <ul>
+                        <li><strong>Section 17.1:</strong> Software must be developed in accordance with the state of the art, including development lifecycle, risk management, information security, verification, and validation.</li>
+                        <li><strong>Section 17.2:</strong> Software for mobile platforms must account for screen size, touch controls, connectivity, lighting, and noise conditions.</li>
+                        <li><strong>Section 17.3:</strong> Manufacturers must specify minimum hardware, network, and IT security requirements for the software to run as intended.</li>
+                        <li><strong>Section 17.4:</strong> Fault tolerance and reliable, repeatable behavior under intended conditions.</li>
+                    </ul>
+                </div>
+
+                <h3 class="wp-subsection-title">Clinical Evidence</h3>
+                <div class="wp-prose">
+                    <p>Article 61 and Annex XIV require a clinical evaluation for all device classes. <strong>MDCG 2020-1</strong> recommends a three-stage approach for SaMD: valid clinical association, analytical validation, and clinical validation. Equivalence-based evaluations require contractual access to the comparator device's technical documentation — a bar that is difficult to clear in practice. For Class III, clinical investigations are the default expectation.</p>
+                </div>
+
+                <h3 class="wp-subsection-title">Software Change Management</h3>
+                <div class="wp-prose">
+                    <p><strong>MDCG 2020-3</strong> outlines how to assess whether a software change constitutes a "significant change" affecting conformity. Changes to intended purpose, algorithm logic, or clinical performance thresholds are likely significant. All changes must be documented through the QMS; significant changes may trigger supplemental Notified Body review.</p>
+                </div>
+            </section>
+
+            <!-- 05 -->
+            <section class="wp-section" id="s05">
+                <span class="wp-section-tag">// 05</span>
+                <h2 class="wp-section-title">Cybersecurity Requirements</h2>
+                <div class="wp-prose">
+                    <p>Cybersecurity is no longer a best practice — it is a regulatory requirement in both jurisdictions. SaMD that connects to networks, processes patient data, or operates in clinical IT environments must meet explicit security expectations at the design, submission, and postmarket stages.</p>
+                </div>
+
+                <h3 class="wp-subsection-title">FDA Cybersecurity (2026 Final Guidance)</h3>
+                <div class="wp-prose">
+                    <p>The FDA's final guidance <em>Cybersecurity in Medical Devices: Quality Management System Considerations and Content of Premarket Submissions</em> (February 2026) supersedes prior versions and addresses requirements under section 524B of the FD&C Act for cyber devices. Key premarket deliverables:</p>
+                    <ul>
+                        <li><strong>Threat model.</strong> Identify assets, threat actors, attack vectors, and potential impact on patient safety.</li>
+                        <li><strong>Security architecture.</strong> Document authentication, authorization, encryption, and communication protocols. Describe protections against unauthorized access, data tampering, and denial of service.</li>
+                        <li><strong>Software Bill of Materials (SBOM).</strong> A complete, machine-readable inventory of all software components including open-source libraries, third-party modules, and their versions. Required for all premarket submissions.</li>
+                        <li><strong>Security testing evidence.</strong> Vulnerability scanning, static analysis, fuzz testing, and penetration testing results. Document identified vulnerabilities and disposition.</li>
+                        <li><strong>Security risk assessment.</strong> Integrated with the risk management file. Covers exploitability, severity of patient harm, and compensating controls.</li>
+                        <li><strong>Patch and update plan.</strong> Documented process for delivering security patches throughout the total product lifecycle, including end-of-support planning.</li>
+                        <li><strong>Cybersecurity labeling.</strong> IFU must include security information, recommended configurations, and user responsibilities.</li>
+                    </ul>
+                    <p>Postmarket cybersecurity management requires ongoing vulnerability monitoring (CISA ICS-CERT, CVE databases), timely risk assessment and remediation, a coordinated vulnerability disclosure policy, and defined criteria for when a vulnerability constitutes a reportable event.</p>
+                </div>
+
+                <h3 class="wp-subsection-title">EU MDR Cybersecurity</h3>
+                <div class="wp-prose">
+                    <p>Annex I, Section 17.1 mandates development in accordance with the state of the art, explicitly naming information security and protection against unauthorized access. Section 17.3 requires specification of minimum IT security measures for the operating environment. Annex I, §14.2(d) requires protection against unauthorized modification of data used by the device.</p>
+                    <p><strong>MDCG 2019-16 Rev. 1</strong> provides implementation details: security risk management integrated with ISO 14971, secure design principles (defense in depth, least privilege, fail-safe defaults), verification of security controls, incident response planning, and lifecycle maintenance. The <strong>EU Cyber Resilience Act (CRA)</strong> will impose additional requirements on connected products — SBOM obligations, mandatory coordinated vulnerability disclosure, and vulnerability handling processes.</p>
+                </div>
+
+                <h3 class="wp-subsection-title">Security Deliverables — FDA vs. EU MDR</h3>
+                <div class="wp-table-wrap">
+                    <table class="wp-table">
+                        <thead>
+                            <tr>
+                                <th>Security Deliverable</th>
+                                <th>FDA</th>
+                                <th>EU MDR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Threat model</td>
+                                <td class="accent">Required (2026 guidance)</td>
+                                <td class="primary">Expected (MDCG 2019-16)</td>
+                            </tr>
+                            <tr>
+                                <td>Security architecture documentation</td>
+                                <td class="accent">Required</td>
+                                <td class="accent">Required (Annex I, §17)</td>
+                            </tr>
+                            <tr>
+                                <td>SBOM</td>
+                                <td class="accent">Required (all submissions)</td>
+                                <td class="primary">Expected (mandatory under CRA)</td>
+                            </tr>
+                            <tr>
+                                <td>Security testing evidence</td>
+                                <td class="accent">Required</td>
+                                <td class="accent">Required (state of the art)</td>
+                            </tr>
+                            <tr>
+                                <td>Vulnerability management process</td>
+                                <td class="accent">Required (postmarket guidance)</td>
+                                <td class="accent">Required (MDCG 2019-16; CRA)</td>
+                            </tr>
+                            <tr>
+                                <td>Patch / update plan</td>
+                                <td class="accent">Required</td>
+                                <td class="primary">Expected</td>
+                            </tr>
+                            <tr>
+                                <td>Coordinated vulnerability disclosure</td>
+                                <td class="primary">Expected</td>
+                                <td class="accent">Mandatory under CRA</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 06 -->
+            <section class="wp-section" id="s06">
+                <span class="wp-section-tag">// 06</span>
+                <h2 class="wp-section-title">IEC 62304 & Traceability</h2>
+                <div class="wp-prose">
+                    <p><strong>IEC 62304:2006+AMD1:2015</strong> is the foundational standard for medical device software development. Harmonized under EU MDR and recognized by the FDA as a consensus standard. It assigns software to one of three safety classes based on the severity of potential harm:</p>
+                    <ul>
+                        <li><strong>Class A:</strong> No injury or damage to health possible.</li>
+                        <li><strong>Class B:</strong> Non-serious injury possible.</li>
+                        <li><strong>Class C:</strong> Death or serious injury possible.</li>
+                    </ul>
+                    <p>The safety class determines the depth of required processes and documentation. Class C demands the most comprehensive evidence.</p>
+                </div>
+
+                <h3 class="wp-subsection-title">Lifecycle Deliverables by Safety Class</h3>
+                <div class="wp-table-wrap">
+                    <table class="wp-table">
+                        <thead>
+                            <tr>
+                                <th>Deliverable</th>
+                                <th>Class A</th>
+                                <th>Class B</th>
+                                <th>Class C</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Software Development Plan</td>
+                                <td class="check center">✓</td>
+                                <td class="check center">✓</td>
+                                <td class="check center">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Software Requirements Specification</td>
+                                <td class="check center">✓</td>
+                                <td class="check center">✓</td>
+                                <td class="check center">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Software Architecture Document</td>
+                                <td class="dash center">—</td>
+                                <td class="check center">✓</td>
+                                <td class="check center">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Detailed Design Specification</td>
+                                <td class="dash center">—</td>
+                                <td class="dash center">—</td>
+                                <td class="check center">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Unit Verification Records</td>
+                                <td class="dash center">—</td>
+                                <td class="dash center">—</td>
+                                <td class="check center">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Integration Test Records</td>
+                                <td class="dash center">—</td>
+                                <td class="check center">✓</td>
+                                <td class="check center">✓</td>
+                            </tr>
+                            <tr>
+                                <td>System Test Records</td>
+                                <td class="check center">✓</td>
+                                <td class="check center">✓</td>
+                                <td class="check center">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Traceability Matrix</td>
+                                <td class="dash center">—</td>
+                                <td class="check center">✓</td>
+                                <td class="check center">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Risk Management File (ISO 14971)</td>
+                                <td class="check center">✓</td>
+                                <td class="check center">✓</td>
+                                <td class="check center">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Configuration Management Records</td>
+                                <td class="check center">✓</td>
+                                <td class="check center">✓</td>
+                                <td class="check center">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Software Release Documentation</td>
+                                <td class="check center">✓</td>
+                                <td class="check center">✓</td>
+                                <td class="check center">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Software Maintenance Plan</td>
+                                <td class="check center">✓</td>
+                                <td class="check center">✓</td>
+                                <td class="check center">✓</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="wp-subsection-title">Traceability Requirements</h3>
+                <div class="wp-prose">
+                    <p>Traceability is the documented ability to trace every requirement forward to design, implementation, and verification — and backward from test evidence to the originating requirement. Gaps in traceability are a top finding in both FDA inspections and Notified Body audits. What must be traceable:</p>
+                    <ul>
+                        <li><strong>System requirements → Software requirements.</strong> Each system-level requirement with a software implementation links to one or more software requirements.</li>
+                        <li><strong>Software requirements → Architecture / Design.</strong> Each software requirement links to the architectural element or detailed design that implements it.</li>
+                        <li><strong>Software requirements → Verification / Validation.</strong> Each software requirement links to test cases and results demonstrating it has been met.</li>
+                        <li><strong>Risk controls → Requirements → Verification.</strong> Every risk control in the risk management file traces to a requirement implementing it and to test evidence confirming effectiveness.</li>
+                    </ul>
+                </div>
+
+                <div class="wp-table-wrap">
+                    <table class="wp-table">
+                        <thead>
+                            <tr>
+                                <th>System Req ID</th>
+                                <th>Software Req ID</th>
+                                <th>Design Element</th>
+                                <th>Test Case ID</th>
+                                <th>Test Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>SYS-001</td>
+                                <td>SRS-012</td>
+                                <td>Module A, §3.2</td>
+                                <td>TC-045</td>
+                                <td class="accent">Pass (v2.1.0)</td>
+                            </tr>
+                            <tr>
+                                <td>SYS-001</td>
+                                <td>SRS-013</td>
+                                <td>Module A, §3.3</td>
+                                <td>TC-046, TC-047</td>
+                                <td class="accent">Pass (v2.1.0)</td>
+                            </tr>
+                            <tr>
+                                <td>RISK-007</td>
+                                <td>SRS-014</td>
+                                <td>Module B, §4.1</td>
+                                <td>TC-050</td>
+                                <td class="accent">Pass (v2.1.0)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="wp-subsection-title">Configuration Management</h3>
+                <div class="wp-prose">
+                    <p>IEC 62304 requires a Software Configuration Management Plan covering identification of all configuration items (source code, documents, tools, build scripts, test data), version control for every deliverable, change control with evaluation and approval before release, and build reproducibility — the ability to recreate any released version from its configuration items.</p>
+                </div>
+            </section>
+
+            <!-- 07 -->
+            <section class="wp-section" id="s07">
+                <span class="wp-section-tag">// 07</span>
+                <h2 class="wp-section-title">Post-Market Surveillance</h2>
+
+                <div class="wp-table-wrap">
+                    <table class="wp-table">
+                        <thead>
+                            <tr>
+                                <th>Requirement</th>
+                                <th>FDA</th>
+                                <th>EU MDR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Mandatory Reporting</strong></td>
+                                <td>Medical Device Reporting (21 CFR Part 803) — deaths, serious injuries, malfunctions</td>
+                                <td>Vigilance Reporting (Articles 87–92) — serious incidents and field safety corrective actions via EUDAMED</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Field Corrections</strong></td>
+                                <td>Corrections and Removals (21 CFR Part 806) — including software patches addressing safety issues</td>
+                                <td>Field Safety Corrective Actions reported to Notified Body and competent authorities</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Surveillance Plan</strong></td>
+                                <td>Complaint Handling (§820.198) — all complaints documented, investigated, dispositioned</td>
+                                <td>Post-Market Surveillance Plan (Articles 83–85) — proactive, systematic data collection throughout device lifetime</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Periodic Reporting</strong></td>
+                                <td>CAPA (§820.90) — root cause analysis and corrective/preventive action</td>
+                                <td>PSUR (Article 86) — required Class IIa+; summarizes PMS data, benefit-risk conclusions, sales volumes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Clinical Follow-up</strong></td>
+                                <td>Post-Approval Studies (for PMA devices) as conditions of approval</td>
+                                <td>PMCF — Post-Market Clinical Follow-up (Annex XIV, Part B) — ongoing clinical data confirming continued safety and performance</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 08 -->
+            <section class="wp-section" id="s08">
+                <span class="wp-section-tag">// 08</span>
+                <h2 class="wp-section-title">Deliverables Checklist</h2>
+                <div class="wp-prose">
+                    <p>Core deliverables for SaMD regulatory submissions and lifecycle management. Use this as a gap assessment against your current documentation state:</p>
+                </div>
+
+                <div class="wp-checklist-group">
+                    <p class="wp-checklist-group-title">// Design & Development</p>
+                    <ul class="wp-checklist">
+                        <li>Software Development Plan</li>
+                        <li>Software Requirements Specification (SRS)</li>
+                        <li>Software Architecture Document</li>
+                        <li>Software Detailed Design Specification (Class C)</li>
+                        <li>Traceability Matrix (requirements ↔ design ↔ tests ↔ risk controls)</li>
+                    </ul>
+                </div>
+
+                <div class="wp-checklist-group">
+                    <p class="wp-checklist-group-title">// Risk & Security</p>
+                    <ul class="wp-checklist">
+                        <li>Risk Management File (ISO 14971)</li>
+                        <li>Threat Model</li>
+                        <li>Security Architecture Documentation</li>
+                        <li>Software Bill of Materials (SBOM)</li>
+                        <li>Security Testing Report (vulnerability scanning, penetration testing)</li>
+                        <li>Patch and Update Plan</li>
+                    </ul>
+                </div>
+
+                <div class="wp-checklist-group">
+                    <p class="wp-checklist-group-title">// Verification & Validation</p>
+                    <ul class="wp-checklist">
+                        <li>Unit Test Records (Class C)</li>
+                        <li>Integration Test Records (Class B, C)</li>
+                        <li>System Test Records</li>
+                        <li>Software Validation Report</li>
+                        <li>Unresolved Anomalies List (bug list with severity assessment)</li>
+                    </ul>
+                </div>
+
+                <div class="wp-checklist-group">
+                    <p class="wp-checklist-group-title">// Release & Configuration</p>
+                    <ul class="wp-checklist">
+                        <li>Software Release Documentation</li>
+                        <li>Configuration Management Records</li>
+                        <li>Revision Level History</li>
+                        <li>Build Reproducibility Evidence</li>
+                    </ul>
+                </div>
+
+                <div class="wp-checklist-group">
+                    <p class="wp-checklist-group-title">// Clinical & Regulatory</p>
+                    <ul class="wp-checklist">
+                        <li>Clinical Evaluation Plan</li>
+                        <li>Clinical Evaluation Report (CER)</li>
+                        <li>GSPR Checklist (EU MDR Annex I mapping)</li>
+                        <li>Design History File (DHF) — FDA</li>
+                        <li>Technical Documentation (Annex II & III) — EU MDR</li>
+                        <li>Declaration of Conformity / 510(k) Summary</li>
+                    </ul>
+                </div>
+
+                <div class="wp-checklist-group">
+                    <p class="wp-checklist-group-title">// Post-Market</p>
+                    <ul class="wp-checklist">
+                        <li>Post-Market Surveillance Plan</li>
+                        <li>PSUR template and schedule (EU MDR, Class IIa+)</li>
+                        <li>PMCF Plan (EU MDR)</li>
+                        <li>Complaint Handling Procedure</li>
+                        <li>CAPA Procedure</li>
+                        <li>Vulnerability Monitoring and Disclosure Process</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 09 -->
+            <section class="wp-section" id="s09">
+                <span class="wp-section-tag">// 09</span>
+                <h2 class="wp-section-title">Why GovaGuard</h2>
+                <div class="wp-prose">
+                    <p>SaMD regulatory submissions fail for predictable reasons: missing or incomplete documentation, traceability gaps, cybersecurity deliverables that don't meet current guidance, and QMS processes that weren't built for a regulated product from day one. GovaGuard exists specifically to close those gaps for bootstrapped and growth-stage healthtech companies — the teams building real clinical software without a 20-person regulatory department behind them.</p>
+                    <p>We bring three capabilities that matter here:</p>
+                    <ul>
+                        <li><strong>Fractional CISO with SaMD-specific experience.</strong> HIPAA, FDA cybersecurity guidance, and SBOM requirements are distinct from general security work. We've built the documentation, walked through FDA reviews, and know what a 510(k) submission looks like when the cybersecurity section is done properly versus when it creates a deficiency letter.</li>
+                        <li><strong>Documentation and traceability infrastructure.</strong> We build the SRS, risk management file, traceability matrix, and design history file in a format that survives Notified Body and FDA scrutiny — not templates to fill in, but working documents integrated with your actual development process.</li>
+                        <li><strong>Regulatory strategy, not just compliance checklists.</strong> Classification decisions, predicate selection for 510(k), equivalence strategy for EU MDR, De Novo vs. 510(k) tradeoffs — these are judgment calls that determine how long and how expensive your path to market is. We help you make them early, before the wrong answer is baked in.</li>
+                    </ul>
+                </div>
+
+                <div class="wp-stats">
+                    <div>
+                        <div class="wp-stat-value">FDA</div>
+                        <div class="wp-stat-label">510(k), De Novo, and PMA pathway experience</div>
+                    </div>
+                    <div>
+                        <div class="wp-stat-value">EU</div>
+                        <div class="wp-stat-label">MDR Class IIa–III Notified Body preparation</div>
+                    </div>
+                    <div>
+                        <div class="wp-stat-value">62304</div>
+                        <div class="wp-stat-label">IEC 62304 lifecycle documentation built into your workflow</div>
+                    </div>
+                    <div>
+                        <div class="wp-stat-value">Day 1</div>
+                        <div class="wp-stat-label">QMS and traceability setup from project start</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 10 -->
+            <section class="wp-section" id="s10">
+                <span class="wp-section-tag">// 10</span>
+                <h2 class="wp-section-title">Key Takeaways</h2>
+                <div class="wp-prose">
+                    <ul>
+                        <li><strong>SaMD is software that performs a medical purpose independently of hardware.</strong> Classification under FDA (Class I–III) and EU MDR (Rule 11, Class IIa–III) determines every downstream requirement. Getting this wrong early cascades into pathway misselection and documentation gaps that are expensive to correct.</li>
+                        <li><strong>FDA offers three pathways — 510(k), De Novo, and PMA</strong> — with escalating evidence demands. EU MDR requires CE marking via Notified Body for Class IIa and above. Most SaMD teams underestimate the documentation depth required even for 510(k).</li>
+                        <li><strong>IEC 62304 is the backbone of SaMD development.</strong> Safety class (A, B, C) drives documentation depth. Class C demands full unit-level design and verification evidence. Build this into your development process, not as a retroactive documentation effort.</li>
+                        <li><strong>Traceability is non-negotiable.</strong> Bi-directional tracing from requirements through design, implementation, testing, and risk controls is the top finding in FDA inspections and Notified Body audits. Invest in a working traceability matrix from day one — it is the single highest-value regulatory artifact you can maintain.</li>
+                        <li><strong>Cybersecurity is a regulatory requirement, not optional.</strong> Both FDA and EU MDR mandate threat modeling, security architecture, SBOM, and vulnerability management. The 2026 FDA guidance and the EU Cyber Resilience Act add further obligations. A missing or weak SBOM alone can generate a deficiency letter.</li>
+                        <li><strong>Post-market obligations are continuous.</strong> PMS plans, PSURs, PMCF, CAPA, complaint handling, and vigilance reporting run for the device's entire market lifetime. Budget and process for them before launch, not after.</li>
+                        <li><strong>Start with a QMS.</strong> ISO 13485:2016 compliance is a prerequisite under the 2026 QMSR. Build documentation, traceability, and change control into development from day one — retrofitting a QMS onto a shipping product is one of the most expensive corrections in healthtech.</li>
+                    </ul>
+                </div>
+
+                <div class="wp-cta">
+                    <h3 class="wp-cta-title">Book a 45-Minute SaMD Regulatory Assessment</h3>
+                    <p class="wp-cta-desc">In one focused call, we assess your current classification, documentation gaps, and cybersecurity posture against FDA and EU MDR requirements. We identify your highest-risk deficiencies and outline what a GovaGuard engagement would look like for your specific device and pathway. No pitch deck. No commitment required.</p>
+                    <a href="/#contact" class="btn btn-primary">
+                        <span class="btn-text">Request Your Assessment</span>
+                        <span class="btn-arrow">→</span>
+                    </a>
+                    <p class="wp-cta-meta">Typical response within one business day · Engagements start within two weeks · <a href="mailto:contact@govaguard.com">contact@govaguard.com</a></p>
+                    <p class="wp-cta-meta" style="margin-top: 0.5rem;">© 2026 GovaGuard</p>
+                </div>
+            </section>
+
+            <!-- 11 -->
+            <section class="wp-section" id="s11">
+                <span class="wp-section-tag">// 11</span>
+                <h2 class="wp-section-title">References</h2>
+
+                <div class="wp-references">
+                    <div>
+                        <p class="wp-ref-group-title">// FDA Guidance Documents</p>
+                        <ul class="wp-ref-list">
+                            <li>Policy for Device Software Functions and Mobile Medical Applications (2022)</li>
+                            <li>Guidance for the Content of Premarket Submissions for Device Software Functions (2023)</li>
+                            <li>Deciding When to Submit a 510(k) for a Software Change to an Existing Device (2023)</li>
+                            <li>Cybersecurity in Medical Devices: QMS Considerations and Content of Premarket Submissions (2026)</li>
+                            <li>Postmarket Management of Cybersecurity in Medical Devices (2016)</li>
+                            <li>Design Control Guidance for Medical Device Manufacturers (1997)</li>
+                            <li>General Principles of Software Validation (2002)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="wp-ref-group-title">// EU Regulations & MDCG Guidance</p>
+                        <ul class="wp-ref-list">
+                            <li>Regulation (EU) 2017/745 — Medical Devices Regulation (MDR)</li>
+                            <li>MDCG 2019-11 — Qualification and Classification of Software under MDR/IVDR</li>
+                            <li>MDCG 2019-16 Rev. 1 — Cybersecurity for Medical Devices</li>
+                            <li>MDCG 2020-1 — Clinical Evaluation / Performance Evaluation of Medical Device Software</li>
+                            <li>MDCG 2020-3 — Guidance on Significant Changes (Article 120 MDR)</li>
+                            <li>Regulation (EU) 2024/2847 — Cyber Resilience Act (CRA)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="wp-ref-group-title">// Standards</p>
+                        <ul class="wp-ref-list">
+                            <li>IEC 62304:2006+AMD1:2015 — Medical device software lifecycle processes</li>
+                            <li>ISO 14971:2019 — Application of risk management to medical devices</li>
+                            <li>ISO 13485:2016 — Quality management systems for regulatory purposes</li>
+                            <li>IEC 82304-1:2016 — Health software general requirements for product safety</li>
+                            <li>IEC/TR 80001-2-2:2012 — Risk management for IT-networks incorporating medical devices</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </article>
+    </div>
+</body>
+</html>

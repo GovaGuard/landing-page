@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="100%" stop-color="#0A1628"/>
+    </linearGradient>
+    <filter id="glowCyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowGreen" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="circuit" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M0,20 H15 L20,15 V0" fill="none" stroke="#00D9FF" stroke-width="0.3" opacity="0.06"/>
+      <path d="M40,20 H25 L20,25 V40" fill="none" stroke="#00D9FF" stroke-width="0.3" opacity="0.06"/>
+      <circle cx="20" cy="20" r="1" fill="#00D9FF" opacity="0.08"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+  <rect width="800" height="500" fill="url(#circuit)"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#00D9FF" letter-spacing="4" opacity="0.7">VALUE FRAMEWORK</text>
+  <text x="400" y="60" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF" letter-spacing="1">Three Pillars of Value</text>
+
+  <!-- Platform on top -->
+  <rect x="120" y="85" width="560" height="35" rx="4" fill="#0A1628" stroke="#00D9FF" stroke-width="1.5" filter="url(#glowCyan)"/>
+  <text x="400" y="108" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" letter-spacing="2">BUSINESS SUCCESS</text>
+
+  <!-- Pillar 1: Cost Efficiency (left) -->
+  <g transform="translate(170, 120)">
+    <rect x="0" y="0" width="100" height="220" rx="3" fill="#0A1628" stroke="#00D9FF" stroke-width="1.2" opacity="0.8"/>
+    <rect x="5" y="5" width="90" height="210" rx="2" fill="#00D9FF" fill-opacity="0.04"/>
+    <!-- Column lines -->
+    <line x1="15" y1="10" x2="15" y2="210" stroke="#00D9FF" stroke-width="0.5" opacity="0.15"/>
+    <line x1="85" y1="10" x2="85" y2="210" stroke="#00D9FF" stroke-width="0.5" opacity="0.15"/>
+    <!-- Icon: Dollar -->
+    <circle cx="50" cy="50" r="18" fill="none" stroke="#00D9FF" stroke-width="1.5" filter="url(#glowCyan)"/>
+    <text x="50" y="56" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="bold" fill="#00D9FF">$</text>
+    <!-- Title -->
+    <text x="50" y="95" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">COST</text>
+    <text x="50" y="110" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">EFFICIENCY</text>
+  </g>
+
+  <!-- Badge 1 -->
+  <rect x="140" y="360" width="160" height="30" rx="4" fill="#000000" fill-opacity="0.7" stroke="#00D9FF" stroke-width="1"/>
+  <text x="220" y="380" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" font-weight="bold" fill="#00D9FF">75% Savings</text>
+
+  <!-- Pillar 2: Strategic Expertise (center, tallest) -->
+  <g transform="translate(350, 120)">
+    <rect x="0" y="-30" width="100" height="250" rx="3" fill="#0A1628" stroke="#00FF88" stroke-width="1.5" opacity="0.9"/>
+    <rect x="5" y="-25" width="90" height="240" rx="2" fill="#00FF88" fill-opacity="0.04"/>
+    <line x1="15" y1="-20" x2="15" y2="210" stroke="#00FF88" stroke-width="0.5" opacity="0.15"/>
+    <line x1="85" y1="-20" x2="85" y2="210" stroke="#00FF88" stroke-width="0.5" opacity="0.15"/>
+    <!-- Icon: Brain/Gear -->
+    <circle cx="50" cy="25" r="18" fill="none" stroke="#00FF88" stroke-width="1.5" filter="url(#glowGreen)"/>
+    <path d="M42,25 Q42,17 50,17 Q58,17 58,25 Q58,33 50,33 Q42,33 42,25" fill="none" stroke="#00FF88" stroke-width="1.5"/>
+    <circle cx="50" cy="25" r="4" fill="#00FF88" fill-opacity="0.3"/>
+    <!-- Title -->
+    <text x="50" y="68" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">STRATEGIC</text>
+    <text x="50" y="83" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">EXPERTISE</text>
+  </g>
+
+  <!-- Badge 2 -->
+  <rect x="310" y="360" width="180" height="30" rx="4" fill="#000000" fill-opacity="0.7" stroke="#00FF88" stroke-width="1"/>
+  <text x="400" y="380" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" font-weight="bold" fill="#00FF88">C-Level Experience</text>
+
+  <!-- Pillar 3: Flexibility (right) -->
+  <g transform="translate(530, 120)">
+    <rect x="0" y="0" width="100" height="220" rx="3" fill="#0A1628" stroke="#00D9FF" stroke-width="1.2" opacity="0.8"/>
+    <rect x="5" y="5" width="90" height="210" rx="2" fill="#00D9FF" fill-opacity="0.04"/>
+    <line x1="15" y1="10" x2="15" y2="210" stroke="#00D9FF" stroke-width="0.5" opacity="0.15"/>
+    <line x1="85" y1="10" x2="85" y2="210" stroke="#00D9FF" stroke-width="0.5" opacity="0.15"/>
+    <!-- Icon: Infinity -->
+    <circle cx="50" cy="50" r="18" fill="none" stroke="#00D9FF" stroke-width="1.5" filter="url(#glowCyan)"/>
+    <path d="M36,50 C36,42 43,42 47,47 L53,53 C57,58 64,58 64,50 C64,42 57,42 53,47 L47,53 C43,58 36,58 36,50" fill="none" stroke="#00D9FF" stroke-width="1.5"/>
+    <!-- Title -->
+    <text x="50" y="95" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">FLEXIBILITY</text>
+  </g>
+
+  <!-- Badge 3 -->
+  <rect x="490" y="360" width="180" height="30" rx="4" fill="#000000" fill-opacity="0.7" stroke="#00D9FF" stroke-width="1"/>
+  <text x="580" y="380" text-anchor="middle" font-family="'Courier New', monospace" font-size="13" font-weight="bold" fill="#00D9FF">5 Engagement Models</text>
+
+  <!-- Foundation base -->
+  <rect x="120" y="410" width="560" height="40" rx="4" fill="#0A1628" stroke="#00D9FF" stroke-width="1" opacity="0.6"/>
+  <rect x="120" y="410" width="560" height="40" rx="4" fill="url(#circuit)"/>
+  <text x="400" y="435" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#808080" letter-spacing="3">FRACTIONAL EXECUTIVE MODEL</text>
+
+  <!-- Bottom info -->
+  <rect x="0" y="472" width="800" height="28" fill="#000000" fill-opacity="0.5"/>
+  <text x="400" y="490" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#808080" letter-spacing="1">STRATEGIC LEADERSHIP · COST OPTIMIZATION · OPERATIONAL FLEXIBILITY</text>
+</svg>

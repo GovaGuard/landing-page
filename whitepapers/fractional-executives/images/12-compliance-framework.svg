@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#000"/><stop offset="100%" stop-color="#0A1628"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0L0 0 0 40" fill="none" stroke="#00D9FF" stroke-width="0.2" opacity="0.04"/></pattern>
+  </defs>
+  <rect width="800" height="500" fill="url(#bgGrad)"/><rect width="800" height="500" fill="url(#grid)"/>
+  <text x="400" y="32" text-anchor="middle" font-family="monospace" font-size="11" fill="#00D9FF" letter-spacing="4" opacity="0.7">REGULATORY FRAMEWORK</text>
+  <text x="400" y="55" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="20" font-weight="bold" fill="#FFF">Compliance Framework Integration</text>
+
+  <!-- Venn diagram circles -->
+  <circle cx="330" cy="210" r="110" fill="#00A8CC" fill-opacity="0.08" stroke="#00A8CC" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="470" cy="210" r="110" fill="#00D9FF" fill-opacity="0.08" stroke="#00D9FF" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="330" cy="320" r="110" fill="#00FF88" fill-opacity="0.08" stroke="#00FF88" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="470" cy="320" r="110" fill="#00FFFF" fill-opacity="0.08" stroke="#00FFFF" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Labels -->
+  <text x="270" y="170" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="13" font-weight="bold" fill="#00A8CC">HIPAA</text>
+  <text x="270" y="186" text-anchor="middle" font-family="monospace" font-size="8" fill="#E0E0E0" opacity="0.7">Healthcare Data</text>
+  <text x="270" y="198" text-anchor="middle" font-family="monospace" font-size="8" fill="#E0E0E0" opacity="0.7">PHI Security</text>
+
+  <text x="530" y="170" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="13" font-weight="bold" fill="#00D9FF">FDA 21 CFR</text>
+  <text x="530" y="186" text-anchor="middle" font-family="monospace" font-size="8" fill="#E0E0E0" opacity="0.7">Electronic Records</text>
+  <text x="530" y="198" text-anchor="middle" font-family="monospace" font-size="8" fill="#E0E0E0" opacity="0.7">Audit Trails</text>
+
+  <text x="270" y="370" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="13" font-weight="bold" fill="#00FF88">SOC 2</text>
+  <text x="270" y="386" text-anchor="middle" font-family="monospace" font-size="8" fill="#E0E0E0" opacity="0.7">Security Controls</text>
+  <text x="270" y="398" text-anchor="middle" font-family="monospace" font-size="8" fill="#E0E0E0" opacity="0.7">Availability</text>
+
+  <text x="530" y="370" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="13" font-weight="bold" fill="#00FFFF">ISO 27001</text>
+  <text x="530" y="386" text-anchor="middle" font-family="monospace" font-size="8" fill="#E0E0E0" opacity="0.7">ISMS Framework</text>
+  <text x="530" y="398" text-anchor="middle" font-family="monospace" font-size="8" fill="#E0E0E0" opacity="0.7">Risk Management</text>
+
+  <!-- Center hub -->
+  <circle cx="400" cy="265" r="38" fill="#0A1628" stroke="#00D9FF" stroke-width="2" filter="url(#glow)"/>
+  <text x="400" y="259" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="8" font-weight="bold" fill="#FFF">UNIFIED</text>
+  <text x="400" y="271" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="8" font-weight="bold" fill="#00D9FF">COMPLIANCE</text>
+  <text x="400" y="283" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="8" font-weight="bold" fill="#FFF">STRATEGY</text>
+
+  <!-- Shared requirement icons in overlaps -->
+  <g opacity="0.5">
+    <!-- Padlock between HIPAA and FDA -->
+    <path d="M398,195 L398,188 Q398,183 403,183 Q408,183 408,188 L408,195" fill="none" stroke="#FFF" stroke-width="1"/>
+    <rect x="395" y="195" width="16" height="10" rx="2" fill="none" stroke="#FFF" stroke-width="1"/>
+
+    <!-- Shield between SOC2 and ISO -->
+    <path d="M400,340 L408,344 V352 Q408,357 400,360 Q392,357 392,352 V344 Z" fill="none" stroke="#FFF" stroke-width="1"/>
+  </g>
+
+  <rect x="0" y="472" width="800" height="28" fill="#000" fill-opacity="0.5"/>
+  <text x="400" y="490" text-anchor="middle" font-family="monospace" font-size="10" fill="#808080" letter-spacing="1">HIPAA · FDA 21 CFR PART 11 · SOC 2 · ISO 27001 · UNIFIED STRATEGY</text>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1100" width="800" height="1100">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0A1628"/><stop offset="100%" stop-color="#000"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0L0 0 0 40" fill="none" stroke="#00D9FF" stroke-width="0.2" opacity="0.05"/></pattern>
+    <pattern id="hex" width="60" height="52" patternUnits="userSpaceOnUse"><polygon points="30,2 55,15 55,37 30,50 5,37 5,15" fill="none" stroke="#00D9FF" stroke-width="0.3" opacity="0.04"/></pattern>
+  </defs>
+  <rect width="800" height="1100" fill="url(#bgGrad)"/><rect width="800" height="1100" fill="url(#grid)"/><rect width="800" height="1100" fill="url(#hex)"/>
+  <!-- Header -->
+  <text x="400" y="100" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="28" font-weight="bold" fill="#00D9FF" filter="url(#glow)">Key Takeaways</text>
+  <line x1="250" y1="120" x2="550" y2="120" stroke="#00D9FF" stroke-width="0.5" opacity="0.4"/>
+  <!-- Takeaway 1 -->
+  <g transform="translate(120, 170)">
+    <circle cx="0" cy="15" r="22" fill="none" stroke="#00FF88" stroke-width="1.5"/>
+    <text x="0" y="20" text-anchor="middle" font-family="monospace" font-size="14" fill="#00FF88">$</text>
+    <text x="40" y="10" font-family="'Helvetica Neue', sans-serif" font-size="18" font-weight="bold" fill="#FFF">75% Cost Savings</text>
+    <text x="40" y="30" font-family="monospace" font-size="11" fill="#E0E0E0">$366,000 savings over 24 months vs full-time executives</text>
+    <text x="40" y="48" font-family="monospace" font-size="11" fill="#808080">No benefits, overhead, or recruiting costs</text>
+  </g>
+  <!-- Takeaway 2 -->
+  <g transform="translate(120, 300)">
+    <circle cx="0" cy="15" r="22" fill="none" stroke="#00FF88" stroke-width="1.5"/>
+    <text x="0" y="22" text-anchor="middle" font-family="monospace" font-size="11" fill="#00FF88">⏱</text>
+    <text x="40" y="10" font-family="'Helvetica Neue', sans-serif" font-size="18" font-weight="bold" fill="#FFF">24-Hour Rapid Deployment</text>
+    <text x="40" y="30" font-family="monospace" font-size="11" fill="#E0E0E0">Crisis response available in 24-48 hours</text>
+    <text x="40" y="48" font-family="monospace" font-size="11" fill="#808080">Start strategic work within 1-2 weeks</text>
+  </g>
+  <!-- Takeaway 3 -->
+  <g transform="translate(120, 430)">
+    <circle cx="0" cy="15" r="22" fill="none" stroke="#00FF88" stroke-width="1.5"/>
+    <text x="0" y="22" text-anchor="middle" font-family="monospace" font-size="11" fill="#00FF88">★</text>
+    <text x="40" y="10" font-family="'Helvetica Neue', sans-serif" font-size="18" font-weight="bold" fill="#FFF">C-Level Strategic Expertise</text>
+    <text x="40" y="30" font-family="monospace" font-size="11" fill="#E0E0E0">10+ years average experience in MedTech/HealthTech</text>
+    <text x="40" y="48" font-family="monospace" font-size="11" fill="#808080">Proven track record with 20+ companies</text>
+  </g>
+  <!-- Takeaway 4 -->
+  <g transform="translate(120, 560)">
+    <circle cx="0" cy="15" r="22" fill="none" stroke="#00FF88" stroke-width="1.5"/>
+    <text x="0" y="22" text-anchor="middle" font-family="monospace" font-size="11" fill="#00FF88">✓</text>
+    <text x="40" y="10" font-family="'Helvetica Neue', sans-serif" font-size="18" font-weight="bold" fill="#FFF">92% Compliance Readiness</text>
+    <text x="40" y="30" font-family="monospace" font-size="11" fill="#E0E0E0">HIPAA, FDA, SOC 2, ISO 27001 expertise</text>
+    <text x="40" y="48" font-family="monospace" font-size="11" fill="#808080">Audit preparation and ongoing compliance management</text>
+  </g>
+  <!-- Takeaway 5 -->
+  <g transform="translate(120, 690)">
+    <circle cx="0" cy="15" r="22" fill="none" stroke="#00FF88" stroke-width="1.5"/>
+    <text x="0" y="22" text-anchor="middle" font-family="monospace" font-size="10" fill="#00FF88">◆◆</text>
+    <text x="40" y="10" font-family="'Helvetica Neue', sans-serif" font-size="18" font-weight="bold" fill="#FFF">5 Flexible Engagement Models</text>
+    <text x="40" y="30" font-family="monospace" font-size="11" fill="#E0E0E0">Crisis, Part-Time, Project, Retainer, Embedded</text>
+    <text x="40" y="48" font-family="monospace" font-size="11" fill="#808080">Scale up or down — no long-term commitment required</text>
+  </g>
+  <!-- CTA Box -->
+  <rect x="120" y="820" width="560" height="120" rx="8" fill="#000" fill-opacity="0.5" stroke="#00D9FF" stroke-width="2" filter="url(#glow)"/>
+  <text x="400" y="860" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="20" font-weight="bold" fill="#FFF">Ready to Transform Your Organization?</text>
+  <text x="400" y="895" text-anchor="middle" font-family="monospace" font-size="13" fill="#00D9FF">Schedule a complimentary strategic assessment</text>
+  <text x="400" y="925" text-anchor="middle" font-family="monospace" font-size="12" fill="#808080">info@govaguard.com</text>
+  <!-- Branding -->
+  <text x="400" y="1010" text-anchor="middle" font-family="monospace" font-size="18" fill="#00D9FF" letter-spacing="6" opacity="0.5">GOVAGUARD</text>
+  <text x="400" y="1040" text-anchor="middle" font-family="monospace" font-size="10" fill="#808080" letter-spacing="2">STRATEGIC LEADERSHIP FOR MEDTECH &amp; HEALTHTECH</text>
+  <!-- Corner decorations -->
+  <path d="M20,20 H60 M20,20 V60" stroke="#00D9FF" stroke-width="1.5" fill="none" opacity="0.3"/>
+  <path d="M780,20 H740 M780,20 V60" stroke="#00D9FF" stroke-width="1.5" fill="none" opacity="0.3"/>
+  <path d="M20,1080 H60 M20,1080 V1040" stroke="#00D9FF" stroke-width="1.5" fill="none" opacity="0.3"/>
+  <path d="M780,1080 H740 M780,1080 V1040" stroke="#00D9FF" stroke-width="1.5" fill="none" opacity="0.3"/>
+</svg>

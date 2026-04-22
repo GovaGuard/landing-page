@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="800" height="550">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="100%" stop-color="#0A1628"/>
+    </linearGradient>
+    <filter id="glowCyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowGreen" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00D9FF" stroke-width="0.2" opacity="0.04"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="550" fill="url(#bgGrad)"/>
+  <rect width="800" height="550" fill="url(#grid)"/>
+
+  <!-- Title -->
+  <text x="400" y="32" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#00D9FF" letter-spacing="4" opacity="0.7">OPERATIONS BOARD</text>
+  <text x="400" y="55" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF" letter-spacing="1">CTO Responsibility Matrix</text>
+
+  <!-- Row 1: 5 tiles -->
+  <!-- Tile 1: Technology Strategy -->
+  <g transform="translate(55, 80)">
+    <polygon points="60,0 110,28 110,82 60,110 10,82 10,28" fill="#0A1628" stroke="#00D9FF" stroke-width="1.2"/>
+    <polygon points="60,6 104,31 104,79 60,104 16,79 16,31" fill="#00D9FF" fill-opacity="0.05"/>
+    <!-- Compass icon -->
+    <circle cx="60" cy="38" r="10" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.8"/>
+    <path d="M60,30 L63,38 L60,46 L57,38 Z" fill="#FFFFFF" opacity="0.6"/>
+    <text x="60" y="68" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">TECHNOLOGY</text>
+    <text x="60" y="79" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">STRATEGY</text>
+    <text x="60" y="94" text-anchor="middle" font-family="'Courier New', monospace" font-size="7" fill="#E0E0E0" opacity="0.7">Roadmap &amp; Vision</text>
+  </g>
+
+  <!-- Tile 2: Architecture -->
+  <g transform="translate(195, 80)">
+    <polygon points="60,0 110,28 110,82 60,110 10,82 10,28" fill="#0A1628" stroke="#00FF88" stroke-width="1.2"/>
+    <polygon points="60,6 104,31 104,79 60,104 16,79 16,31" fill="#00FF88" fill-opacity="0.05"/>
+    <rect x="47" y="28" width="10" height="10" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.8"/>
+    <rect x="60" y="28" width="10" height="10" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.8"/>
+    <rect x="53" y="40" width="10" height="10" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.8"/>
+    <text x="60" y="68" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">ARCHITECTURE</text>
+    <text x="60" y="79" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">DECISIONS</text>
+    <text x="60" y="94" text-anchor="middle" font-family="'Courier New', monospace" font-size="7" fill="#E0E0E0" opacity="0.7">Infrastructure</text>
+  </g>
+
+  <!-- Tile 3: Team Leadership -->
+  <g transform="translate(335, 80)">
+    <polygon points="60,0 110,28 110,82 60,110 10,82 10,28" fill="#0A1628" stroke="#00D9FF" stroke-width="1.2"/>
+    <polygon points="60,6 104,31 104,79 60,104 16,79 16,31" fill="#00D9FF" fill-opacity="0.05"/>
+    <circle cx="53" cy="32" r="5" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.8"/>
+    <circle cx="67" cy="32" r="5" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.8"/>
+    <path d="M44,48 Q44,40 53,40 Q62,40 62,48" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.7"/>
+    <path d="M58,48 Q58,40 67,40 Q76,40 76,48" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.7"/>
+    <text x="60" y="68" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">TEAM</text>
+    <text x="60" y="79" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">LEADERSHIP</text>
+    <text x="60" y="94" text-anchor="middle" font-family="'Courier New', monospace" font-size="7" fill="#E0E0E0" opacity="0.7">Engineering</text>
+  </g>
+
+  <!-- Tile 4: Vendor Management -->
+  <g transform="translate(475, 80)">
+    <polygon points="60,0 110,28 110,82 60,110 10,82 10,28" fill="#0A1628" stroke="#00FF88" stroke-width="1.2"/>
+    <polygon points="60,6 104,31 104,79 60,104 16,79 16,31" fill="#00FF88" fill-opacity="0.05"/>
+    <!-- Handshake -->
+    <path d="M48,38 Q55,30 62,38 Q69,30 76,38" fill="none" stroke="#FFFFFF" stroke-width="1.3" opacity="0.8"/>
+    <text x="60" y="68" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">VENDOR</text>
+    <text x="60" y="79" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">MANAGEMENT</text>
+    <text x="60" y="94" text-anchor="middle" font-family="'Courier New', monospace" font-size="7" fill="#E0E0E0" opacity="0.7">Partners</text>
+  </g>
+
+  <!-- Tile 5: Innovation -->
+  <g transform="translate(615, 80)">
+    <polygon points="60,0 110,28 110,82 60,110 10,82 10,28" fill="#0A1628" stroke="#00D9FF" stroke-width="1.2"/>
+    <polygon points="60,6 104,31 104,79 60,104 16,79 16,31" fill="#00D9FF" fill-opacity="0.05"/>
+    <!-- Lightbulb -->
+    <circle cx="60" cy="32" r="8" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.8"/>
+    <line x1="56" y1="42" x2="64" y2="42" stroke="#FFFFFF" stroke-width="1.2" opacity="0.8"/>
+    <line x1="57" y1="45" x2="63" y2="45" stroke="#FFFFFF" stroke-width="1.2" opacity="0.8"/>
+    <text x="60" y="68" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">INNOVATION</text>
+    <text x="60" y="79" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">PIPELINE</text>
+    <text x="60" y="94" text-anchor="middle" font-family="'Courier New', monospace" font-size="7" fill="#E0E0E0" opacity="0.7">R&amp;D</text>
+  </g>
+
+  <!-- Row 2: 5 tiles -->
+  <!-- Tile 6: Technical Debt -->
+  <g transform="translate(55, 210)">
+    <polygon points="60,0 110,28 110,82 60,110 10,82 10,28" fill="#0A1628" stroke="#00FF88" stroke-width="1.2"/>
+    <polygon points="60,6 104,31 104,79 60,104 16,79 16,31" fill="#00FF88" fill-opacity="0.05"/>
+    <!-- Wrench -->
+    <path d="M52,30 L60,38 L68,30 M54,32 L66,44 L60,50 L48,38" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.8"/>
+    <text x="60" y="68" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">TECHNICAL</text>
+    <text x="60" y="79" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">DEBT</text>
+    <text x="60" y="94" text-anchor="middle" font-family="'Courier New', monospace" font-size="7" fill="#E0E0E0" opacity="0.7">Maintenance</text>
+  </g>
+
+  <!-- Tile 7: Security Oversight -->
+  <g transform="translate(195, 210)">
+    <polygon points="60,0 110,28 110,82 60,110 10,82 10,28" fill="#0A1628" stroke="#00D9FF" stroke-width="1.2"/>
+    <polygon points="60,6 104,31 104,79 60,104 16,79 16,31" fill="#00D9FF" fill-opacity="0.05"/>
+    <!-- Shield -->
+    <path d="M60,24 L74,32 L74,44 Q74,52 60,58 Q46,52 46,44 L46,32 Z" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.8"/>
+    <text x="60" y="68" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">SECURITY</text>
+    <text x="60" y="79" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">OVERSIGHT</text>
+    <text x="60" y="94" text-anchor="middle" font-family="'Courier New', monospace" font-size="7" fill="#E0E0E0" opacity="0.7">Compliance</text>
+  </g>
+
+  <!-- Tile 8: Scalability -->
+  <g transform="translate(335, 210)">
+    <polygon points="60,0 110,28 110,82 60,110 10,82 10,28" fill="#0A1628" stroke="#00FF88" stroke-width="1.2"/>
+    <polygon points="60,6 104,31 104,79 60,104 16,79 16,31" fill="#00FF88" fill-opacity="0.05"/>
+    <!-- Growth arrow -->
+    <path d="M48,48 L55,38 L62,42 L72,28" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.8"/>
+    <polygon points="72,28 72,35 65,32" fill="#FFFFFF" opacity="0.8"/>
+    <text x="60" y="68" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">SCALABILITY</text>
+    <text x="60" y="79" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">PLANNING</text>
+    <text x="60" y="94" text-anchor="middle" font-family="'Courier New', monospace" font-size="7" fill="#E0E0E0" opacity="0.7">Performance</text>
+  </g>
+
+  <!-- Tile 9: Budget -->
+  <g transform="translate(475, 210)">
+    <polygon points="60,0 110,28 110,82 60,110 10,82 10,28" fill="#0A1628" stroke="#00D9FF" stroke-width="1.2"/>
+    <polygon points="60,6 104,31 104,79 60,104 16,79 16,31" fill="#00D9FF" fill-opacity="0.05"/>
+    <!-- Dollar -->
+    <circle cx="60" cy="36" r="10" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.8"/>
+    <text x="60" y="41" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" opacity="0.8">$</text>
+    <text x="60" y="68" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">BUDGET</text>
+    <text x="60" y="79" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">MANAGEMENT</text>
+    <text x="60" y="94" text-anchor="middle" font-family="'Courier New', monospace" font-size="7" fill="#E0E0E0" opacity="0.7">Technology Spend</text>
+  </g>
+
+  <!-- Tile 10: Risk Assessment -->
+  <g transform="translate(615, 210)">
+    <polygon points="60,0 110,28 110,82 60,110 10,82 10,28" fill="#0A1628" stroke="#00FF88" stroke-width="1.2"/>
+    <polygon points="60,6 104,31 104,79 60,104 16,79 16,31" fill="#00FF88" fill-opacity="0.05"/>
+    <!-- Warning triangle -->
+    <polygon points="60,26 72,46 48,46" fill="none" stroke="#FFFFFF" stroke-width="1.3" opacity="0.8"/>
+    <text x="60" y="43" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" opacity="0.8">!</text>
+    <text x="60" y="68" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">RISK</text>
+    <text x="60" y="79" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF">ASSESSMENT</text>
+    <text x="60" y="94" text-anchor="middle" font-family="'Courier New', monospace" font-size="7" fill="#E0E0E0" opacity="0.7">Technical Risk</text>
+  </g>
+
+  <!-- Connecting grid lines between rows -->
+  <g opacity="0.1" stroke="#00D9FF" stroke-width="0.5">
+    <line x1="115" y1="190" x2="115" y2="210"/>
+    <line x1="255" y1="190" x2="255" y2="210"/>
+    <line x1="395" y1="190" x2="395" y2="210"/>
+    <line x1="535" y1="190" x2="535" y2="210"/>
+    <line x1="675" y1="190" x2="675" y2="210"/>
+  </g>
+
+  <!-- Bottom info bar -->
+  <rect x="0" y="522" width="800" height="28" fill="#000000" fill-opacity="0.5"/>
+  <text x="400" y="540" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#808080" letter-spacing="1">10 KEY RESPONSIBILITIES · STRATEGIC + OPERATIONAL OVERSIGHT</text>
+</svg>

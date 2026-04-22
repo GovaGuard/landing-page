@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs><linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#000"/><stop offset="100%" stop-color="#0A1628"/></linearGradient></defs>
+  <rect width="800" height="480" fill="url(#bgGrad)"/>
+  <text x="400" y="28" text-anchor="middle" font-family="monospace" font-size="11" fill="#00D9FF" letter-spacing="4" opacity="0.7">FINANCIAL ANALYSIS</text>
+  <text x="400" y="48" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="18" font-weight="bold" fill="#FFF">24-Month Total Cost of Ownership</text>
+  <!-- Header row -->
+  <rect x="20" y="60" width="130" height="28" fill="#1A1A2E" stroke="#808080" stroke-width="0.3"/>
+  <text x="85" y="78" text-anchor="middle" font-family="monospace" font-size="8" fill="#808080" font-weight="bold">COST CATEGORY</text>
+  <rect x="150" y="60" width="120" height="28" fill="#FF6B35" fill-opacity="0.1" stroke="#FF6B35" stroke-width="0.5"/>
+  <text x="210" y="78" text-anchor="middle" font-family="monospace" font-size="8" fill="#FF6B35" font-weight="bold">FT CTO</text>
+  <rect x="270" y="60" width="120" height="28" fill="#FF6B35" fill-opacity="0.1" stroke="#FF6B35" stroke-width="0.5"/>
+  <text x="330" y="78" text-anchor="middle" font-family="monospace" font-size="8" fill="#FF6B35" font-weight="bold">FT CISO</text>
+  <rect x="390" y="60" width="120" height="28" fill="#00D9FF" fill-opacity="0.1" stroke="#00D9FF" stroke-width="0.5"/>
+  <text x="450" y="78" text-anchor="middle" font-family="monospace" font-size="8" fill="#00D9FF" font-weight="bold">FRAC CTO</text>
+  <rect x="510" y="60" width="120" height="28" fill="#00D9FF" fill-opacity="0.1" stroke="#00D9FF" stroke-width="0.5"/>
+  <text x="570" y="78" text-anchor="middle" font-family="monospace" font-size="8" fill="#00D9FF" font-weight="bold">FRAC CISO</text>
+  <rect x="630" y="60" width="150" height="28" fill="#00FF88" fill-opacity="0.1" stroke="#00FF88" stroke-width="0.5"/>
+  <text x="705" y="78" text-anchor="middle" font-family="monospace" font-size="8" fill="#00FF88" font-weight="bold">SAVINGS</text>
+  <!-- Data rows -->
+  <g font-family="monospace" font-size="9">
+    <!-- Row 1: Salary -->
+    <rect x="20" y="88" width="130" height="32" fill="#1A1A2E" fill-opacity="0.3" stroke="#808080" stroke-width="0.2"/>
+    <text x="30" y="108" fill="#E0E0E0">Base Salary/Fee</text>
+    <rect x="150" y="88" width="120" height="32" stroke="#808080" stroke-width="0.2"/><text x="210" y="108" text-anchor="middle" fill="#FF6B35">$240,000</text>
+    <rect x="270" y="88" width="120" height="32" stroke="#808080" stroke-width="0.2"/><text x="330" y="108" text-anchor="middle" fill="#FF6B35">$216,000</text>
+    <rect x="390" y="88" width="120" height="32" stroke="#808080" stroke-width="0.2"/><text x="450" y="108" text-anchor="middle" fill="#00D9FF">$72,000</text>
+    <rect x="510" y="88" width="120" height="32" stroke="#808080" stroke-width="0.2"/><text x="570" y="108" text-anchor="middle" fill="#00D9FF">$48,000</text>
+    <rect x="630" y="88" width="150" height="32" fill="#00FF88" fill-opacity="0.03" stroke="#808080" stroke-width="0.2"/><text x="705" y="108" text-anchor="middle" fill="#00FF88">$336,000</text>
+    <!-- Row 2: Benefits -->
+    <rect x="20" y="120" width="130" height="32" stroke="#808080" stroke-width="0.2"/>
+    <text x="30" y="140" fill="#E0E0E0">Benefits (30%)</text>
+    <rect x="150" y="120" width="120" height="32" fill="#1A1A2E" fill-opacity="0.15" stroke="#808080" stroke-width="0.2"/><text x="210" y="140" text-anchor="middle" fill="#FF6B35">$72,000</text>
+    <rect x="270" y="120" width="120" height="32" fill="#1A1A2E" fill-opacity="0.15" stroke="#808080" stroke-width="0.2"/><text x="330" y="140" text-anchor="middle" fill="#FF6B35">$64,800</text>
+    <rect x="390" y="120" width="120" height="32" fill="#1A1A2E" fill-opacity="0.15" stroke="#808080" stroke-width="0.2"/><text x="450" y="140" text-anchor="middle" fill="#00D9FF">$0</text>
+    <rect x="510" y="120" width="120" height="32" fill="#1A1A2E" fill-opacity="0.15" stroke="#808080" stroke-width="0.2"/><text x="570" y="140" text-anchor="middle" fill="#00D9FF">$0</text>
+    <rect x="630" y="120" width="150" height="32" fill="#00FF88" fill-opacity="0.03" stroke="#808080" stroke-width="0.2"/><text x="705" y="140" text-anchor="middle" fill="#00FF88">$136,800</text>
+    <!-- Row 3: Recruiting -->
+    <rect x="20" y="152" width="130" height="32" fill="#1A1A2E" fill-opacity="0.3" stroke="#808080" stroke-width="0.2"/>
+    <text x="30" y="172" fill="#E0E0E0">Recruiting Fees</text>
+    <rect x="150" y="152" width="120" height="32" stroke="#808080" stroke-width="0.2"/><text x="210" y="172" text-anchor="middle" fill="#FF6B35">$30,000</text>
+    <rect x="270" y="152" width="120" height="32" stroke="#808080" stroke-width="0.2"/><text x="330" y="172" text-anchor="middle" fill="#FF6B35">$27,000</text>
+    <rect x="390" y="152" width="120" height="32" stroke="#808080" stroke-width="0.2"/><text x="450" y="172" text-anchor="middle" fill="#00D9FF">$0</text>
+    <rect x="510" y="152" width="120" height="32" stroke="#808080" stroke-width="0.2"/><text x="570" y="172" text-anchor="middle" fill="#00D9FF">$0</text>
+    <rect x="630" y="152" width="150" height="32" fill="#00FF88" fill-opacity="0.03" stroke="#808080" stroke-width="0.2"/><text x="705" y="172" text-anchor="middle" fill="#00FF88">$57,000</text>
+    <!-- Row 4: Overhead -->
+    <rect x="20" y="184" width="130" height="32" stroke="#808080" stroke-width="0.2"/>
+    <text x="30" y="204" fill="#E0E0E0">Overhead</text>
+    <rect x="150" y="184" width="120" height="32" fill="#1A1A2E" fill-opacity="0.15" stroke="#808080" stroke-width="0.2"/><text x="210" y="204" text-anchor="middle" fill="#FF6B35">$24,000</text>
+    <rect x="270" y="184" width="120" height="32" fill="#1A1A2E" fill-opacity="0.15" stroke="#808080" stroke-width="0.2"/><text x="330" y="204" text-anchor="middle" fill="#FF6B35">$24,000</text>
+    <rect x="390" y="184" width="120" height="32" fill="#1A1A2E" fill-opacity="0.15" stroke="#808080" stroke-width="0.2"/><text x="450" y="204" text-anchor="middle" fill="#00D9FF">$0</text>
+    <rect x="510" y="184" width="120" height="32" fill="#1A1A2E" fill-opacity="0.15" stroke="#808080" stroke-width="0.2"/><text x="570" y="204" text-anchor="middle" fill="#00D9FF">$0</text>
+    <rect x="630" y="184" width="150" height="32" fill="#00FF88" fill-opacity="0.03" stroke="#808080" stroke-width="0.2"/><text x="705" y="204" text-anchor="middle" fill="#00FF88">$48,000</text>
+    <!-- Row 5: Training -->
+    <rect x="20" y="216" width="130" height="32" fill="#1A1A2E" fill-opacity="0.3" stroke="#808080" stroke-width="0.2"/>
+    <text x="30" y="236" fill="#E0E0E0">Training</text>
+    <rect x="150" y="216" width="120" height="32" stroke="#808080" stroke-width="0.2"/><text x="210" y="236" text-anchor="middle" fill="#FF6B35">$12,000</text>
+    <rect x="270" y="216" width="120" height="32" stroke="#808080" stroke-width="0.2"/><text x="330" y="236" text-anchor="middle" fill="#FF6B35">$12,000</text>
+    <rect x="390" y="216" width="120" height="32" stroke="#808080" stroke-width="0.2"/><text x="450" y="236" text-anchor="middle" fill="#00D9FF">$0</text>
+    <rect x="510" y="216" width="120" height="32" stroke="#808080" stroke-width="0.2"/><text x="570" y="236" text-anchor="middle" fill="#00D9FF">$0</text>
+    <rect x="630" y="216" width="150" height="32" fill="#00FF88" fill-opacity="0.03" stroke="#808080" stroke-width="0.2"/><text x="705" y="236" text-anchor="middle" fill="#00FF88">$24,000</text>
+  </g>
+  <!-- Totals row -->
+  <rect x="20" y="258" width="130" height="38" fill="#1A1A2E" stroke="#FFF" stroke-width="0.5"/>
+  <text x="85" y="282" text-anchor="middle" font-family="monospace" font-size="10" fill="#FFF" font-weight="bold">24-MO TOTAL</text>
+  <rect x="150" y="258" width="120" height="38" fill="#FF6B35" fill-opacity="0.08" stroke="#FF6B35" stroke-width="0.5"/>
+  <text x="210" y="282" text-anchor="middle" font-family="monospace" font-size="11" fill="#FF6B35" font-weight="bold">$378,000</text>
+  <rect x="270" y="258" width="120" height="38" fill="#FF6B35" fill-opacity="0.08" stroke="#FF6B35" stroke-width="0.5"/>
+  <text x="330" y="282" text-anchor="middle" font-family="monospace" font-size="11" fill="#FF6B35" font-weight="bold">$343,800</text>
+  <rect x="390" y="258" width="120" height="38" fill="#00D9FF" fill-opacity="0.08" stroke="#00D9FF" stroke-width="0.5"/>
+  <text x="450" y="282" text-anchor="middle" font-family="monospace" font-size="11" fill="#00D9FF" font-weight="bold">$72,000</text>
+  <rect x="510" y="258" width="120" height="38" fill="#00D9FF" fill-opacity="0.08" stroke="#00D9FF" stroke-width="0.5"/>
+  <text x="570" y="282" text-anchor="middle" font-family="monospace" font-size="11" fill="#00D9FF" font-weight="bold">$48,000</text>
+  <rect x="630" y="258" width="150" height="38" fill="#00FF88" fill-opacity="0.12" stroke="#00FF88" stroke-width="1"/>
+  <text x="705" y="282" text-anchor="middle" font-family="monospace" font-size="11" fill="#00FF88" font-weight="bold">$601,800</text>
+  <!-- Grand total summary -->
+  <rect x="150" y="310" width="240" height="35" rx="4" fill="#FF6B35" fill-opacity="0.08" stroke="#FF6B35" stroke-width="0.8"/>
+  <text x="270" y="332" text-anchor="middle" font-family="monospace" font-size="12" fill="#FF6B35" font-weight="bold">Full-Time Both: $721,800</text>
+  <rect x="410" y="310" width="220" height="35" rx="4" fill="#00D9FF" fill-opacity="0.08" stroke="#00D9FF" stroke-width="0.8"/>
+  <text x="520" y="332" text-anchor="middle" font-family="monospace" font-size="12" fill="#00D9FF" font-weight="bold">Fractional Both: $120,000</text>
+  <rect x="250" y="360" width="300" height="45" rx="6" fill="#000" stroke="#00FF88" stroke-width="1.5"/>
+  <text x="400" y="382" text-anchor="middle" font-family="monospace" font-size="14" fill="#00FF88" font-weight="bold">TOTAL SAVINGS: $601,800 (83%)</text>
+  <text x="400" y="398" text-anchor="middle" font-family="monospace" font-size="9" fill="#808080">* Simplified totals: ~$486K vs ~$120K per whitepaper</text>
+  <rect x="0" y="452" width="800" height="28" fill="#000" fill-opacity="0.5"/>
+  <text x="400" y="470" text-anchor="middle" font-family="monospace" font-size="10" fill="#808080" letter-spacing="1">SALARY · BENEFITS · RECRUITING · OVERHEAD · TRAINING · 24-MONTH COMPARISON</text>
+</svg>
