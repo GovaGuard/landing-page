@@ -134,7 +134,7 @@ func main() {
 			w.Write([]byte(`
 				<div class="success-message">
 					<div class="success-icon">✓</div>
-					<p>Message received. We'll respond within 24 hours. A confirmation has been sent to your email.</p>
+					<p>Message received. We'll respond within 24 hours.</p>
 				</div>
 			`))
 		}
