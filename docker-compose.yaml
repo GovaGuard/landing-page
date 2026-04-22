@@ -38,13 +38,6 @@ services:
       - 8080:8080
     image: govaguard/govaguard
     build: .
-    environment:
-      # SMTP Configuration for Contact Form
-      - SMTP_HOST=w01ab24b.kasserver.com
-      - SMTP_PORT=587
-      - SMTP_USER=form@govaguard.com
-      - SMTP_PASSWORD=vrXE6ADk9Esi5wQsXEyF
-      - TO_EMAIL=contact@govaguard.com
     labels:
       - traefik.http.routers.https.rule=Host(`govaguard.com`)
       - traefik.http.routers.https.entrypoints=https

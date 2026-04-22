@@ -43,31 +43,6 @@ go run main.go
 
 Visit `http://localhost:8080` to view the landing page.
 
-### Contact Form Email Configuration
-
-The contact form sends emails to `contact@govaguard.com`. To configure SMTP:
-
-1. Copy the example environment file:
-   ```bash
-   cp .env.example .env
-   ```
-
-2. Edit `.env` with your SMTP credentials:
-   ```env
-   SMTP_HOST=smtp.example.com
-   SMTP_PORT=587
-   SMTP_USER=your-email@example.com
-   SMTP_PASSWORD=your-password
-   TO_EMAIL=contact@govaguard.com
-   ```
-
-3. Run with environment variables:
-   ```bash
-   export $(cat .env | xargs) && go run main.go
-   ```
-
-**Note**: If SMTP is not configured, form submissions will be logged to console instead of sending emails.
-
 ### Docker Deployment
 
 ```bash
