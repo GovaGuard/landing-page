@@ -111,15 +111,10 @@ Modify the `/contact` handler in `main.go` to integrate with your email service 
 
 ```bash
 cd deployment
-
-# Edit docker-compose.yml to configure SMTP credentials for contact form
-# Then start services:
 docker-compose up -d
 ```
 
 Access at http://localhost - Envoy proxy handles security headers, compression, and health checks.
-
-See [deployment/README.md](deployment/README.md) for details.
 
 ### Manual Deployment
 
