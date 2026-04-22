@@ -116,8 +116,6 @@ docker-compose up -d
 
 Access at http://localhost - Envoy proxy handles security headers, compression, and health checks.
 
-See [deployment/README.md](deployment/README.md) for details.
-
 ### Manual Deployment
 
 1. Build the binary: `go build -o govaguard main.go`
