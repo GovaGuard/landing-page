@@ -10,3 +10,7 @@ certs/
 # Backups
 *.tar.gz
 *.zip
+
+# Environment variables
+.env
+.env.local

@@ -4,10 +4,21 @@ Production-ready deployment with Envoy proxy. Just run `docker-compose up` and a
 
 ## Quick Start
 
-```bash
-cd deployment
-docker-compose up
-```
+1. **Configure SMTP credentials** (edit `docker-compose.yml`):
+   ```yaml
+   environment:
+     - SMTP_HOST=smtp.gmail.com
+     - SMTP_PORT=587
+     - SMTP_USER=your-email@example.com
+     - SMTP_PASSWORD=your-password
+     - TO_EMAIL=contact@govaguard.com
+   ```
+
+2. **Start the services**:
+   ```bash
+   cd deployment
+   docker-compose up
+   ```
 
 That's it! Access at:
 - **Application**: http://localhost (or use `curl -H "Host: govaguard.com" http://localhost/`)
@@ -26,12 +37,33 @@ See [TESTING.md](TESTING.md) for testing with the govaguard.com domain before DN
 
 ## Configuration
 
+### Port Configuration
+
 Edit `.env` to change ports:
 ```bash
 HTTP_PORT=80
 HTTPS_PORT=443
 ADMIN_PORT=9901
 ```
+
+### Contact Form Email Configuration
+
+Configure SMTP settings directly in `docker-compose.yml` to enable email delivery. Edit the `environment` section of the `govaguard` service:
+
+```yaml
+environment:
+  - SMTP_HOST=smtp.gmail.com          # Your SMTP server
+  - SMTP_PORT=587                      # 587 for TLS, 465 for SSL
+  - SMTP_USER=your-email@example.com  # SMTP username
+  - SMTP_PASSWORD=your-password        # SMTP password or app-specific password
+  - TO_EMAIL=contact@govaguard.com    # Where to receive form submissions
+```
+
+**Note**: If SMTP is not configured (values left empty), form submissions will be logged to the container console instead.
+
+**For Gmail**: Use [App-Specific Passwords](https://support.google.com/accounts/answer/185833) instead of your main password.
+
+**For SendGrid/Mailgun**: Use your API key as the SMTP password.
 
 ## Production Use
 

@@ -34,3 +34,7 @@ temp/
 
 # Deployment certificates
 deployment/certs/
+
+# Environment variables
+.env
+.env.local
