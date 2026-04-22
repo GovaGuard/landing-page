@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="100%" stop-color="#0A1628"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00D9FF" stroke-width="0.2" opacity="0.04"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+  <rect width="800" height="500" fill="url(#grid)"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#00D9FF" letter-spacing="4" opacity="0.7">MODULAR ENGAGEMENT</text>
+  <text x="400" y="60" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF" letter-spacing="1">Build Your Solution — 5 Flexible Models</text>
+
+  <!-- Piece 1: Crisis Response -->
+  <g transform="translate(80, 100)">
+    <rect x="0" y="0" width="130" height="160" rx="6" fill="#0A1628" stroke="#FF6B35" stroke-width="1.5"/>
+    <rect x="3" y="3" width="124" height="154" rx="4" fill="#FF6B35" fill-opacity="0.06"/>
+    <!-- Connector tab right -->
+    <rect x="125" y="65" width="15" height="30" rx="5" fill="#0A1628" stroke="#FF6B35" stroke-width="1"/>
+    <!-- Icon -->
+    <path d="M55,35 L70,35 L65,50 L75,50 L55,75 L60,55 L50,55 Z" fill="#FF6B35" opacity="0.8"/>
+    <text x="65" y="100" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">CRISIS</text>
+    <text x="65" y="115" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">RESPONSE</text>
+    <text x="65" y="140" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#FF6B35">24–48h</text>
+  </g>
+
+  <!-- Piece 2: Part-Time -->
+  <g transform="translate(225, 100)">
+    <!-- Connector tab left -->
+    <rect x="-10" y="65" width="15" height="30" rx="5" fill="#0A1628" stroke="#00D9FF" stroke-width="1"/>
+    <rect x="0" y="0" width="130" height="160" rx="6" fill="#0A1628" stroke="#00D9FF" stroke-width="1.5"/>
+    <rect x="3" y="3" width="124" height="154" rx="4" fill="#00D9FF" fill-opacity="0.06"/>
+    <rect x="125" y="65" width="15" height="30" rx="5" fill="#0A1628" stroke="#00D9FF" stroke-width="1"/>
+    <!-- Clock icon -->
+    <circle cx="65" cy="45" r="16" fill="none" stroke="#00D9FF" stroke-width="1.5"/>
+    <line x1="65" y1="45" x2="65" y2="34" stroke="#00D9FF" stroke-width="1.5"/>
+    <line x1="65" y1="45" x2="75" y2="48" stroke="#00D9FF" stroke-width="1.5"/>
+    <text x="65" y="100" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">PART-TIME</text>
+    <text x="65" y="140" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#00D9FF">10–20h/wk</text>
+  </g>
+
+  <!-- Piece 3: Project-Based -->
+  <g transform="translate(370, 100)">
+    <rect x="-10" y="65" width="15" height="30" rx="5" fill="#0A1628" stroke="#00FF88" stroke-width="1"/>
+    <rect x="0" y="0" width="130" height="160" rx="6" fill="#0A1628" stroke="#00FF88" stroke-width="1.5"/>
+    <rect x="3" y="3" width="124" height="154" rx="4" fill="#00FF88" fill-opacity="0.06"/>
+    <rect x="125" y="65" width="15" height="30" rx="5" fill="#0A1628" stroke="#00FF88" stroke-width="1"/>
+    <!-- Calendar -->
+    <rect x="48" y="28" width="34" height="28" rx="3" fill="none" stroke="#00FF88" stroke-width="1.5"/>
+    <line x1="48" y1="38" x2="82" y2="38" stroke="#00FF88" stroke-width="1.5"/>
+    <line x1="56" y1="24" x2="56" y2="31" stroke="#00FF88" stroke-width="1.5"/>
+    <line x1="74" y1="24" x2="74" y2="31" stroke="#00FF88" stroke-width="1.5"/>
+    <text x="65" y="100" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">PROJECT</text>
+    <text x="65" y="115" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">BASED</text>
+    <text x="65" y="140" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#00FF88">3–6 months</text>
+  </g>
+
+  <!-- Piece 4: Retainer -->
+  <g transform="translate(515, 100)">
+    <rect x="-10" y="65" width="15" height="30" rx="5" fill="#0A1628" stroke="#00FFFF" stroke-width="1"/>
+    <rect x="0" y="0" width="130" height="160" rx="6" fill="#0A1628" stroke="#00FFFF" stroke-width="1.5"/>
+    <rect x="3" y="3" width="124" height="154" rx="4" fill="#00FFFF" fill-opacity="0.06"/>
+    <rect x="125" y="65" width="15" height="30" rx="5" fill="#0A1628" stroke="#00FFFF" stroke-width="1"/>
+    <!-- Infinity -->
+    <path d="M48,45 C48,33 58,33 65,42 C72,33 82,33 82,45 C82,57 72,57 65,48 C58,57 48,57 48,45" fill="none" stroke="#00FFFF" stroke-width="2"/>
+    <text x="65" y="100" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">RETAINER</text>
+    <text x="65" y="140" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#00FFFF">Ongoing</text>
+  </g>
+
+  <!-- Piece 5: Embedded -->
+  <g transform="translate(660, 100)">
+    <rect x="-10" y="65" width="15" height="30" rx="5" fill="#0A1628" stroke="#66FF00" stroke-width="1"/>
+    <rect x="0" y="0" width="130" height="160" rx="6" fill="#0A1628" stroke="#66FF00" stroke-width="1.5"/>
+    <rect x="3" y="3" width="124" height="154" rx="4" fill="#66FF00" fill-opacity="0.06"/>
+    <!-- People -->
+    <circle cx="55" cy="35" r="7" fill="none" stroke="#66FF00" stroke-width="1.5"/>
+    <circle cx="75" cy="35" r="7" fill="none" stroke="#66FF00" stroke-width="1.5"/>
+    <path d="M43,58 Q43,48 55,48 Q67,48 67,58" fill="none" stroke="#66FF00" stroke-width="1.5"/>
+    <path d="M63,58 Q63,48 75,48 Q87,48 87,58" fill="none" stroke="#66FF00" stroke-width="1.5"/>
+    <text x="65" y="100" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">EMBEDDED</text>
+    <text x="65" y="140" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#66FF00">30–40h/wk</text>
+  </g>
+
+  <!-- Configuration examples -->
+  <text x="400" y="310" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#808080" letter-spacing="2">EXAMPLE CONFIGURATIONS</text>
+  <line x1="200" y1="320" x2="600" y2="320" stroke="#808080" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Config 1 -->
+  <rect x="80" y="340" width="180" height="55" rx="5" fill="#0A1628" stroke="#00D9FF" stroke-width="0.8" opacity="0.6"/>
+  <text x="170" y="358" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#808080">STARTUP PACKAGE</text>
+  <rect x="95" y="367" width="50" height="16" rx="3" fill="#00D9FF" fill-opacity="0.15" stroke="#00D9FF" stroke-width="0.5"/>
+  <text x="120" y="379" text-anchor="middle" font-family="'Courier New', monospace" font-size="8" fill="#00D9FF">Part-Time</text>
+  <text x="157" y="379" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#808080">+</text>
+  <rect x="167" y="367" width="70" height="16" rx="3" fill="#00FF88" fill-opacity="0.15" stroke="#00FF88" stroke-width="0.5"/>
+  <text x="202" y="379" text-anchor="middle" font-family="'Courier New', monospace" font-size="8" fill="#00FF88">Project</text>
+
+  <!-- Config 2 -->
+  <rect x="310" y="340" width="180" height="55" rx="5" fill="#0A1628" stroke="#00FF88" stroke-width="0.8" opacity="0.6"/>
+  <text x="400" y="358" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#808080">GROWTH PACKAGE</text>
+  <rect x="325" y="367" width="55" height="16" rx="3" fill="#00FFFF" fill-opacity="0.15" stroke="#00FFFF" stroke-width="0.5"/>
+  <text x="352" y="379" text-anchor="middle" font-family="'Courier New', monospace" font-size="8" fill="#00FFFF">Retainer</text>
+  <text x="392" y="379" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#808080">+</text>
+  <rect x="402" y="367" width="65" height="16" rx="3" fill="#FF6B35" fill-opacity="0.15" stroke="#FF6B35" stroke-width="0.5"/>
+  <text x="434" y="379" text-anchor="middle" font-family="'Courier New', monospace" font-size="8" fill="#FF6B35">Crisis</text>
+
+  <!-- Config 3 -->
+  <rect x="540" y="340" width="180" height="55" rx="5" fill="#0A1628" stroke="#66FF00" stroke-width="0.8" opacity="0.6"/>
+  <text x="630" y="358" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#808080">ENTERPRISE PACKAGE</text>
+  <rect x="555" y="367" width="65" height="16" rx="3" fill="#66FF00" fill-opacity="0.15" stroke="#66FF00" stroke-width="0.5"/>
+  <text x="587" y="379" text-anchor="middle" font-family="'Courier New', monospace" font-size="8" fill="#66FF00">Embedded</text>
+  <text x="632" y="379" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#808080">+</text>
+  <rect x="642" y="367" width="55" height="16" rx="3" fill="#FF6B35" fill-opacity="0.15" stroke="#FF6B35" stroke-width="0.5"/>
+  <text x="669" y="379" text-anchor="middle" font-family="'Courier New', monospace" font-size="8" fill="#FF6B35">Crisis</text>
+
+  <!-- Bottom info bar -->
+  <rect x="0" y="472" width="800" height="28" fill="#000000" fill-opacity="0.5"/>
+  <text x="400" y="490" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#808080" letter-spacing="1">MIX AND MATCH ENGAGEMENT MODELS · SCALE AS YOUR NEEDS EVOLVE</text>
+</svg>

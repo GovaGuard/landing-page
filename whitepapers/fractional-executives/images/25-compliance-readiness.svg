@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0A1628"/><stop offset="100%" stop-color="#0D1B2A"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <linearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FF0000"/><stop offset="50%" stop-color="#FFFF00"/><stop offset="100%" stop-color="#00FF88"/></linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+  <text x="400" y="32" text-anchor="middle" font-family="monospace" font-size="11" fill="#00D9FF" letter-spacing="4" opacity="0.7">COMPLIANCE DASHBOARD</text>
+  <text x="400" y="55" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="20" font-weight="bold" fill="#FFF">Compliance Readiness Score</text>
+  <!-- Gauge arc background -->
+  <path d="M150,350 A250,250 0 0,1 650,350" fill="none" stroke="#1A1A2E" stroke-width="40" stroke-linecap="round"/>
+  <!-- Gauge colored arc -->
+  <path d="M150,350 A250,250 0 0,1 650,350" fill="none" stroke="url(#gaugeGrad)" stroke-width="38" stroke-linecap="round" opacity="0.4"/>
+  <!-- Tick marks -->
+  <g stroke="#808080" stroke-width="1" opacity="0.4">
+    <line x1="155" y1="348" x2="170" y2="335"/><text x="140" y="360" font-family="monospace" font-size="9" fill="#808080" text-anchor="middle">0%</text>
+    <line x1="200" y1="205" x2="215" y2="218"/><text x="185" y="200" font-family="monospace" font-size="9" fill="#808080" text-anchor="middle">25%</text>
+    <line x1="400" y1="100" x2="400" y2="118"/><text x="400" y="95" font-family="monospace" font-size="9" fill="#808080" text-anchor="middle">50%</text>
+    <line x1="600" y1="205" x2="585" y2="218"/><text x="615" y="200" font-family="monospace" font-size="9" fill="#808080" text-anchor="middle">75%</text>
+    <line x1="645" y1="348" x2="630" y2="335"/><text x="660" y="360" font-family="monospace" font-size="9" fill="#808080" text-anchor="middle">100%</text>
+  </g>
+  <!-- Zone labels -->
+  <text x="230" y="395" text-anchor="middle" font-family="monospace" font-size="9" fill="#FF0000" opacity="0.6">NON-COMPLIANT</text>
+  <text x="400" y="395" text-anchor="middle" font-family="monospace" font-size="9" fill="#FFFF00" opacity="0.6">PARTIAL</text>
+  <text x="580" y="395" text-anchor="middle" font-family="monospace" font-size="9" fill="#00FF88" opacity="0.6">COMPLIANT</text>
+  <!-- Before needle (35%) - angle calc: 180 - (35/100 * 180) = 117deg from right = about 63deg from left -->
+  <line x1="400" y1="350" x2="260" y2="220" stroke="#FF6B35" stroke-width="2.5" opacity="0.6"/>
+  <circle cx="260" cy="220" r="4" fill="#FF6B35" opacity="0.6"/>
+  <text x="235" y="210" font-family="monospace" font-size="10" fill="#FF6B35" font-weight="bold">35%</text>
+  <text x="235" y="225" font-family="monospace" font-size="8" fill="#FF6B35">BEFORE</text>
+  <!-- After needle (92%) - closer to right -->
+  <line x1="400" y1="350" x2="620" y2="225" stroke="#00D9FF" stroke-width="3" filter="url(#glow)"/>
+  <circle cx="620" cy="225" r="5" fill="#00D9FF" filter="url(#glow)"/>
+  <text x="640" y="218" font-family="monospace" font-size="10" fill="#00D9FF" font-weight="bold">92%</text>
+  <text x="640" y="233" font-family="monospace" font-size="8" fill="#00D9FF">AFTER</text>
+  <!-- Center hub -->
+  <circle cx="400" cy="350" r="8" fill="#0A1628" stroke="#00D9FF" stroke-width="2"/>
+  <!-- Digital display -->
+  <rect x="330" y="415" width="140" height="50" rx="6" fill="#000" fill-opacity="0.7" stroke="#00FF88" stroke-width="1.5"/>
+  <text x="400" y="440" text-anchor="middle" font-family="monospace" font-size="24" fill="#00FF88" font-weight="bold" filter="url(#glow)">92%</text>
+  <text x="400" y="458" text-anchor="middle" font-family="monospace" font-size="9" fill="#00FF88">COMPLIANT</text>
+  <!-- Improvement badge -->
+  <rect x="520" y="420" width="100" height="30" rx="4" fill="#000" fill-opacity="0.5" stroke="#00D9FF" stroke-width="0.8"/>
+  <text x="570" y="440" text-anchor="middle" font-family="monospace" font-size="11" fill="#00D9FF" font-weight="bold">+57 pts</text>
+  <rect x="0" y="472" width="800" height="28" fill="#000" fill-opacity="0.5"/>
+  <text x="400" y="490" text-anchor="middle" font-family="monospace" font-size="10" fill="#808080" letter-spacing="1">BEFORE: 35% → AFTER: 92% · +57 PERCENTAGE POINTS IMPROVEMENT</text>
+</svg>

@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0A1628"/><stop offset="100%" stop-color="#0D1B2A"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0L0 0 0 40" fill="none" stroke="#00D9FF" stroke-width="0.2" opacity="0.04"/></pattern>
+  </defs>
+  <rect width="800" height="500" fill="url(#bgGrad)"/><rect width="800" height="500" fill="url(#grid)"/>
+  <text x="400" y="32" text-anchor="middle" font-family="monospace" font-size="11" fill="#00D9FF" letter-spacing="4" opacity="0.7">OPERATIONAL PLAYBOOK</text>
+  <text x="400" y="55" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="20" font-weight="bold" fill="#FFF">Incident Response Workflow</text>
+
+  <!-- 6 hexagonal nodes -->
+  <!-- Stage 1: Detection -->
+  <g transform="translate(80, 160)">
+    <polygon points="40,0 72,18 72,54 40,72 8,54 8,18" fill="#0A1628" stroke="#00D9FF" stroke-width="1.5"/>
+    <circle cx="40" cy="24" r="8" fill="none" stroke="#00D9FF" stroke-width="1.2"/>
+    <circle cx="40" cy="24" r="3" fill="#00D9FF" opacity="0.5"/>
+    <line x1="46" y1="28" x2="52" y2="34" stroke="#00D9FF" stroke-width="1"/>
+    <text x="40" y="50" text-anchor="middle" font-family="monospace" font-size="7" fill="#FFF" font-weight="bold">DETECT</text>
+    <text x="40" y="88" text-anchor="middle" font-family="monospace" font-size="8" fill="#00D9FF">0–15 min</text>
+    <text x="40" y="105" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Alert Triage</text>
+    <text x="40" y="116" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Severity Check</text>
+  </g>
+
+  <!-- Arrow 1-2 -->
+  <line x1="155" y1="196" x2="195" y2="196" stroke="#00D9FF" stroke-width="1.5" opacity="0.5"/>
+  <polygon points="195,192 205,196 195,200" fill="#00D9FF" opacity="0.5"/>
+
+  <!-- Stage 2: Analysis -->
+  <g transform="translate(210, 160)">
+    <polygon points="40,0 72,18 72,54 40,72 8,54 8,18" fill="#0A1628" stroke="#00FF88" stroke-width="1.5"/>
+    <circle cx="40" cy="25" r="9" fill="none" stroke="#00FF88" stroke-width="1.2"/>
+    <line x1="47" y1="30" x2="53" y2="36" stroke="#00FF88" stroke-width="1.5"/>
+    <text x="40" y="50" text-anchor="middle" font-family="monospace" font-size="7" fill="#FFF" font-weight="bold">ANALYZE</text>
+    <text x="40" y="88" text-anchor="middle" font-family="monospace" font-size="8" fill="#00FF88">15–30 min</text>
+    <text x="40" y="105" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Threat ID</text>
+    <text x="40" y="116" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Impact Analysis</text>
+  </g>
+
+  <!-- Arrow 2-3 -->
+  <line x1="285" y1="196" x2="325" y2="196" stroke="#00FF88" stroke-width="1.5" opacity="0.5"/>
+  <polygon points="325,192 335,196 325,200" fill="#00FF88" opacity="0.5"/>
+
+  <!-- Stage 3: Containment -->
+  <g transform="translate(340, 160)">
+    <polygon points="40,0 72,18 72,54 40,72 8,54 8,18" fill="#0A1628" stroke="#00D9FF" stroke-width="1.5"/>
+    <path d="M30,18 L50,18 L50,38 L30,38 Z" fill="none" stroke="#00D9FF" stroke-width="1.2"/>
+    <line x1="28" y1="28" x2="52" y2="28" stroke="#00D9FF" stroke-width="1.5"/>
+    <text x="40" y="50" text-anchor="middle" font-family="monospace" font-size="7" fill="#FFF" font-weight="bold">CONTAIN</text>
+    <text x="40" y="88" text-anchor="middle" font-family="monospace" font-size="8" fill="#00D9FF">30–60 min</text>
+    <text x="40" y="105" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Isolate Systems</text>
+    <text x="40" y="116" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Prevent Spread</text>
+  </g>
+
+  <!-- Arrow 3-4 -->
+  <line x1="415" y1="196" x2="455" y2="196" stroke="#00D9FF" stroke-width="1.5" opacity="0.5"/>
+  <polygon points="455,192 465,196 455,200" fill="#00D9FF" opacity="0.5"/>
+
+  <!-- Stage 4: Eradication -->
+  <g transform="translate(470, 160)">
+    <polygon points="40,0 72,18 72,54 40,72 8,54 8,18" fill="#0A1628" stroke="#00FF88" stroke-width="1.5"/>
+    <text x="40" y="30" text-anchor="middle" font-family="monospace" font-size="16" fill="#00FF88" opacity="0.7">×</text>
+    <text x="40" y="50" text-anchor="middle" font-family="monospace" font-size="7" fill="#FFF" font-weight="bold">ERADICATE</text>
+    <text x="40" y="88" text-anchor="middle" font-family="monospace" font-size="8" fill="#00FF88">1–4 hrs</text>
+    <text x="40" y="105" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Remove Threat</text>
+    <text x="40" y="116" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Patch Vulns</text>
+  </g>
+
+  <!-- Arrow 4-5 -->
+  <line x1="545" y1="196" x2="585" y2="196" stroke="#00FF88" stroke-width="1.5" opacity="0.5"/>
+  <polygon points="585,192 595,196 585,200" fill="#00FF88" opacity="0.5"/>
+
+  <!-- Stage 5: Recovery -->
+  <g transform="translate(600, 160)">
+    <polygon points="40,0 72,18 72,54 40,72 8,54 8,18" fill="#0A1628" stroke="#00D9FF" stroke-width="1.5"/>
+    <path d="M32,28 A10,10 0 1,1 48,28" fill="none" stroke="#00D9FF" stroke-width="1.5"/>
+    <polygon points="48,25 52,28 48,31" fill="#00D9FF"/>
+    <text x="40" y="50" text-anchor="middle" font-family="monospace" font-size="7" fill="#FFF" font-weight="bold">RECOVER</text>
+    <text x="40" y="88" text-anchor="middle" font-family="monospace" font-size="8" fill="#00D9FF">4–24 hrs</text>
+    <text x="40" y="105" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Restore Systems</text>
+    <text x="40" y="116" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Validate</text>
+  </g>
+
+  <!-- Arrow to Stage 6 (below) -->
+  <line x1="640" y1="232" x2="640" y2="310" stroke="#00D9FF" stroke-width="1" opacity="0.4"/>
+
+  <!-- Stage 6: Post-Mortem (bottom right) -->
+  <g transform="translate(600, 310)">
+    <polygon points="40,0 72,18 72,54 40,72 8,54 8,18" fill="#0A1628" stroke="#00FF88" stroke-width="1.5"/>
+    <rect x="30" y="16" width="20" height="26" rx="2" fill="none" stroke="#00FF88" stroke-width="1.2"/>
+    <line x1="34" y1="24" x2="46" y2="24" stroke="#00FF88" stroke-width="0.8"/>
+    <line x1="34" y1="28" x2="46" y2="28" stroke="#00FF88" stroke-width="0.8"/>
+    <line x1="34" y1="32" x2="42" y2="32" stroke="#00FF88" stroke-width="0.8"/>
+    <text x="40" y="54" text-anchor="middle" font-family="monospace" font-size="7" fill="#FFF" font-weight="bold">REVIEW</text>
+    <text x="40" y="88" text-anchor="middle" font-family="monospace" font-size="8" fill="#00FF88">24–48 hrs</text>
+    <text x="40" y="105" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Root Cause</text>
+    <text x="40" y="116" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Update Procedures</text>
+  </g>
+
+  <!-- Feedback loop from Post-Mortem back to Detection -->
+  <path d="M600,346 Q300,430 120,240" fill="none" stroke="#00FF88" stroke-width="1" stroke-dasharray="6,4" opacity="0.35"/>
+  <polygon points="123,244 116,236 126,238" fill="#00FF88" opacity="0.35"/>
+  <text x="350" y="420" text-anchor="middle" font-family="monospace" font-size="8" fill="#00FF88" opacity="0.5">FEEDBACK LOOP → CONTINUOUS IMPROVEMENT</text>
+
+  <rect x="0" y="472" width="800" height="28" fill="#000" fill-opacity="0.5"/>
+  <text x="400" y="490" text-anchor="middle" font-family="monospace" font-size="10" fill="#808080" letter-spacing="1">6-STAGE INCIDENT RESPONSE · DETECT → ANALYZE → CONTAIN → ERADICATE → RECOVER → REVIEW</text>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0A1628"/><stop offset="100%" stop-color="#0D1B2A"/></linearGradient>
+    <linearGradient id="pathGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FF6B35"/><stop offset="33%" stop-color="#FFFF00"/><stop offset="66%" stop-color="#00D9FF"/><stop offset="100%" stop-color="#00FF88"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+  <text x="400" y="32" text-anchor="middle" font-family="monospace" font-size="11" fill="#00D9FF" letter-spacing="4" opacity="0.7">IMPLEMENTATION ROADMAP</text>
+  <text x="400" y="55" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="20" font-weight="bold" fill="#FFF">90-Day Compliance Roadmap</text>
+  <!-- Winding path -->
+  <path d="M80,400 Q200,400 250,330 Q300,260 400,260 Q500,260 550,200 Q600,140 720,100" fill="none" stroke="url(#pathGrad)" stroke-width="5" opacity="0.5" stroke-linecap="round"/>
+  <path d="M80,400 Q200,400 250,330 Q300,260 400,260 Q500,260 550,200 Q600,140 720,100" fill="none" stroke="url(#pathGrad)" stroke-width="2" opacity="0.8" stroke-linecap="round"/>
+  <!-- Milestone 1: Day 0 -->
+  <circle cx="80" cy="400" r="12" fill="#0A1628" stroke="#FF6B35" stroke-width="2"/>
+  <text x="80" y="404" text-anchor="middle" font-family="monospace" font-size="8" fill="#FF6B35" font-weight="bold">0</text>
+  <rect x="20" y="420" width="130" height="55" rx="4" fill="#0A1628" stroke="#FF6B35" stroke-width="0.8"/>
+  <text x="85" y="437" text-anchor="middle" font-family="monospace" font-size="8" fill="#FF6B35" font-weight="bold">ASSESSMENT</text>
+  <text x="85" y="452" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Gap analysis</text>
+  <text x="85" y="464" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Priority risks ID'd</text>
+  <!-- Milestone 2: Day 30 -->
+  <circle cx="250" cy="330" r="12" fill="#0A1628" stroke="#FFFF00" stroke-width="2"/>
+  <text x="250" y="334" text-anchor="middle" font-family="monospace" font-size="8" fill="#FFFF00" font-weight="bold">30</text>
+  <rect x="170" y="340" width="160" height="65" rx="4" fill="#0A1628" stroke="#FFFF00" stroke-width="0.8"/>
+  <text x="250" y="357" text-anchor="middle" font-family="monospace" font-size="8" fill="#FFFF00" font-weight="bold">QUICK WINS</text>
+  <text x="250" y="372" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Access controls updated</text>
+  <text x="250" y="384" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Training launched</text>
+  <text x="250" y="396" text-anchor="middle" font-family="monospace" font-size="7" fill="#FFFF00">Progress: 35%</text>
+  <!-- Milestone 3: Day 60 -->
+  <circle cx="510" cy="220" r="12" fill="#0A1628" stroke="#00D9FF" stroke-width="2"/>
+  <text x="510" y="224" text-anchor="middle" font-family="monospace" font-size="8" fill="#00D9FF" font-weight="bold">60</text>
+  <rect x="430" y="230" width="160" height="65" rx="4" fill="#0A1628" stroke="#00D9FF" stroke-width="0.8"/>
+  <text x="510" y="247" text-anchor="middle" font-family="monospace" font-size="8" fill="#00D9FF" font-weight="bold">MAJOR GAPS CLOSED</text>
+  <text x="510" y="262" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Technical controls deployed</text>
+  <text x="510" y="274" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Policies updated</text>
+  <text x="510" y="286" text-anchor="middle" font-family="monospace" font-size="7" fill="#00D9FF">Progress: 75%</text>
+  <!-- Milestone 4: Day 90 -->
+  <circle cx="720" cy="100" r="15" fill="#0A1628" stroke="#00FF88" stroke-width="2.5" filter="url(#glow)"/>
+  <text x="720" y="104" text-anchor="middle" font-family="monospace" font-size="8" fill="#00FF88" font-weight="bold">90</text>
+  <rect x="620" y="115" width="160" height="65" rx="4" fill="#0A1628" stroke="#00FF88" stroke-width="1.2"/>
+  <text x="700" y="132" text-anchor="middle" font-family="monospace" font-size="8" fill="#00FF88" font-weight="bold">COMPLIANCE ACHIEVED</text>
+  <text x="700" y="147" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Audit-ready state</text>
+  <text x="700" y="159" text-anchor="middle" font-family="monospace" font-size="7" fill="#808080">Monitoring active</text>
+  <text x="700" y="171" text-anchor="middle" font-family="monospace" font-size="7" fill="#00FF88" font-weight="bold">Progress: 92%</text>
+  <rect x="0" y="472" width="800" height="28" fill="#000" fill-opacity="0.5"/>
+  <text x="400" y="490" text-anchor="middle" font-family="monospace" font-size="10" fill="#808080" letter-spacing="1">DAY 0 → DAY 30 → DAY 60 → DAY 90 · FROM ASSESSMENT TO COMPLIANCE ACHIEVED</text>
+</svg>

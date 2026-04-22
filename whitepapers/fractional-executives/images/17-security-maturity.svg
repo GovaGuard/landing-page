@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#000"/><stop offset="100%" stop-color="#0A1628"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0L0 0 0 40" fill="none" stroke="#00D9FF" stroke-width="0.2" opacity="0.04"/></pattern>
+  </defs>
+  <rect width="800" height="500" fill="url(#bgGrad)"/><rect width="800" height="500" fill="url(#grid)"/>
+  <text x="400" y="32" text-anchor="middle" font-family="monospace" font-size="11" fill="#00D9FF" letter-spacing="4" opacity="0.7">SECURITY ASSESSMENT</text>
+  <text x="400" y="55" text-anchor="middle" font-family="'Helvetica Neue', sans-serif" font-size="20" font-weight="bold" fill="#FFF">Security Posture Improvement</text>
+
+  <!-- Radar chart center at 400,280, radius 170 -->
+  <!-- 6 axes at 60-degree intervals, starting from top -->
+  <!-- Axis lines -->
+  <g stroke="#808080" stroke-width="0.5" opacity="0.3">
+    <line x1="400" y1="280" x2="400" y2="110"/>
+    <line x1="400" y1="280" x2="547" y2="195"/>
+    <line x1="400" y1="280" x2="547" y2="365"/>
+    <line x1="400" y1="280" x2="400" y2="450"/>
+    <line x1="400" y1="280" x2="253" y2="365"/>
+    <line x1="400" y1="280" x2="253" y2="195"/>
+  </g>
+
+  <!-- Concentric circles (25%, 50%, 75%, 100%) -->
+  <circle cx="400" cy="280" r="42.5" fill="none" stroke="#808080" stroke-width="0.3" opacity="0.2"/>
+  <circle cx="400" cy="280" r="85" fill="none" stroke="#808080" stroke-width="0.3" opacity="0.2"/>
+  <circle cx="400" cy="280" r="127.5" fill="none" stroke="#808080" stroke-width="0.3" opacity="0.2"/>
+  <circle cx="400" cy="280" r="170" fill="none" stroke="#808080" stroke-width="0.3" opacity="0.2"/>
+
+  <!-- Before polygon (orange, low values ~20-30%) -->
+  <!-- Approx coordinates for 20-30% of 170 radius: 34-51px from center -->
+  <polygon points="400,238 430,261 430,299 400,322 370,299 370,261" fill="#FF6B35" fill-opacity="0.12" stroke="#FF6B35" stroke-width="1.5" opacity="0.7"/>
+
+  <!-- After polygon (cyan, high values ~80-95%) -->
+  <!-- VM:85%=144.5, IR:90%=153, CP:95%=161.5, ET:80%=136, TD:90%=153, RA:85%=144.5 -->
+  <polygon points="400,136 529,206 529,354 400,424 271,354 271,206" fill="#00D9FF" fill-opacity="0.08" stroke="#00D9FF" stroke-width="2" filter="url(#glow)"/>
+
+  <!-- After polygon dots -->
+  <circle cx="400" cy="136" r="4" fill="#00D9FF" filter="url(#glow)"/>
+  <circle cx="529" cy="206" r="4" fill="#00D9FF" filter="url(#glow)"/>
+  <circle cx="529" cy="354" r="4" fill="#00D9FF" filter="url(#glow)"/>
+  <circle cx="400" cy="424" r="4" fill="#00D9FF" filter="url(#glow)"/>
+  <circle cx="271" cy="354" r="4" fill="#00D9FF" filter="url(#glow)"/>
+  <circle cx="271" cy="206" r="4" fill="#00D9FF" filter="url(#glow)"/>
+
+  <!-- Axis labels -->
+  <text x="400" y="98" text-anchor="middle" font-family="monospace" font-size="9" fill="#E0E0E0">Vulnerability Mgmt</text>
+  <text x="565" y="195" font-family="monospace" font-size="9" fill="#E0E0E0">Incident Response</text>
+  <text x="565" y="370" font-family="monospace" font-size="9" fill="#E0E0E0">Compliance</text>
+  <text x="400" y="465" text-anchor="middle" font-family="monospace" font-size="9" fill="#E0E0E0">Employee Training</text>
+  <text x="178" y="370" font-family="monospace" font-size="9" fill="#E0E0E0">Threat Detection</text>
+  <text x="180" y="195" font-family="monospace" font-size="9" fill="#E0E0E0">Risk Assessment</text>
+
+  <!-- Percentage labels on after polygon -->
+  <text x="400" y="128" text-anchor="middle" font-family="monospace" font-size="8" fill="#00D9FF" font-weight="bold">85%</text>
+  <text x="540" y="200" font-family="monospace" font-size="8" fill="#00D9FF" font-weight="bold">90%</text>
+  <text x="540" y="360" font-family="monospace" font-size="8" fill="#00D9FF" font-weight="bold">95%</text>
+  <text x="400" y="440" text-anchor="middle" font-family="monospace" font-size="8" fill="#00D9FF" font-weight="bold">80%</text>
+  <text x="256" y="360" font-family="monospace" font-size="8" fill="#00D9FF" font-weight="bold">90%</text>
+  <text x="256" y="200" font-family="monospace" font-size="8" fill="#00D9FF" font-weight="bold">85%</text>
+
+  <!-- Legend -->
+  <rect x="55" y="85" width="12" height="12" fill="#FF6B35" fill-opacity="0.4" stroke="#FF6B35" stroke-width="1"/>
+  <text x="75" y="95" font-family="monospace" font-size="10" fill="#FF6B35">Before Fractional CISO</text>
+  <rect x="55" y="105" width="12" height="12" fill="#00D9FF" fill-opacity="0.3" stroke="#00D9FF" stroke-width="1"/>
+  <text x="75" y="115" font-family="monospace" font-size="10" fill="#00D9FF">After Fractional CISO</text>
+
+  <rect x="0" y="472" width="800" height="28" fill="#000" fill-opacity="0.5"/>
+  <text x="400" y="490" text-anchor="middle" font-family="monospace" font-size="10" fill="#808080" letter-spacing="1">6-DIMENSION SECURITY MATURITY · BEFORE vs AFTER FRACTIONAL CISO ENGAGEMENT</text>
+</svg>
