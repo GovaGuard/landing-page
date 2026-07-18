@@ -116,12 +116,20 @@ docker-compose up -d
 
 Access at http://localhost - Envoy proxy handles security headers, compression, and health checks.
 
+Set `SITE_DOMAIN_ALIASES` in `deployment/.env` to include every public hostname you want to serve, for example `govaguard.com,govaguard.mx`.
+
 ### Manual Deployment
 
 1. Build the binary: `go build -o govaguard main.go`
 2. Run on your server: `./govaguard`
 3. Configure reverse proxy (nginx/Caddy) for HTTPS
 4. Set up proper email handling for contact form
+
+### Environment Variables
+
+- `SITE_PRIMARY_DOMAIN` - fallback public domain shown when the request host is local or not recognized
+- `SITE_DOMAIN_ALIASES` - comma-separated list of supported production domains, for example `govaguard.com,govaguard.mx`
+- `CONTACT_EMAIL` - contact address rendered on the site
 
 ## Browser Support
 

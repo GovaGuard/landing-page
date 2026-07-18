@@ -81,7 +81,19 @@ For tag `v1.2.3`, the following tags are created:
 - `8080` - HTTP server
 
 ### Environment Variables
-Currently no environment variables are required. The application uses embedded templates and static files.
+The application supports these optional environment variables:
+
+- `SITE_PRIMARY_DOMAIN` - default public domain rendered in legal/privacy content
+- `SITE_DOMAIN_ALIASES` - comma-separated list of supported hostnames, for example `govaguard.com,govaguard.mx`
+- `CONTACT_EMAIL` - contact address rendered on the site
+
+To serve both the existing domain and a Mexican domain from the same deployment, set:
+
+```bash
+SITE_PRIMARY_DOMAIN=govaguard.com
+SITE_DOMAIN_ALIASES=govaguard.com,govaguard.mx
+CONTACT_EMAIL=hello@govaguard.com
+```
 
 ## Production Deployment
 

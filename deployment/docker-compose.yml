@@ -5,6 +5,10 @@ services:
       context: ..
       dockerfile: Dockerfile
     container_name: govaguard-app
+    environment:
+      SITE_PRIMARY_DOMAIN: ${SITE_PRIMARY_DOMAIN:-govaguard.com}
+      SITE_DOMAIN_ALIASES: ${SITE_DOMAIN_ALIASES:-govaguard.com,govaguard.mx}
+      CONTACT_EMAIL: ${CONTACT_EMAIL:-hello@govaguard.com}
     restart: unless-stopped
     networks:
       - govaguard-network

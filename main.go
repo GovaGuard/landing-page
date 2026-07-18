@@ -7,7 +7,9 @@ import (
 	"html/template"
 	"io"
 	"log"
+	"net"
 	"net/http"
+	"os"
 	"strings"
 )
 
@@ -19,7 +21,15 @@ const (
 var content embed.FS
 
 type PageData struct {
-	Title string
+	Title        string
+	SiteDomain   string
+	ContactEmail string
+}
+
+type AppConfig struct {
+	PrimaryDomain string
+	DomainAliases map[string]struct{}
+	ContactEmail  string
 }
 
 type ContactForm struct {
@@ -31,6 +41,8 @@ type ContactForm struct {
 }
 
 func main() {
+	config := loadConfig()
+
 	// Parse templates
 	tmpl := template.Must(template.ParseFS(content, "templates/*.html"))
 
@@ -42,33 +54,25 @@ func main() {
 
 	// Landing page
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		data := PageData{
-			Title: "GovaGuard — CTO & CISO Consulting",
-		}
+		data := config.pageData(r, "GovaGuard — CTO & CISO Consulting")
 		tmpl.ExecuteTemplate(w, "index.html", data)
 	})
 
 	// Imprint page
 	http.HandleFunc("/imprint", func(w http.ResponseWriter, r *http.Request) {
-		data := PageData{
-			Title: "Imprint - GovaGuard",
-		}
+		data := config.pageData(r, "Imprint - GovaGuard")
 		tmpl.ExecuteTemplate(w, "imprint.html", data)
 	})
 
 	// Privacy Policy page
 	http.HandleFunc("/privacy", func(w http.ResponseWriter, r *http.Request) {
-		data := PageData{
-			Title: "Privacy Policy - GovaGuard",
-		}
+		data := config.pageData(r, "Privacy Policy - GovaGuard")
 		tmpl.ExecuteTemplate(w, "privacy.html", data)
 	})
 
 	// Whitepapers page
 	http.HandleFunc("/whitepapers", func(w http.ResponseWriter, r *http.Request) {
-		data := PageData{
-			Title: "Whitepapers & Research - GovaGuard",
-		}
+		data := config.pageData(r, "Whitepapers & Research - GovaGuard")
 		tmpl.ExecuteTemplate(w, "whitepapers.html", data)
 	})
 
@@ -150,4 +154,68 @@ func main() {
 
 	log.Println("GovaGuard landing page running on http://localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
+}
+
+func loadConfig() AppConfig {
+	primaryDomain := envOrDefault("SITE_PRIMARY_DOMAIN", "govaguard.com")
+	aliases := map[string]struct{}{
+		normalizeHost(primaryDomain): {},
+	}
+
+	for _, alias := range strings.Split(os.Getenv("SITE_DOMAIN_ALIASES"), ",") {
+		normalizedAlias := normalizeHost(alias)
+		if normalizedAlias == "" {
+			continue
+		}
+
+		aliases[normalizedAlias] = struct{}{}
+	}
+
+	return AppConfig{
+		PrimaryDomain: normalizeHost(primaryDomain),
+		DomainAliases: aliases,
+		ContactEmail:  envOrDefault("CONTACT_EMAIL", "hello@govaguard.com"),
+	}
+}
+
+func envOrDefault(key, fallback string) string {
+	value := strings.TrimSpace(os.Getenv(key))
+	if value == "" {
+		return fallback
+	}
+
+	return value
+}
+
+func normalizeHost(host string) string {
+	host = strings.TrimSpace(strings.ToLower(host))
+	host = strings.TrimSuffix(host, ".")
+
+	normalizedHost, _, err := net.SplitHostPort(host)
+	if err == nil {
+		host = normalizedHost
+	}
+
+	return host
+}
+
+func (c AppConfig) pageData(r *http.Request, title string) PageData {
+	return PageData{
+		Title:        title,
+		SiteDomain:   c.siteDomainForRequest(r),
+		ContactEmail: c.ContactEmail,
+	}
+}
+
+func (c AppConfig) siteDomainForRequest(r *http.Request) string {
+	host := normalizeHost(r.Host)
+	if host == "" || host == "localhost" || strings.HasPrefix(host, "127.") || host == "::1" || host == "[::1]" {
+		return c.PrimaryDomain
+	}
+
+	if _, ok := c.DomainAliases[host]; ok {
+		return host
+	}
+
+	return c.PrimaryDomain
 }
