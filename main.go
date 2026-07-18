@@ -162,13 +162,15 @@ func loadConfig() AppConfig {
 		normalizeHost(primaryDomain): {},
 	}
 
-	for _, alias := range strings.Split(os.Getenv("SITE_DOMAIN_ALIASES"), ",") {
-		normalizedAlias := normalizeHost(alias)
-		if normalizedAlias == "" {
-			continue
-		}
+	if rawAliases := strings.TrimSpace(os.Getenv("SITE_DOMAIN_ALIASES")); rawAliases != "" {
+		for _, alias := range strings.Split(rawAliases, ",") {
+			normalizedAlias := normalizeHost(alias)
+			if normalizedAlias == "" {
+				continue
+			}
 
-		aliases[normalizedAlias] = struct{}{}
+			aliases[normalizedAlias] = struct{}{}
+		}
 	}
 
 	return AppConfig{
@@ -209,7 +211,7 @@ func (c AppConfig) pageData(r *http.Request, title string) PageData {
 
 func (c AppConfig) siteDomainForRequest(r *http.Request) string {
 	host := normalizeHost(r.Host)
-	if host == "" || host == "localhost" || strings.HasPrefix(host, "127.") || host == "::1" || host == "[::1]" {
+	if isLocalHost(host) {
 		return c.PrimaryDomain
 	}
 
@@ -218,4 +220,13 @@ func (c AppConfig) siteDomainForRequest(r *http.Request) string {
 	}
 
 	return c.PrimaryDomain
+}
+
+func isLocalHost(host string) bool {
+	if host == "" || host == "localhost" {
+		return true
+	}
+
+	ip := net.ParseIP(strings.Trim(host, "[]"))
+	return ip != nil && ip.IsLoopback()
 }
