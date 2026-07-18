@@ -164,10 +164,11 @@ func loadConfig() AppConfig {
 
 	if rawAliases := strings.TrimSpace(os.Getenv("SITE_DOMAIN_ALIASES")); rawAliases != "" {
 		for _, alias := range strings.Split(rawAliases, ",") {
-			normalizedAlias := normalizeHost(alias)
+			trimmedAlias := strings.TrimSpace(alias)
+			normalizedAlias := normalizeHost(trimmedAlias)
 			if normalizedAlias == "" {
-				if strings.TrimSpace(alias) != "" {
-					log.Printf("ignoring invalid SITE_DOMAIN_ALIASES entry: %q", alias)
+				if trimmedAlias != "" {
+					log.Printf("ignoring invalid SITE_DOMAIN_ALIASES entry: %q", trimmedAlias)
 				}
 				continue
 			}
@@ -230,6 +231,8 @@ func isLocalHost(host string) bool {
 		return true
 	}
 
-	ip := net.ParseIP(strings.Trim(strings.SplitN(host, "%", 2)[0], "[]"))
+	hostWithoutZone := strings.SplitN(host, "%", 2)[0]
+	ipPart := strings.Trim(hostWithoutZone, "[]")
+	ip := net.ParseIP(ipPart)
 	return ip != nil && ip.IsLoopback()
 }
