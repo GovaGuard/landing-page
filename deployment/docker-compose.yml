@@ -6,6 +6,9 @@ services:
       dockerfile: Dockerfile
     container_name: govaguard-app
     restart: unless-stopped
+    environment:
+      - NOTION_API_KEY=${NOTION_API_KEY:?set in .env}
+      - NOTION_DATABASE_ID=${NOTION_DATABASE_ID:?set in .env}
     networks:
       - govaguard-network
     expose:
@@ -16,12 +19,17 @@ services:
     image: envoyproxy/envoy:v1.29-latest
     container_name: govaguard-envoy
     restart: unless-stopped
+    environment:
+      # Run as root: certbot's live/ and archive/ dirs are 0700 root, unreadable to the default envoy user
+      - ENVOY_UID=0
     ports:
       - "${HTTP_PORT:-80}:8080"
       - "${HTTPS_PORT:-443}:8443"
       - "${ADMIN_PORT:-9901}:9901"
     volumes:
       - ./envoy.yaml:/etc/envoy/envoy.yaml:ro
+      # Mount the whole tree: live/ only holds symlinks into archive/
+      - /etc/letsencrypt:/etc/letsencrypt:ro
     networks:
       - govaguard-network
     depends_on:

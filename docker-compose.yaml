@@ -38,6 +38,9 @@ services:
       - 8080:8080
     image: govaguard/govaguard
     build: .
+    environment:
+      - NOTION_API_KEY=${NOTION_API_KEY:?set in .env}
+      - NOTION_DATABASE_ID=${NOTION_DATABASE_ID:?set in .env}
     labels:
       - traefik.http.routers.https.rule=Host(`govaguard.com`)
       - traefik.http.routers.https.entrypoints=https
