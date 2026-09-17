@@ -8,6 +8,7 @@
 - **One-liner** 🟢: Executive-led CTO & CISO consulting that gets companies the security certifications that open markets.
 - **What it does** 🟢: GovaGuard takes startups, scale-ups, and mid-market companies from zero to passed audit across security and compliance frameworks — ISO 27001, BSI C5, SOC 2, NIS2, DORA, HIPAA/HITRUST, ISO 42001, and EU Cyber Resilience Act readiness. Engagements are led personally by the two founders on a fixed scope; the positioning is explicitly anti-"paper ISMS" and anti-compliance-theater.
 - **Category (the shelf)** 🟢: Cybersecurity / compliance consulting for security certifications.
+- **Additional confirmed offerings** 🟢 (founder-confirmed 2026-09-17): penetration testing and red team exercises (home "Threat Intelligence" service card is accurate).
 - **Type** 🟢: Professional services (consulting), GbR based in Cologne, Germany. Founders: Nils Carstensen, Manuel Eckarth.
 - **Business model** 🟡: Fixed-scope consulting engagements, quoted after a gap analysis. No productized pricing published. (Fractional executive services were removed from the offering on 2026-09-17.)
 
@@ -117,6 +118,7 @@ Grammar, capitalization, and formatting conventions:
   - /compare/soc-2-vs-iso-27001 and /de/c5-vs-iso-27001 — highest-intent decision keywords
 - **Internal linking rule**: every framework page links its comparison page + ≥2 siblings in body copy; 11-way footer.
 - **Site blueprint**: claude.ai artifact "GovaGuard Site Blueprint" (session 2026-09-16/17).
+- **AEO citation ruleset** (all insights pieces, set 2026-09-17): fact-first lede with number+date in first two sentences; one 40-60-word extractable definition block under the H1; 3-5 primary sources linked inline (laws, BSI/ENISA/AICPA — never competitor blogs); every stat attributed with source+year in-sentence; one comparison table where one exists; FAQ block with schema, answers self-contained ≤80 words; byline + reviewed-date on every piece; living pages (NIS2UmsuCG, CRA countdown) get their date bumped on every touch.
 - **Measurement**: Umami Cloud (EU region, cookieless) + Google Search Console (pending TLS/launch). Judge pages at ~8 weeks on impressions; leads tracked in Notion "Contact Form Submissions" DB (Status: New → Contacted → Qualified → Closed).
 
 ## 14. Goals

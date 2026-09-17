@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"context"
 	"embed"
 	"encoding/json"
 	"html/template"
@@ -28,29 +29,56 @@ type PageData struct {
 }
 
 type ContactForm struct {
-	FirstName string
-	LastName  string
-	Email     string
-	Company   string
-	Message   string
+	Name       string
+	Email      string
+	Company    string
+	Message    string
+	Framework  string
+	SourcePage string
+}
+
+// frameworkOptions maps form select values to Notion "Framework" select names.
+var frameworkOptions = map[string]string{
+	"iso-27001": "ISO 27001",
+	"c5":        "BSI C5",
+	"soc-2":     "SOC 2",
+	"nis2":      "NIS2",
+	"other":     "Other / not sure",
 }
 
 // notionPage builds the Notion "create page" payload for a contact submission.
 // The target database needs these properties: Name (title), Email (email),
 // Company (rich text), Message (rich text), Status (select with a "New" option).
 func notionPage(databaseID string, form ContactForm) map[string]any {
+	// Notion caps a single rich_text element at 2000 characters; split longer
+	// values (the message can be up to 5000) into multiple elements.
 	richText := func(s string) []map[string]any {
-		return []map[string]any{{"text": map[string]any{"content": s}}}
+		const maxRunes = 2000
+		runes := []rune(s)
+		out := []map[string]any{}
+		for start := 0; ; start += maxRunes {
+			end := min(start+maxRunes, len(runes))
+			out = append(out, map[string]any{"text": map[string]any{"content": string(runes[start:end])}})
+			if end == len(runes) {
+				break
+			}
+		}
+		return out
+	}
+	properties := map[string]any{
+		"Name":    map[string]any{"title": richText(form.Name)},
+		"Email":   map[string]any{"email": form.Email},
+		"Company": map[string]any{"rich_text": richText(form.Company)},
+		"Message": map[string]any{"rich_text": richText(form.Message)},
+		"Source":  map[string]any{"rich_text": richText(form.SourcePage)},
+		"Status":  map[string]any{"select": map[string]any{"name": "New"}},
+	}
+	if name, ok := frameworkOptions[form.Framework]; ok {
+		properties["Framework"] = map[string]any{"select": map[string]any{"name": name}}
 	}
 	return map[string]any{
-		"parent": map[string]any{"database_id": databaseID},
-		"properties": map[string]any{
-			"Name":    map[string]any{"title": richText(form.FirstName + " " + form.LastName)},
-			"Email":   map[string]any{"email": form.Email},
-			"Company": map[string]any{"rich_text": richText(form.Company)},
-			"Message": map[string]any{"rich_text": richText(form.Message)},
-			"Status":  map[string]any{"select": map[string]any{"name": "New"}},
-		},
+		"parent":     map[string]any{"database_id": databaseID},
+		"properties": properties,
 	}
 }
 
@@ -214,7 +242,7 @@ func main() {
 		medium := !large && (employees == "50-249" || revenue == "10-50")
 
 		const disclaimer = `<p class="check-disclaimer">Unverbindliche Ersteinschätzung auf Basis Ihrer Angaben — keine Rechtsberatung. Die genaue Einstufung hängt von Tätigkeiten, Registrierungspflichten und dem finalen Stand des NIS2UmsuCG ab.</p>`
-		const cta = `<p><a href="/#contact" class="framework-link">Sprechen Sie mit uns über die nächsten Schritte →</a></p>`
+		const cta = `<p><a href="/?need=nis2#contact" class="framework-link">Sprechen Sie mit uns über die nächsten Schritte →</a></p>`
 
 		var result string
 		switch {
@@ -311,25 +339,32 @@ func main() {
 
 		// Extract form data
 		form := ContactForm{
-			FirstName: strings.TrimSpace(r.FormValue("first_name")),
-			LastName:  strings.TrimSpace(r.FormValue("last_name")),
-			Email:     strings.TrimSpace(r.FormValue("email")),
-			Company:   strings.TrimSpace(r.FormValue("company")),
-			Message:   strings.TrimSpace(r.FormValue("message")),
+			Name:       strings.TrimSpace(r.FormValue("name")),
+			Email:      strings.TrimSpace(r.FormValue("email")),
+			Company:    strings.TrimSpace(r.FormValue("company")),
+			Message:    strings.TrimSpace(r.FormValue("message")),
+			Framework:  strings.TrimSpace(r.FormValue("framework")),
+			SourcePage: strings.TrimSpace(r.FormValue("source_page")),
+		}
+		if len(form.SourcePage) > 200 {
+			form.SourcePage = form.SourcePage[:200]
 		}
 
 		// Validate required fields
-		if form.FirstName == "" || form.LastName == "" || form.Email == "" || form.Message == "" {
+		if form.Name == "" || form.Email == "" || form.Message == "" {
 			w.Write([]byte(errorFragment("Please fill in all required fields.")))
 			return
 		}
 
-		if len(form.FirstName) > 200 || len(form.LastName) > 200 || len(form.Company) > 200 || len(form.Message) > 5000 {
+		if len(form.Name) > 200 || len(form.Company) > 200 || len(form.Message) > 5000 {
 			w.Write([]byte(errorFragment("Your message is too long. Please shorten it and try again.")))
 			return
 		}
 
-		if _, err := mail.ParseAddress(form.Email); err != nil || len(form.Email) > 254 {
+		// Require a bare address: reject name-addr forms like "Jane <jane@x.com>"
+		// so the CRM's Email property only ever holds a usable address.
+		addr, err := mail.ParseAddress(form.Email)
+		if err != nil || len(form.Email) > 254 || addr.Address != form.Email {
 			w.Write([]byte(errorFragment("Please enter a valid email address.")))
 			return
 		}
@@ -341,7 +376,9 @@ func main() {
 			return
 		}
 
-		request, err := http.NewRequestWithContext(r.Context(), http.MethodPost, notionAPIURL, &buf)
+		// Detach from the request context: a visitor closing the tab mid-submit
+		// must not cancel the CRM write. The client's 10s timeout still bounds it.
+		request, err := http.NewRequestWithContext(context.WithoutCancel(r.Context()), http.MethodPost, notionAPIURL, &buf)
 		if err != nil {
 			log.Print(err)
 			w.Write([]byte(errorFragment("Failed to send message. Please try again later.")))

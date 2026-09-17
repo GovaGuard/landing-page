@@ -39,8 +39,10 @@ services:
     image: govaguard/govaguard
     build: .
     environment:
-      - NOTION_API_KEY=${NOTION_API_KEY:?set in .env}
-      - NOTION_DATABASE_ID=${NOTION_DATABASE_ID:?set in .env}
+      # Empty values allowed so fresh clones can run every compose command;
+      # the app logs a warning at startup if these are unset.
+      - NOTION_API_KEY=${NOTION_API_KEY:-}
+      - NOTION_DATABASE_ID=${NOTION_DATABASE_ID:-}
     labels:
       - traefik.http.routers.https.rule=Host(`govaguard.com`)
       - traefik.http.routers.https.entrypoints=https

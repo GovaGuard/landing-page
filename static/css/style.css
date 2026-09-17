@@ -1325,6 +1325,40 @@ body {
     border-bottom: none;
 }
 
+.page-reviewed {
+    margin-top: var(--space-lg);
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    color: var(--color-text-dimmer);
+    letter-spacing: 0.03em;
+}
+
+.hero-secondary {
+    display: inline-block;
+    margin-left: var(--space-lg);
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    color: var(--color-text-dim);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--color-border);
+    transition: color var(--transition-fast);
+}
+
+.hero-secondary:hover {
+    color: var(--color-primary);
+}
+
+.form-privacy-note {
+    margin-top: var(--space-md);
+    font-size: 0.85rem;
+    color: var(--color-text-dimmer);
+    text-align: center;
+}
+
+.form-privacy-note a {
+    color: var(--color-text-dim);
+}
+
 /* Founders strip (E-E-A-T block on framework pages) */
 .founders .section-container {
     padding-top: 0;
