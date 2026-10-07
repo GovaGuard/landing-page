@@ -1,0 +1,12 @@
+#cloud-config
+# Cloud-init for a fresh server: installs Tailscale and joins the tailnet.
+# Replace TS_AUTHKEY_HERE with an auth key from
+# https://login.tailscale.com/admin/settings/keys before provisioning.
+
+package_update: true
+package_upgrade: true
+
+runcmd:
+  - ['sh', '-c', 'curl -fsSL https://tailscale.com/install.sh | sh']
+  - ['systemctl', 'enable', '--now', 'tailscaled']
+  - ['tailscale', 'up', '--authkey=TS_AUTHKEY_HERE', '--ssh']

@@ -23,10 +23,9 @@ WORKDIR /
 # Copy the binary from builder
 COPY --from=builder /app/govaguard /govaguard
 
-# Copy embedded files (templates, static assets, and whitepapers)
+# Copy embedded files (templates and static assets)
 COPY --from=builder /app/templates /templates
 COPY --from=builder /app/static /static
-COPY --from=builder /app/whitepapers /whitepapers
 
 # Use non-root user
 USER nonroot:nonroot

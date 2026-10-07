@@ -189,3 +189,35 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Fill the contact form's source_page field: the page the visitor came from
+// (framework pages link to /#contact), falling back to the current path.
+document.addEventListener('DOMContentLoaded', function () {
+    var source = document.getElementById('source_page');
+    if (!source) return;
+    var page = window.location.pathname;
+    try {
+        if (document.referrer) {
+            var ref = new URL(document.referrer);
+            if (ref.origin === window.location.origin && ref.pathname !== window.location.pathname) {
+                page = ref.pathname;
+            }
+        }
+    } catch (e) { /* keep fallback */ }
+    source.value = page;
+});
+
+// Preselect the contact form's framework dropdown from a ?need= param
+// (framework pages link to /?need=c5#contact etc.).
+document.addEventListener('DOMContentLoaded', function () {
+    var select = document.getElementById('framework');
+    if (!select) return;
+    var need = new URLSearchParams(window.location.search).get('need');
+    if (!need) return;
+    for (var i = 0; i < select.options.length; i++) {
+        if (select.options[i].value === need) {
+            select.value = need;
+            break;
+        }
+    }
+});

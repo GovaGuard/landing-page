@@ -140,17 +140,16 @@ static_resources:
                   - name: envoy.filters.http.router
                     typed_config:
                       "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
-          # Uncomment when you have SSL certificates
-          # transport_socket:
-          #   name: envoy.transport_sockets.tls
-          #   typed_config:
-          #     "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext
-          #     common_tls_context:
-          #       tls_certificates:
-          #         - certificate_chain:
-          #             filename: /etc/envoy/certs/cert.pem
-          #           private_key:
-          #             filename: /etc/envoy/certs/key.pem
+          transport_socket:
+            name: envoy.transport_sockets.tls
+            typed_config:
+              "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext
+              common_tls_context:
+                tls_certificates:
+                  - certificate_chain:
+                      filename: /etc/letsencrypt/live/govaguard.com/fullchain.pem
+                    private_key:
+                      filename: /etc/letsencrypt/live/govaguard.com/privkey.pem
 
   clusters:
     - name: govaguard_service

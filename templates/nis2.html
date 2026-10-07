@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Title}}</title>
+    <meta name="description" content="{{.Description}}">
+    <link rel="canonical" href="https://govaguard.com/de/nis2">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{.Title}}">
+    <meta property="og:description" content="{{.Description}}">
+    <meta property="og:url" content="https://govaguard.com/de/nis2">
+    <meta property="og:site_name" content="GovaGuard">
+    <meta property="og:image" content="https://govaguard.com/static/img/og-default.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/htmx.min.js"></script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="023b5858-3604-4a35-a65e-1239d9f1453a"></script>
+</head>
+<body>
+    <!-- Scanline overlay for terminal effect -->
+    <div class="scanlines"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.25rem;">
+                    <span class="logo-bracket">[</span>
+                    <span class="logo-text">GOVAGUARD</span>
+                    <span class="logo-bracket">]</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="/iso-27001" class="nav-link">ISO 27001</a>
+                <a href="/de/c5-testat" class="nav-link">C5</a>
+                <a href="/soc-2" class="nav-link">SOC 2</a>
+                <a href="/de/nis2" class="nav-link">NIS2</a>
+                <a href="/insights" class="nav-link">Insights</a>
+                <a href="/#services" class="nav-link">Services</a>
+                <a href="/#contact" class="nav-link nav-link-cta">Secure Consultation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="page-hero">
+        <div class="section-container">
+            <span class="section-tag">// REGULIERUNG</span>
+            <h1 class="section-title">NIS2: Sind Sie betroffen &mdash; und was jetzt zu tun ist</h1>
+            <p class="page-intro">
+                NIS2 erweitert die Cyber-Sicherheitspflichten von einigen hundert KRITIS-Betreibern
+                auf rund 29.500 Einrichtungen in Deutschland &mdash; das NIS2UmsuCG ist seit dem 6. Dezember 2025 in Kraft.
+                Viele Mittelständler erfahren nicht vom Gesetzgeber, sondern aus Kundenverträgen,
+                dass sie in der Lieferkette betroffen sind. Wir prüfen Ihre Betroffenheit,
+                priorisieren die Maßnahmen und setzen sie um &mdash; pragmatisch statt
+                Papier-Compliance.
+            </p>
+            <p class="page-reviewed">Fachlich gepr&uuml;ft von Nils Carstensen &amp; Manuel Eckarth &middot; Stand: September 2026</p>
+        </div>
+    </section>
+
+    <!-- Betroffenheits-Check -->
+    <section class="nis2-check">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">// SELBSTTEST</span>
+                <h2 class="section-title">Betroffenheits-Check: Sind Sie NIS2-pflichtig?</h2>
+                <p class="page-intro">
+                    Vier Fragen, 60 Sekunden: eine unverbindliche Ersteinschätzung Ihrer
+                    NIS2-Betroffenheit. Keine Rechtsberatung &mdash; aber ein belastbarer
+                    Startpunkt für die nächsten Schritte.
+                </p>
+            </div>
+
+            <form class="check-form" hx-post="/de/nis2/check" hx-target="#check-result" hx-swap="innerHTML">
+              <div class="form-group">
+                <label for="sector" class="form-label">In welchem Sektor ist Ihr Unternehmen tätig?</label>
+                <select id="sector" name="sector" class="form-select" required>
+                  <option value="">Bitte wählen &hellip;</option>
+                  <optgroup label="Anlage I — Sektoren mit hoher Kritikalität">
+                    <option value="a1:energie">Energie</option>
+                    <option value="a1:verkehr">Transport und Verkehr</option>
+                    <option value="a1:banken">Bankwesen / Finanzmarktinfrastrukturen</option>
+                    <option value="a1:gesundheit">Gesundheitswesen</option>
+                    <option value="a1:wasser">Trinkwasser / Abwasser</option>
+                    <option value="a1:digitale-infrastruktur">Digitale Infrastruktur</option>
+                    <option value="a1:ikt-dienste">Verwaltung von IKT-Diensten (B2B)</option>
+                    <option value="a1:verwaltung">Öffentliche Verwaltung</option>
+                    <option value="a1:weltraum">Weltraum</option>
+                  </optgroup>
+                  <optgroup label="Anlage II — Sonstige kritische Sektoren">
+                    <option value="a2:post">Post- und Kurierdienste</option>
+                    <option value="a2:abfall">Abfallwirtschaft</option>
+                    <option value="a2:chemie">Chemie</option>
+                    <option value="a2:lebensmittel">Lebensmittel</option>
+                    <option value="a2:verarbeitendes-gewerbe">Verarbeitendes Gewerbe (u. a. Medizinprodukte, Elektronik, Maschinen- und Fahrzeugbau)</option>
+                    <option value="a2:digitale-dienste">Anbieter digitaler Dienste (Marktplätze, Suchmaschinen, soziale Netzwerke)</option>
+                    <option value="a2:forschung">Forschung</option>
+                  </optgroup>
+                  <option value="none">Keiner dieser Sektoren</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="employees" class="form-label">Wie viele Mitarbeitende haben Sie?</label>
+                <select id="employees" name="employees" class="form-select" required>
+                  <option value="">Bitte wählen &hellip;</option>
+                  <option value="lt50">Weniger als 50</option>
+                  <option value="50-249">50 bis 249</option>
+                  <option value="gte250">250 oder mehr</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="revenue" class="form-label">Wie hoch ist Ihr Jahresumsatz?</label>
+                <select id="revenue" name="revenue" class="form-select" required>
+                  <option value="">Bitte wählen &hellip;</option>
+                  <option value="lt10">Unter 10 Mio. &euro;</option>
+                  <option value="10-50">10 bis 50 Mio. &euro;</option>
+                  <option value="gt50">Über 50 Mio. &euro;</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="special" class="form-label">Trifft ein Sonderfall zu?</label>
+                <select id="special" name="special" class="form-select">
+                  <option value="none">Nein / nicht sicher</option>
+                  <option value="always">DNS-Dienst, TLD-Registry, Vertrauensdiensteanbieter oder TK-Anbieter</option>
+                  <option value="kritis">Wir sind KRITIS-Betreiber</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                <span class="btn-text">Betroffenheit prüfen</span>
+                <span class="btn-arrow">→</span>
+              </button>
+              <div id="check-result" class="check-result"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Wer fällt unter NIS2 -->
+    <section class="nis2-scope">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">// ANWENDUNGSBEREICH</span>
+                <h2 class="section-title">Wer fällt unter NIS2?</h2>
+            </div>
+
+            <p class="page-intro">
+                Die Einstufung folgt einer einfachen Logik aus Sektor und Unternehmensgröße.
+                Anlage I umfasst die Sektoren mit hoher Kritikalität, Anlage II die sonstigen
+                kritischen Sektoren. Wer in einem dieser Sektoren tätig ist und die
+                Größenschwellen erreicht, ist erfasst &mdash; entweder als besonders wichtige
+                oder als wichtige Einrichtung, mit unterschiedlich strenger Aufsicht und
+                unterschiedlichen Bußgeldrahmen. Vereinfacht:
+            </p>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Einstufung</th>
+                            <th>Kriterien (vereinfacht)</th>
+                            <th>Konsequenz</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Besonders wichtige Einrichtung</td>
+                            <td>Anlage-I-Sektor und Großunternehmen (&ge;250 Mitarbeitende oder &gt;50 Mio. &euro; Umsatz); außerdem u.&nbsp;a. KRITIS-Betreiber und bestimmte Anbieter (z.&nbsp;B. DNS, TLD-Registries, Vertrauensdienste, TK) unabhängig von der Größe</td>
+                            <td>Volle Pflichten, proaktive Aufsicht durch das BSI, höchster Bußgeldrahmen</td>
+                        </tr>
+                        <tr>
+                            <td>Wichtige Einrichtung</td>
+                            <td>Anlage-I-Sektor als Mittelunternehmen sowie Anlage-II-Sektoren ab 50 Mitarbeitenden oder 10 Mio. &euro; Umsatz</td>
+                            <td>Nahezu identischer Maßnahmenkatalog, anlassbezogene Aufsicht</td>
+                        </tr>
+                        <tr>
+                            <td>Unter beiden Schwellen</td>
+                            <td>Weniger als 50 Mitarbeitende und unter 10 Mio. &euro; Umsatz, kein Sonderfall</td>
+                            <td>In der Regel nicht direkt erfasst &mdash; aber über die Lieferkette (Art. 21 Abs. 2 lit. d: Sicherheit der Lieferkette) mittelbar gefordert, wenn Ihre Kunden NIS2-pflichtig sind</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pflichten und Sanktionen -->
+    <section class="nis2-duties">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">// PFLICHTEN</span>
+                <h2 class="section-title">Pflichten und Sanktionen</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card" data-index="01">
+                    <div class="service-header">
+                        <span class="service-number">01</span>
+                        <h3 class="service-title">Risikomanagement-Maßnahmen</h3>
+                    </div>
+                    <p class="service-description">
+                        <a href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj" target="_blank" rel="noopener">Artikel 21 der NIS2-Richtlinie</a> verlangt technische und organisatorische Maßnahmen nach dem
+                        Stand der Technik &mdash; risikobasiert und verhältnismäßig, aber
+                        verbindlich. Der Katalog reicht von der Risikoanalyse bis zur
+                        Kryptografie und muss nachweisbar gelebt werden, nicht nur dokumentiert.
+                    </p>
+                    <ul class="service-features">
+                        <li>Risikoanalyse und Sicherheitskonzepte</li>
+                        <li>Incident-Handling und Business Continuity</li>
+                        <li>Sicherheit der Lieferkette</li>
+                        <li>Verschlüsselung, MFA, Schulungen</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-index="02">
+                    <div class="service-header">
+                        <span class="service-number">02</span>
+                        <h3 class="service-title">Meldepflichten</h3>
+                    </div>
+                    <p class="service-description">
+                        Erhebliche Sicherheitsvorfälle sind gestaffelt an das BSI zu melden.
+                        Die Fristen sind kurz und beginnen mit Kenntnis des Vorfalls &mdash;
+                        ohne eingeübte Meldewege sind sie im Ernstfall nicht zu halten.
+                    </p>
+                    <ul class="service-features">
+                        <li>Frühwarnung innerhalb von 24 Stunden</li>
+                        <li>Meldung innerhalb von 72 Stunden</li>
+                        <li>Abschlussbericht nach einem Monat</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-index="03">
+                    <div class="service-header">
+                        <span class="service-number">03</span>
+                        <h3 class="service-title">Geschäftsleitungspflichten</h3>
+                    </div>
+                    <p class="service-description">
+                        NIS2 adressiert die Geschäftsleitung persönlich: Sie muss die
+                        Risikomanagement-Maßnahmen billigen, ihre Umsetzung überwachen und
+                        sich regelmäßig schulen lassen. Pflichtverletzungen können eine
+                        persönliche Haftung auslösen.
+                    </p>
+                    <ul class="service-features">
+                        <li>Umsetzungs- und Überwachungspflicht (§ 38 BSIG)</li>
+                        <li>Schulungspflicht für die Leitungsebene</li>
+                        <li>Bußgelder bis 10 Mio. &euro; oder 2 % des weltweiten Umsatzes für besonders wichtige Einrichtungen</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ISO 27001 als Fundament -->
+    <section class="nis2-iso">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">// SYNERGIE</span>
+                <h2 class="section-title">Mit ISO 27001 den Großteil abdecken</h2>
+            </div>
+
+            <p class="page-intro">
+                Die Maßnahmen aus Artikel 21 decken sich weitgehend mit einem gelebten
+                ISO-27001-ISMS: Risikoanalyse, Zugriffskontrolle, Incident-Management,
+                Business Continuity, Lieferantensteuerung, Kryptografie &mdash; all das ist
+                dort bereits Pflichtprogramm. Wer zertifiziert ist, weist gegenüber Aufsicht
+                und Kunden bestehende Strukturen nach, statt sie unter Zeitdruck neu zu
+                erfinden.
+            </p>
+
+            <p class="page-intro">
+                Das verbleibende Delta ist überschaubar, aber real: Meldeprozesse
+                an das BSI mit ihren kurzen Fristen, die Registrierung der Einrichtung und
+                die Governance-Pflichten der Geschäftsleitung. Genau dieses Delta schließen
+                wir &mdash; und wer noch kein ISMS hat, startet am besten mit
+                <a href="/de/iso-27001-beratung">unserer ISO 27001 Beratung</a>, die NIS2
+                von Anfang an mitdenkt.
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="nis2-faq">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">// FAQ</span>
+                <h2 class="section-title">Häufige Fragen zu NIS2</h2>
+            </div>
+
+            <details class="faq-item">
+                <summary>Gilt NIS2 schon? Was ist der Stand des NIS2UmsuCG?</summary>
+                <p>
+                    Ja. Das NIS2-Umsetzungs- und Cybersicherheitsstärkungsgesetz (NIS2UmsuCG)
+                    ist seit dem 6. Dezember 2025 in Kraft (BGBl. 2025 I Nr. 301) &mdash; ohne
+                    Übergangsfristen. Die Registrierungsfrist nach &sect; 33 BSIG ist am
+                    6. März 2026 abgelaufen; wer noch nicht beim BSI registriert ist, muss
+                    unverzüglich handeln. Details im laufend aktualisierten Beitrag:
+                    <a href="/de/insights/nis2umsucg-stand">NIS2UmsuCG &mdash; aktueller Stand</a>.
+                </p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Wir haben unter 50 Mitarbeiter &mdash; sind wir sicher raus?</summary>
+                <p>
+                    Meist ja &mdash; unterhalb von 50 Mitarbeitenden und 10 Mio. &euro; Umsatz
+                    greift NIS2 in der Regel nicht direkt. Ausnahmen sind Sonderfälle wie
+                    DNS-Diensteanbieter, TLD-Registries, Vertrauensdiensteanbieter oder
+                    TK-Anbieter, die unabhängig von der Größe erfasst sind. Und: Die
+                    Lieferkette holt viele kleine Unternehmen über Kundenverträge ein, weil
+                    NIS2-pflichtige Kunden Sicherheitsnachweise von ihren Dienstleistern
+                    verlangen müssen.
+                </p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Reicht unsere ISO-27001-Zertifizierung?</summary>
+                <p>
+                    Sie ist ein starkes Fundament und deckt den Maßnahmenkatalog aus
+                    Artikel 21 weitgehend ab. Vollständig ist sie damit nicht: Hinzu kommen
+                    die Meldewege an das BSI mit den Fristen von 24 Stunden, 72 Stunden und
+                    einem Monat, die Registrierung der Einrichtung sowie die persönlichen
+                    Governance-Pflichten der Geschäftsleitung. Dieses Delta ist mit einem
+                    funktionierenden ISMS zügig geschlossen.
+                </p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Was passiert, wenn wir nichts tun?</summary>
+                <p>
+                    Es drohen Bußgelder bis 10 Mio. &euro; oder 2 % des weltweiten Umsatzes,
+                    aufsichtliche Anordnungen des BSI und eine persönliche Haftung der
+                    Geschäftsleitung. Der wirtschaftlich oft größere Schaden entsteht vorher:
+                    verlorene Aufträge, weil NIS2-pflichtige Kunden Nachweise zur
+                    Lieferkettensicherheit fordern und Anbieter ohne Antworten aussortieren.
+                </p>
+            </details>
+        </div>
+    </section>
+
+    <!-- Ihre Ansprechpartner -->
+    <section class="founders">
+        <div class="section-container">
+            <div class="founders-strip">
+                <span class="section-tag">// IHRE ANSPRECHPARTNER</span>
+                <p>Jedes Mandat führen <strong>Nils Carstensen</strong> und <strong>Manuel Eckarth</strong> persönlich — die Gründer von GovaGuard, Praktiker mit CTO- und CISO-Mandaten, die die Managementsysteme selbst aufbauen und in den Prüfungen sitzen, die sie vorbereiten. Keine Übergabe an Juniors.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="nis2-cta">
+        <div class="section-container">
+            <div class="cta-panel">
+                <p>Klären Sie Ihre Betroffenheit, bevor es Ihre Kunden oder das BSI tun.</p>
+                <a href="/?need=nis2#contact" class="btn btn-primary">
+                    <span class="btn-text">Secure Consultation</span>
+                    <span class="btn-arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-bracket">[</span>
+                        <span class="logo-text">GOVAGUARD</span>
+                        <span class="logo-bracket">]</span>
+                    </div>
+                    <p class="footer-tagline">
+                        Executive Security Consulting<br>
+                        CTO & CISO Advisory Services
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <p class="footer-heading">Services</p>
+                        <ul class="footer-list">
+                            <li><a href="/#services">CTO Advisory</a></li>
+                            <li><a href="/#services">CISO Consulting</a></li>
+                            <li><a href="/#services">Threat Intelligence</a></li>
+                            <li><a href="/#services">Infrastructure Hardening</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <p class="footer-heading">Company</p>
+                        <ul class="footer-list">
+                            <li><a href="/#expertise">Expertise</a></li>
+                            <li><a href="/insights">Insights</a></li>
+                            <li><a href="/#contact">Contact</a></li>
+                            <li><a href="/imprint">Imprint</a></li>
+                            <li><a href="/privacy">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <p class="footer-heading">Frameworks</p>
+                        <ul class="footer-list">
+                            <li><a href="/iso-27001">ISO 27001</a></li>
+                            <li><a href="/de/iso-27001-beratung">ISO 27001 Beratung (DE)</a></li>
+                            <li><a href="/de/c5-testat">BSI C5 (DE)</a></li>
+                            <li><a href="/soc-2">SOC 2</a></li>
+                            <li><a href="/de/nis2">NIS2 (DE)</a></li>
+                            <li><a href="/dora">DORA</a></li>
+                            <li><a href="/hipaa">HIPAA / HITRUST</a></li>
+                            <li><a href="/iso-42001">ISO 42001</a></li>
+                            <li><a href="/cra">Cyber Resilience Act</a></li>
+                            <li><a href="/compare/soc-2-vs-iso-27001">SOC 2 vs ISO 27001</a></li>
+                            <li><a href="/de/c5-vs-iso-27001">C5 vs ISO 27001 (DE)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ai-disclosure">
+                <p>Transparency notice: The content of this website was created with the assistance of artificial intelligence (AI) and reviewed by GovaGuard before publication.</p>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 GovaGuard. All rights reserved.</p>
+                <div class="footer-security">
+                    <span class="security-badge">
+                        <span class="status-dot"></span>
+                        Response within 24 hours
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Service",
+                "name": "NIS2 Beratung",
+                "url": "https://govaguard.com/de/nis2",
+                "inLanguage": "de",
+                "areaServed": "DE",
+                "provider": {
+                    "@type": "Organization",
+                    "name": "GovaGuard",
+                    "url": "https://govaguard.com"
+                }
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Gilt NIS2 schon? Was ist der Stand des NIS2UmsuCG?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Ja. Das NIS2UmsuCG ist seit dem 6. Dezember 2025 in Kraft (BGBl. 2025 I Nr. 301), ohne Übergangsfristen. Die Registrierungsfrist nach § 33 BSIG ist am 6. März 2026 abgelaufen — wer noch nicht beim BSI registriert ist, muss unverzüglich handeln."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Wir haben unter 50 Mitarbeiter — sind wir sicher raus?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Meist ja — unterhalb von 50 Mitarbeitenden und 10 Mio. Euro Umsatz greift NIS2 in der Regel nicht direkt. Ausnahmen sind Sonderfälle wie DNS-Diensteanbieter, TLD-Registries, Vertrauensdiensteanbieter oder TK-Anbieter, die unabhängig von der Größe erfasst sind. Und die Lieferkette holt viele kleine Unternehmen über Kundenverträge ein, weil NIS2-pflichtige Kunden Sicherheitsnachweise von ihren Dienstleistern verlangen müssen."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Reicht unsere ISO-27001-Zertifizierung?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Sie ist ein starkes Fundament und deckt den Maßnahmenkatalog aus Artikel 21 weitgehend ab. Hinzu kommen die Meldewege an das BSI mit den Fristen von 24 Stunden, 72 Stunden und einem Monat, die Registrierung der Einrichtung sowie die persönlichen Governance-Pflichten der Geschäftsleitung. Dieses Delta ist mit einem funktionierenden ISMS zügig geschlossen."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Was passiert, wenn wir nichts tun?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Es drohen Bußgelder bis 10 Mio. Euro oder 2 % des weltweiten Umsatzes, aufsichtliche Anordnungen des BSI und eine persönliche Haftung der Geschäftsleitung. Der wirtschaftlich oft größere Schaden entsteht vorher: verlorene Aufträge, weil NIS2-pflichtige Kunden Nachweise zur Lieferkettensicherheit fordern und Anbieter ohne Antworten aussortieren."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+</body>
+</html>

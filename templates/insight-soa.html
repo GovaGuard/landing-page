@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Title}}</title>
+    <meta name="description" content="{{.Description}}">
+    <link rel="canonical" href="https://govaguard.com/insights/iso-27001-soa-guide">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{.Title}}">
+    <meta property="og:description" content="{{.Description}}">
+    <meta property="og:url" content="https://govaguard.com/insights/iso-27001-soa-guide">
+    <meta property="og:site_name" content="GovaGuard">
+    <meta property="og:image" content="https://govaguard.com/static/img/og-default.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="023b5858-3604-4a35-a65e-1239d9f1453a"></script>
+</head>
+<body>
+    <!-- Scanline overlay for terminal effect -->
+    <div class="scanlines"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.25rem;">
+                    <span class="logo-bracket">[</span>
+                    <span class="logo-text">GOVAGUARD</span>
+                    <span class="logo-bracket">]</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="/iso-27001" class="nav-link">ISO 27001</a>
+                <a href="/de/c5-testat" class="nav-link">C5</a>
+                <a href="/soc-2" class="nav-link">SOC 2</a>
+                <a href="/de/nis2" class="nav-link">NIS2</a>
+                <a href="/insights" class="nav-link">Insights</a>
+                <a href="/#services" class="nav-link">Services</a>
+                <a href="/#contact" class="nav-link nav-link-cta">Secure Consultation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="page-hero">
+        <div class="section-container">
+            <span class="section-tag">// INSIGHTS &middot; ISO 27001</span>
+            <h1 class="section-title">The Statement of Applicability, done right</h1>
+            <p class="page-intro">
+                The Statement of Applicability (SoA) is required by
+                <a href="https://www.iso.org/isoiec-27001-information-security.html" target="_blank" rel="noopener">ISO/IEC 27001</a>
+                clause 6.1.3 d). It lists every control your organisation considers
+                necessary, states whether each Annex A control applies, and justifies
+                every inclusion and exclusion. It is the one ISMS document that
+                certification auditors and enterprise customers both read line by
+                line &ndash; and the one most often written carelessly.
+            </p>
+            <div class="definition-box">
+                <p>
+                    <span class="definition-term">Statement of Applicability</span> is
+                    the mandatory ISO/IEC 27001 document (clause 6.1.3 d) that lists the
+                    necessary information security controls, records for each Annex A
+                    control whether it is applicable, justifies every inclusion and
+                    exclusion, and states the implementation status &ndash; linking the risk
+                    treatment plan to the control set the auditor certifies against.
+                </p>
+            </div>
+            <p class="page-reviewed">By Nils Carstensen &amp; Manuel Eckarth &middot; Last reviewed: September 17, 2026</p>
+        </div>
+    </section>
+
+    <!-- What it is -->
+    <section class="soa-what">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">// FUNDAMENTALS</span>
+                <h2 class="section-title">The bridge between risk treatment and Annex A</h2>
+            </div>
+            <p class="page-intro">
+                Clause 6.1.3 of ISO/IEC 27001 describes a sequence: you assess risks,
+                select risk treatment options, determine the controls those treatments
+                need, and then compare your control set against Annex A to verify
+                nothing necessary has been overlooked. The SoA is where that comparison
+                is recorded. It is not a copy of Annex A &ndash; it is the documented outcome
+                of your risk treatment decisions.
+            </p>
+            <p class="page-intro">
+                That direction matters. Controls do not apply because they appear in
+                Annex A; they apply because a risk, a legal obligation, or a contractual
+                commitment makes them necessary. An SoA that reads as if Annex A was
+                worked through top to bottom, with the risk register bolted on
+                afterwards, tells the auditor exactly that story &ndash; and invites the
+                question every certification audit circles back to: which risk does
+                this control actually treat?
+            </p>
+            <p class="page-intro">
+                Since the 2022 revision, Annex A contains 93 controls in four themes
+                (organisational, people, physical, technological), with implementation
+                guidance in
+                <a href="https://www.iso.org/standard/75652.html" target="_blank" rel="noopener">ISO/IEC 27002:2022</a>.
+                Your certificate references your SoA by version and date &ndash; which makes
+                it, in a very literal sense, the document your certification is scoped by.
+            </p>
+        </div>
+    </section>
+
+    <!-- Structure -->
+    <section class="soa-structure striped">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">// STRUCTURE</span>
+                <h2 class="section-title">What a defensible SoA row looks like</h2>
+            </div>
+            <p class="page-intro">
+                The standard does not prescribe a format, but four columns have become
+                the working consensus: the control, whether it applies, why, and how far
+                implementation has progressed. The justification is the column that
+                earns its keep &ndash; it should point at something specific: a risk ID, a
+                contract clause, a legal requirement. Example rows from a SaaS company:
+            </p>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Control</th>
+                            <th>Applicable?</th>
+                            <th>Justification</th>
+                            <th>Implementation status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>A.8.24 Use of cryptography</td>
+                            <td>Yes</td>
+                            <td>Treats risk R-014 (interception of customer data); required by customer DPAs. TLS 1.3 in transit, AES-256 at rest per crypto policy CP-02.</td>
+                            <td>Implemented</td>
+                        </tr>
+                        <tr>
+                            <td>A.5.19 Information security in supplier relationships</td>
+                            <td>Yes</td>
+                            <td>Treats risk R-027 (subprocessor failure); production depends on two cloud providers and a managed payroll service.</td>
+                            <td>Implemented</td>
+                        </tr>
+                        <tr>
+                            <td>A.7.4 Physical security monitoring</td>
+                            <td>Yes</td>
+                            <td>Treats risk R-031 (unauthorised office access to workstations handling client data).</td>
+                            <td>Partially implemented &ndash; access logging live, camera coverage planned Q1 2027</td>
+                        </tr>
+                        <tr>
+                            <td>A.8.30 Outsourced development</td>
+                            <td>No</td>
+                            <td>All software development is performed in-house by employed staff; no development is outsourced. Exclusion reviewed at the annual management review.</td>
+                            <td>Not applicable</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="page-intro">
+                Note what the excluded row does: it names a verifiable fact, not an
+                opinion, and commits to re-checking it. An exclusion is a claim the
+                auditor can test &ndash; the moment a contractor commits code, that row is
+                wrong and the auditor knows your SoA is not maintained.
+            </p>
+        </div>
+    </section>
+
+    <!-- Mistakes -->
+    <section class="soa-mistakes">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">// PITFALLS</span>
+                <h2 class="section-title">The four mistakes we see in almost every first draft</h2>
+            </div>
+            <ol class="step-list">
+                <li>
+                    <span class="step-title">Copy-paste justifications</span>
+                    <p class="step-desc">
+                        Ninety rows reading &ldquo;applicable &ndash; best practice&rdquo; justify
+                        nothing. A justification that fits every control fits no control.
+                        Each row should trace to a risk, a law, or a contract; if you
+                        cannot name one, you have not decided the control is necessary &ndash;
+                        you have assumed it.
+                    </p>
+                </li>
+                <li>
+                    <span class="step-title">Exclusions without rationale</span>
+                    <p class="step-desc">
+                        &ldquo;Not applicable&rdquo; with an empty justification cell is a
+                        nonconformity waiting to be written up. Clause 6.1.3 d) explicitly
+                        requires justification for exclusions. Defensible exclusions state
+                        a fact about the organisation that makes the control moot &ndash; and
+                        that fact gets re-verified when the business changes.
+                    </p>
+                </li>
+                <li>
+                    <span class="step-title">The SoA drifts from the risk treatment plan</span>
+                    <p class="step-desc">
+                        The two documents describe the same decisions from different
+                        angles, so they must agree. A control marked &ldquo;implemented&rdquo;
+                        in the SoA while the treatment plan shows the treating measure as
+                        open &ndash; or a treated risk whose control appears nowhere in the
+                        SoA &ndash; is the fastest finding an auditor can raise.
+                    </p>
+                </li>
+                <li>
+                    <span class="step-title">Versioning chaos</span>
+                    <p class="step-desc">
+                        Your certificate cites a specific SoA version. If sales sends
+                        customers one version, the auditor holds another, and the wiki
+                        hosts a third, nobody can say which control set you actually
+                        stand behind. One owner, one version history, one approval per
+                        change &ndash; treat it like the controlled document it is.
+                    </p>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Who reads it -->
+    <section class="soa-readers striped">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">// AUDIENCE</span>
+                <h2 class="section-title">Who reads it besides the auditor</h2>
+            </div>
+            <p class="page-intro">
+                Enterprise security reviews increasingly ask for the SoA alongside the
+                certificate, because the certificate alone says little: it proves an
+                ISMS exists, while the SoA shows which controls are inside it. Expect
+                reviewers to quote your own rows back at you &ndash; an exclusion of supplier
+                controls will surface in the next vendor questionnaire, and a
+                &ldquo;partially implemented&rdquo; row becomes a follow-up question with
+                a deadline attached.
+            </p>
+            <p class="page-intro">
+                That is not a reason to write a vaguer SoA; it is a reason to write an
+                honest one. A precise document with a few well-explained partial rows
+                reads as maturity. A document claiming 93 fully implemented controls
+                reads as fiction &ndash; to customers and auditors alike.
+            </p>
+            <p class="page-intro">
+                How auditors weigh
+                it also depends on who audits you: our guide to
+                <a href="/insights/choosing-certification-body">choosing a certification body</a>
+                covers what separates rigorous audits from rubber stamps, and our
+                <a href="/iso-27001">ISO 27001 practice</a> page shows where the SoA
+                sits in the full certification path.
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="soa-faq">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">// FAQ</span>
+                <h2 class="section-title">Frequently asked questions</h2>
+            </div>
+            <details class="faq-item">
+                <summary>Is the Statement of Applicability mandatory for ISO 27001?</summary>
+                <p>
+                    Yes. Clause 6.1.3 d) of ISO/IEC 27001 requires you to produce a
+                    Statement of Applicability containing the necessary controls,
+                    justification for their inclusion, their implementation status, and
+                    justification for excluding any Annex A control. Without it, there
+                    is no certification audit &ndash; the certificate itself references the
+                    SoA version it was issued against.
+                </p>
+            </details>
+            <details class="faq-item">
+                <summary>Can we exclude Annex A controls?</summary>
+                <p>
+                    Yes &ndash; Annex A is a reference set, not a compliance checklist. Any
+                    control can be excluded if it is genuinely not needed to treat your
+                    risks or meet legal and contractual obligations. The exclusion must
+                    be justified with a verifiable fact, such as no outsourced
+                    development taking place, and reviewed whenever the business
+                    changes.
+                </p>
+            </details>
+            <details class="faq-item">
+                <summary>How often should the SoA be updated?</summary>
+                <p>
+                    Whenever risk treatment decisions change &ndash; after a risk assessment,
+                    a scope change, a new supplier, or an incident &ndash; and at minimum as
+                    part of the annual management review cycle. Each update should
+                    produce a new approved version, since surveillance audits check that
+                    the SoA still matches the risk treatment plan and reality.
+                </p>
+            </details>
+            <details class="faq-item">
+                <summary>Do we have to share the SoA with customers?</summary>
+                <p>
+                    Not under the standard, and many organisations treat it as
+                    confidential. In practice, enterprise customers frequently request
+                    it during security reviews, and refusing outright slows deals. A
+                    common middle ground is sharing it under NDA, or providing a summary
+                    that lists applicable control themes and exclusions without internal
+                    risk IDs.
+                </p>
+            </details>
+        </div>
+    </section>
+
+    <!-- Sources + CTA -->
+    <section class="soa-cta striped">
+        <div class="section-container">
+            <div class="article-sources">
+                <h3>Sources</h3>
+                <ol>
+                    <li><a href="https://www.iso.org/isoiec-27001-information-security.html" target="_blank" rel="noopener">ISO/IEC 27001 &ndash; Information security management systems, iso.org</a> &ndash; the SoA requirement sits in clause 6.1.3 d)</li>
+                    <li><a href="https://www.iso.org/standard/75652.html" target="_blank" rel="noopener">ISO/IEC 27002:2022 &ndash; Information security controls, iso.org</a> &ndash; implementation guidance for the 93 Annex A controls</li>
+                </ol>
+            </div>
+            <div class="cta-panel">
+                <p>
+                    Your SoA is your shop window &ndash; we make it defensible.
+                </p>
+                <a href="/?need=iso-27001#contact" class="btn btn-primary">
+                    <span class="btn-text">Request Secure Consultation</span>
+                    <span class="btn-arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-bracket">[</span>
+                        <span class="logo-text">GOVAGUARD</span>
+                        <span class="logo-bracket">]</span>
+                    </div>
+                    <p class="footer-tagline">
+                        Executive Security Consulting<br>
+                        CTO & CISO Advisory Services
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <p class="footer-heading">Services</p>
+                        <ul class="footer-list">
+                            <li><a href="/#services">CTO Advisory</a></li>
+                            <li><a href="/#services">CISO Consulting</a></li>
+                            <li><a href="/#services">Threat Intelligence</a></li>
+                            <li><a href="/#services">Infrastructure Hardening</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <p class="footer-heading">Company</p>
+                        <ul class="footer-list">
+                            <li><a href="/#expertise">Expertise</a></li>
+                            <li><a href="/#contact">Contact</a></li>
+                            <li><a href="/imprint">Imprint</a></li>
+                            <li><a href="/privacy">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <p class="footer-heading">Frameworks</p>
+                        <ul class="footer-list">
+                            <li><a href="/iso-27001">ISO 27001</a></li>
+                            <li><a href="/de/iso-27001-beratung">ISO 27001 Beratung (DE)</a></li>
+                            <li><a href="/de/c5-testat">BSI C5 (DE)</a></li>
+                            <li><a href="/soc-2">SOC 2</a></li>
+                            <li><a href="/de/nis2">NIS2 (DE)</a></li>
+                            <li><a href="/dora">DORA</a></li>
+                            <li><a href="/hipaa">HIPAA / HITRUST</a></li>
+                            <li><a href="/iso-42001">ISO 42001</a></li>
+                            <li><a href="/cra">Cyber Resilience Act</a></li>
+                            <li><a href="/compare/soc-2-vs-iso-27001">SOC 2 vs ISO 27001</a></li>
+                            <li><a href="/de/c5-vs-iso-27001">C5 vs ISO 27001 (DE)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ai-disclosure">
+                <p>Transparency notice: The content of this website was created with the assistance of artificial intelligence (AI) and reviewed by GovaGuard before publication.</p>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 GovaGuard. All rights reserved.</p>
+                <div class="footer-security">
+                    <span class="security-badge">
+                        <span class="status-dot"></span>
+                        Response within 24 hours
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Article",
+                "headline": "The Statement of Applicability, done right",
+                "inLanguage": "en",
+                "datePublished": "2026-09-17",
+                "dateModified": "2026-09-17",
+                "url": "https://govaguard.com/insights/iso-27001-soa-guide",
+                "author": [
+                    {
+                        "@type": "Person",
+                        "name": "Nils Carstensen"
+                    },
+                    {
+                        "@type": "Person",
+                        "name": "Manuel Eckarth"
+                    }
+                ],
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "GovaGuard",
+                    "url": "https://govaguard.com"
+                }
+            },
+            {
+                "@type": "FAQPage",
+                "inLanguage": "en",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Is the Statement of Applicability mandatory for ISO 27001?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. Clause 6.1.3 d) of ISO/IEC 27001 requires a Statement of Applicability containing the necessary controls, justification for their inclusion, their implementation status, and justification for excluding any Annex A control. The certificate itself references the SoA version it was issued against."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can we exclude Annex A controls?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. Annex A is a reference set, not a compliance checklist. Any control can be excluded if it is not needed to treat your risks or meet legal and contractual obligations. The exclusion must be justified with a verifiable fact and reviewed whenever the business changes."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How often should the SoA be updated?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Whenever risk treatment decisions change — after a risk assessment, a scope change, a new supplier, or an incident — and at minimum as part of the annual management review cycle. Each update should produce a new approved version, since surveillance audits check that the SoA still matches the risk treatment plan."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Do we have to share the SoA with customers?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Not under the standard, and many organisations treat it as confidential. In practice, enterprise customers frequently request it during security reviews. A common middle ground is sharing it under NDA, or providing a summary that lists applicable control themes and exclusions without internal risk IDs."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+</body>
+</html>

@@ -4,8 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{.Title}}</title>
+    <meta name="description" content="{{.Description}}">
+    <link rel="canonical" href="https://govaguard.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{.Title}}">
+    <meta property="og:description" content="{{.Description}}">
+    <meta property="og:url" content="https://govaguard.com/">
+    <meta property="og:site_name" content="GovaGuard">
+    <meta property="og:image" content="https://govaguard.com/static/img/og-default.png">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="/static/css/style.css">
-    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="/static/js/htmx.min.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "GovaGuard",
+      "url": "https://govaguard.com/",
+      "description": "CTO & CISO consulting for security certifications: ISO 27001, BSI C5, SOC 2, NIS2, DORA, HIPAA.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Holleratherstraße 9",
+        "postalCode": "50937",
+        "addressLocality": "Cologne",
+        "addressCountry": "DE"
+      },
+      "email": "hello@govaguard.com",
+      "areaServed": ["DE", "EU", "US"]
+    }
+    </script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="023b5858-3604-4a35-a65e-1239d9f1453a"></script>
 </head>
 <body>
     <!-- Scanline overlay for terminal effect -->
@@ -20,9 +48,12 @@
                 <span class="logo-bracket">]</span>
             </div>
             <div class="nav-links">
+                <a href="/iso-27001" class="nav-link">ISO 27001</a>
+                <a href="/de/c5-testat" class="nav-link">C5</a>
+                <a href="/soc-2" class="nav-link">SOC 2</a>
+                <a href="/de/nis2" class="nav-link">NIS2</a>
+                <a href="/insights" class="nav-link">Insights</a>
                 <a href="#services" class="nav-link">Services</a>
-                <a href="#expertise" class="nav-link">Expertise</a>
-                <a href="/whitepapers" class="nav-link">Whitepapers</a>
                 <a href="#contact" class="nav-link nav-link-cta">Secure Consultation</a>
             </div>
         </div>
@@ -33,34 +64,35 @@
         <div class="hero-container">
             <div class="hero-badge">
                 <span class="status-dot"></span>
-                <span>Security Clearance: Active</span>
+                <span>Founder-Led &middot; Cologne &middot; EU + US</span>
             </div>
 
             <h1 class="hero-title">
-                <span class="title-line">Executive-Level</span>
-                <span class="title-line title-line-accent">Security Architecture</span>
-                <span class="title-line">For Modern Enterprises</span>
+                <span class="title-line">Security Certifications</span>
+                <span class="title-line title-line-accent">That Open Markets</span>
             </h1>
 
             <p class="hero-description">
-                Strategic CTO and CISO consulting that fortifies your organization's
-                technical leadership and security posture. We operate at the intersection
-                of business continuity and threat mitigation.
+                European rigor, US market access. ISO 27001 and BSI C5 depth from Germany,
+                paired with SOC 2 and HIPAA readiness for companies selling into the
+                United States. Executive-led CTO &amp; CISO consulting — fixed scope,
+                no compliance theater.
             </p>
 
             <div class="hero-cta">
                 <a href="#contact" class="btn btn-primary">
-                    <span class="btn-text">Initiate Secure Contact</span>
+                    <span class="btn-text">Request Secure Consultation</span>
                     <span class="btn-arrow">→</span>
                 </a>
+                <a href="#frameworks" class="hero-secondary">Or pick your framework ↓</a>
                 <div class="hero-stats">
                     <div class="stat">
-                        <div class="stat-number">98%</div>
-                        <div class="stat-label">Breach Prevention Rate</div>
+                        <div class="stat-number">EU + US</div>
+                        <div class="stat-label">Market Coverage</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Response Availability</div>
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Frameworks Covered</div>
                     </div>
                 </div>
             </div>
@@ -68,6 +100,67 @@
 
         <!-- Animated grid background -->
         <div class="grid-overlay"></div>
+    </section>
+
+    <!-- Framework Router -->
+    <section id="frameworks" class="services">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">// CERTIFICATION FRAMEWORKS</span>
+                <h2 class="section-title">Pick Your Framework</h2>
+            </div>
+
+            <div class="framework-grid">
+                <div class="framework-card">
+                    <span class="framework-region">EU · Global</span>
+                    <h3>ISO 27001</h3>
+                    <p>The certificate that unlocks enterprise sales. Gap analysis to passed audit, without the 12-month slog.</p>
+                    <a href="/iso-27001" class="framework-link">Read more →</a>
+                </div>
+                <div class="framework-card">
+                    <span class="framework-region">Germany</span>
+                    <h3>BSI C5</h3>
+                    <p>Mandatory in practice for public sector and healthcare cloud (§ 393 SGB V). Preparation that holds up to the auditor.</p>
+                    <a href="/de/c5-testat" class="framework-link">Mehr erfahren →</a>
+                </div>
+                <div class="framework-card">
+                    <span class="framework-region">United States</span>
+                    <h3>SOC 2</h3>
+                    <p>The report every US enterprise buyer asks for. We reuse your ISO 27001 work instead of duplicating it.</p>
+                    <a href="/soc-2" class="framework-link">Read more →</a>
+                </div>
+                <div class="framework-card">
+                    <span class="framework-region">EU</span>
+                    <h3>NIS2</h3>
+                    <p>Legal obligation with real fines. Scope check, duties, and pragmatic implementation for essential and important entities.</p>
+                    <a href="/de/nis2" class="framework-link">Betroffenheit prüfen →</a>
+                </div>
+                <div class="framework-card">
+                    <span class="framework-region">EU · Financial</span>
+                    <h3>DORA</h3>
+                    <p>In force since January 2025 — for financial entities and the ICT providers who serve them.</p>
+                    <a href="/dora" class="framework-link">Read more →</a>
+                </div>
+                <div class="framework-card">
+                    <span class="framework-region">US · Healthcare</span>
+                    <h3>HIPAA / HITRUST</h3>
+                    <p>The entry ticket for US health tech, backed by our medical device security practice.</p>
+                    <a href="/hipaa" class="framework-link">Read more →</a>
+                </div>
+                <div class="framework-card">
+                    <span class="framework-region">EU · Global</span>
+                    <h3>ISO 42001</h3>
+                    <p>AI governance your buyers can verify — the certifiable answer to the EU AI Act era, built on your ISMS.</p>
+                    <a href="/iso-42001" class="framework-link">Read more →</a>
+                </div>
+                <div class="framework-card">
+                    <span class="framework-region">EU</span>
+                    <h3>Cyber Resilience Act</h3>
+                    <p>CE marking comes to software: reporting duties live since September 2026, full obligations December 2027.</p>
+                    <a href="/cra" class="framework-link">Read more →</a>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Services Section -->
@@ -85,7 +178,7 @@
                         <h3 class="service-title">CTO Advisory</h3>
                     </div>
                     <p class="service-description">
-                        Fractional CTO services for scaling organizations. Technical strategy,
+                        Strategic technology leadership for scaling organizations. Technical strategy,
                         architecture review, team building, and technology roadmap development.
                     </p>
                     <ul class="service-features">
@@ -264,7 +357,7 @@
                                 </svg>
                             </div>
                             <div class="expertise-text">
-                                <h4>Compliance & Frameworks</h4>
+                                <h4>Compliance & Frameworks</p>
                                 <p>SOC 2, ISO 27001, GDPR, HIPAA, PCI-DSS, NIST CSF</p>
                             </div>
                         </div>
@@ -278,7 +371,7 @@
                                 </svg>
                             </div>
                             <div class="expertise-text">
-                                <h4>Technology Leadership</h4>
+                                <h4>Technology Leadership</p>
                                 <p>Cloud Infrastructure, Microservices, DevSecOps, Platform Engineering</p>
                             </div>
                         </div>
@@ -291,7 +384,7 @@
                                 </svg>
                             </div>
                             <div class="expertise-text">
-                                <h4>Incident Response</h4>
+                                <h4>Incident Response</p>
                                 <p>24/7 emergency response, forensic analysis, breach containment</p>
                             </div>
                         </div>
@@ -305,7 +398,7 @@
                                 </svg>
                             </div>
                             <div class="expertise-text">
-                                <h4>Risk Assessment</h4>
+                                <h4>Risk Assessment</p>
                                 <p>Business impact analysis, threat modeling, security audits</p>
                             </div>
                         </div>
@@ -351,29 +444,12 @@
         </div>
     </section>
 
-    <!-- Whitepapers Teaser Section -->
-    <section class="whitepapers" style="padding: 60px 0;">
+    <!-- Who you work with -->
+    <section class="founders">
         <div class="section-container">
-            <div class="section-header" style="text-align: center; margin-bottom: 40px;">
-                <span class="section-tag">// STRATEGIC INTELLIGENCE</span>
-                <h2 class="section-title">Whitepapers & Research</h2>
-                <p class="specializations-intro">
-                    In-depth analysis and strategic guidance for critical security and sovereignty challenges
-                </p>
-            </div>
-
-            <div style="text-align: center; padding: 60px 40px; background: rgba(10, 22, 40, 0.5); border: 1px solid rgba(0, 212, 170, 0.2); border-radius: 8px; max-width: 800px; margin: 0 auto;">
-                <div style="margin-bottom: 20px;">
-                    <span style="display: inline-block; padding: 6px 16px; background: rgba(0, 212, 170, 0.1); border: 1px solid rgba(0, 212, 170, 0.3); border-radius: 20px; font-size: 12px; font-weight: 600; color: #00d4aa; text-transform: uppercase; letter-spacing: 1px;">NEW: 2026 Edition</span>
-                </div>
-                <h3 style="font-size: 2rem; color: #fff; margin-bottom: 16px; font-weight: 600;">Beyond GDPR: Building Digital Sovereignty</h3>
-                <p style="font-size: 1.1rem; color: #8892a0; margin-bottom: 30px; line-height: 1.6;">
-                    Comprehensive 48-page analysis of the sovereign cloud landscape with 28 detailed infographics covering regulatory imperatives, technical architectures, and implementation roadmaps.
-                </p>
-                <a href="/whitepapers" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 12px;">
-                    <span class="btn-text">View All Whitepapers</span>
-                    <span class="btn-arrow">→</span>
-                </a>
+            <div class="founders-strip">
+                <span class="section-tag">// WHO YOU WORK WITH</span>
+                <p>Every engagement is led personally by <strong>Nils Carstensen</strong> and <strong>Manuel Eckarth</strong>, GovaGuard's founders — practitioners who hold active CTO and CISO roles, build the management systems they certify, and sit in the audits they prepare. No handoff to juniors.</p>
             </div>
         </div>
     </section>
@@ -386,19 +462,18 @@
                     <span class="section-tag">// SECURE CHANNEL</span>
                     <h2 class="section-title">Initiate Contact</h2>
                     <p class="contact-description">
-                        All communications are encrypted end-to-end. We respond to qualified
-                        inquiries within 24 hours. For urgent security incidents, use our
-                        emergency hotline.
+                        Your message goes directly to the founders — no sales team, no ticket
+                        queue. We respond to qualified inquiries within 24 hours.
                     </p>
 
                     <div class="contact-methods">
                         <div class="contact-method">
-                            <span class="contact-label">Secure Email</span>
+                            <span class="contact-label">Email</span>
                             <span class="contact-value">hello@govaguard.com</span>
                         </div>
                         <div class="contact-method">
-                            <span class="contact-label">PGP Key ID</span>
-                            <span class="contact-value">0x7A8B9C2D</span>
+                            <span class="contact-label">Your Contacts</span>
+                            <span class="contact-value">Nils Carstensen &amp; Manuel Eckarth</span>
                         </div>
                     </div>
                 </div>
@@ -411,27 +486,28 @@
                         hx-target="#form-response"
                         hx-swap="innerHTML"
                     >
-                        <div class="form-group">
-                            <label for="first_name" class="form-label">First Name</label>
+                        <!-- Honeypot: hidden from humans, bots fill it and get silently dropped -->
+                        <div class="form-hp" aria-hidden="true">
+                            <label for="website">Website</label>
                             <input
                                 type="text"
-                                id="first_name"
-                                name="first_name"
-                                class="form-input"
-                                required
-                                placeholder="John"
+                                id="website"
+                                name="website"
+                                tabindex="-1"
+                                autocomplete="off"
                             >
                         </div>
 
                         <div class="form-group">
-                            <label for="last_name" class="form-label">last Name</label>
+                            <label for="name" class="form-label">Name</label>
                             <input
                                 type="text"
-                                id="last_name"
-                                name="last_name"
+                                id="name"
+                                name="name"
                                 class="form-input"
+                                autocomplete="name"
                                 required
-                                placeholder="Doe"
+                                placeholder="Jane Doe"
                             >
                         </div>
 
@@ -442,8 +518,9 @@
                                 id="email"
                                 name="email"
                                 class="form-input"
+                                autocomplete="email"
                                 required
-                                placeholder="john@company.com"
+                                placeholder="jane@company.com"
                             >
                         </div>
 
@@ -454,8 +531,21 @@
                                 id="company"
                                 name="company"
                                 class="form-input"
+                                autocomplete="organization"
                                 placeholder="Company Inc."
                             >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="framework" class="form-label">What do you need?</label>
+                            <select id="framework" name="framework" class="form-select">
+                                <option value="">Not sure yet</option>
+                                <option value="iso-27001">ISO 27001</option>
+                                <option value="c5">BSI C5</option>
+                                <option value="soc-2">SOC 2</option>
+                                <option value="nis2">NIS2</option>
+                                <option value="other">Something else</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
@@ -470,10 +560,17 @@
                             ></textarea>
                         </div>
 
+                        <input type="hidden" id="source_page" name="source_page" value="">
+
                         <button type="submit" class="btn btn-primary btn-full">
-                            <span class="btn-text">Send Secure Message</span>
+                            <span class="btn-text">Request Secure Consultation</span>
                             <span class="btn-arrow">→</span>
                         </button>
+
+                        <p class="form-privacy-note">
+                            Your message goes directly to the founders. Data handling:
+                            <a href="/privacy">Privacy Policy</a>.
+                        </p>
 
                         <div id="form-response" class="form-response"></div>
                     </form>
@@ -500,7 +597,7 @@
 
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h4 class="footer-heading">Services</h4>
+                        <p class="footer-heading">Services</p>
                         <ul class="footer-list">
                             <li><a href="#services">CTO Advisory</a></li>
                             <li><a href="#services">CISO Consulting</a></li>
@@ -510,9 +607,10 @@
                     </div>
 
                     <div class="footer-column">
-                        <h4 class="footer-heading">Company</h4>
+                        <p class="footer-heading">Company</p>
                         <ul class="footer-list">
                             <li><a href="#expertise">Expertise</a></li>
+                            <li><a href="/insights">Insights</a></li>
                             <li><a href="#contact">Contact</a></li>
                             <li><a href="/imprint">Imprint</a></li>
                             <li><a href="/privacy">Privacy Policy</a></li>
@@ -520,13 +618,26 @@
                     </div>
 
                     <div class="footer-column">
-                        <h4 class="footer-heading">Resources</h4>
+                        <p class="footer-heading">Frameworks</p>
                         <ul class="footer-list">
-                            <li><a href="/whitepapers">Whitepapers</a></li>
-                            <li><a href="/whitepapers/sovereign-cloud/visuals.html">Visual Gallery</a></li>
+                            <li><a href="/iso-27001">ISO 27001</a></li>
+                            <li><a href="/de/iso-27001-beratung">ISO 27001 Beratung (DE)</a></li>
+                            <li><a href="/de/c5-testat">BSI C5 (DE)</a></li>
+                            <li><a href="/soc-2">SOC 2</a></li>
+                            <li><a href="/de/nis2">NIS2 (DE)</a></li>
+                            <li><a href="/dora">DORA</a></li>
+                            <li><a href="/hipaa">HIPAA / HITRUST</a></li>
+                            <li><a href="/iso-42001">ISO 42001</a></li>
+                            <li><a href="/cra">Cyber Resilience Act</a></li>
+                            <li><a href="/compare/soc-2-vs-iso-27001">SOC 2 vs ISO 27001</a></li>
+                            <li><a href="/de/c5-vs-iso-27001">C5 vs ISO 27001 (DE)</a></li>
                         </ul>
                     </div>
                 </div>
+            </div>
+
+            <div class="ai-disclosure">
+                <p>Transparency notice: The content of this website was created with the assistance of artificial intelligence (AI) and reviewed by GovaGuard before publication.</p>
             </div>
 
             <div class="footer-bottom">
@@ -534,7 +645,7 @@
                 <div class="footer-security">
                     <span class="security-badge">
                         <span class="status-dot"></span>
-                        All systems operational
+                        Response within 24 hours
                     </span>
                 </div>
             </div>
