@@ -100,7 +100,7 @@ Grammar, capitalization, and formatting conventions:
 ## 12. Proof Points 🔴 (biggest gap)
 
 - No public testimonials, logos, or case metrics yet. Until they exist: proof = specificity (real costs, real timelines, real regulatory dates) and founder-led delivery.
-- Facts we cite (verified in research this week): DORA applies since 17 Jan 2025; CRA reporting live 11 Sep 2026, CE marking 11 Dec 2027; NIS2 thresholds (50 employees/€10M, 250/€50M); § 393 SGB V C5 obligation since July 2025; EUCS still not adopted (mid-2026).
+- Facts we cite (verified in research this week): DORA applies since 17 Jan 2025; CRA reporting live 11 Sep 2026, CE marking 11 Dec 2027; NIS2 thresholds (50 employees/€10M, 250/€50M); NIS2UmsuCG in force since 6 Dec 2025 (BGBl. 2025 I Nr. 301), BSI registration deadline (§ 33 BSIG) passed 6 Mar 2026; § 393 SGB V C5 obligation since 1 July 2024 (Digital-Gesetz); Typ 2 required for existing systems since 1 July 2025, new systems 18 months from launch (§ 393 Abs. 4); EUCS still not adopted (mid-2026).
 - Founder credentials: none to publish yet (confirmed 2026-09-17) — lead with active-role experience, not certificates.
 - TODO: first anonymized case study per anchor framework.
 

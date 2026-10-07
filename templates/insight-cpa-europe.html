@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Title}}</title>
+    <meta name="description" content="{{.Description}}">
+    <link rel="canonical" href="https://govaguard.com/insights/cpa-firm-from-europe">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{.Title}}">
+    <meta property="og:description" content="{{.Description}}">
+    <meta property="og:url" content="https://govaguard.com/insights/cpa-firm-from-europe">
+    <meta property="og:site_name" content="GovaGuard">
+    <meta property="og:image" content="https://govaguard.com/static/img/og-default.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="023b5858-3604-4a35-a65e-1239d9f1453a"></script>
+</head>
+<body>
+    <!-- Scanline overlay for terminal effect -->
+    <div class="scanlines"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.25rem;">
+                    <span class="logo-bracket">[</span>
+                    <span class="logo-text">GOVAGUARD</span>
+                    <span class="logo-bracket">]</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="/iso-27001" class="nav-link">ISO 27001</a>
+                <a href="/de/c5-testat" class="nav-link">C5</a>
+                <a href="/soc-2" class="nav-link">SOC 2</a>
+                <a href="/de/nis2" class="nav-link">NIS2</a>
+                <a href="/insights" class="nav-link">Insights</a>
+                <a href="/#services" class="nav-link">Services</a>
+                <a href="/#contact" class="nav-link nav-link-cta">Secure Consultation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="page-hero">
+        <div class="section-container">
+            <span class="section-tag">// INSIGHTS &middot; SOC 2</span>
+            <h1 class="section-title">Choosing a SOC 2 auditor from Europe: a practical guide</h1>
+            <p class="page-intro">
+                A SOC 2 report can only be issued by a licensed CPA firm under the
+                <a href="https://www.aicpa-cima.com/resources/landing/system-and-organization-controls-soc-suite-of-services" target="_blank" rel="noopener">AICPA's</a>
+                attestation standards &ndash; but that firm does not need to sit in your
+                country, and you do not need a US entity. Remote fieldwork is standard
+                practice. For a European SaaS company the hard part is not finding a
+                CPA firm; it is choosing one that fits your size, timezone and timeline.
+            </p>
+            <p class="page-intro">
+                This guide covers selection criteria, the process from shortlist to
+                engagement letter, and the red flags that should end a conversation.
+                For the framework itself, start with our
+                <a href="/soc-2">SOC 2 readiness</a> page; for what the auditor will
+                ask you to produce, see
+                <a href="/insights/soc-2-evidence-list">the SOC 2 evidence list</a>.
+            </p>
+            <div class="definition-box">
+                <p>
+                    <span class="definition-term">CPA attestation</span> is an
+                    independent examination performed under the AICPA's attestation
+                    standards (SSAE No. 18, AT-C sections 105 and 205), in which a
+                    licensed CPA firm issues a formal opinion on a company's system
+                    and controls. SOC 2 reports are CPA attestations: only licensed
+                    CPA firms may issue them, regardless of where the audited company
+                    operates.
+                </p>
+            </div>
+            <p class="page-reviewed">By Nils Carstensen &amp; Manuel Eckarth &middot; Last reviewed: September 17, 2026</p>
+        </div>
+    </section>
+
+    <!-- Geography -->
+    <section class="cpa-geography">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">// GEOGRAPHY</span>
+                <h2 class="section-title">Why geography does not constrain you</h2>
+            </div>
+            <p class="page-intro">
+                CPA licensing is a US state matter, but the engagement is
+                location-independent. Any licensed CPA firm can attest a European
+                company &ndash; there is no requirement that the audited entity be
+                incorporated in the US, sell into the US, or host anything there.
+                Plenty of German and EU SaaS companies hold SOC 2 Type II reports
+                issued by firms they have never met in person.
+            </p>
+            <p class="page-intro">
+                Fieldwork happens over screen shares, read-only access sessions and
+                evidence exports; GRC platforms hand most artifacts to the auditor
+                directly. The only genuine friction is timezone overlap for
+                walkthroughs and interviews &ndash; a solvable scheduling problem, not
+                a structural one. In our practice, an SME audit runs $20k&ndash;$60k
+                depending on scope and observation window, and a European address
+                does not move that range.
+            </p>
+        </div>
+    </section>
+
+    <!-- Selection criteria -->
+    <section class="cpa-criteria striped">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">// SELECTION</span>
+                <h2 class="section-title">Six criteria that separate auditors</h2>
+            </div>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Criterion</th>
+                            <th>Why it matters</th>
+                            <th>What to ask</th>
+                            <th>Red flag</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AICPA peer review status</td>
+                            <td>Attestation firms must be enrolled in the <a href="https://www.aicpa-cima.com/resources/landing/peer-review" target="_blank" rel="noopener">AICPA Peer Review Program</a>; it is the quality check behind the license.</td>
+                            <td>&ldquo;When was your last peer review, and what was the rating?&rdquo;</td>
+                            <td>Evasive answer, or no verifiable enrollment.</td>
+                        </tr>
+                        <tr>
+                            <td>SaaS / tech specialization</td>
+                            <td>An auditor who knows cloud architectures tests faster and argues less about compensating controls.</td>
+                            <td>&ldquo;How many SOC 2 engagements for cloud-native SaaS did you complete last year?&rdquo;</td>
+                            <td>A generalist practice where SOC 2 is a side business.</td>
+                        </tr>
+                        <tr>
+                            <td>Timezone &amp; fieldwork model</td>
+                            <td>Walkthroughs and interviews need live overlap; everything else can be asynchronous.</td>
+                            <td>&ldquo;How do you run fieldwork for European clients &ndash; and in which hours?&rdquo;</td>
+                            <td>Insistence on on-site visits or US-only meeting slots.</td>
+                        </tr>
+                        <tr>
+                            <td>Report turnaround</td>
+                            <td>Your sales team is waiting on the report; weeks of drafting delay cost deals.</td>
+                            <td>&ldquo;What is the contractual time from end of fieldwork to final report?&rdquo;</td>
+                            <td>No committed turnaround, or &ldquo;it depends&rdquo; without a range.</td>
+                        </tr>
+                        <tr>
+                            <td>Pricing model</td>
+                            <td>Fixed-fee engagements keep budgets honest; hourly billing shifts scope risk to you.</td>
+                            <td>&ldquo;Is the fee fixed for the defined scope, and what triggers change orders?&rdquo;</td>
+                            <td>Open-ended hourly rates or vague scope language.</td>
+                        </tr>
+                        <tr>
+                            <td>Brand recognition vs boutique</td>
+                            <td>A Big Four logo rarely wins deals a competent boutique report would lose &ndash; but some enterprise buyers do ask.</td>
+                            <td>&ldquo;Have your reports ever been questioned by an enterprise buyer's vendor-risk team?&rdquo;</td>
+                            <td>Paying a brand premium your actual customers never asked for.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="page-intro">
+                Weight the criteria by your situation: a 30-person SaaS selling to
+                mid-market US buyers needs specialization and turnaround, not a
+                household name. A company courting Fortune 500 procurement may
+                reasonably pay for recognition.
+            </p>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="cpa-process">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">// PROCESS</span>
+                <h2 class="section-title">From shortlist to engagement letter</h2>
+            </div>
+            <ol class="step-list">
+                <li>
+                    <span class="step-title">Build a shortlist of three to five firms</span>
+                    <p class="step-desc">
+                        Source candidates from peers with comparable stacks, your GRC
+                        platform's auditor network, and references in reports your own
+                        vendors shared with you. Verify each firm's peer review status
+                        before it enters the list &ndash; not after.
+                    </p>
+                </li>
+                <li>
+                    <span class="step-title">Run structured intro calls</span>
+                    <p class="step-desc">
+                        Use the same question set from the table above for every firm,
+                        and have the engineer who will own the audit in the room.
+                        How the auditor explains exception handling in this call
+                        predicts how fieldwork will feel.
+                    </p>
+                </li>
+                <li>
+                    <span class="step-title">Compare proposals like-for-like</span>
+                    <p class="step-desc">
+                        Normalize every quote to the same scope: trust services criteria,
+                        observation window, report type, and included readiness touchpoints.
+                        A cheap proposal with a shorter window or fewer criteria is not
+                        cheaper &ndash; it is a different product.
+                    </p>
+                </li>
+                <li>
+                    <span class="step-title">Negotiate the engagement letter</span>
+                    <p class="step-desc">
+                        Fix the fee, the fieldwork calendar, the turnaround from fieldwork
+                        end to final report, and the process for discussing exceptions
+                        before they are written up. Multi-year pricing is negotiable;
+                        year two should not be a surprise.
+                    </p>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Red flags -->
+    <section class="cpa-redflags striped">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">// RED FLAGS</span>
+                <h2 class="section-title">Three signals that should end the conversation</h2>
+            </div>
+            <p class="page-intro">
+                <strong>The auditor also &ldquo;does the readiness&rdquo; for the same
+                engagement.</strong> An auditor who designs your controls and then
+                attests them is grading their own homework &ndash; an independence
+                problem under the AICPA's rules for attestation engagements. Readiness
+                help and the attestation must come from separate parties. That
+                separation is exactly why we prepare clients but never issue reports.
+            </p>
+            <p class="page-intro">
+                <strong>Guaranteed-clean-report promises.</strong> No legitimate CPA
+                firm can promise an unqualified opinion before testing a single
+                control. A firm selling certainty is telling you its testing does not
+                matter &ndash; and sophisticated buyers who read reports closely will
+                sense exactly that.
+            </p>
+            <p class="page-intro">
+                <strong>No exception discussion.</strong> Real Type II reports contain
+                exceptions; mature auditors explain how findings are raised, discussed
+                and contextualized before the report is drafted. A firm that never
+                mentions exceptions either does not test seriously or will ambush you
+                in the draft. Ask, and listen for a process.
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="cpa-faq">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">// FAQ</span>
+                <h2 class="section-title">Frequently asked questions</h2>
+            </div>
+            <details class="faq-item">
+                <summary>Does a SOC 2 auditor have to be a licensed CPA firm?</summary>
+                <p>
+                    Yes. SOC 2 is an attestation under the AICPA's standards
+                    (SSAE No. 18), and only a licensed CPA firm may issue the report.
+                    Specialists without a CPA license can support testing, but the
+                    opinion is signed by the CPA firm. Where the audited company sits
+                    is irrelevant &ndash; any licensed CPA firm can attest a European
+                    company.
+                </p>
+            </details>
+            <details class="faq-item">
+                <summary>Can the audit run fully remotely from Europe?</summary>
+                <p>
+                    Yes &ndash; remote fieldwork is standard practice. Walkthroughs
+                    happen over video, evidence moves through secure exports or a GRC
+                    platform, and system access is demonstrated in screen-share
+                    sessions. Plan for a few weeks of scheduled timezone overlap during
+                    fieldwork; nothing in the engagement requires an on-site visit or
+                    a US entity.
+                </p>
+            </details>
+            <details class="faq-item">
+                <summary>What does a SOC 2 audit cost for a European SME?</summary>
+                <p>
+                    In our practice, the CPA firm audit typically runs $20k&ndash;$60k
+                    for SMEs, depending on scope, the number of trust services criteria,
+                    and the length of the observation window. Readiness consulting and
+                    optional GRC tooling come on top. Being based in Europe does not
+                    materially change the audit fee.
+                </p>
+            </details>
+            <details class="faq-item">
+                <summary>Can my readiness consultant also be my auditor?</summary>
+                <p>
+                    No. Independence rules for attestation engagements prevent a firm
+                    from designing your controls and then attesting them in the same
+                    engagement. Use one party for readiness and a separate CPA firm for
+                    the attestation. A firm offering both for the same engagement is
+                    the clearest red flag on this page.
+                </p>
+            </details>
+        </div>
+    </section>
+
+    <!-- Sources + CTA -->
+    <section class="cpa-cta striped">
+        <div class="section-container">
+            <div class="article-sources">
+                <h3>Sources</h3>
+                <ol>
+                    <li><a href="https://www.aicpa-cima.com/resources/landing/system-and-organization-controls-soc-suite-of-services" target="_blank" rel="noopener">AICPA &amp; CIMA: System and Organization Controls &ndash; SOC Suite of Services</a> &ndash; SOC reports are assurance engagements performed by CPAs under AICPA standards</li>
+                    <li><a href="https://www.aicpa-cima.com/resources/landing/peer-review" target="_blank" rel="noopener">AICPA &amp; CIMA: Peer Review</a> &ndash; the quality review program covering firms that perform audit and attestation engagements</li>
+                </ol>
+                <p>Cost figures and timeline observations are estimates from GovaGuard's consulting practice, not published statistics.</p>
+            </div>
+            <div class="cta-panel">
+                <p>
+                    We shortlist auditors for clients weekly &ndash; borrow the shortlist.
+                </p>
+                <a href="/?need=soc-2#contact" class="btn btn-primary">
+                    <span class="btn-text">Request Secure Consultation</span>
+                    <span class="btn-arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-bracket">[</span>
+                        <span class="logo-text">GOVAGUARD</span>
+                        <span class="logo-bracket">]</span>
+                    </div>
+                    <p class="footer-tagline">
+                        Executive Security Consulting<br>
+                        CTO & CISO Advisory Services
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <p class="footer-heading">Services</p>
+                        <ul class="footer-list">
+                            <li><a href="/#services">CTO Advisory</a></li>
+                            <li><a href="/#services">CISO Consulting</a></li>
+                            <li><a href="/#services">Threat Intelligence</a></li>
+                            <li><a href="/#services">Infrastructure Hardening</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <p class="footer-heading">Company</p>
+                        <ul class="footer-list">
+                            <li><a href="/#expertise">Expertise</a></li>
+                            <li><a href="/#contact">Contact</a></li>
+                            <li><a href="/imprint">Imprint</a></li>
+                            <li><a href="/privacy">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <p class="footer-heading">Frameworks</p>
+                        <ul class="footer-list">
+                            <li><a href="/iso-27001">ISO 27001</a></li>
+                            <li><a href="/de/iso-27001-beratung">ISO 27001 Beratung (DE)</a></li>
+                            <li><a href="/de/c5-testat">BSI C5 (DE)</a></li>
+                            <li><a href="/soc-2">SOC 2</a></li>
+                            <li><a href="/de/nis2">NIS2 (DE)</a></li>
+                            <li><a href="/dora">DORA</a></li>
+                            <li><a href="/hipaa">HIPAA / HITRUST</a></li>
+                            <li><a href="/iso-42001">ISO 42001</a></li>
+                            <li><a href="/cra">Cyber Resilience Act</a></li>
+                            <li><a href="/compare/soc-2-vs-iso-27001">SOC 2 vs ISO 27001</a></li>
+                            <li><a href="/de/c5-vs-iso-27001">C5 vs ISO 27001 (DE)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ai-disclosure">
+                <p>Transparency notice: The content of this website was created with the assistance of artificial intelligence (AI) and reviewed by GovaGuard before publication.</p>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 GovaGuard. All rights reserved.</p>
+                <div class="footer-security">
+                    <span class="security-badge">
+                        <span class="status-dot"></span>
+                        Response within 24 hours
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Article",
+                "headline": "Choosing a SOC 2 auditor from Europe: a practical guide",
+                "inLanguage": "en",
+                "datePublished": "2026-09-17",
+                "dateModified": "2026-09-17",
+                "url": "https://govaguard.com/insights/cpa-firm-from-europe",
+                "author": [
+                    {
+                        "@type": "Person",
+                        "name": "Nils Carstensen"
+                    },
+                    {
+                        "@type": "Person",
+                        "name": "Manuel Eckarth"
+                    }
+                ],
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "GovaGuard",
+                    "url": "https://govaguard.com"
+                }
+            },
+            {
+                "@type": "FAQPage",
+                "inLanguage": "en",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Does a SOC 2 auditor have to be a licensed CPA firm?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. SOC 2 is an attestation under the AICPA's standards (SSAE No. 18), and only a licensed CPA firm may issue the report. Specialists without a CPA license can support testing, but the opinion is signed by the CPA firm. Where the audited company sits is irrelevant — any licensed CPA firm can attest a European company."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can the audit run fully remotely from Europe?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes — remote fieldwork is standard practice. Walkthroughs happen over video, evidence moves through secure exports or a GRC platform, and system access is demonstrated in screen-share sessions. Nothing in the engagement requires an on-site visit or a US entity."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What does a SOC 2 audit cost for a European SME?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "In our practice, the CPA firm audit typically runs $20k-$60k for SMEs, depending on scope, the number of trust services criteria, and the length of the observation window. Readiness consulting and optional GRC tooling come on top. Being based in Europe does not materially change the audit fee."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can my readiness consultant also be my auditor?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No. Independence rules for attestation engagements prevent a firm from designing your controls and then attesting them in the same engagement. Use one party for readiness and a separate CPA firm for the attestation."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+</body>
+</html>

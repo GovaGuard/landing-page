@@ -46,6 +46,38 @@ var frameworkOptions = map[string]string{
 	"other":     "Other / not sure",
 }
 
+// insightPage drives the /insights article routes and the sitemap.
+type insightPage struct {
+	path, tmplName, title, desc string
+}
+
+var insightPages = []insightPage{
+	{"/insights", "insights.html", "Insights — Security Certification Knowledge | GovaGuard", "Working knowledge from our certification practice: what regulations require, what audits cost, and what holds up when the auditor arrives. Sources cited."},
+	{"/de/insights/393-sgb-v-erklaert", "insight-393.html", "§ 393 SGB V erklärt: C5-Pflicht im Gesundheitswesen | GovaGuard", "Wer von § 393 SGB V betroffen ist, was ab wann gilt und wie Cloud-Anbieter im Gesundheitswesen zum C5-Testat kommen — mit Primärquellen."},
+	{"/de/insights/c5-testat-kosten", "insight-c5-kosten.html", "C5-Testat Kosten: Der ehrliche Überblick | GovaGuard", "Was ein C5-Testat wirklich kostet: die zwei Kostenblöcke, die echten Kostentreiber und die legitimen Hebel, den Aufwand zu senken."},
+	{"/de/insights/nis2umsucg-stand", "insight-nis2umsucg.html", "NIS2UmsuCG: Aktueller Stand & Pflichten | GovaGuard", "Wo das deutsche NIS2-Umsetzungsgesetz heute steht: Fristen, Registrierung, Pflichten — laufend aktualisiert, mit Primärquellen."},
+	{"/de/insights/nis2-artikel-21-checkliste", "insight-nis2-art21.html", "NIS2 Artikel 21: Maßnahmen-Checkliste | GovaGuard", "Die zehn Maßnahmenbereiche aus Art. 21 Abs. 2 NIS2 als Checkliste — und welcher Teil eines ISO-27001-ISMS sie jeweils abdeckt."},
+	{"/de/insights/nis2-haftung-geschaeftsleitung", "insight-nis2-haftung.html", "NIS2-Haftung: Pflichten der Geschäftsleitung | GovaGuard", "Umsetzungs-, Überwachungs- und Schulungspflichten der Geschäftsleitung nach § 38 BSIG — und was persönliche Haftung konkret bedeutet."},
+	{"/de/insights/nis2-lieferkette", "insight-nis2-lieferkette.html", "NIS2 in der Lieferkette: Pflichten für Zulieferer | GovaGuard", "Wie NIS2-Anforderungen über Kundenverträge auch nicht regulierte Zulieferer erreichen — und welche Nachweise Einkäufer jetzt verlangen."},
+	{"/de/insights/c5-kriterienkatalog", "insight-c5-katalog.html", "C5-Kriterienkatalog im Überblick | GovaGuard", "Der BSI C5-Kriterienkatalog in Klartext: Aufbau, Basis- und Zusatzkriterien, Umgebungsparameter — und was Prüfer daraus machen."},
+	{"/de/insights/c5-typ1-zu-typ2", "insight-c5-typ2.html", "C5 Typ 1 zu Typ 2: Der Weg in der Praxis | GovaGuard", "Vom Stichtags-Testat zur Wirksamkeitsprüfung: Prüfungszeitraum, Nachweisführung und die Fristen aus § 393 SGB V für das Gesundheitswesen."},
+	{"/insights/paper-isms-warning-signs", "insight-paper-isms.html", "The Paper ISMS: Seven Warning Signs | GovaGuard", "Seven signs your ISO 27001 program exists only on paper — and why Stage 2 auditors, surveillance audits, and customer reviews take it apart."},
+	{"/insights/grc-tools-what-they-dont-do", "insight-grc-tools.html", "GRC Platforms: What They Don't Do | GovaGuard", "Vanta, Drata & Co. automate evidence brilliantly. What they don't do: your risk assessment, your SoA, your management review. An honest map."},
+	{"/insights/iso-27001-soa-guide", "insight-soa.html", "ISO 27001 Statement of Applicability Guide | GovaGuard", "The SoA is the document auditors and customers actually read: structure, example entries, and the mistakes that cause audit findings."},
+	{"/insights/choosing-certification-body", "insight-cert-body.html", "Choosing an ISO 27001 Certification Body | GovaGuard", "Accreditation, pricing, and red flags: how to pick a certification body whose certificate your customers will accept — and cert mills to avoid."},
+	{"/insights/soc-2-evidence-list", "insight-soc2-evidence.html", "SOC 2 Evidence List: What Auditors Request | GovaGuard", "The evidence categories behind a SOC 2 Type II: what auditors ask for, which artifacts satisfy them, and what to automate versus collect by hand."},
+	{"/insights/cpa-firm-from-europe", "insight-cpa-europe.html", "Choosing a SOC 2 Auditor from Europe | GovaGuard", "Any licensed CPA firm can attest a European company. Selection criteria, remote fieldwork reality, pricing, and the red flags to walk away from."},
+	{"/insights/soc-2-observation-window", "insight-soc2-window.html", "SOC 2 Observation Window: 3 or 12 Months? | GovaGuard", "The Type II observation window decision: what buyers accept, what a short first window costs later, and the pragmatic path most SaaS teams take."},
+	{"/insights/baa-guide-eu-vendors", "insight-baa.html", "BAA Guide for EU Health-Tech Vendors | GovaGuard", "Business associate agreements for European vendors entering US healthcare: the chain of liability, subcontractors, and clauses to negotiate."},
+	{"/insights/dora-article-30-clauses", "insight-dora30.html", "DORA Article 30 Clauses for Vendors | GovaGuard", "The contract clauses financial customers must impose on ICT vendors under DORA Article 30 — and how to sign them without overpromising."},
+	{"/insights/hitrust-e1-i1-r2", "insight-hitrust.html", "HITRUST e1, i1 or r2: Which Tier? | GovaGuard", "The three HITRUST assessment tiers compared: control counts, effort, what hospital procurement actually asks for, and where to start."},
+	{"/insights/eucs-status", "insight-eucs.html", "EUCS Status: What It Means for C5 | GovaGuard", "The EU cloud certification scheme is still not adopted. Current status, the sovereignty debate, and why BSI C5 remains the German benchmark."},
+	{"/insights/cra-ce-marking-checklist", "insight-cra-checklist.html", "CRA CE-Marking Checklist to December 2027 | GovaGuard", "Fifteen months to CE marking for software: the quarter-by-quarter checklist, the conformity-route decision, and the reporting duty already live."},
+	{"/insights/cra-sbom-in-ci", "insight-cra-sbom.html", "SBOM in CI for CRA Compliance | GovaGuard", "Meeting the CRA's SBOM duty in practice: CycloneDX vs SPDX, wiring generation into CI, and linking findings to the 24-hour ENISA clock."},
+	{"/insights/cra-open-source-steward", "insight-cra-oss.html", "Open Source & the CRA: Steward or Manufacturer | GovaGuard", "When open-source involvement becomes commercial activity under the CRA: contributor, steward, or manufacturer — and the duties each role carries."},
+	{"/insights/iso-42001-vs-eu-ai-act", "insight-42001-aiact.html", "ISO 42001 vs EU AI Act: The Difference | GovaGuard", "One is law, one is a certificate. What ISO 42001 evidences under the EU AI Act, what it cannot replace, and the pragmatic sequence for vendors."},
+}
+
 // notionPage builds the Notion "create page" payload for a contact submission.
 // The target database needs these properties: Name (title), Email (email),
 // Company (rich text), Message (rich text), Status (select with a "New" option).
@@ -241,7 +273,7 @@ func main() {
 		large := employees == "gte250" || revenue == "gt50"
 		medium := !large && (employees == "50-249" || revenue == "10-50")
 
-		const disclaimer = `<p class="check-disclaimer">Unverbindliche Ersteinschätzung auf Basis Ihrer Angaben — keine Rechtsberatung. Die genaue Einstufung hängt von Tätigkeiten, Registrierungspflichten und dem finalen Stand des NIS2UmsuCG ab.</p>`
+		const disclaimer = `<p class="check-disclaimer">Unverbindliche Ersteinschätzung auf Basis Ihrer Angaben — keine Rechtsberatung. Die genaue Einstufung hängt von Ihren konkreten Tätigkeiten ab. Das NIS2UmsuCG ist seit dem 6. Dezember 2025 in Kraft; die Registrierungsfrist beim BSI ist bereits abgelaufen.</p>`
 		const cta = `<p><a href="/?need=nis2#contact" class="framework-link">Sprechen Sie mit uns über die nächsten Schritte →</a></p>`
 
 		var result string
@@ -261,7 +293,7 @@ func main() {
 		case annex1 && large:
 			result = `<div class="check-result-box check-in">
 				<h3>Voraussichtlich besonders wichtige Einrichtung</h3>
-				<p>Anlage-I-Sektor und Großunternehmen: Es gilt der volle Pflichtenkatalog — Registrierung beim BSI, Risikomanagement nach Art. 21, Meldepflichten (24 h / 72 h / 1 Monat), Billigungs- und Überwachungspflicht der Geschäftsleitung. Bußgeldrahmen bis 10 Mio. € oder 2 % des weltweiten Umsatzes.</p>` + cta + disclaimer + `</div>`
+				<p>Anlage-I-Sektor und Großunternehmen: Es gilt der volle Pflichtenkatalog — Registrierung beim BSI, Risikomanagement nach Art. 21, Meldepflichten (24 h / 72 h / 1 Monat), Umsetzungs- und Überwachungspflicht der Geschäftsleitung (§ 38 BSIG). Bußgeldrahmen bis 10 Mio. € oder 2 % des weltweiten Umsatzes.</p>` + cta + disclaimer + `</div>`
 		default:
 			result = `<div class="check-result-box check-in">
 				<h3>Voraussichtlich wichtige Einrichtung</h3>
@@ -269,6 +301,13 @@ func main() {
 		}
 		w.Write([]byte(result))
 	})
+
+	// Insights hub + articles (data-driven; see insightPages)
+	for _, p := range insightPages {
+		http.HandleFunc(p.path, func(w http.ResponseWriter, r *http.Request) {
+			tmpl.ExecuteTemplate(w, p.tmplName, PageData{Title: p.title, Description: p.desc})
+		})
+	}
 
 	// Imprint page
 	http.HandleFunc("/imprint", func(w http.ResponseWriter, r *http.Request) {
@@ -291,24 +330,21 @@ func main() {
 	// SEO plumbing
 	http.HandleFunc("/sitemap.xml", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/xml")
-		w.Write([]byte(`<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://govaguard.com/</loc></url>
-  <url><loc>https://govaguard.com/iso-27001</loc></url>
-  <url><loc>https://govaguard.com/soc-2</loc></url>
-  <url><loc>https://govaguard.com/compare/soc-2-vs-iso-27001</loc></url>
-  <url><loc>https://govaguard.com/de/c5-testat</loc></url>
-  <url><loc>https://govaguard.com/de/iso-27001-beratung</loc></url>
-  <url><loc>https://govaguard.com/de/nis2</loc></url>
-  <url><loc>https://govaguard.com/dora</loc></url>
-  <url><loc>https://govaguard.com/hipaa</loc></url>
-  <url><loc>https://govaguard.com/iso-42001</loc></url>
-  <url><loc>https://govaguard.com/cra</loc></url>
-  <url><loc>https://govaguard.com/de/c5-vs-iso-27001</loc></url>
-  <url><loc>https://govaguard.com/imprint</loc></url>
-  <url><loc>https://govaguard.com/privacy</loc></url>
-</urlset>
-`))
+		staticPaths := []string{
+			"/", "/iso-27001", "/soc-2", "/dora", "/hipaa", "/iso-42001", "/cra",
+			"/compare/soc-2-vs-iso-27001", "/de/c5-testat", "/de/iso-27001-beratung",
+			"/de/nis2", "/de/c5-vs-iso-27001", "/imprint", "/privacy",
+		}
+		var b strings.Builder
+		b.WriteString("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n")
+		for _, u := range staticPaths {
+			b.WriteString("  <url><loc>https://govaguard.com" + u + "</loc></url>\n")
+		}
+		for _, p := range insightPages {
+			b.WriteString("  <url><loc>https://govaguard.com" + p.path + "</loc></url>\n")
+		}
+		b.WriteString("</urlset>\n")
+		w.Write([]byte(b.String()))
 	})
 
 	http.HandleFunc("/robots.txt", func(w http.ResponseWriter, r *http.Request) {
