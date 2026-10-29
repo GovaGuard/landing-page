@@ -60,6 +60,8 @@
 
 html {
     scroll-behavior: smooth;
+    /* Fixed nav is ~70px tall; keep anchor targets out from under it */
+    scroll-padding-top: 90px;
 }
 
 /* Long German compounds in mono headings must never widen the page */
@@ -163,6 +165,15 @@ body {
 .logo-text {
     color: var(--color-text);
     letter-spacing: 0.05em;
+}
+
+/* Subpages wrap the logo spans in a home link — keep it looking like the plain logo */
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    text-decoration: none;
+    color: inherit;
 }
 
 .nav-links {
@@ -1305,7 +1316,8 @@ body {
 }
 
 .cta-panel {
-    margin-top: var(--space-2xl);
+    margin: 0 auto;
+    max-width: 860px;
     padding: var(--space-xl);
     background: var(--color-surface);
     border: 1px solid var(--color-primary);
@@ -1515,6 +1527,12 @@ body {
     color: var(--color-text);
 }
 
+.founders-strip .founders-meta {
+    margin-top: var(--space-sm);
+    font-size: 0.9rem;
+    color: var(--color-text-dimmer);
+}
+
 /* NIS2 Betroffenheits-Check */
 .check-form {
     max-width: 720px;
@@ -1636,6 +1654,363 @@ body {
     font-family: var(--font-display);
     font-size: 0.8rem;
     color: var(--color-text-dimmer);
+}
+
+/* Compact router for the non-featured frameworks */
+.framework-list-compact {
+    margin-top: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-lg);
+}
+
+.framework-list-intro {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-dimmer);
+    margin-bottom: var(--space-sm);
+}
+
+.framework-list-compact ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.framework-list-compact li {
+    color: var(--color-text-dim);
+    line-height: 1.6;
+}
+
+.framework-list-compact a {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.framework-list-compact a:hover {
+    text-decoration: underline;
+}
+
+/* Inline CTA row closing a section */
+.inline-cta {
+    margin-top: var(--space-xl);
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.inline-cta p {
+    color: var(--color-text-dim);
+    margin: 0;
+}
+
+.inline-cta a {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.inline-cta a:hover {
+    text-decoration: underline;
+}
+
+/* Booking card above the contact form */
+.booking-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-primary);
+    border-radius: 4px;
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.booking-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-xs);
+}
+
+.booking-note {
+    font-size: 0.9rem;
+    color: var(--color-text-dim);
+    margin-bottom: var(--space-md);
+}
+
+.booking-divider {
+    margin-top: var(--space-md);
+    margin-bottom: 0;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-dimmer);
+}
+
+/* Cost & timeline estimator */
+.est-layout {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.est-form {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: var(--space-lg);
+}
+
+.est-step {
+    border: none;
+    padding: 0;
+    margin: 0 0 var(--space-md);
+}
+
+.est-step legend {
+    padding: 0;
+    margin-bottom: var(--space-sm);
+}
+
+.est-range {
+    width: 100%;
+    accent-color: var(--color-primary);
+}
+
+.est-range-output {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-top: var(--space-xs);
+}
+
+.est-range-scale {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    color: var(--color-text-dimmer);
+}
+
+.est-radio-row {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+.est-radio-row label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: var(--space-xs) var(--space-sm);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--color-text-dim);
+}
+
+.est-radio-row label:has(input:checked) {
+    border-color: var(--color-primary);
+    color: var(--color-text);
+}
+
+.est-radio-row input[type="radio"] {
+    accent-color: var(--color-primary);
+}
+
+.est-controls {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.est-result-slot {
+    margin-top: var(--space-lg);
+}
+
+/* Result lines hold full sentences — let them wrap inside the terminal */
+.est-row {
+    white-space: normal;
+    line-height: 1.5;
+}
+
+.est-row a {
+    color: var(--color-primary);
+}
+
+.est-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: var(--space-sm);
+    margin: var(--space-md) 0 var(--space-sm);
+}
+
+.est-stats .stat-number {
+    font-size: 1.4rem;
+}
+
+.est-disclaim {
+    font-size: 0.8rem;
+    color: var(--color-text-dimmer);
+    margin-bottom: var(--space-md);
+}
+
+.est-heading {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--color-text-dimmer);
+    margin: var(--space-md) 0 var(--space-xs);
+}
+
+/* Cost picture: dim segment = published range, bright overlay = profile band */
+.est-chart {
+    margin-bottom: var(--space-md);
+}
+
+.est-chart-row {
+    display: grid;
+    grid-template-columns: minmax(120px, 220px) 1fr auto;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xs);
+}
+
+.est-chart-label {
+    font-size: 0.85rem;
+    color: var(--color-text-dim);
+}
+
+.est-chart-track {
+    position: relative;
+    height: 14px;
+    background: var(--color-bg-light);
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.est-chart-range,
+.est-chart-band {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.est-chart-range {
+    background: var(--color-primary-dim);
+    opacity: 0.45;
+}
+
+.est-chart-band {
+    background: var(--color-primary);
+}
+
+.est-chart-value {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    color: var(--color-text);
+    white-space: nowrap;
+}
+
+.est-chart-key {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    color: var(--color-text-dimmer);
+    margin-top: var(--space-xs);
+}
+
+.est-key-swatch {
+    display: inline-block;
+    width: 14px;
+    height: 10px;
+    border-radius: 2px;
+}
+
+.est-key-range {
+    background: var(--color-primary-dim);
+    opacity: 0.45;
+}
+
+.est-key-band {
+    background: var(--color-primary);
+    margin-left: var(--space-sm);
+}
+
+.est-phases {
+    list-style: none;
+    margin-bottom: var(--space-sm);
+}
+
+.est-phases li {
+    color: var(--color-text-dim);
+    line-height: 1.7;
+}
+
+.est-phases li::before {
+    content: "▸ ";
+    color: var(--color-primary);
+}
+
+.est-ctas {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    margin: var(--space-md) 0;
+}
+
+.est-form-link {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.est-form-link:hover {
+    text-decoration: underline;
+}
+
+.est-math {
+    font-size: 0.85rem;
+    color: var(--color-text-dim);
+}
+
+.est-math summary {
+    cursor: pointer;
+    font-family: var(--font-display);
+    color: var(--color-text-dimmer);
+}
+
+.est-math ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-top: var(--space-sm);
+}
+
+.est-math a {
+    color: var(--color-primary);
+}
+
+.est-method {
+    max-width: 720px;
+    color: var(--color-text-dim);
+    margin-top: var(--space-sm);
 }
 
 /* ================================

@@ -21,7 +21,7 @@
       "@type": "ProfessionalService",
       "name": "GovaGuard",
       "url": "https://govaguard.com/",
-      "description": "CTO & CISO consulting for security certifications: ISO 27001, BSI C5, SOC 2, NIS2, DORA, HIPAA.",
+      "description": "Founder-led consulting for security certifications: ISO 27001, SOC 2, BSI C5, NIS2, DORA, HIPAA.",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Holleratherstraße 9",
@@ -49,12 +49,10 @@
             </div>
             <div class="nav-links">
                 <a href="/iso-27001" class="nav-link">ISO 27001</a>
-                <a href="/de/c5-testat" class="nav-link">C5</a>
                 <a href="/soc-2" class="nav-link">SOC 2</a>
-                <a href="/de/nis2" class="nav-link">NIS2</a>
+                <a href="/de/c5-testat" class="nav-link">C5</a>
                 <a href="/insights" class="nav-link">Insights</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#contact" class="nav-link nav-link-cta">Secure Consultation</a>
+                {{if .BookingURL}}<a href="{{.BookingURL}}" target="_blank" rel="noopener" class="nav-link nav-link-cta" data-umami-event="book-call">Book Intro Call</a>{{else}}<a href="#contact" class="nav-link nav-link-cta">Secure Consultation</a>{{end}}
             </div>
         </div>
     </nav>
@@ -73,26 +71,36 @@
             </h1>
 
             <p class="hero-description">
-                European rigor, US market access. ISO 27001 and BSI C5 depth from Germany,
-                paired with SOC 2 and HIPAA readiness for companies selling into the
-                United States. Executive-led CTO &amp; CISO consulting — fixed scope,
-                no compliance theater.
+                ISO 27001, SOC 2 and BSI C5 — run personally by our two founders,
+                from gap analysis to passed audit. Fixed scope, fixed quote,
+                no compliance theater. Your team keeps shipping.
             </p>
 
             <div class="hero-cta">
+                {{if .BookingURL}}
+                <a href="{{.BookingURL}}" target="_blank" rel="noopener" class="btn btn-primary" data-umami-event="book-call">
+                    <span class="btn-text">Book an intro call</span>
+                    <span class="btn-arrow">→</span>
+                </a>
+                {{else}}
                 <a href="#contact" class="btn btn-primary">
                     <span class="btn-text">Request Secure Consultation</span>
                     <span class="btn-arrow">→</span>
                 </a>
-                <a href="#frameworks" class="hero-secondary">Or pick your framework ↓</a>
+                {{end}}
+                <a href="#contact" class="hero-secondary">Prefer writing? Use the secure form ↓</a>
                 <div class="hero-stats">
                     <div class="stat">
-                        <div class="stat-number">EU + US</div>
-                        <div class="stat-label">Market Coverage</div>
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Founders on every engagement</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number">8</div>
-                        <div class="stat-label">Frameworks Covered</div>
+                        <div class="stat-number">1</div>
+                        <div class="stat-label">Control set — ISO 27001, SOC 2, C5</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24h</div>
+                        <div class="stat-label">Response time</div>
                     </div>
                 </div>
             </div>
@@ -107,7 +115,7 @@
         <div class="section-container">
             <div class="section-header">
                 <span class="section-tag">// CERTIFICATION FRAMEWORKS</span>
-                <h2 class="section-title">Pick Your Framework</h2>
+                <h2 class="section-title">Three Certificates Open Most Markets</h2>
             </div>
 
             <div class="framework-grid">
@@ -118,339 +126,119 @@
                     <a href="/iso-27001" class="framework-link">Read more →</a>
                 </div>
                 <div class="framework-card">
-                    <span class="framework-region">Germany</span>
-                    <h3>BSI C5</h3>
-                    <p>Mandatory in practice for public sector and healthcare cloud (§ 393 SGB V). Preparation that holds up to the auditor.</p>
-                    <a href="/de/c5-testat" class="framework-link">Mehr erfahren →</a>
-                </div>
-                <div class="framework-card">
                     <span class="framework-region">United States</span>
                     <h3>SOC 2</h3>
                     <p>The report every US enterprise buyer asks for. We reuse your ISO 27001 work instead of duplicating it.</p>
                     <a href="/soc-2" class="framework-link">Read more →</a>
                 </div>
                 <div class="framework-card">
-                    <span class="framework-region">EU</span>
-                    <h3>NIS2</h3>
-                    <p>Legal obligation with real fines. Scope check, duties, and pragmatic implementation for essential and important entities.</p>
-                    <a href="/de/nis2" class="framework-link">Betroffenheit prüfen →</a>
+                    <span class="framework-region">Germany</span>
+                    <h3>BSI C5</h3>
+                    <p>Mandatory in practice for public sector and healthcare cloud (§ 393 SGB V). Preparation that holds up to the auditor.</p>
+                    <a href="/de/c5-testat" class="framework-link">Mehr erfahren →</a>
                 </div>
-                <div class="framework-card">
-                    <span class="framework-region">EU · Financial</span>
-                    <h3>DORA</h3>
-                    <p>In force since January 2025 — for financial entities and the ICT providers who serve them.</p>
-                    <a href="/dora" class="framework-link">Read more →</a>
-                </div>
-                <div class="framework-card">
-                    <span class="framework-region">US · Healthcare</span>
-                    <h3>HIPAA / HITRUST</h3>
-                    <p>The entry ticket for US health tech, backed by our medical device security practice.</p>
-                    <a href="/hipaa" class="framework-link">Read more →</a>
-                </div>
-                <div class="framework-card">
-                    <span class="framework-region">EU · Global</span>
-                    <h3>ISO 42001</h3>
-                    <p>AI governance your buyers can verify — the certifiable answer to the EU AI Act era, built on your ISMS.</p>
-                    <a href="/iso-42001" class="framework-link">Read more →</a>
-                </div>
-                <div class="framework-card">
-                    <span class="framework-region">EU</span>
-                    <h3>Cyber Resilience Act</h3>
-                    <p>CE marking comes to software: reporting duties live since September 2026, full obligations December 2027.</p>
-                    <a href="/cra" class="framework-link">Read more →</a>
-                </div>
+            </div>
+
+            <div class="framework-list-compact">
+                <p class="framework-list-intro">Also in our practice:</p>
+                <ul>
+                    <li><a href="/de/nis2">NIS2</a> <span>— EU legal obligation with real fines; check your scope (DE)</span></li>
+                    <li><a href="/dora">DORA</a> <span>— in force since January 2025, for financial entities and their ICT providers</span></li>
+                    <li><a href="/hipaa">HIPAA / HITRUST</a> <span>— the entry ticket for US health tech</span></li>
+                    <li><a href="/iso-42001">ISO 42001</a> <span>— certifiable AI governance, built on your ISMS</span></li>
+                    <li><a href="/cra">Cyber Resilience Act</a> <span>— CE marking for software, full obligations December 2027</span></li>
+                </ul>
+            </div>
+
+            <div class="inline-cta">
+                <p>Not sure which one your deal needs? Ask us — we run all of them.</p>
+                {{if .BookingURL}}
+                <a href="{{.BookingURL}}" target="_blank" rel="noopener" data-umami-event="book-call">Book an intro call →</a>
+                {{else}}
+                <a href="#contact">Request Secure Consultation →</a>
+                {{end}}
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
+    <!-- How it works -->
+    <section id="process" class="services">
         <div class="section-container">
             <div class="section-header">
-                <span class="section-tag">// CORE CAPABILITIES</span>
-                <h2 class="section-title">Strategic Security Services</h2>
+                <span class="section-tag">// HOW IT WORKS</span>
+                <h2 class="section-title">You Hand It Over. We Run It.</h2>
             </div>
 
             <div class="services-grid">
                 <div class="service-card" data-index="01">
                     <div class="service-header">
                         <span class="service-number">01</span>
-                        <h3 class="service-title">CTO Advisory</h3>
+                        <h3 class="service-title">Gap Analysis</h3>
                     </div>
                     <p class="service-description">
-                        Strategic technology leadership for scaling organizations. Technical strategy,
-                        architecture review, team building, and technology roadmap development.
+                        The small first step: we measure the real distance between where
+                        you stand and the certificate you need — and turn it into a fixed quote.
                     </p>
-                    <ul class="service-features">
-                        <li>Technology Stack Optimization</li>
-                        <li>Engineering Team Structuring</li>
-                        <li>Scalability Architecture</li>
-                        <li>DevOps & CI/CD Pipeline Design</li>
-                    </ul>
                 </div>
 
                 <div class="service-card" data-index="02">
                     <div class="service-header">
                         <span class="service-number">02</span>
-                        <h3 class="service-title">CISO Consulting</h3>
+                        <h3 class="service-title">We Build</h3>
                     </div>
                     <p class="service-description">
-                        Comprehensive security leadership for enterprises requiring executive-level
-                        oversight without full-time commitment. Regulatory compliance and risk management.
+                        We build the management system on your stack — one control set
+                        that can produce ISO 27001, SOC 2 and C5. Your engineers stay on product.
                     </p>
-                    <ul class="service-features">
-                        <li>Security Posture Assessment</li>
-                        <li>Compliance Framework Implementation</li>
-                        <li>Incident Response Planning</li>
-                        <li>Security Awareness Training</li>
-                    </ul>
                 </div>
 
                 <div class="service-card" data-index="03">
                     <div class="service-header">
                         <span class="service-number">03</span>
-                        <h3 class="service-title">Threat Intelligence</h3>
+                        <h3 class="service-title">You Pass</h3>
                     </div>
                     <p class="service-description">
-                        Proactive threat monitoring and analysis. Real-time vulnerability assessment
-                        and penetration testing to identify weaknesses before adversaries do.
+                        We prepare the evidence and sit in the audit with you.
+                        After the certificate, we keep it audit-ready.
                     </p>
-                    <ul class="service-features">
-                        <li>Penetration Testing</li>
-                        <li>Vulnerability Scanning</li>
-                        <li>Red Team Exercises</li>
-                        <li>Dark Web Monitoring</li>
-                    </ul>
-                </div>
-
-                <div class="service-card" data-index="04">
-                    <div class="service-header">
-                        <span class="service-number">04</span>
-                        <h3 class="service-title">Infrastructure Hardening</h3>
-                    </div>
-                    <p class="service-description">
-                        End-to-end security architecture for cloud and on-premise environments.
-                        Zero-trust implementation, network segmentation, and access control.
-                    </p>
-                    <ul class="service-features">
-                        <li>Zero-Trust Architecture</li>
-                        <li>Cloud Security (AWS/Azure/GCP)</li>
-                        <li>Network Segmentation</li>
-                        <li>Identity & Access Management</li>
-                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Industry Specializations Section -->
-    <section class="specializations">
-        <div class="section-container">
-            <div class="section-header specializations-header">
-                <span class="section-tag">// INDUSTRY FOCUS</span>
-                <h2 class="section-title">Specialized Security Domains</h2>
-                <p class="specializations-intro">
-                    Deep expertise across critical high-stakes industries requiring advanced security protocols
-                </p>
-            </div>
-
-            <div class="specializations-grid">
-                <div class="specialization-card">
-                    <div class="specialization-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="specialization-title">Medical Device Security</h3>
-                    <p class="specialization-description">
-                        FDA-compliant security frameworks for connected medical devices. Pre-market cybersecurity
-                        assessments, IEC 62304 compliance, and post-market surveillance protocols.
-                    </p>
-                    <ul class="specialization-tags">
-                        <li>FDA 510(k) Cybersecurity</li>
-                        <li>IEC 62443-4-1</li>
-                        <li>HIPAA Compliance</li>
-                        <li>Clinical Risk Management</li>
-                    </ul>
-                </div>
-
-                <div class="specialization-card">
-                    <div class="specialization-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                        </svg>
-                    </div>
-                    <h3 class="specialization-title">IoT & Embedded Systems</h3>
-                    <p class="specialization-description">
-                        Secure-by-design architecture for IoT ecosystems. Firmware security, OTA update mechanisms,
-                        device authentication, and edge computing protection.
-                    </p>
-                    <ul class="specialization-tags">
-                        <li>Firmware Security</li>
-                        <li>Edge Computing</li>
-                        <li>Device Identity</li>
-                        <li>Secure Boot/Updates</li>
-                    </ul>
-                </div>
-
-                <div class="specialization-card">
-                    <div class="specialization-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="specialization-title">Cloud Infrastructure</h3>
-                    <p class="specialization-description">
-                        Multi-cloud and hybrid cloud security architecture. Container security, serverless hardening,
-                        IAM strategy, and cloud-native threat detection.
-                    </p>
-                    <ul class="specialization-tags">
-                        <li>AWS/Azure/GCP Security</li>
-                        <li>Kubernetes Hardening</li>
-                        <li>Zero Trust Networks</li>
-                        <li>CSPM Implementation</li>
-                    </ul>
-                </div>
-
-                <div class="specialization-card">
-                    <div class="specialization-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="specialization-title">Sovereign Cloud & Data</h3>
-                    <p class="specialization-description">
-                        Data sovereignty solutions for regulated industries. GDPR-compliant architectures, geographic
-                        data residency, and government-grade security controls.
-                    </p>
-                    <ul class="specialization-tags">
-                        <li>Data Residency</li>
-                        <li>GDPR Compliance</li>
-                        <li>Encryption at Rest</li>
-                        <li>Sovereignty Controls</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Expertise Section -->
-    <section id="expertise" class="expertise">
-        <div class="section-container">
-            <div class="expertise-layout">
-                <div class="expertise-content">
-                    <span class="section-tag">// DOMAIN MASTERY</span>
-                    <h2 class="section-title">Battle-Tested Expertise</h2>
-                    <p class="expertise-intro">
-                        Our consultants bring decades of combined experience from Fortune 500
-                        security operations, government cybersecurity roles, and high-growth
-                        technology leadership.
-                    </p>
-
-                    <div class="expertise-list">
-                        <div class="expertise-item">
-                            <div class="expertise-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                </svg>
-                            </div>
-                            <div class="expertise-text">
-                                <h4>Compliance & Frameworks</p>
-                                <p>SOC 2, ISO 27001, GDPR, HIPAA, PCI-DSS, NIST CSF</p>
-                            </div>
-                        </div>
-
-                        <div class="expertise-item">
-                            <div class="expertise-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                                    <polyline points="2 17 12 22 22 17"></polyline>
-                                    <polyline points="2 12 12 17 22 12"></polyline>
-                                </svg>
-                            </div>
-                            <div class="expertise-text">
-                                <h4>Technology Leadership</p>
-                                <p>Cloud Infrastructure, Microservices, DevSecOps, Platform Engineering</p>
-                            </div>
-                        </div>
-
-                        <div class="expertise-item">
-                            <div class="expertise-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <path d="M12 6v6l4 2"></path>
-                                </svg>
-                            </div>
-                            <div class="expertise-text">
-                                <h4>Incident Response</p>
-                                <p>24/7 emergency response, forensic analysis, breach containment</p>
-                            </div>
-                        </div>
-
-                        <div class="expertise-item">
-                            <div class="expertise-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                                </svg>
-                            </div>
-                            <div class="expertise-text">
-                                <h4>Risk Assessment</p>
-                                <p>Business impact analysis, threat modeling, security audits</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="expertise-visual">
-                    <div class="terminal">
-                        <div class="terminal-header">
-                            <span class="terminal-dot"></span>
-                            <span class="terminal-dot"></span>
-                            <span class="terminal-dot"></span>
-                            <span class="terminal-title">security_assessment.sh</span>
-                        </div>
-                        <div class="terminal-body">
-                            <div class="terminal-line">
-                                <span class="prompt">$</span>
-                                <span class="command">./run_security_audit --deep-scan</span>
-                            </div>
-                            <div class="terminal-line output">
-                                <span class="success">✓</span> Scanning infrastructure...
-                            </div>
-                            <div class="terminal-line output">
-                                <span class="success">✓</span> Analyzing access controls...
-                            </div>
-                            <div class="terminal-line output">
-                                <span class="success">✓</span> Reviewing encryption protocols...
-                            </div>
-                            <div class="terminal-line output">
-                                <span class="warning">!</span> 3 vulnerabilities detected
-                            </div>
-                            <div class="terminal-line output">
-                                <span class="info">→</span> Generating remediation plan...
-                            </div>
-                            <div class="terminal-line">
-                                <span class="prompt">$</span>
-                                <span class="cursor">_</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="inline-cta">
+                <p>The gap analysis is the whole commitment. Everything after it comes with a fixed quote.</p>
+                {{if .BookingURL}}
+                <a href="{{.BookingURL}}" target="_blank" rel="noopener" data-umami-event="book-call">Book an intro call →</a>
+                {{else}}
+                <a href="#contact">Request Secure Consultation →</a>
+                {{end}}
             </div>
         </div>
     </section>
 
     <!-- Who you work with -->
-    <section class="founders">
+    <section class="founders" id="proof">
         <div class="section-container">
             <div class="founders-strip">
                 <span class="section-tag">// WHO YOU WORK WITH</span>
                 <p>Every engagement is led personally by <strong>Nils Carstensen</strong> and <strong>Manuel Eckarth</strong>, GovaGuard's founders — practitioners who hold active CTO and CISO roles, build the management systems they certify, and sit in the audits they prepare. No handoff to juniors.</p>
+                <p class="founders-meta">Deep practice in medical devices (SaMD/FDA), cloud for the public sector and healthcare (§ 393 SGB V), and ICT vendors serving financial entities. Also hands-on: penetration tests and red-team exercises, usually as part of certification readiness.</p>
             </div>
+            <!-- TESTIMONIALS (prepared, intentionally disabled).
+                 html/template strips HTML comments from rendered output, so this block never ships.
+                 Activate once 3-5 real, approved customer quotes exist (see
+                 .claude/product-marketing-context.md, social proof section).
+                 Never publish invented or unattributed quotes.
+
+            <div class="testimonials">
+                <div class="section-header">
+                    <span class="section-tag">// WHAT CLIENTS SAY</span>
+                </div>
+                <figure class="testimonial">
+                    <blockquote>QUOTE</blockquote>
+                    <figcaption>NAME, ROLE — COMPANY (or: role, industry, headcount if anonymized)</figcaption>
+                </figure>
+            </div>
+            -->
         </div>
     </section>
 
@@ -460,7 +248,7 @@
             <div class="contact-layout">
                 <div class="contact-info">
                     <span class="section-tag">// SECURE CHANNEL</span>
-                    <h2 class="section-title">Initiate Contact</h2>
+                    <h2 class="section-title">Talk Directly to the Founders</h2>
                     <p class="contact-description">
                         Your message goes directly to the founders — no sales team, no ticket
                         queue. We respond to qualified inquiries within 24 hours.
@@ -479,6 +267,17 @@
                 </div>
 
                 <div class="contact-form-wrapper">
+                    {{if .BookingURL}}
+                    <div class="booking-card">
+                        <p class="booking-title">Fastest path: book an intro call</p>
+                        <p class="booking-note">Pick a slot — you'll talk to a founder, not a sales team.</p>
+                        <a href="{{.BookingURL}}" target="_blank" rel="noopener" class="btn btn-primary btn-full" data-umami-event="book-call">
+                            <span class="btn-text">Book an intro call</span>
+                            <span class="btn-arrow">→</span>
+                        </a>
+                        <p class="booking-divider">Or use the secure form:</p>
+                    </div>
+                    {{end}}
                     <form
                         id="contact-form"
                         class="contact-form"
@@ -525,18 +324,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="company" class="form-label">Organization</label>
-                            <input
-                                type="text"
-                                id="company"
-                                name="company"
-                                class="form-input"
-                                autocomplete="organization"
-                                placeholder="Company Inc."
-                            >
-                        </div>
-
-                        <div class="form-group">
                             <label for="framework" class="form-label">What do you need?</label>
                             <select id="framework" name="framework" class="form-select">
                                 <option value="">Not sure yet</option>
@@ -562,7 +349,7 @@
 
                         <input type="hidden" id="source_page" name="source_page" value="">
 
-                        <button type="submit" class="btn btn-primary btn-full">
+                        <button type="submit" class="btn btn-primary btn-full" data-umami-event="form-submit">
                             <span class="btn-text">Request Secure Consultation</span>
                             <span class="btn-arrow">→</span>
                         </button>
@@ -590,26 +377,25 @@
                         <span class="logo-bracket">]</span>
                     </div>
                     <p class="footer-tagline">
-                        Executive Security Consulting<br>
-                        CTO & CISO Advisory Services
+                        Security Certification Consulting<br>
+                        ISO 27001 · SOC 2 · BSI C5 — founder-led, from Cologne
                     </p>
                 </div>
 
                 <div class="footer-links">
                     <div class="footer-column">
-                        <p class="footer-heading">Services</p>
+                        <p class="footer-heading">Get Started</p>
                         <ul class="footer-list">
-                            <li><a href="#services">CTO Advisory</a></li>
-                            <li><a href="#services">CISO Consulting</a></li>
-                            <li><a href="#services">Threat Intelligence</a></li>
-                            <li><a href="#services">Infrastructure Hardening</a></li>
+                            {{if .BookingURL}}<li><a href="{{.BookingURL}}" target="_blank" rel="noopener" data-umami-event="book-call">Book intro call</a></li>{{end}}
+                            <li><a href="#contact">Secure form</a></li>
+                            <li><a href="#process">How we work</a></li>
+                            <li><a href="#frameworks">Frameworks</a></li>
                         </ul>
                     </div>
 
                     <div class="footer-column">
                         <p class="footer-heading">Company</p>
                         <ul class="footer-list">
-                            <li><a href="#expertise">Expertise</a></li>
                             <li><a href="/insights">Insights</a></li>
                             <li><a href="#contact">Contact</a></li>
                             <li><a href="/imprint">Imprint</a></li>

@@ -5,12 +5,14 @@ import (
 	"context"
 	"embed"
 	"encoding/json"
+	"errors"
 	"html/template"
 	"io"
 	"log"
 	"net/http"
 	"net/mail"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -18,6 +20,8 @@ import (
 const (
 	defaultNotionAPIURL = "https://api.notion.com/v1/pages"
 	notionVersion       = "2022-06-28"
+	// Google Calendar appointment page; override with BOOKING_URL.
+	defaultBookingURL = "https://calendar.app.google/pwQCqiCQhpNpkCXT7"
 )
 
 //go:embed templates/* static/*
@@ -26,6 +30,9 @@ var content embed.FS
 type PageData struct {
 	Title       string
 	Description string
+	// BookingURL enables the "book an intro call" CTAs; empty hides them
+	// and the primary CTA falls back to the contact form.
+	BookingURL string
 }
 
 type ContactForm struct {
@@ -121,6 +128,37 @@ const successFragment = `
 	</div>
 `
 
+// submitToNotion writes one contact-form submission into the Notion database.
+// Detached from the request context: a visitor closing the tab mid-submit must
+// not cancel the CRM write; the client's 10s timeout still bounds it.
+func submitToNotion(ctx context.Context, client *http.Client, apiURL, apiKey, databaseID string, form ContactForm) error {
+	var buf bytes.Buffer
+	if err := json.NewEncoder(&buf).Encode(notionPage(databaseID, form)); err != nil {
+		return err
+	}
+
+	request, err := http.NewRequestWithContext(context.WithoutCancel(ctx), http.MethodPost, apiURL, &buf)
+	if err != nil {
+		return err
+	}
+	request.Header.Set("Content-Type", "application/json")
+	request.Header.Set("Authorization", "Bearer "+apiKey)
+	request.Header.Set("Notion-Version", notionVersion)
+
+	response, err := client.Do(request)
+	if err != nil {
+		return err
+	}
+	defer response.Body.Close()
+
+	if response.StatusCode < 200 || response.StatusCode > 299 {
+		body, _ := io.ReadAll(io.LimitReader(response.Body, 4096))
+		log.Printf("notion API returned %d: %s", response.StatusCode, body)
+		return errors.New("notion API error")
+	}
+	return nil
+}
+
 func errorFragment(msg string) string {
 	return `
 		<div class="error-message">
@@ -128,6 +166,204 @@ func errorFragment(msg string) string {
 			<p>` + template.HTMLEscapeString(msg) + `</p>
 		</div>
 	`
+}
+
+// --- Cost & timeline estimator ------------------------------------------------
+//
+// Every number below is a range published on this site (ISO 27001 page, C5 cost
+// article, NIS2 pages) or a cited market range. The two profile answers (team
+// size, infrastructure) only pick the lower half, full range, or upper half of
+// a published range — they never invent figures. NIS2 carries no audit fee by
+// design: it is law, not a certificate; its effort reuses the published ISO
+// bands via the site's "Art. 21 is structurally covered by ISO 27001" claim.
+
+func buildEstimatorResult(fw string, team int, infra, bookingURL string) string {
+	var name string
+	switch fw {
+	case "iso-27001":
+		name = "ISO 27001"
+	case "c5":
+		name = "BSI C5"
+	case "nis2":
+		name = "NIS2"
+	default:
+		return errorFragment("Please pick a framework first.")
+	}
+
+	// Profile score: team size and infrastructure each nudge by one; only a
+	// clear signal in both (|score| >= 2) narrows a published range to a half.
+	score := 0
+	switch {
+	case team < 20:
+		score--
+	case team > 200:
+		score++
+	}
+	switch infra {
+	case "cloud":
+		score--
+	case "onprem":
+		score++
+	}
+	sub := func(lo, hi int) (int, int) {
+		mid := (lo + hi) / 2
+		switch {
+		case score <= -2:
+			return lo, mid
+		case score >= 2:
+			return mid, hi
+		}
+		return lo, hi
+	}
+	rng := func(lo, hi int) string { return strconv.Itoa(lo) + "–" + strconv.Itoa(hi) }
+	kEUR := func(lo, hi int) string { return "€" + strconv.Itoa(lo) + "k–" + strconv.Itoa(hi) + "k" }
+	fte := func(lo, hi int) string {
+		return "0." + strconv.Itoa(lo) + "–0." + strconv.Itoa(hi)
+	}
+
+	teamLabel := strconv.Itoa(team)
+	if team >= 300 {
+		teamLabel = "300+"
+	}
+
+	var b strings.Builder
+	row := func(icon, iconClass, text string) {
+		b.WriteString(`<div class="terminal-line output"><span class="` + iconClass + `">` + icon + `</span><span class="est-row">` + text + `</span></div>`)
+	}
+	stat := func(number, label string) {
+		b.WriteString(`<div class="stat"><div class="stat-number">` + number + `</div><div class="stat-label">` + label + `</div></div>`)
+	}
+
+	b.WriteString(`<div class="terminal est-result"><div class="terminal-header"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-title">estimate_` + fw + `.txt</span></div><div class="terminal-body">`)
+	b.WriteString(`<div class="terminal-line"><span class="prompt">$</span><span class="command">./estimate --team ` + teamLabel + ` --infra ` + infra + ` --framework ` + fw + `</span></div>`)
+
+	// Cost chart rows: dim segment = published range, bright overlay = the band
+	// the profile lands in (bandLo == bandHi == 0 → range-only, nothing to narrow).
+	type chartRow struct {
+		label                  string
+		lo, hi, bandLo, bandHi int
+	}
+	var chartRows []chartRow
+	var axisMax int
+
+	b.WriteString(`<div class="est-stats">`)
+	switch fw {
+	case "iso-27001":
+		mLo, mHi := sub(4, 8)
+		fLo, fHi := sub(5, 15)
+		eLo, eHi := sub(2, 5)
+		stat(rng(mLo, mHi), "months to certificate (published 4–8)")
+		stat(kEUR(fLo, fHi), "certification body (published €5k–15k)")
+		stat(fte(eLo, eHi), "FTE internal during the build (published 0.2–0.5)")
+		chartRows = []chartRow{{"certification body", 5, 15, fLo, fHi}}
+		axisMax = 15
+	case "c5":
+		mLo, mHi := sub(3, 6)
+		tLo, tHi := sub(40, 120)
+		stat(rng(mLo, mHi), "months to Typ-1 readiness (published 3–6)")
+		stat(kEUR(tLo, tHi), "Testat fee (published €40k–120k, Typ 1 at the lower end)")
+		stat("6–12", "months audit period for Typ 2 (published)")
+		chartRows = []chartRow{
+			{"gap analysis (market)", 5, 25, 0, 0},
+			{"implementation (market)", 20, 60, 0, 0},
+			{"Testat fee", 40, 120, tLo, tHi},
+		}
+		axisMax = 120
+	case "nis2":
+		mLo, mHi := sub(4, 8)
+		eLo, eHi := sub(2, 5)
+		stat(rng(mLo, mHi), "months to implement Art. 21 (via the published ISO 27001 band)")
+		stat(fte(eLo, eHi), "FTE internal during the build (via the published ISO 27001 band)")
+		stat("€0", "mandatory audit fee — NIS2 is law, not a certificate")
+		chartRows = []chartRow{{"ISO 27001 certificate (optional evidence)", 5, 15, 0, 0}}
+		axisMax = 15
+	}
+	b.WriteString(`</div>`)
+	b.WriteString(`<p class="est-disclaim">Estimates, not quotes — your answers only shift results within published ranges. Sources under "show our math".</p>`)
+
+	// Cost picture: one shared axis per framework so bar lengths stay comparable.
+	pct := func(v int) string { return strconv.FormatFloat(float64(v)*100/float64(axisMax), 'f', 1, 64) }
+	b.WriteString(`<div class="est-chart"><p class="est-heading">// COST PICTURE</p>`)
+	for _, r := range chartRows {
+		b.WriteString(`<div class="est-chart-row"><span class="est-chart-label">` + r.label + `</span><div class="est-chart-track">`)
+		b.WriteString(`<span class="est-chart-range" style="left:` + pct(r.lo) + `%;width:` + pct(r.hi-r.lo) + `%" title="published ` + kEUR(r.lo, r.hi) + `"></span>`)
+		value := kEUR(r.lo, r.hi)
+		if r.bandLo != 0 || r.bandHi != 0 {
+			b.WriteString(`<span class="est-chart-band" style="left:` + pct(r.bandLo) + `%;width:` + pct(r.bandHi-r.bandLo) + `%" title="your profile ` + kEUR(r.bandLo, r.bandHi) + `"></span>`)
+			value = kEUR(r.bandLo, r.bandHi)
+		}
+		b.WriteString(`</div><span class="est-chart-value">` + value + `</span></div>`)
+	}
+	b.WriteString(`<p class="est-chart-key"><span class="est-key-swatch est-key-range"></span>published range<span class="est-key-swatch est-key-band"></span>your profile</p></div>`)
+
+	// Profile drivers
+	switch {
+	case team < 20:
+		row("✓", "success", "under 20 people: expect the lower ends of these ranges")
+	case team <= 80:
+		row("→", "info", "20–80 people: typically the lower half of these ranges")
+	case team <= 200:
+		row("→", "info", "80–200 people: plan for the upper half of these ranges")
+	default:
+		row("!", "warning", "over 200 people: outside our standard case (20–200) — talk to us first")
+	}
+	switch infra {
+	case "cloud":
+		row("✓", "success", "cloud-only: standardized evidence pulls the effort down")
+	case "onprem":
+		row("!", "warning", "on-premise estate: more infrastructure in scope")
+	default:
+		row("→", "info", "hybrid estate: mid-range profile")
+	}
+	switch fw {
+	case "iso-27001":
+		row("→", "info", "consulting: fixed scope, quoted after the gap analysis — no fantasy pricing")
+	case "c5":
+		row("→", "info", "readiness on top: gap analysis €5k–25k + implementation €20k–60k (market, ingenieur.de 2025)")
+		row("✓", "success", "existing ISO 27001? a lived ISMS shortens the path to Typ-1 readiness")
+	case "nis2":
+		switch {
+		case team < 50:
+			row("→", "info", "under 50 people: usually not directly in scope — customer contracts can still pass NIS2 duties through the supply chain")
+		case team < 250:
+			row("!", "warning", "50–249 people: likely an important entity if your sector is in Annex I/II — fines up to €7M or 1.4% of worldwide turnover")
+		default:
+			row("!", "warning", "250+ people: likely essential or important entity depending on sector — fines up to €10M or 2% of worldwide turnover")
+		}
+		row("→", "info", `your sector decides — run the 60-second check: <a href="/de/nis2">NIS2 Betroffenheits-Check (DE)</a>`)
+		row("!", "warning", "NIS2UmsuCG is in force since 6 Dec 2025; the BSI registration window (3 months, § 33 BSIG) has already closed for in-scope entities")
+	}
+
+	b.WriteString(`<p class="est-heading">// PROJECT PHASES</p><ul class="est-phases">`)
+	switch fw {
+	case "iso-27001":
+		b.WriteString(`<li>gap analysis — 2–3 weeks</li><li>risk assessment &amp; ISMS build — 2–4 months</li><li>internal audit &amp; management review</li><li>certification audit — Stage 1 + 2</li>`)
+	case "c5":
+		b.WriteString(`<li>gap analysis against the C5 catalog</li><li>implementation &amp; evidence setup</li><li>Typ 1 Testat — point in time</li><li>6–12 month audit period → Typ 2 Testat</li>`)
+	case "nis2":
+		b.WriteString(`<li>scope &amp; registration check (§ 33 BSIG)</li><li>gap analysis against the ten Art. 21 measure areas</li><li>ISMS build — most of Art. 21 is structurally covered by ISO 27001</li><li>incident reporting drill — 24 h / 72 h / 1 month</li>`)
+	}
+	b.WriteString(`</ul>`)
+
+	b.WriteString(`<div class="est-ctas">`)
+	if bookingURL != "" {
+		b.WriteString(`<a href="` + bookingURL + `" target="_blank" rel="noopener" class="btn btn-primary" data-umami-event="book-call"><span class="btn-text">Book an intro call</span><span class="btn-arrow">→</span></a>`)
+	}
+	b.WriteString(`<a href="/?need=` + fw + `#contact" class="est-form-link">Or use the secure form →</a></div>`)
+
+	b.WriteString(`<details class="est-math"><summary>Show our math — sources and labels</summary><ul><li>Your two answers only shift results within published ranges — lower half, full range, or upper half. They never invent new figures.</li>`)
+	switch fw {
+	case "iso-27001":
+		b.WriteString(`<li>Timeline (4–8 months), certification-body fees (€5k–15k) and the 0.2–0.5 FTE band are practice estimates, not a quote: <a href="/iso-27001">ISO 27001 — timeline &amp; cost expectations</a></li>`)
+	case "c5":
+		b.WriteString(`<li>Gap analysis (€5k–25k), implementation (€20k–60k) and the €40k–120k Testat fee are market ranges (ingenieur.de, 2025); 3–6 months to Typ-1 readiness and the 6–12 month audit period are practice figures: <a href="/de/insights/c5-testat-kosten">C5-Testat Kosten (DE)</a> · <a href="/de/c5-testat">C5-Testat Beratung (DE)</a></li>`)
+	case "nis2":
+		b.WriteString(`<li>NIS2 mandates no certification audit; effort reuses the published ISO 27001 bands (4–8 months, 0.2–0.5 FTE) because a lived ISO 27001 ISMS structurally covers most of Art. 21: <a href="/de/insights/nis2-artikel-21-checkliste">Art. 21 Checkliste (DE)</a> · <a href="/iso-27001">ISO 27001</a></li><li>Entity classes, fines and deadlines: <a href="/de/insights/nis2umsucg-stand">NIS2UmsuCG Stand (DE)</a></li>`)
+	}
+	b.WriteString(`<li>Your scope decides where you land in these ranges; the gap analysis turns the ` + name + ` estimate into a fixed quote.</li></ul></details>`)
+
+	b.WriteString(`</div></div>`)
+	return b.String()
 }
 
 func main() {
@@ -144,6 +380,11 @@ func main() {
 		log.Println("WARNING: NOTION_API_KEY/NOTION_DATABASE_ID not set; contact form submissions will fail")
 	}
 
+	bookingURL := os.Getenv("BOOKING_URL")
+	if bookingURL == "" {
+		bookingURL = defaultBookingURL
+	}
+
 	client := &http.Client{Timeout: 10 * time.Second}
 
 	// Serve static files
@@ -157,7 +398,8 @@ func main() {
 		}
 		data := PageData{
 			Title:       "GovaGuard — ISO 27001, C5 & SOC 2 Consulting from Germany",
-			Description: "CTO & CISO consulting for security certifications: ISO 27001 and BSI C5 in Europe, SOC 2 and HIPAA for the US market. Executive-led, fixed scope.",
+			Description: "Founder-led consulting for security certifications: ISO 27001, SOC 2 and BSI C5, from gap analysis to passed audit. Fixed scope, direct founder access.",
+			BookingURL:  bookingURL,
 		}
 		tmpl.ExecuteTemplate(w, "index.html", data)
 	})
@@ -302,6 +544,41 @@ func main() {
 		w.Write([]byte(result))
 	})
 
+	// Cost & timeline estimator (see buildEstimatorResult)
+	http.HandleFunc("/cost-estimator", func(w http.ResponseWriter, r *http.Request) {
+		data := PageData{
+			Title:       "Cost & Timeline Estimator: ISO 27001, BSI C5 & NIS2 | GovaGuard",
+			Description: "Two questions, honest ranges: estimate cost and timeline for ISO 27001, BSI C5 or NIS2 — from published figures and cited market data. No email required.",
+			BookingURL:  bookingURL,
+		}
+		tmpl.ExecuteTemplate(w, "estimator.html", data)
+	})
+
+	// htmx endpoint: computes the estimate server-side
+	http.HandleFunc("/cost-estimator/estimate", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodPost {
+			http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+			return
+		}
+		w.Header().Set("Content-Type", "text/html")
+		if err := r.ParseForm(); err != nil {
+			w.Write([]byte(errorFragment("Could not process your input. Please try again.")))
+			return
+		}
+		team, err := strconv.Atoi(r.FormValue("team"))
+		if err != nil || team < 1 {
+			team = 80
+		}
+		if team > 300 {
+			team = 300
+		}
+		infra := r.FormValue("infrastructure")
+		if infra != "cloud" && infra != "onprem" {
+			infra = "hybrid"
+		}
+		w.Write([]byte(buildEstimatorResult(r.FormValue("framework"), team, infra, bookingURL)))
+	})
+
 	// Insights hub + articles (data-driven; see insightPages)
 	for _, p := range insightPages {
 		http.HandleFunc(p.path, func(w http.ResponseWriter, r *http.Request) {
@@ -313,7 +590,7 @@ func main() {
 	http.HandleFunc("/imprint", func(w http.ResponseWriter, r *http.Request) {
 		data := PageData{
 			Title:       "Imprint - GovaGuard",
-			Description: "Legal information and imprint for GovaGuard, CTO & CISO security consulting from Cologne, Germany.",
+			Description: "Legal information and imprint for GovaGuard, security certification consulting from Cologne, Germany.",
 		}
 		tmpl.ExecuteTemplate(w, "imprint.html", data)
 	})
@@ -333,7 +610,8 @@ func main() {
 		staticPaths := []string{
 			"/", "/iso-27001", "/soc-2", "/dora", "/hipaa", "/iso-42001", "/cra",
 			"/compare/soc-2-vs-iso-27001", "/de/c5-testat", "/de/iso-27001-beratung",
-			"/de/nis2", "/de/c5-vs-iso-27001", "/imprint", "/privacy",
+			"/de/nis2", "/de/c5-vs-iso-27001", "/cost-estimator",
+			"/imprint", "/privacy",
 		}
 		var b strings.Builder
 		b.WriteString("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n")
@@ -405,37 +683,8 @@ func main() {
 			return
 		}
 
-		var buf bytes.Buffer
-		if err := json.NewEncoder(&buf).Encode(notionPage(notionDatabaseID, form)); err != nil {
+		if err := submitToNotion(r.Context(), client, notionAPIURL, notionAPIKey, notionDatabaseID, form); err != nil {
 			log.Print(err)
-			w.Write([]byte(errorFragment("Failed to send message. Please try again later.")))
-			return
-		}
-
-		// Detach from the request context: a visitor closing the tab mid-submit
-		// must not cancel the CRM write. The client's 10s timeout still bounds it.
-		request, err := http.NewRequestWithContext(context.WithoutCancel(r.Context()), http.MethodPost, notionAPIURL, &buf)
-		if err != nil {
-			log.Print(err)
-			w.Write([]byte(errorFragment("Failed to send message. Please try again later.")))
-			return
-		}
-
-		request.Header.Set("Content-Type", "application/json")
-		request.Header.Set("Authorization", "Bearer "+notionAPIKey)
-		request.Header.Set("Notion-Version", notionVersion)
-
-		response, err := client.Do(request)
-		if err != nil {
-			log.Print(err)
-			w.Write([]byte(errorFragment("Failed to send message. Please try again later or email us directly.")))
-			return
-		}
-		defer response.Body.Close()
-
-		if response.StatusCode < 200 || response.StatusCode > 299 {
-			body, _ := io.ReadAll(io.LimitReader(response.Body, 4096))
-			log.Printf("notion API returned %d: %s", response.StatusCode, body)
 			w.Write([]byte(errorFragment("Failed to send message. Please try again later or email us directly.")))
 			return
 		}

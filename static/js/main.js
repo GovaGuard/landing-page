@@ -221,3 +221,86 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
+
+// Cost estimator: live slider value + a simulated "run" in the terminal on
+// submit — the estimate arrives instantly, so the command line shows first,
+// staged progress lines play for ~3s, then the result fades in.
+document.addEventListener('DOMContentLoaded', function () {
+    var form = document.getElementById('est-form');
+    if (!form) return;
+
+    var slider = document.getElementById('team');
+    var out = document.getElementById('team-output');
+    if (slider && out) {
+        var render = function () {
+            out.textContent = Number(slider.value) >= 300 ? '300+' : slider.value;
+        };
+        slider.addEventListener('input', render);
+        render();
+    }
+
+    document.body.addEventListener('htmx:afterSwap', function (evt) {
+        if (!evt.target || evt.target.id !== 'est-result') return;
+        var body = evt.target.querySelector('.terminal-body');
+        if (!body) return;
+
+        // Keep the command line (first child), hide the result until the "run" finishes
+        var hidden = [];
+        Array.prototype.forEach.call(body.children, function (el, index) {
+            if (index === 0) return;
+            el.style.display = 'none';
+            hidden.push(el);
+        });
+
+        var cursorLine = document.createElement('div');
+        cursorLine.className = 'terminal-line';
+        cursorLine.innerHTML = '<span class="prompt">$</span><span class="cursor">_</span>';
+        body.appendChild(cursorLine);
+
+        var steps = [
+            { at: 300, icon: '→', cls: 'info', text: 'loading published ranges' },
+            { at: 1000, icon: '✓', cls: 'success', text: 'ranges loaded — practice + market data' },
+            { at: 1700, icon: '→', cls: 'info', text: 'applying team size and infrastructure offsets' },
+            { at: 2400, icon: '→', cls: 'info', text: 'writing estimate…' }
+        ];
+        // A fresh submit replaces #est-result, disconnecting this body — the
+        // isConnected guards keep stale timers from touching the new result.
+        var simLines = [cursorLine];
+        steps.forEach(function (step) {
+            setTimeout(function () {
+                if (!body.isConnected) return;
+                var line = document.createElement('div');
+                line.className = 'terminal-line output';
+                var icon = document.createElement('span');
+                icon.className = step.cls;
+                icon.textContent = step.icon;
+                var text = document.createElement('span');
+                text.className = 'est-row';
+                text.textContent = step.text;
+                line.appendChild(icon);
+                line.appendChild(text);
+                body.insertBefore(line, cursorLine);
+                simLines.push(line);
+            }, step.at);
+        });
+
+        setTimeout(function () {
+            if (!body.isConnected) return;
+            simLines.forEach(function (line) { line.remove(); });
+            hidden.forEach(function (el, index) {
+                el.style.opacity = '0';
+                el.style.display = '';
+                setTimeout(function () {
+                    el.style.transition = 'opacity 0.25s ease';
+                    el.style.opacity = '1';
+                }, index * 100);
+            });
+        }, 3100);
+
+        // Scroll only if the terminal is out of view (mobile stacks it under the form)
+        var rect = evt.target.getBoundingClientRect();
+        if (rect.top > window.innerHeight - 160 || rect.top < 90) {
+            evt.target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
