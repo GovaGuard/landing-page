@@ -77,8 +77,4 @@ jobs:
         env:
           DEPLOY_TAG: ${{ needs.build-and-push.outputs.tag || 'latest' }}
         run: |
-          ssh root@5.75.186.165 << -EOF
-            cd /root/landingpage/deployment
-            sed -i "s/landing-page:.*/landing-page:${DEPLOY_TAG}/g" docker-compose.yml
-            docker compose up -d
-          EOF          
+          ssh root@5.75.186.165 "cd /root/landingpage/deployment && sed -i 's/landing-page:.*/landing-page:${DEPLOY_TAG}/' docker-compose.yml && docker compose up -d"          
