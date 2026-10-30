@@ -20,7 +20,7 @@ jobs:
       id-token: write
 
     outputs:
-      tag: ${{ steps.meta.outputs.tags }}
+      version: ${{ steps.meta.outputs.version }}
 
     steps:
       - name: Checkout repository
@@ -75,6 +75,6 @@ jobs:
 
       - name: Deploy to server
         env:
-          DEPLOY_TAG: ${{ needs.build-and-push.outputs.tag || 'latest' }}
+          DEPLOY_TAG: ${{ needs.build-and-push.outputs.version || 'latest' }}
         run: |
-          ssh root@5.75.186.165 "cd /root/landingpage/deployment && sed -i 's/landing-page:.*/landing-page:${DEPLOY_TAG}/' docker-compose.yml && docker compose up -d"          
+          ssh root@5.75.186.165 "cd /root/landingpage/deployment && sed -i 's|landing-page:.*|landing-page:${DEPLOY_TAG}|' docker-compose.yml && docker compose up -d"
