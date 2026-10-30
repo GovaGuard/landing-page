@@ -12,6 +12,7 @@ env:
 
 jobs:
   build-and-push:
+    if: github.event_name != 'workflow_dispatch'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -60,6 +61,7 @@ jobs:
 
   deploy:
     needs:  build-and-push
+    if: always()
     runs-on: ubuntu-latest
     steps:
       - name: Set up SSH
@@ -69,12 +71,14 @@ jobs:
 
       - name: Add remote server to known_hosts
         run: |
-          ssh-keyscan 5.75.186.165 >> ~/.ssh/known_hosts    
+          ssh-keyscan 5.75.186.165 >> ~/.ssh/known_hosts
 
       - name: Deploy to server
         run: |
-          ssh root@5.75.186.165  << 'EOF'                         
+          TAG="${{ needs.build-and-push.outputs.tag }}"
+          TAG="${TAG:-latest}"
+          ssh root@5.75.186.165  << EOF
             cd /root/landingpage/deployment
-            sed -i 's/landing-page:.*$/landing-page:${{ needs.build-and-push.outputs.tag}}/g' docker-compose.yml 
+            sed -i "s/landing-page:.*$/landing-page:$TAG/g" docker-compose.yml
             docker compose up -d
           EOF          
