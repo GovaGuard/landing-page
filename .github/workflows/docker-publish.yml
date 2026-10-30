@@ -81,4 +81,4 @@ jobs:
           cd /root/landingpage/deployment
           sed -i "s/landing-page:.*/landing-page:${DEPLOY_TAG}/g" docker-compose.yml
           docker compose up -d
-          EOF          
+EOF          
