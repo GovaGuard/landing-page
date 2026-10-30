@@ -171,13 +171,13 @@ func errorFragment(msg string) string {
 // --- Cost & timeline estimator ------------------------------------------------
 //
 // Every number below is a range published on this site (ISO 27001 page, C5 cost
-// article, NIS2 pages) or a cited market range. The two profile answers (team
-// size, infrastructure) only pick the lower half, full range, or upper half of
-// a published range — they never invent figures. NIS2 carries no audit fee by
+// article, NIS2 pages) or a cited market range. The profile answers (team size,
+// infrastructure, physical locations) only pick the lower half, full range, or
+// upper half of a published range — they never invent figures. NIS2 carries no audit fee by
 // design: it is law, not a certificate; its effort reuses the published ISO
 // bands via the site's "Art. 21 is structurally covered by ISO 27001" claim.
 
-func buildEstimatorResult(fw string, team int, infra, bookingURL string) string {
+func buildEstimatorResult(fw string, team int, infra, loc, bookingURL string) string {
 	var name string
 	switch fw {
 	case "iso-27001":
@@ -190,8 +190,8 @@ func buildEstimatorResult(fw string, team int, infra, bookingURL string) string 
 		return errorFragment("Please pick a framework first.")
 	}
 
-	// Profile score: team size and infrastructure each nudge by one; only a
-	// clear signal in both (|score| >= 2) narrows a published range to a half.
+	// Profile score: team size, infrastructure and locations each nudge by one;
+	// only a clear majority (|score| >= 2) narrows a published range to a half.
 	score := 0
 	switch {
 	case team < 20:
@@ -203,6 +203,12 @@ func buildEstimatorResult(fw string, team int, infra, bookingURL string) string 
 	case "cloud":
 		score--
 	case "onprem":
+		score++
+	}
+	switch loc {
+	case "single":
+		score--
+	case "6-plus":
 		score++
 	}
 	sub := func(lo, hi int) (int, int) {
@@ -235,7 +241,7 @@ func buildEstimatorResult(fw string, team int, infra, bookingURL string) string 
 	}
 
 	b.WriteString(`<div class="terminal est-result"><div class="terminal-header"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-title">estimate_` + fw + `.txt</span></div><div class="terminal-body">`)
-	b.WriteString(`<div class="terminal-line"><span class="prompt">$</span><span class="command">./estimate --team ` + teamLabel + ` --infra ` + infra + ` --framework ` + fw + `</span></div>`)
+	b.WriteString(`<div class="terminal-line"><span class="prompt">$</span><span class="command">./estimate --team ` + teamLabel + ` --infra ` + infra + ` --locations ` + loc + ` --framework ` + fw + `</span></div>`)
 
 	// Cost chart rows: dim segment = published range, bright overlay = the band
 	// the profile lands in (bandLo == bandHi == 0 → range-only, nothing to narrow).
@@ -315,6 +321,14 @@ func buildEstimatorResult(fw string, team int, infra, bookingURL string) string 
 	default:
 		row("→", "info", "hybrid estate: mid-range profile")
 	}
+	switch loc {
+	case "single":
+		row("✓", "success", "single site: one location keeps the audit scope tight")
+	case "6-plus":
+		row("!", "warning", "6+ sites: multi-site sampling adds audit days and coordination")
+	default:
+		row("→", "info", "2–5 sites: multi-site scope, standard sampling applies")
+	}
 	switch fw {
 	case "iso-27001":
 		row("→", "info", "consulting: fixed scope, quoted after the gap analysis — no fantasy pricing")
@@ -351,7 +365,7 @@ func buildEstimatorResult(fw string, team int, infra, bookingURL string) string 
 	}
 	b.WriteString(`<a href="/?need=` + fw + `#contact" class="est-form-link">Or use the secure form →</a></div>`)
 
-	b.WriteString(`<details class="est-math"><summary>Show our math — sources and labels</summary><ul><li>Your two answers only shift results within published ranges — lower half, full range, or upper half. They never invent new figures.</li>`)
+	b.WriteString(`<details class="est-math"><summary>Show our math — sources and labels</summary><ul><li>Your answers only shift results within published ranges — lower half, full range, or upper half. They never invent new figures.</li>`)
 	switch fw {
 	case "iso-27001":
 		b.WriteString(`<li>Timeline (4–8 months), certification-body fees (€5k–15k) and the 0.2–0.5 FTE band are practice estimates, not a quote: <a href="/iso-27001">ISO 27001 — timeline &amp; cost expectations</a></li>`)
@@ -548,7 +562,7 @@ func main() {
 	http.HandleFunc("/cost-estimator", func(w http.ResponseWriter, r *http.Request) {
 		data := PageData{
 			Title:       "Cost & Timeline Estimator: ISO 27001, BSI C5 & NIS2 | GovaGuard",
-			Description: "Two questions, honest ranges: estimate cost and timeline for ISO 27001, BSI C5 or NIS2 — from published figures and cited market data. No email required.",
+			Description: "Three questions, honest ranges: estimate cost and timeline for ISO 27001, BSI C5 or NIS2 — from published figures and cited market data. No email required.",
 			BookingURL:  bookingURL,
 		}
 		tmpl.ExecuteTemplate(w, "estimator.html", data)
@@ -576,7 +590,11 @@ func main() {
 		if infra != "cloud" && infra != "onprem" {
 			infra = "hybrid"
 		}
-		w.Write([]byte(buildEstimatorResult(r.FormValue("framework"), team, infra, bookingURL)))
+		loc := r.FormValue("locations")
+		if loc != "single" && loc != "6-plus" {
+			loc = "2-5"
+		}
+		w.Write([]byte(buildEstimatorResult(r.FormValue("framework"), team, infra, loc, bookingURL)))
 	})
 
 	// Insights hub + articles (data-driven; see insightPages)
