@@ -67,18 +67,18 @@ jobs:
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.9.0
         with:
-          ssh-private-key: ${{ secrets.DEPLOY_KEY}}
+          ssh-private-key: ${{ secrets.DEPLOY_KEY }}
 
       - name: Add remote server to known_hosts
         run: |
           ssh-keyscan 5.75.186.165 >> ~/.ssh/known_hosts
 
       - name: Deploy to server
+        env:
+          DEPLOY_TAG: ${{ needs.build-and-push.outputs.tag || 'latest' }}
         run: |
-          TAG="${{ needs.build-and-push.outputs.tag }}"
-          TAG="${TAG:-latest}"
-          ssh root@5.75.186.165  << EOF
-            cd /root/landingpage/deployment
-            sed -i "s/landing-page:.*$/landing-page:$TAG/g" docker-compose.yml
-            docker compose up -d
+          ssh root@5.75.186.165 << EOF
+          cd /root/landingpage/deployment
+          sed -i "s/landing-page:.*/landing-page:${DEPLOY_TAG}/g" docker-compose.yml
+          docker compose up -d
           EOF          
